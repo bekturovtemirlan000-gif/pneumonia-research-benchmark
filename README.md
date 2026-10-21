@@ -8,16 +8,16 @@ Development-only selection across the six architecture/resolution candidates cho
 
 | Source-test measure | Selected 320-pixel ensemble | 95% group-bootstrap interval |
 |---|---:|---:|
-| AUROC | 0.96399 | 0.94700–0.97874 |
-| Average precision | 0.96715 | 0.94498–0.98399 |
-| Accuracy | 87.38% | 84.42–90.17% |
-| Sensitivity | 99.74% | 99.16–100.00% |
-| Specificity | 66.67% | 60.87–72.73% |
-| Brier score | 0.13948 | 0.11123–0.16664 |
+| AUROC | 0.96399 | 0.94700â€“0.97874 |
+| Average precision | 0.96715 | 0.94498â€“0.98399 |
+| Accuracy | 87.38% | 84.42â€“90.17% |
+| Sensitivity | 99.74% | 99.16â€“100.00% |
+| Specificity | 66.67% | 60.87â€“72.73% |
+| Brier score | 0.13948 | 0.11123â€“0.16664 |
 
 Temperature is 1.34055775 and the frozen calibration-selected cutoff is 0.83170023. Confusion counts: TN 154, FP 77, FN 1, TP 386. The test set contains 618 images in 426 filename-derived groups. Its earlier results were already inspected, so this is **exploratory**, not a fresh confirmatory evaluation.
 
-The paired AUROC difference versus the development-selected 224-pixel ResNet18 ensemble is +0.00586 (95% interval −0.00546 to +0.01698). The interval does not establish improvement or equivalence. The two ensembles have identical aggregate confusion counts but different image-level predictions. The 320-pixel Brier score is worse than the 224-pixel value, despite its higher AUROC point estimate. Neither model was chosen using test metrics.
+The paired AUROC difference versus the development-selected 224-pixel ResNet18 ensemble is +0.00586 (95% interval âˆ’0.00546 to +0.01698). The interval does not establish improvement or equivalence. The two ensembles have identical aggregate confusion counts but different image-level predictions. The 320-pixel Brier score is worse than the 224-pixel value, despite its higher AUROC point estimate. Neither model was chosen using test metrics.
 
 Both selected ensembles passed fresh CPU inference on all 618 test images with zero changed classifications; all 18 checkpoints loaded strictly. Maximum calibrated-score differences were 0.000004414 (224) and 0.000004643 (320), below tolerance 0.0001. This verifies engineering reproduction on the same cohort, not clinical or external validity.
 
@@ -28,6 +28,10 @@ Both selected ensembles passed fresh CPU inference on all 618 test images with z
 - [320-pixel Kaggle run](https://www.kaggle.com/code/temirlanbekturov/pneumonia-research-resolution-320?scriptVersionId=360888746) and [CPU verification](https://www.kaggle.com/code/temirlanbekturov/pneumonia-resolution-320-cpu-verification?scriptVersionId=360906861). Kaggle access depends on notebook visibility and your account.
 
 Compact results were captured from visible Kaggle logs and expanded output previews, with structural checks and independent in-Kaggle artifact validation. Complete new weight archives have not been downloaded locally and are not included here. The source notebooks can reproduce the experiments. External testing remains pending clarification of the candidate external dataset's release and access statements.
+
+`python audit_research_results.py` checks consistency across compact trial, selection, comparison and verification records. It does not recompute image-level AUROC or bootstrap intervals. `results/research_record_audit.json` records its scope and outcome.
+
+A remaining export limitation is that raw calibration probabilities were not saved. The calibrated files alone do not permit an independent reconstruction of the original temperature optimization without numerical inversion or rerunning inference. The reported CPU check verifies the saved temperature transformation and test predictions; it does not prove the calibration optimizer's fitted value independently. Training source contains the fitting procedure. This limitation is retained rather than changing a completed experiment's source.
 
 ## Three-architecture research benchmark
 
@@ -53,21 +57,21 @@ The separate similarity-screening notebook completed. Its 64-bit perceptual-hash
 
 ## Run on Kaggle
 
-For the current research comparison, import `pneumonia_research_benchmark.ipynb` (224 pixels) and `pneumonia_resolution320.ipynb` (320 pixels) into separate notebooks and run them sequentially using steps 2â€“4 below. Their output directories are `pneumonia_benchmark_outputs` and `pneumonia_resolution320_outputs`. The instructions using `pneumonia_kaggle.ipynb` reproduce the earlier single-model baseline.
+For the current research comparison, import `pneumonia_research_benchmark.ipynb` (224 pixels) and `pneumonia_resolution320.ipynb` (320 pixels) into separate notebooks and run them sequentially using steps 2Ã¢â‚¬â€œ4 below. Their output directories are `pneumonia_benchmark_outputs` and `pneumonia_resolution320_outputs`. The instructions using `pneumonia_kaggle.ipynb` reproduce the earlier single-model baseline.
 
 After both research runs finish, attach each completed output and the original dataset to its verification notebook. Generate the 320-pixel verification with `python build_verification_notebook.py --resolution 320`; this writes `pneumonia_export_verification_320.ipynb` without changing the completed 224-pixel verification notebook. Run `python audit_reproducibility.py` to check the notebooks against their local sources and recorded submitted checksums. `results/source_consistency_audit.json` records these checks using normalized LF line endings. These local checks establish source consistency, not proof of remote execution.
 
 1. Import `pneumonia_kaggle.ipynb` into a new Kaggle notebook.
 2. Attach [Chest X-Ray Images (Pneumonia)](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia).
 3. Select a GPU accelerator and enable Internet to download the official pretrained weights.
-4. Use **Save Version â†’ Save & Run All** to run in the background and retain outputs.
+4. Use **Save Version Ã¢â€ â€™ Save & Run All** to run in the background and retain outputs.
 5. Download `/kaggle/working/pneumonia_outputs` after successful completion.
 
 ## Historical baseline experiment
 
 The provided test partition is held out. Original train and validation images form a development pool. Filename-derived patient groups define a new approximately 80/20 development split. Exact decoded-pixel duplicates are removed, and development groups overlapping test are excluded. The run fails on unrecognized filename patterns. These IDs are proxies: no claim of verified patient independence or near-duplicate exclusion is made.
 
-Full-image letterboxing to 224Ã—224, small affine training augmentation, ImageNet normalization, weighted binary cross entropy, AdamW, validation-AUROC checkpoint selection and early stopping. The decision threshold maximizes validation Youden J and is frozen before test evaluation. One seed (42) establishes a baseline; GPU results can still vary across environments.
+Full-image letterboxing to 224Ãƒâ€”224, small affine training augmentation, ImageNet normalization, weighted binary cross entropy, AdamW, validation-AUROC checkpoint selection and early stopping. The decision threshold maximizes validation Youden J and is frozen before test evaluation. One seed (42) establishes a baseline; GPU results can still vary across environments.
 
 Saved artifacts include model weights, a split manifest, audit counts, per-image predictions, training history, environment versions, test ROC/PR/confusion plots and metrics with subject-proxy cluster bootstrap intervals. Average precision is reported explicitly, not mislabeled as trapezoidal PR AUC. Confidence intervals describe test sampling uncertainty, not training-seed uncertainty.
 

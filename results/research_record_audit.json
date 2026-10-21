@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "checks": [
+    "224: nine trials, development choice, frozen parameters, 29 confusion records and CPU summary agree",
+    "320: nine trials, development choice, frozen parameters, 29 confusion records and CPU summary agree",
+    "Combined choice agrees with all six development candidate means",
+    "Paired point differences agree with saved ensemble metrics; all reported paired intervals include zero",
+    "Selection-bootstrap winner counts and fractions agree"
+  ],
+  "scope": "Internal consistency of compact published records only; not an independent recomputation of image-level AUROC or bootstrap intervals",
+  "limitations": [
+    "Raw per-image prediction archives remain on Kaggle; local records came from visible logs and previews",
+    "CPU verification reloaded images and checkpoints on Kaggle; this audit checks its saved summary",
+    "Raw calibration probabilities were not exported, so saved calibrated files alone cannot independently reproduce the original temperature optimization",
+    "Test sampling intervals omit training and selection uncertainty; filename groups are proxies"
+  ]
+}

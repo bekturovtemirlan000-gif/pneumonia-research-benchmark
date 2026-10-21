@@ -10,13 +10,13 @@
     },
     {
       "path": "MODEL_CARD.md",
-      "bytes": 13986,
-      "sha256": "90ac321f522b5209264f8d7161a312d44faabe310c56a16ef590389136ab83a3"
+      "bytes": 14464,
+      "sha256": "d4e3ab2ea410cc8b05fc5d3d9374aa7b5389c0d4e4f96063e1f8dd42b92bd2b1"
     },
     {
       "path": "README.md",
-      "bytes": 16919,
-      "sha256": "4945ba397507b47871614d003c913e6f096557280845d13064a5ed7cace8e55a"
+      "bytes": 17786,
+      "sha256": "0c20f720b04dc8a4ebd2ba4a9d3017651c7b6ab0e27fc38bdbe4f1fe3b66934b"
     },
     {
       "path": "analyze_benchmark_comparison.py",
@@ -34,9 +34,14 @@
       "sha256": "0580bf41b7ef8c67fd36412df048f7bbad2e4b97f321cf7a1bed1467c1585503"
     },
     {
+      "path": "audit_research_results.py",
+      "bytes": 5685,
+      "sha256": "27aac69fc9f2d34fe9d3f9a00ca4fe00af331e1e6bc587d3f8a34d8f0f6db789"
+    },
+    {
       "path": "build_research_report.py",
-      "bytes": 33017,
-      "sha256": "2da53b8b0591c4fe0323f8f8717030826e38430022962aaf7410583cf314cc7a"
+      "bytes": 33692,
+      "sha256": "66aff4d0d4402c353f967a2bee00719a95a51db568f88342e1de849efbcd94c6"
     },
     {
       "path": "build_resolution_analysis.py",
@@ -100,8 +105,8 @@
     },
     {
       "path": "output/pdf/pneumonia_research_report.pdf",
-      "bytes": 486875,
-      "sha256": "3dc78ad09e71e5fbcc6d65ae5d1983934523efa6897a6df9b459938fa080a35b"
+      "bytes": 487914,
+      "sha256": "0995177efb154d99b71868f64b39e2bace5d9988affe319281f195dca7936b3f"
     },
     {
       "path": "package_research.py",
@@ -327,6 +332,11 @@
       "path": "results/paired_comparison.json",
       "bytes": 1817,
       "sha256": "04f4ccb1536607c17b9647d012836c049f037923b587a867c691194eff3eacd0"
+    },
+    {
+      "path": "results/research_record_audit.json",
+      "bytes": 1155,
+      "sha256": "a6d4360f3812ddf878b612df3c16503db6d3313aebe096daf2864ce048b38f49"
     },
     {
       "path": "results/resolution_development_selection.json",
