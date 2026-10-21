@@ -10,13 +10,13 @@
     },
     {
       "path": "MODEL_CARD.md",
-      "bytes": 18475,
-      "sha256": "e53491610327511a09123358621cc8d4a2c06435661cc162ba506ac273bb9344"
+      "bytes": 19041,
+      "sha256": "b4ca2740e9d86624e91b4e6e8f5e2340e20b8f5de118e2da8945b70a1479009f"
     },
     {
       "path": "README.md",
-      "bytes": 27136,
-      "sha256": "f4847d34fee8b994454e90066f2caae574d520bb96f382e19eac8073db3cb7fd"
+      "bytes": 27385,
+      "sha256": "cbb1c8a13b2c3945f628dd043e2ac9c2fd2b8abd4dcc950ad0afd7f2ede78c4c"
     },
     {
       "path": "analyze_benchmark_comparison.py",
@@ -60,8 +60,8 @@
     },
     {
       "path": "build_research_report.py",
-      "bytes": 40062,
-      "sha256": "2ed21f194fa523d330a71fc99254d34c173f5f717445234f426d82e18f17c629"
+      "bytes": 41740,
+      "sha256": "b21bf49c97cdb9d7837cf913da3a17261185950aa23dd35e3f2298a0f6529b1b"
     },
     {
       "path": "build_resolution_analysis.py",
@@ -150,8 +150,8 @@
     },
     {
       "path": "output/pdf/pneumonia_research_report.pdf",
-      "bytes": 695945,
-      "sha256": "4d4a3f6ff209a398a89f2bce022952f39107398b08b4374cb07854c781bd7bc2"
+      "bytes": 697062,
+      "sha256": "22ea941fbeec2f549d2c85aeb3d152086d4fbdb0ee08787dbafea55bc540c482"
     },
     {
       "path": "package_research.py",
@@ -280,8 +280,8 @@
     },
     {
       "path": "research_evidence_notes.json",
-      "bytes": 4130,
-      "sha256": "50509aff85fab65f3568b99ee4c4b80f53f3e84242d15d4487ea198a4e77b282"
+      "bytes": 4477,
+      "sha256": "8281610a447e6bcf0ee8983bb0b9c60eea413b2c38d05e04b6214e4f6cb69187"
     },
     {
       "path": "research_protocol.json",
@@ -522,6 +522,11 @@
       "path": "results/source_consistency_audit.json",
       "bytes": 5599,
       "sha256": "5667ae343291129a826038d0f31d8ed0436393b470902ce77cc7846a2e177cd2"
+    },
+    {
+      "path": "results/source_population_review.json",
+      "bytes": 1663,
+      "sha256": "c770b6c78e454427c4f8b467e9663c4c58951228461a49a3a1d87a9ef35cd54f"
     },
     {
       "path": "results/training_environment.json",

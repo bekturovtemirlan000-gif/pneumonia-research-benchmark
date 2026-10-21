@@ -53,5 +53,10 @@
       "The source test had already been inspected in earlier experiments; these remain exploratory.",
       "Development checkpoint/model selection and calibration fitting introduce optimism even without test-based selection."
     ]
+  },
+  "source_population_review": {
+    "record": "results/source_population_review.json",
+    "source": "Original Cell article, STAR Methods e1",
+    "interpretation": "Source-reported population and physician grading are distinguished from current independent verification; OCT-specific statements are not transferred to chest radiographs."
   }
 }

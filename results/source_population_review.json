@@ -1,0 +1,23 @@
+{
+  "reviewed_utc": "2026-10-21T22:16:21.294598+00:00",
+  "source": {
+    "title": "Identifying Medical Diagnoses and Treatable Diseases by Image-Based Deep Learning",
+    "doi": "10.1016/j.cell.2018.02.010",
+    "pubmed": "https://pubmed.ncbi.nlm.nih.gov/29474911/",
+    "pdf_url": "https://www.lamoncogroup.cn/wp-content/themes/laimeng/doc/2018-Cell-Identifying%20Medical%20Diagnoses%20and%20Treatable%20Diseases%20by%20Image-Based%20Deep%20Learning.pdf",
+    "pdf_sha256": "fb3f441496b50b56c8262f3b88c70251113d01c15b4814f729e7a7b9d0270aa9",
+    "section": "STAR Methods, printed e1, PDF page 12"
+  },
+  "source_reported_facts": [
+    "Retrospective anterior-posterior chest radiographs from children aged one to five at Guangzhou Women and Children's Medical Center, obtained during routine care.",
+    "Unreadable or low-quality scans were excluded; two expert physicians graded diagnoses and a third checked the evaluation set."
+  ],
+  "current_analysis_limits": [
+    "These are source-author statements, not new clinical verification by this project.",
+    "The reanalysis inherits directory labels and does not independently adjudicate diagnosis.",
+    "Individual demographics, microbiological evidence and verified clinical patient IDs were not available to this analysis.",
+    "The source paper's OCT-specific labeling tiers and patient-separation statements must not be transferred to the chest-radiograph cohort.",
+    "Original study ethics statements do not establish approval or exemption for this reanalysis."
+  ],
+  "artifact_policy": "The source PDF is retained locally for review and excluded from the source release."
+}

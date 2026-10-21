@@ -133,3 +133,7 @@ The control was specified after neural test results were inspected and before it
 
 
 The [actual inference-command smoke test](https://www.kaggle.com/code/temirlanbekturov/pneumonia-inference-command-verification?scriptVersionId=360927122) also passed. It verified the frozen source, configuration and all three checkpoint hashes, then ran `predict.py` in six separate CPU subprocesses on the first six test images by ascending pixel hash. All commands exited successfully, no classification changed, and the maximum score difference was 0.000001205. This small entry-point check supplements the separate 618-image verification; it is not external validation. See `results/inference_cli_smoke.json`.
+
+## Source population and label provenance
+
+The [original article](https://doi.org/10.1016/j.cell.2018.02.010) reports a pediatric Guangzhou cohort aged one to five, quality screening, diagnosis grading by two physicians, and a third review of evaluation images. This project inherits labels; it did not independently adjudicate diagnoses or verify individual demographics, microbiology or clinical patient IDs. See `results/source_population_review.json`. OCT-specific descriptions in the shared source resource are not evidence about chest-X-ray independence.
