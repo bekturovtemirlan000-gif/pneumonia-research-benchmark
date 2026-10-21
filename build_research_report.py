@@ -214,6 +214,18 @@ def build(output, benchmark=None):
         h('Supplementary Figure S1. Cohort flow')
         story.append(Image(str(cohort_figure),width=6.6*inch,height=4.752*inch))
         p('Image counts reconcile with the saved audit records. The original training and validation directories form the development pool; the original test set remains separate after exact duplicate removal. The 938-image held-out development cohort is divided into selection and calibration groups. Development exclusion reasons are aggregated, so separate cause-specific counts cannot be inferred from this diagram. Filename groups are proxies rather than verified clinical patient IDs. No new cohort exclusions were introduced for this figure.','Small')
+    seed_summary=json.loads((root/'results/seed_variation_summary.json').read_text(encoding='utf-8'))
+    story.append(PageBreak())
+    h('Supplementary Table S1. Variation across three seeds')
+    rows=[['Resolution / architecture','Selection AUROC mean','Test AUROC mean (SD)','Test Brier mean (SD)']]
+    for group in seed_summary['groups']:
+        measures=group['metrics'];a=measures['individual_calibrated_test_auroc'];b=measures['individual_calibrated_test_brier_score']
+        rows.append([str(group['image_size'])+' / '+group['architecture'],
+            f"{measures['selection_auroc']['mean']:.5f}",
+            f"{a['mean']:.5f} ({a['sample_standard_deviation']:.5f})",
+            f"{b['mean']:.5f} ({b['sample_standard_deviation']:.5f})"])
+    table(rows,[2*inch,1.2*inch,1.4*inch,1.4*inch],keep_previous=True)
+    p('Post hoc descriptive summaries of the three individually calibrated models in each group. SD is the sample standard deviation across seeds, not a confidence interval or ensemble performance. All models share fixed source cohorts; three seeds cannot characterize population generalization or remove model-selection optimism. The development-selected model remains unchanged, regardless of test-set rankings.','Small')
     output.parent.mkdir(parents=True,exist_ok=True)
     def footer(canvas,doc):
         canvas.setFont('Times-Roman',9); canvas.drawRightString(7.5*inch,.45*inch,str(doc.page))

@@ -162,6 +162,25 @@ def audit(root=Path('.')):
         lo,hi=paired['paired_cluster_bootstrap_95ci'][key]
         if not math.isfinite(lo+hi) or lo>hi or not lo<=0<=hi:
             raise ValueError('Report claim that paired intervals include zero requires revision')
+    seed_summary=read('seed_variation_summary.json')
+    if len(seed_summary['groups'])!=6:
+        raise ValueError('Incomplete seed variation summary')
+    for path,expected_hash in seed_summary['input_sha256'].items():
+        if hashlib.sha256((root/path).read_bytes()).hexdigest()!=expected_hash:
+            raise ValueError('Seed summary input hash mismatch')
+    for group in seed_summary['groups']:
+        original=read(f"benchmark{group['image_size']}_all_trial_results.json")
+        members=sorted([row for row in original if row['architecture']==group['architecture']],key=lambda row:row['seed'])
+        if group['seeds']!=[row['seed'] for row in members]:
+            raise ValueError('Seed order mismatch')
+        for metric,record in group['metrics'].items():
+            values=[row['selection_auroc'] if metric=='selection_auroc' else row['calibrated_test'][metric.removeprefix('individual_calibrated_test_')] for row in members]
+            if values!=record['values_in_seed_order']:
+                raise ValueError('Seed summary values mismatch')
+            mean=sum(values)/len(values)
+            same(mean,record['mean'],'seed mean')
+            same(math.sqrt(sum((value-mean)**2 for value in values)/(len(values)-1)),record['sample_standard_deviation'],'seed sample SD')
+    checks.append('Six descriptive seed summaries match source records, means and sample SDs; no ensemble or confidence-interval interpretation')
     stability=read('resolution_selection_stability.json')
     if sum(stability['winner_counts'].values())!=stability['usable_replicates']:
         raise ValueError('Bootstrap winner counts do not sum')

@@ -1,0 +1,574 @@
+{
+  "status": "Post hoc descriptive summary of all completed seeds; no model choice",
+  "input_sha256": {
+    "results/benchmark224_all_trial_results.json": "87d2cf9c16088005340264989d98cd48e62015b5a38009292597c3f393743ade",
+    "results/benchmark320_all_trial_results.json": "50c9bc927e312937fd70221393d2e2affef0da13d8366bc593f2b4a6f196d457"
+  },
+  "groups": [
+    {
+      "image_size": 224,
+      "architecture": "densenet121",
+      "seeds": [
+        42,
+        123,
+        2026
+      ],
+      "completed_epochs": [
+        14,
+        14,
+        26
+      ],
+      "metrics": {
+        "selection_auroc": {
+          "mean": 0.9984364155016056,
+          "sample_standard_deviation": 0.0005269424814288925,
+          "minimum": 0.9979864082557262,
+          "maximum": 0.9990160858522298,
+          "values_in_seed_order": [
+            0.9990160858522298,
+            0.9979864082557262,
+            0.9983067523968606
+          ]
+        },
+        "individual_calibrated_test_auroc": {
+          "mean": 0.9587066680089936,
+          "sample_standard_deviation": 0.007294697021309441,
+          "minimum": 0.9544615591127219,
+          "maximum": 0.9671297694553509,
+          "values_in_seed_order": [
+            0.9545286754589081,
+            0.9544615591127219,
+            0.9671297694553509
+          ]
+        },
+        "individual_calibrated_test_average_precision": {
+          "mean": 0.9583677033332243,
+          "sample_standard_deviation": 0.006343590113126413,
+          "minimum": 0.9541520974368245,
+          "maximum": 0.9656632452607903,
+          "values_in_seed_order": [
+            0.9541520974368245,
+            0.955287767302058,
+            0.9656632452607903
+          ]
+        },
+        "individual_calibrated_test_brier_score": {
+          "mean": 0.12171981212270369,
+          "sample_standard_deviation": 0.013709503801472386,
+          "minimum": 0.11076645114969971,
+          "maximum": 0.1370943917311856,
+          "values_in_seed_order": [
+            0.11076645114969971,
+            0.11729859348722575,
+            0.1370943917311856
+          ]
+        },
+        "individual_calibrated_test_accuracy": {
+          "mean": 0.8640776699029126,
+          "sample_standard_deviation": 0.005834225364828423,
+          "minimum": 0.8576051779935275,
+          "maximum": 0.8689320388349514,
+          "values_in_seed_order": [
+            0.8656957928802589,
+            0.8576051779935275,
+            0.8689320388349514
+          ]
+        },
+        "individual_calibrated_test_sensitivity": {
+          "mean": 0.9956933677863911,
+          "sample_standard_deviation": 0.0014918611606967527,
+          "minimum": 0.9948320413436692,
+          "maximum": 0.9974160206718347,
+          "values_in_seed_order": [
+            0.9948320413436692,
+            0.9974160206718347,
+            0.9948320413436692
+          ]
+        },
+        "individual_calibrated_test_specificity": {
+          "mean": 0.6435786435786436,
+          "sample_standard_deviation": 0.018023082246460046,
+          "minimum": 0.6233766233766234,
+          "maximum": 0.658008658008658,
+          "values_in_seed_order": [
+            0.6493506493506493,
+            0.6233766233766234,
+            0.658008658008658
+          ]
+        }
+      }
+    },
+    {
+      "image_size": 224,
+      "architecture": "efficientnet_b0",
+      "seeds": [
+        42,
+        123,
+        2026
+      ],
+      "completed_epochs": [
+        24,
+        18,
+        23
+      ],
+      "metrics": {
+        "selection_auroc": {
+          "mean": 0.9979864082557262,
+          "sample_standard_deviation": 0.00038898931423470007,
+          "minimum": 0.9975974189414915,
+          "maximum": 0.9983753975699609,
+          "values_in_seed_order": [
+            0.9979864082557262,
+            0.9983753975699609,
+            0.9975974189414915
+          ]
+        },
+        "individual_calibrated_test_auroc": {
+          "mean": 0.9642251231398519,
+          "sample_standard_deviation": 0.0052200111093532306,
+          "minimum": 0.9605859257022049,
+          "maximum": 0.9702059353222144,
+          "values_in_seed_order": [
+            0.9605859257022049,
+            0.9702059353222144,
+            0.9618835083951363
+          ]
+        },
+        "individual_calibrated_test_average_precision": {
+          "mean": 0.9726206525768343,
+          "sample_standard_deviation": 0.006745722472579766,
+          "minimum": 0.9684892143143884,
+          "maximum": 0.9804050415787322,
+          "values_in_seed_order": [
+            0.9684892143143884,
+            0.9804050415787322,
+            0.9689677018373821
+          ]
+        },
+        "individual_calibrated_test_brier_score": {
+          "mean": 0.13823416436753266,
+          "sample_standard_deviation": 0.001051918417727526,
+          "minimum": 0.1375923521287146,
+          "maximum": 0.13944814951207435,
+          "values_in_seed_order": [
+            0.13766199146180905,
+            0.13944814951207435,
+            0.1375923521287146
+          ]
+        },
+        "individual_calibrated_test_accuracy": {
+          "mean": 0.8576051779935274,
+          "sample_standard_deviation": 0.02021034950937992,
+          "minimum": 0.8349514563106796,
+          "maximum": 0.8737864077669902,
+          "values_in_seed_order": [
+            0.8640776699029126,
+            0.8349514563106796,
+            0.8737864077669902
+          ]
+        },
+        "individual_calibrated_test_sensitivity": {
+          "mean": 0.9956933677863911,
+          "sample_standard_deviation": 0.0074593058034835074,
+          "minimum": 0.9870801033591732,
+          "maximum": 1,
+          "values_in_seed_order": [
+            1,
+            1,
+            0.9870801033591732
+          ]
+        },
+        "individual_calibrated_test_specificity": {
+          "mean": 0.6262626262626263,
+          "sample_standard_deviation": 0.06337717534198488,
+          "minimum": 0.5584415584415584,
+          "maximum": 0.683982683982684,
+          "values_in_seed_order": [
+            0.6363636363636364,
+            0.5584415584415584,
+            0.683982683982684
+          ]
+        }
+      }
+    },
+    {
+      "image_size": 224,
+      "architecture": "resnet18",
+      "seeds": [
+        42,
+        123,
+        2026
+      ],
+      "completed_epochs": [
+        19,
+        25,
+        15
+      ],
+      "metrics": {
+        "selection_auroc": {
+          "mean": 0.9985660786063505,
+          "sample_standard_deviation": 0.00023147138496207133,
+          "minimum": 0.9984211610186944,
+          "maximum": 0.9988330320572959,
+          "values_in_seed_order": [
+            0.9984211610186944,
+            0.9984440427430611,
+            0.9988330320572959
+          ]
+        },
+        "individual_calibrated_test_auroc": {
+          "mean": 0.9536561629584885,
+          "sample_standard_deviation": 0.010545510172169844,
+          "minimum": 0.941933174491314,
+          "maximum": 0.9623701019049856,
+          "values_in_seed_order": [
+            0.9566652124791659,
+            0.941933174491314,
+            0.9623701019049856
+          ]
+        },
+        "individual_calibrated_test_average_precision": {
+          "mean": 0.9545797869131099,
+          "sample_standard_deviation": 0.010596236068999329,
+          "minimum": 0.9428499152636474,
+          "maximum": 0.9634593209109505,
+          "values_in_seed_order": [
+            0.9574301245647315,
+            0.9428499152636474,
+            0.9634593209109505
+          ]
+        },
+        "individual_calibrated_test_brier_score": {
+          "mean": 0.1314836071527602,
+          "sample_standard_deviation": 0.021005584014032484,
+          "minimum": 0.10851075300624179,
+          "maximum": 0.1497095103957726,
+          "values_in_seed_order": [
+            0.10851075300624179,
+            0.13623055805626616,
+            0.1497095103957726
+          ]
+        },
+        "individual_calibrated_test_accuracy": {
+          "mean": 0.8651564185544768,
+          "sample_standard_deviation": 0.01804285726394582,
+          "minimum": 0.8446601941747572,
+          "maximum": 0.8786407766990292,
+          "values_in_seed_order": [
+            0.8446601941747572,
+            0.8786407766990292,
+            0.872168284789644
+          ]
+        },
+        "individual_calibrated_test_sensitivity": {
+          "mean": 0.9974160206718347,
+          "sample_standard_deviation": 0.0,
+          "minimum": 0.9974160206718347,
+          "maximum": 0.9974160206718347,
+          "values_in_seed_order": [
+            0.9974160206718347,
+            0.9974160206718347,
+            0.9974160206718347
+          ]
+        },
+        "individual_calibrated_test_specificity": {
+          "mean": 0.6435786435786436,
+          "sample_standard_deviation": 0.04827050125159514,
+          "minimum": 0.5887445887445888,
+          "maximum": 0.6796536796536796,
+          "values_in_seed_order": [
+            0.5887445887445888,
+            0.6796536796536796,
+            0.6623376623376623
+          ]
+        }
+      }
+    },
+    {
+      "image_size": 320,
+      "architecture": "densenet121",
+      "seeds": [
+        42,
+        123,
+        2026
+      ],
+      "completed_epochs": [
+        21,
+        11,
+        15
+      ],
+      "metrics": {
+        "selection_auroc": {
+          "mean": 0.9977499637706031,
+          "sample_standard_deviation": 0.0008155443753293808,
+          "minimum": 0.9969796123835892,
+          "maximum": 0.9986042148136284,
+          "values_in_seed_order": [
+            0.9976660641145918,
+            0.9969796123835892,
+            0.9986042148136284
+          ]
+        },
+        "individual_calibrated_test_auroc": {
+          "mean": 0.9718484214608246,
+          "sample_standard_deviation": 0.004284078771204363,
+          "minimum": 0.9669060483013971,
+          "maximum": 0.9745013814781257,
+          "values_in_seed_order": [
+            0.9741378346029509,
+            0.9669060483013971,
+            0.9745013814781257
+          ]
+        },
+        "individual_calibrated_test_average_precision": {
+          "mean": 0.9786893311202616,
+          "sample_standard_deviation": 0.002695947210063373,
+          "minimum": 0.9769677289590181,
+          "maximum": 0.9817962835444597,
+          "values_in_seed_order": [
+            0.9773039808573071,
+            0.9769677289590181,
+            0.9817962835444597
+          ]
+        },
+        "individual_calibrated_test_brier_score": {
+          "mean": 0.14302902211943722,
+          "sample_standard_deviation": 0.047597251475624415,
+          "minimum": 0.10279509396062245,
+          "maximum": 0.1955716182931821,
+          "values_in_seed_order": [
+            0.10279509396062245,
+            0.1955716182931821,
+            0.1307203541045071
+          ]
+        },
+        "individual_calibrated_test_accuracy": {
+          "mean": 0.8619201725997843,
+          "sample_standard_deviation": 0.03898075828512332,
+          "minimum": 0.8171521035598706,
+          "maximum": 0.8883495145631068,
+          "values_in_seed_order": [
+            0.8802588996763754,
+            0.8171521035598706,
+            0.8883495145631068
+          ]
+        },
+        "individual_calibrated_test_sensitivity": {
+          "mean": 0.9974160206718347,
+          "sample_standard_deviation": 0.0,
+          "minimum": 0.9974160206718347,
+          "maximum": 0.9974160206718347,
+          "values_in_seed_order": [
+            0.9974160206718347,
+            0.9974160206718347,
+            0.9974160206718347
+          ]
+        },
+        "individual_calibrated_test_specificity": {
+          "mean": 0.6349206349206349,
+          "sample_standard_deviation": 0.10428618450305718,
+          "minimum": 0.5151515151515151,
+          "maximum": 0.7056277056277056,
+          "values_in_seed_order": [
+            0.683982683982684,
+            0.5151515151515151,
+            0.7056277056277056
+          ]
+        }
+      }
+    },
+    {
+      "image_size": 320,
+      "architecture": "efficientnet_b0",
+      "seeds": [
+        42,
+        123,
+        2026
+      ],
+      "completed_epochs": [
+        20,
+        22,
+        26
+      ],
+      "metrics": {
+        "selection_auroc": {
+          "mean": 0.9990847310253301,
+          "sample_standard_deviation": 6.864517310029017e-05,
+          "minimum": 0.9990160858522298,
+          "maximum": 0.9991533761984304,
+          "values_in_seed_order": [
+            0.9990160858522298,
+            0.9990847310253301,
+            0.9991533761984304
+          ]
+        },
+        "individual_calibrated_test_auroc": {
+          "mean": 0.9602372935706269,
+          "sample_standard_deviation": 0.0013454964488162915,
+          "minimum": 0.9588017494994239,
+          "maximum": 0.961469624260322,
+          "values_in_seed_order": [
+            0.961469624260322,
+            0.9604405069521349,
+            0.9588017494994239
+          ]
+        },
+        "individual_calibrated_test_average_precision": {
+          "mean": 0.9617009896539946,
+          "sample_standard_deviation": 0.004064330437590363,
+          "minimum": 0.9573810507355418,
+          "maximum": 0.9654491586320318,
+          "values_in_seed_order": [
+            0.9654491586320318,
+            0.9622727595944104,
+            0.9573810507355418
+          ]
+        },
+        "individual_calibrated_test_brier_score": {
+          "mean": 0.14234522149730108,
+          "sample_standard_deviation": 0.010262700041540918,
+          "minimum": 0.13163356344759924,
+          "maximum": 0.15209061752953865,
+          "values_in_seed_order": [
+            0.14331148351476533,
+            0.13163356344759924,
+            0.15209061752953865
+          ]
+        },
+        "individual_calibrated_test_accuracy": {
+          "mean": 0.8576051779935275,
+          "sample_standard_deviation": 0.022245513082309893,
+          "minimum": 0.8381877022653722,
+          "maximum": 0.8818770226537217,
+          "values_in_seed_order": [
+            0.8381877022653722,
+            0.8818770226537217,
+            0.8527508090614887
+          ]
+        },
+        "individual_calibrated_test_sensitivity": {
+          "mean": 0.9965546942291128,
+          "sample_standard_deviation": 0.003947093621839666,
+          "minimum": 0.9922480620155039,
+          "maximum": 1,
+          "values_in_seed_order": [
+            1,
+            0.9922480620155039,
+            0.9974160206718347
+          ]
+        },
+        "individual_calibrated_test_specificity": {
+          "mean": 0.6248196248196248,
+          "sample_standard_deviation": 0.0661266334048462,
+          "minimum": 0.5670995670995671,
+          "maximum": 0.696969696969697,
+          "values_in_seed_order": [
+            0.5670995670995671,
+            0.696969696969697,
+            0.6103896103896104
+          ]
+        }
+      }
+    },
+    {
+      "image_size": 320,
+      "architecture": "resnet18",
+      "seeds": [
+        42,
+        123,
+        2026
+      ],
+      "completed_epochs": [
+        20,
+        26,
+        13
+      ],
+      "metrics": {
+        "selection_auroc": {
+          "mean": 0.9982838706724938,
+          "sample_standard_deviation": 0.000489155397259499,
+          "minimum": 0.9978948813582591,
+          "maximum": 0.9988330320572958,
+          "values_in_seed_order": [
+            0.9978948813582591,
+            0.9988330320572958,
+            0.9981236986019266
+          ]
+        },
+        "individual_calibrated_test_auroc": {
+          "mean": 0.9609606586350773,
+          "sample_standard_deviation": 0.0038082037665917714,
+          "minimum": 0.9575433180084343,
+          "maximum": 0.9650659418101278,
+          "values_in_seed_order": [
+            0.9575433180084343,
+            0.9650659418101278,
+            0.9602727160866696
+          ]
+        },
+        "individual_calibrated_test_average_precision": {
+          "mean": 0.9650448412437254,
+          "sample_standard_deviation": 0.0023765194069229408,
+          "minimum": 0.9629030441445413,
+          "maximum": 0.9676014629778058,
+          "values_in_seed_order": [
+            0.9629030441445413,
+            0.9676014629778058,
+            0.9646300166088289
+          ]
+        },
+        "individual_calibrated_test_brier_score": {
+          "mean": 0.13680447629950096,
+          "sample_standard_deviation": 0.010542160784215413,
+          "minimum": 0.13065414879211432,
+          "maximum": 0.14897729127008327,
+          "values_in_seed_order": [
+            0.13065414879211432,
+            0.1307819888363053,
+            0.14897729127008327
+          ]
+        },
+        "individual_calibrated_test_accuracy": {
+          "mean": 0.8732470334412082,
+          "sample_standard_deviation": 0.011705789867427572,
+          "minimum": 0.8656957928802589,
+          "maximum": 0.8867313915857605,
+          "values_in_seed_order": [
+            0.8867313915857605,
+            0.8656957928802589,
+            0.8673139158576052
+          ]
+        },
+        "individual_calibrated_test_sensitivity": {
+          "mean": 0.9948320413436692,
+          "sample_standard_deviation": 0.0025839793281653978,
+          "minimum": 0.9922480620155039,
+          "maximum": 0.9974160206718347,
+          "values_in_seed_order": [
+            0.9922480620155039,
+            0.9974160206718347,
+            0.9948320413436692
+          ]
+        },
+        "individual_calibrated_test_specificity": {
+          "mean": 0.6695526695526696,
+          "sample_standard_deviation": 0.0352576961699008,
+          "minimum": 0.645021645021645,
+          "maximum": 0.70995670995671,
+          "values_in_seed_order": [
+            0.70995670995671,
+            0.645021645021645,
+            0.6536796536796536
+          ]
+        }
+      }
+    }
+  ],
+  "interpretation": "Each row describes three individually calibrated models on the same fixed cohorts. Means are not ensemble performance; sample SD is not a confidence interval.",
+  "limitations": [
+    "Three seeds provide limited information about optimization variability.",
+    "Shared data and development selection mean these are not independent population samples.",
+    "Training variation, test-sampling uncertainty and selection optimism are distinct.",
+    "No ranking-based replacement of the frozen development-selected model, no significance tests or threshold changes."
+  ]
+}

@@ -15,8 +15,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 27776,
-      "sha256": "aac02e8b1190ee3c766da528568aa1483984853eab1ed6751fd0ab61502ea74b"
+      "bytes": 28143,
+      "sha256": "79a6f3c6fed0acb7c83e306f1b86e770b75a8c5f2b6d038289a9af9d95879c13"
     },
     {
       "path": "analyze_benchmark_comparison.py",
@@ -40,8 +40,8 @@
     },
     {
       "path": "audit_research_results.py",
-      "bytes": 14012,
-      "sha256": "3952d13407d169cdfdb277b5bd813fe156f98cb427d7e8f5b4d5c25da7cde60c"
+      "bytes": 15478,
+      "sha256": "173ea67842a94e38798bf9618090c9cffd748b1412f288dae96fd42c6e7b3875"
     },
     {
       "path": "build_calibration_notebook.py",
@@ -60,8 +60,8 @@
     },
     {
       "path": "build_research_report.py",
-      "bytes": 43544,
-      "sha256": "4f0958f4c51f663304391aa9faa2944b2eb0c55839afe8e36f252f137e15a49f"
+      "bytes": 44806,
+      "sha256": "0124c687c86fa2a270897af6dbce4f7d83d97dd15760666d1761fffe79e19448"
     },
     {
       "path": "build_resolution_analysis.py",
@@ -160,8 +160,8 @@
     },
     {
       "path": "output/pdf/pneumonia_research_report.pdf",
-      "bytes": 875562,
-      "sha256": "a57004306b409b84fd2e5185769b10129cba97611c211262e15007f2fbdf3a9d"
+      "bytes": 877126,
+      "sha256": "8b7c4f6704ba7ae53898c3afc07dbb68f79b4c85705bb00b9aac09c51c4e25b6"
     },
     {
       "path": "package_research.py",
@@ -515,8 +515,8 @@
     },
     {
       "path": "results/research_record_audit.json",
-      "bytes": 2015,
-      "sha256": "14bc549313e5b147194e26e5ed334a5b379bca2321bd2b06b7253c0ac850e312"
+      "bytes": 2148,
+      "sha256": "51dfb58dd7e94203f0ba38c5cd2ee64cdc861af19063b99e215c5f96ad7ac441"
     },
     {
       "path": "results/resolution_development_selection.json",
@@ -532,6 +532,11 @@
       "path": "results/resolution_selection_stability.json",
       "bytes": 1746,
       "sha256": "af29f4c32236df55e71f80b2414d918488cd5657a41fb72d15f287ed62ecf1de"
+    },
+    {
+      "path": "results/seed_variation_summary.json",
+      "bytes": 18944,
+      "sha256": "f16a4552b62413e649cdbc782d52294788f40b963b5373fb16d8f14fbe2bd585"
     },
     {
       "path": "results/similarity_screening_summary.json",
@@ -567,6 +572,11 @@
       "path": "similarity_audit.py",
       "bytes": 4891,
       "sha256": "3228f2c19797bd39a16a31cc9c34576857c14097d1a5bb266c715f3f1ff8115c"
+    },
+    {
+      "path": "summarize_seed_variation.py",
+      "bytes": 3422,
+      "sha256": "a4ab27d5806ac971fb54d48b104566ba5291c769231a246a716f9502cbc1d307"
     },
     {
       "path": "tests/test_artifacts.py",

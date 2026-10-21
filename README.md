@@ -168,3 +168,5 @@ The [actual inference-command smoke test](https://www.kaggle.com/code/temirlanbe
 The paper now distinguishes source-reported population and labeling procedures from this project's own checks. See `results/source_population_review.json` and the model card; no independent diagnosis adjudication or demographic audit is claimed.
 
 `results/reporting_gap_review.json` records a focused review against selected CLAIM 2024 topics, including unavailable acquisition/demographic information and author declarations still needed before submission. It is not a completed checklist, compliance score or peer review.
+
+`results/seed_variation_summary.json` and Supplementary Table S1 describe mean and sample standard deviation across the three individual models in each architecture/resolution group. They are post hoc summaries, not confidence intervals or ensemble performance. The frozen model choice is unchanged. Recreate the summary with `python summarize_seed_variation.py`.
