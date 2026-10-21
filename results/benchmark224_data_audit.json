@@ -1,0 +1,32 @@
+{
+  "raw_images": 5856,
+  "retained_images": 5371,
+  "counts": {
+    "train": {
+      "images": 3815,
+      "groups": 2153,
+      "normal": 1078,
+      "pneumonia": 2737
+    },
+    "selection": {
+      "images": 456,
+      "groups": 270,
+      "normal": 137,
+      "pneumonia": 319
+    },
+    "calibration": {
+      "images": 482,
+      "groups": 268,
+      "normal": 133,
+      "pneumonia": 349
+    },
+    "test": {
+      "images": 618,
+      "groups": 426,
+      "normal": 231,
+      "pneumonia": 387
+    }
+  },
+  "grouping": "Filename-derived proxies, not verified clinical patient IDs",
+  "cache": "Lossless PNG of RGB bicubic full-image letterbox 224; same preprocessing as prior runs"
+}

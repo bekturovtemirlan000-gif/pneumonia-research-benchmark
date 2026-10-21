@@ -1,0 +1,125 @@
+{
+  "recorded_utc": "2026-10-21T18:00:00Z",
+  "status": "External inference pending resolution of conflicting access statements",
+  "candidate": "BDCXR-3257",
+  "source_doi": "10.6084/m9.figshare.32086362",
+  "source_file_id": 64149946,
+  "published_license": "CC BY 4.0; inspect included Data Use Agreement before use",
+  "reference": "Author-provided radiograph categories, not independently verified microbiological diagnosis",
+  "mapping": {
+    "Normal": 0,
+    "Pneumonia Bacterial": 1,
+    "Pneumonia Viral": 1
+  },
+  "data_checks_before_inference": [
+    "Verify archive integrity, file counts and metadata joins",
+    "Resolve published count discrepancy: 880+890+1475=3245, not stated 3257",
+    "Hash decoded pixels and compare against every source image to exclude exact overlap",
+    "Exclude exact duplicates deterministically; stop for conflicting labels",
+    "Use documented patient IDs for clustered uncertainty if available; do not invent IDs from image numbers",
+    "Record missing metadata, image failures and every exclusion before scoring"
+  ],
+  "model": "Use architecture chosen by mean source selection AUROC, three-seed arithmetic probability average, frozen source-calibration temperature and threshold",
+  "adaptation": "None; no external-label training, threshold changes, calibration fitting or model selection",
+  "primary_metrics": [
+    "AUROC",
+    "sensitivity at frozen source threshold",
+    "specificity at frozen source threshold"
+  ],
+  "secondary_metrics": [
+    "average precision",
+    "accuracy",
+    "Brier score",
+    "log loss",
+    "confusion matrix",
+    "positive prediction rate"
+  ],
+  "uncertainty": "2000 seed-42 patient-cluster bootstrap replicates if patient IDs documented; otherwise image bootstrap explicitly conditional on independence assumption",
+  "subgroups": "Descriptive only: original diagnostic class and documented age/sex with counts and missingness; no threshold optimization",
+  "limitations": [
+    "Retrospective external dataset evaluation does not establish clinical utility",
+    "Author contrast enhancement and lung cropping create preprocessing shift",
+    "Possible source/pretraining overlap beyond exact pixels remains unverified",
+    "Published related work already evaluates this dataset; do not claim first external validation"
+  ],
+  "mirror_inspection": {
+    "inspected_utc": "2026-10-21T18:40:00Z",
+    "url": "https://www.kaggle.com/datasets/wasimulbarirahat/bdcxr3257",
+    "version": 1,
+    "visible_counts": {
+      "Normal": 880,
+      "Pneumonia Bacterial": 1477,
+      "Pneumonia Viral": 900
+    },
+    "license": "Unknown",
+    "provenance": "No sources, citations or collection methodology supplied",
+    "supporting_documents": "Five PDF documents listed, including Data Use Agreement; PDF preview blank in controlled browser",
+    "decision": "External inference pending provenance and data-use document verification; no scores generated"
+  },
+  "documentation_inspection": {
+    "inspection_version": 360891626,
+    "job_runtime_seconds": 44.7,
+    "image_counts": {
+      "Normal": 880,
+      "Pneumonia Bacterial": 1477,
+      "Pneumonia Viral": 900
+    },
+    "metadata": [
+      {
+        "rows": 3257,
+        "columns": [
+          "Filename",
+          "Age",
+          "Gender",
+          "Class"
+        ],
+        "missing_values": {
+          "Filename": 0,
+          "Age": 0,
+          "Gender": 0,
+          "Class": 0
+        },
+        "sha256": "5f1535b7b2cb450f8219537f91721e09178a4b7cdafb8a42050d7d54d1dd3410"
+      }
+    ],
+    "documents": [
+      {
+        "name": "Data Use Agreement.pdf",
+        "sha256": "0ea4f07dd3bb1f0a039aa4f036819bd77aad45bbe410afafffac910c1c01976a",
+        "pages": 3
+      },
+      {
+        "name": "Data Validation Certificate-1.pdf",
+        "sha256": "9baa3ef84b6d9f80caa73f5a56074e10948cbf9c68cf29dd9c704437deb70bdf",
+        "pages": 1
+      },
+      {
+        "name": "Data Validation Certificate-2.pdf",
+        "sha256": "b4b9039536b865f16ad4b9de3542f40dc21258149148d5202018a8cc7c8ac2b7",
+        "pages": 1
+      },
+      {
+        "name": "Forwarding Letter.pdf",
+        "sha256": "3c02f9349b549c560cebfcc954355e2484ea3abc58ce382c93822c3b7fdbf99b",
+        "pages": 1
+      },
+      {
+        "name": "IRB REC-FSIT-2025No-11928.pdf",
+        "sha256": "f768702c847da8e01e48fae7c44e5635b5575ccd7ce1d3072647b1ac3227a1b8",
+        "pages": 1
+      }
+    ],
+    "findings": [
+      "Included certificates and data-use agreement state 880 normal, 1477 bacterial and 900 viral images, consistent with 3257 metadata rows and inspected file counts.",
+      "Metadata has Filename, Age, Gender and Class columns, without missing values; no patient identifier column is provided.",
+      "Included agreement names the hospital and a specific university research lab as parties, limits access to authorized research personnel, and restricts raw-image redistribution.",
+      "Public Figshare listing indicates CC BY 4.0, whereas this mirror lists license Unknown; the scope of the release has not been independently resolved."
+    ],
+    "decision": "No external model predictions. Seek source clarification before treating this mirror as an authorized external research cohort.",
+    "limitations": [
+      "This inspects supplied documents, not authenticity, authority or legal applicability.",
+      "A certificate describing patient counts is not individual-level patient-identity verification.",
+      "No agreement was signed or accepted; no patient re-identification was attempted."
+    ]
+  }
+}

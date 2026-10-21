@@ -1,0 +1,27 @@
+{
+  "recorded_utc": "2026-10-21T18:22:00Z",
+  "status": "Planned before observing benchmark test outputs; launch only after first benchmark finishes",
+  "question": "Does increasing full-image input resolution from 224 to 320 pixels change development-selected discrimination, calibration and frozen-threshold behavior?",
+  "arms": {
+    "existing": "224 pixels, three architectures x seeds 42/123/2026",
+    "additional": "320 pixels, same architectures, seeds, cohort hashes, augmentation fractions, optimizer, batch size and selection rules"
+  },
+  "rationale": "More spatial detail may affect image classification; this is a matched sensitivity analysis, not a claim of improved clinical performance.",
+  "budget": "Launch sequentially. Additional audit/training cap is min(180 minutes, 300 minutes minus observed first-run runtime minus 20 minutes export reserve). Skip if insufficient budget for all nine trials. Early stopping retained.",
+  "selection": "Each resolution retains its own development-selected architecture. If one combined export is desired, compare architecture-resolution mean selection AUROC only; ties prefer 224 then alphabetical architecture. No test-dependent choice.",
+  "reporting": "Report all 18 trials and both resolution-selected ensembles; primary architecture benchmark remains intact. Mark resolution comparison as a protocol extension and exploratory.",
+  "limitations": [
+    "Previously inspected source test",
+    "Expanded selection search increases selection optimism",
+    "Equal time limits do not guarantee equal convergence",
+    "External testing remains necessary for transportability claims"
+  ],
+  "launch_budget_audit": {
+    "first_run_total_job_seconds": 3048.6,
+    "first_run_internal_seconds": 3014.8543464110003,
+    "additional_training_cap_minutes": 180,
+    "combined_first_job_plus_extension_cap_plus_reserve_minutes": 250.81,
+    "within_300_minutes": true,
+    "rule_unchanged_after_test_result": true
+  }
+}

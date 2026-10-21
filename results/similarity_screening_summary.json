@@ -1,0 +1,80 @@
+{
+  "status": "Exploratory similarity screening, not verified duplicate detection",
+  "retained_images": 5371,
+  "candidate_pairs": 814,
+  "candidate_test_pairs": 269,
+  "candidate_rule": "64-bit low-frequency DCT perceptual hash, DC bit zero, Hamming distance <=6",
+  "limitations": [
+    "Common anatomy can produce false matches",
+    "Transforms may evade this screening",
+    "Only first 40 closest pairs have contact sheets",
+    "No cohort exclusions or model changes made from this audit"
+  ],
+  "kaggle_version": 360881277,
+  "evidence": "Completed log and summary.json preview agree; archive download pending",
+  "manual_review": "A few closest displayed pairs were visibly different images; no confirmed-duplicate count established",
+  "additional_visual_review": {
+    "sheet": "candidate_review_2.png",
+    "method": "Rendered Kaggle contact-sheet preview; visual image correspondence only, not expert medical or patient-identity review",
+    "pairs_inspected": [
+      [
+        "NORMAL2-IM-1226-0001.jpeg",
+        "IM-0063-0001.jpeg"
+      ],
+      [
+        "IM-0119-0001.jpeg",
+        "person706_virus_1304.jpeg"
+      ],
+      [
+        "IM-0237-0001.jpeg",
+        "NORMAL2-IM-0321-0001.jpeg"
+      ],
+      [
+        "IM-0255-0001.jpeg",
+        "NORMAL2-IM-0343-0001.jpeg"
+      ],
+      [
+        "IM-0286-0001.jpeg",
+        "NORMAL2-IM-0849-0001.jpeg"
+      ],
+      [
+        "IM-0299-0001.jpeg",
+        "NORMAL2-IM-0849-0001.jpeg"
+      ]
+    ],
+    "observation": "Visible differences in positioning, framing or anatomy; no image duplication confirmed in this limited subset",
+    "limitations": "Does not establish different patients or exclude duplicates in unreviewed pairs; full candidate archive remains pending"
+  },
+  "sheet3_visual_review": {
+    "sheet": "candidate_review_3.png",
+    "method": "Rendered Kaggle thumbnail preview; nonclinical image-correspondence inspection",
+    "pairs_inspected": [
+      [
+        "IM-0300-0001.jpeg",
+        "person35_virus_80.jpeg"
+      ],
+      [
+        "IM-0303-0001.jpeg",
+        "NORMAL2-IM-0139-0001.jpeg"
+      ],
+      [
+        "IM-0475-0001.jpeg",
+        "IM-0070-0001.jpeg"
+      ],
+      [
+        "IM-0475-0001.jpeg",
+        "NORMAL2-IM-0564-0001.jpeg"
+      ],
+      [
+        "IM-0476-0001.jpeg",
+        "IM-0307-0001.jpeg"
+      ],
+      [
+        "IM-0476-0001.jpeg",
+        "NORMAL2-IM-1098-0001.jpeg"
+      ]
+    ],
+    "observation": "Differences in framing, positioning or image appearance were visible. No duplicate was confirmed from these thumbnails. The first pair has discordant source labels; perceptual similarity does not establish label error.",
+    "limitations": "Thumbnail review cannot establish patient identity or rule out transformed/repeated acquisitions. No exclusions or model changes."
+  }
+}

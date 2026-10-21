@@ -1,0 +1,98 @@
+{
+  "status": "passed",
+  "images": 618,
+  "image_size": 224,
+  "architecture": "resnet18",
+  "max_absolute_score_difference": 0.000004413729569552327,
+  "mean_absolute_score_difference": 1.227226683351092e-7,
+  "changed_predictions": 0,
+  "score_tolerance": 0.0001,
+  "artifact_consistency": {
+    "validated": true,
+    "counts": {
+      "calibration": 482,
+      "selection": 456,
+      "test": 618,
+      "train": 3815
+    },
+    "confusion_matrices": {
+      "calibration": {
+        "tn": 133,
+        "fp": 0,
+        "fn": 3,
+        "tp": 346
+      },
+      "selection": {
+        "tn": 135,
+        "fp": 2,
+        "fn": 5,
+        "tp": 314
+      },
+      "test": {
+        "tn": 154,
+        "fp": 77,
+        "fn": 1,
+        "tp": 386
+      }
+    },
+    "checkpoints": [
+      "resnet18_seed_42/best_weights.pt",
+      "resnet18_seed_123/best_weights.pt",
+      "resnet18_seed_2026/best_weights.pt"
+    ],
+    "trials_verified": 9,
+    "selected_architecture": "resnet18",
+    "ensemble_reconstructed": true,
+    "all_reported_test_metrics_verified": true,
+    "limitation": "Verifies internal artifact consistency, not independent patient identity or clinical validity"
+  },
+  "checkpoints": [
+    {
+      "trial": "efficientnet_b0_seed_42",
+      "sha256": "2a3f94e5afdf583af655fe098e57022621c662e3f0aab2719c3f2e4ddea6d169",
+      "strict_load_and_forward": true
+    },
+    {
+      "trial": "densenet121_seed_42",
+      "sha256": "f43ae9c41377ead9a558d4d376bdc4299e39abc3936053f6507a9fcc1da5e64e",
+      "strict_load_and_forward": true
+    },
+    {
+      "trial": "resnet18_seed_42",
+      "sha256": "2d2c0fc18edfaf1a53175c31d3150cd5ac1e68fa930e3ba1637c15c372711d57",
+      "strict_load_and_forward": true
+    },
+    {
+      "trial": "densenet121_seed_123",
+      "sha256": "0871a7f9eaae5b78df969b6acfd635c63f94a051db7bc851ff02f96ac489db7f",
+      "strict_load_and_forward": true
+    },
+    {
+      "trial": "resnet18_seed_123",
+      "sha256": "ffa64a285172412c8c4c8b450938ade39ed21475dd43376e5750a5cf2b8adb22",
+      "strict_load_and_forward": true
+    },
+    {
+      "trial": "efficientnet_b0_seed_123",
+      "sha256": "87b999cf6a090ea768d27e2b6f5dffd30508acaf318884213a1c7dd2790b02ad",
+      "strict_load_and_forward": true
+    },
+    {
+      "trial": "resnet18_seed_2026",
+      "sha256": "26ca9af543265d60779313186234cd53294e0391392c6e73c5502755b312ecbf",
+      "strict_load_and_forward": true
+    },
+    {
+      "trial": "efficientnet_b0_seed_2026",
+      "sha256": "60b18cc0d15349cd416c143b5f6ebfb7fa66c17bbe5c2cabcd6ee415e368b9cd",
+      "strict_load_and_forward": true
+    },
+    {
+      "trial": "densenet121_seed_2026",
+      "sha256": "40610bf5282931520bdf49caad7342dccdae6bc69705b7c941dc3337445ad0b5",
+      "strict_load_and_forward": true
+    }
+  ],
+  "torch_version": "2.11.0+cpu",
+  "interpretation": "Engineering reproduction on the same test cohort, not independent external or clinical validation"
+}

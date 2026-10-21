@@ -1,0 +1,77 @@
+{
+  "selected": {
+    "image_size": 320,
+    "architecture": "efficientnet_b0",
+    "selection_auroc_by_seed": [
+      0.9990160858522298,
+      0.9990847310253301,
+      0.9991533761984304
+    ],
+    "mean_selection_auroc": 0.99908473102533
+  },
+  "candidates": [
+    {
+      "image_size": 320,
+      "architecture": "efficientnet_b0",
+      "selection_auroc_by_seed": [
+        0.9990160858522298,
+        0.9990847310253301,
+        0.9991533761984304
+      ],
+      "mean_selection_auroc": 0.99908473102533
+    },
+    {
+      "image_size": 224,
+      "architecture": "resnet18",
+      "selection_auroc_by_seed": [
+        0.9984211610186944,
+        0.9984440427430611,
+        0.9988330320572959
+      ],
+      "mean_selection_auroc": 0.9985660786063505
+    },
+    {
+      "image_size": 224,
+      "architecture": "densenet121",
+      "selection_auroc_by_seed": [
+        0.9990160858522298,
+        0.9979864082557262,
+        0.9983067523968606
+      ],
+      "mean_selection_auroc": 0.9984364155016056
+    },
+    {
+      "image_size": 320,
+      "architecture": "resnet18",
+      "selection_auroc_by_seed": [
+        0.9978948813582591,
+        0.9988330320572958,
+        0.9981236986019266
+      ],
+      "mean_selection_auroc": 0.9982838706724939
+    },
+    {
+      "image_size": 224,
+      "architecture": "efficientnet_b0",
+      "selection_auroc_by_seed": [
+        0.9979864082557262,
+        0.9983753975699609,
+        0.9975974189414915
+      ],
+      "mean_selection_auroc": 0.9979864082557262
+    },
+    {
+      "image_size": 320,
+      "architecture": "densenet121",
+      "selection_auroc_by_seed": [
+        0.9976660641145918,
+        0.9969796123835892,
+        0.9986042148136284
+      ],
+      "mean_selection_auroc": 0.9977499637706031
+    }
+  ],
+  "criterion": "Highest mean model-selection AUROC across seeds; ties prefer 224 then alphabetical architecture",
+  "test_predictions_accessed": false,
+  "interpretation": "Exploratory protocol extension; expanded selection search can increase optimism. Both arms must still be reported."
+}

@@ -1,0 +1,14 @@
+{
+  "raw_images": 5856,
+  "development_removed": 479,
+  "test_duplicates_removed": 6,
+  "grouping": "filename-derived patient proxies; not verified clinical IDs",
+  "counts": {
+    "('test', 0)": 231,
+    "('test', 1)": 387,
+    "('train', 0)": 1078,
+    "('train', 1)": 2737,
+    "('validation', 0)": 270,
+    "('validation', 1)": 668
+  }
+}

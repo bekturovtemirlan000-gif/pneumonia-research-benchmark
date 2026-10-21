@@ -1,0 +1,54 @@
+{
+  "status": "Exploratory development-sample sensitivity analysis",
+  "images": 456,
+  "filename_proxy_groups": 270,
+  "requested_replicates": 1000,
+  "usable_replicates": 1000,
+  "replicates_with_tied_maximum": 9,
+  "original_development_choice": "320:efficientnet_b0",
+  "winner_counts": {
+    "224:densenet121": 16,
+    "224:efficientnet_b0": 0,
+    "224:resnet18": 112,
+    "320:densenet121": 0,
+    "320:efficientnet_b0": 852,
+    "320:resnet18": 20
+  },
+  "winner_fractions": {
+    "224:densenet121": 0.016,
+    "224:efficientnet_b0": 0,
+    "224:resnet18": 0.112,
+    "320:densenet121": 0,
+    "320:efficientnet_b0": 0.852,
+    "320:resnet18": 0.02
+  },
+  "mean_selection_auroc_percentile_95": {
+    "224:densenet121": [
+      0.9966153264665937,
+      0.9997446089234285
+    ],
+    "224:efficientnet_b0": [
+      0.9958409346133749,
+      0.9995967230024774
+    ],
+    "224:resnet18": [
+      0.996690943568063,
+      0.9999594966496752
+    ],
+    "320:densenet121": [
+      0.9948420739293193,
+      0.9996689792209977
+    ],
+    "320:efficientnet_b0": [
+      0.9978009943904437,
+      0.9998952899276067
+    ],
+    "320:resnet18": [
+      0.9961051078432255,
+      0.9997712968121695
+    ]
+  },
+  "test_predictions_accessed": false,
+  "changes_to_deployed_choice": false,
+  "interpretation": "Resamples the same selection groups jointly for all fixed models. Winner frequencies are descriptive stability measures, not posterior probabilities, superiority probabilities or external performance estimates. Checkpoints were selected using this partition, so selection optimism remains. Training and checkpoint selection are not repeated; three fixed seeds are averaged without seed resampling. The frozen original choice is retained."
+}

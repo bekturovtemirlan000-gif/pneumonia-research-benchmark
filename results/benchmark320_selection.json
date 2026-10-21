@@ -1,0 +1,23 @@
+{
+  "image_size": 320,
+  "architecture": "efficientnet_b0",
+  "selected_checkpoints": [
+    "efficientnet_b0_seed_42/best_weights.pt",
+    "efficientnet_b0_seed_123/best_weights.pt",
+    "efficientnet_b0_seed_2026/best_weights.pt"
+  ],
+  "aggregation": "arithmetic mean of sigmoid probabilities, then positive temperature scaling",
+  "temperature": 1.340557747633612,
+  "threshold": 0.8317002265352794,
+  "classes": [
+    "NORMAL",
+    "PNEUMONIA"
+  ],
+  "preprocessing": "RGB; bicubic letterbox 320; ToTensor; ImageNet mean/std",
+  "selection_architecture_mean_auroc": {
+    "densenet121": 0.9977499637706031,
+    "efficientnet_b0": 0.99908473102533,
+    "resnet18": 0.9982838706724939
+  },
+  "research_status": "Exploratory; external confirmation required"
+}

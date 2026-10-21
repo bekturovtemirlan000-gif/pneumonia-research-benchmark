@@ -1,0 +1,58 @@
+{
+  "status": "Exploratory paired comparison; original test results already inspected",
+  "direction": "followup minus baseline; lower is better for Brier score only",
+  "images": 618,
+  "filename_proxy_groups": 426,
+  "baseline": {
+    "auroc": 0.97061422642818,
+    "average_precision": 0.9768599051690826,
+    "accuracy": 0.8042071197411004,
+    "sensitivity": 1.0,
+    "specificity": 0.47619047619047616,
+    "brier_score": 0.1350749017843688
+  },
+  "followup": {
+    "auroc": 0.968444131234829,
+    "average_precision": 0.9730555340906359,
+    "accuracy": 0.8818770226537217,
+    "sensitivity": 0.9922480620155039,
+    "specificity": 0.696969696969697,
+    "brier_score": 0.14308158635686266
+  },
+  "difference": {
+    "auroc": -0.002170095193350985,
+    "average_precision": -0.0038043710784466667,
+    "accuracy": 0.07766990291262132,
+    "sensitivity": -0.007751937984496138,
+    "specificity": 0.22077922077922085,
+    "brier_score": 0.008006684572493872
+  },
+  "paired_cluster_bootstrap_95ci": {
+    "auroc": [
+      -0.013514414829738877,
+      0.008019433090973124
+    ],
+    "average_precision": [
+      -0.01912882492190815,
+      0.009962229466704322
+    ],
+    "accuracy": [
+      0.05528801843317981,
+      0.10269718461207826
+    ],
+    "sensitivity": [
+      -0.017045454545454586,
+      0.0
+    ],
+    "specificity": [
+      0.16588061635944706,
+      0.27732835872938394
+    ],
+    "brier_score": [
+      -0.0025833171856648384,
+      0.01912537819826898
+    ]
+  },
+  "bootstrap_replicates": 1000,
+  "limitations": "Filename groups are proxies. Intervals describe test sampling, not training variation, model selection uncertainty or external generalization. No multiplicity adjustment. Thresholds remain those saved by each experiment."
+}

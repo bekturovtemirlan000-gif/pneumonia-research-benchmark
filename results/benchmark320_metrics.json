@@ -1,0 +1,33 @@
+{
+  "threshold": 0.8317002265352794,
+  "temperature": 1.340557747633612,
+  "test": {
+    "auroc": 0.9639864872423012,
+    "average_precision": 0.9671534835786258,
+    "accuracy": 0.8737864077669902,
+    "sensitivity": 0.9974160206718347,
+    "specificity": 0.6666666666666666,
+    "brier_score": 0.1394821388072163,
+    "log_loss": 0.7887593141683661,
+    "tn": 154,
+    "fp": 77,
+    "fn": 1,
+    "tp": 386
+  },
+  "raw_test_at_0_5": {
+    "auroc": 0.9639249639249639,
+    "average_precision": 0.967082484561728,
+    "accuracy": 0.8478964401294499,
+    "sensitivity": 1,
+    "specificity": 0.5930735930735931,
+    "brier_score": 0.14312643986876822,
+    "log_loss": 1.1597264232883107,
+    "tn": 137,
+    "fp": 94,
+    "fn": 0,
+    "tp": 387
+  },
+  "selected_architecture": "efficientnet_b0",
+  "runtime_seconds": 4986.225879476,
+  "test_status": "Exploratory, previously inspected source test set"
+}

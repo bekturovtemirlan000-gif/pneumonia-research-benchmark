@@ -1,0 +1,73 @@
+{
+  "seed": 42,
+  "threshold": 0.9298236966133118,
+  "threshold_rule": "validation Youden J",
+  "test": {
+    "auroc": 0.968444131234829,
+    "average_precision": 0.9730555340906359,
+    "accuracy": 0.8818770226537217,
+    "balanced_accuracy": 0.8446088794926004,
+    "f1": 0.9131985731272295,
+    "sensitivity": 0.9922480620155039,
+    "specificity": 0.696969696969697,
+    "precision": 0.8458149779735683
+  },
+  "test_at_0.5": {
+    "auroc": 0.968444131234829,
+    "average_precision": 0.9730555340906359,
+    "accuracy": 0.843042071197411,
+    "balanced_accuracy": 0.7909158025437095,
+    "f1": 0.8883774453394706,
+    "sensitivity": 0.9974160206718347,
+    "specificity": 0.5844155844155844,
+    "precision": 0.8008298755186722
+  },
+  "test_cluster_bootstrap_95ci": {
+    "auroc": [
+      0.9509828753242288,
+      0.9826772832936767
+    ],
+    "average_precision": [
+      0.9522909636536827,
+      0.988184395113879
+    ],
+    "accuracy": [
+      0.8541320376225523,
+      0.9099553158594381
+    ],
+    "balanced_accuracy": [
+      0.8142218633564934,
+      0.8777769107493351
+    ],
+    "f1": [
+      0.8882911977326872,
+      0.9350948327050278
+    ],
+    "sensitivity": [
+      0.9821417153818048,
+      1.0
+    ],
+    "specificity": [
+      0.6388649425287356,
+      0.7604123104407317
+    ],
+    "precision": [
+      0.8060892484022678,
+      0.8852511177347243
+    ]
+  },
+  "bootstrap_replicates": 1000,
+  "validation": {
+    "auroc": 0.9990657573741406,
+    "average_precision": 0.9996278011205317,
+    "accuracy": 0.9850746268656716,
+    "balanced_accuracy": 0.9873142603681526,
+    "f1": 0.9894419306184012,
+    "sensitivity": 0.9820359281437125,
+    "specificity": 0.9925925925925926,
+    "precision": 0.9969604863221885
+  },
+  "training_seconds": 4439.385857820511,
+  "best_validation_auroc": 0.9990657573741406,
+  "test_majority_class_accuracy": 0.6262135922330098
+}

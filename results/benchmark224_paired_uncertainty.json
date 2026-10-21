@@ -1,0 +1,105 @@
+{
+  "status": "Exploratory; the original source test was previously inspected",
+  "benchmark_metrics": {
+    "auroc": 0.9581305860375628,
+    "average_precision": 0.9614192702794777,
+    "accuracy": 0.8737864077669902,
+    "sensitivity": 0.9974160206718347,
+    "specificity": 0.6666666666666666,
+    "brier_score": 0.1310473920592921
+  },
+  "benchmark_cluster_bootstrap_95ci": {
+    "auroc": [
+      0.939518025318615,
+      0.9752858755780334
+    ],
+    "average_precision": [
+      0.9354606360814823,
+      0.9816996941200724
+    ],
+    "accuracy": [
+      0.8446529608435671,
+      0.9032258064516129
+    ],
+    "sensitivity": [
+      0.9915706396833504,
+      1
+    ],
+    "specificity": [
+      0.6036788582317371,
+      0.7302415843686949
+    ],
+    "brier_score": [
+      0.10310591987818934,
+      0.1599386229539193
+    ]
+  },
+  "bootstrap_replicates": 1000,
+  "paired_comparison": {
+    "status": "Exploratory paired comparison; original test results already inspected",
+    "direction": "followup minus baseline; lower is better for Brier score only",
+    "images": 618,
+    "filename_proxy_groups": 426,
+    "baseline": {
+      "auroc": 0.968444131234829,
+      "average_precision": 0.9730555340906359,
+      "accuracy": 0.8818770226537217,
+      "sensitivity": 0.9922480620155039,
+      "specificity": 0.696969696969697,
+      "brier_score": 0.14308158635686266
+    },
+    "followup": {
+      "auroc": 0.9581305860375628,
+      "average_precision": 0.9614192702794777,
+      "accuracy": 0.8737864077669902,
+      "sensitivity": 0.9974160206718347,
+      "specificity": 0.6666666666666666,
+      "brier_score": 0.1310473920592921
+    },
+    "difference": {
+      "auroc": -0.010313545197266127,
+      "average_precision": -0.011636263811158232,
+      "accuracy": -0.008090614886731462,
+      "sensitivity": 0.0051679586563307955,
+      "specificity": -0.030303030303030387,
+      "brier_score": -0.01203419429757055
+    },
+    "paired_cluster_bootstrap_95ci": {
+      "auroc": [
+        -0.02579271911935509,
+        0.005271323510197245
+      ],
+      "average_precision": [
+        -0.033282310103801206,
+        0.008486283864979939
+      ],
+      "accuracy": [
+        -0.025642054574638865,
+        0.008421847339373125
+      ],
+      "sensitivity": [
+        0,
+        0.013022537630890087
+      ],
+      "specificity": [
+        -0.07870370370370372,
+        0.013700201080809403
+      ],
+      "brier_score": [
+        -0.02420773842726226,
+        -0.0006176612338206199
+      ]
+    },
+    "bootstrap_replicates": 1000,
+    "limitations": "Filename groups are proxies. Intervals describe test sampling, not training variation, model selection uncertainty or external generalization. No multiplicity adjustment. Thresholds remain those saved by each experiment."
+  },
+  "interpretation": "Conditional test-sampling uncertainty only. Does not capture training, model selection, proxy-group error or external generalization. No threshold refitting or model selection occurs.",
+  "provenance": {
+    "kaggle_version": 360892651,
+    "comparison_labels": {
+      "baseline": "Earlier selected EfficientNet-B0 seed123 (version360829588)",
+      "followup": "224-pixel development-selected ResNet18 ensemble (version360875315)"
+    },
+    "source": "Completed notebook output log"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "source": "Expanded Kaggle file preview for all_trial_results.json",
+  "kaggle_version": 360888746,
+  "raw_visible_text_sha256": "8ad5b9c9de0293b452c348e0734896e96b7bfcc32b9080dabb0993ffa205d0bb",
+  "checks": "Nine unique trials; expected field counts; all confusion totals and accuracies internally consistent",
+  "limitation": "UI transcription, not a downloaded archive. Independent Kaggle CPU artifact verification passed in version 360906861; see benchmark320_cpu_verification.json."
+}

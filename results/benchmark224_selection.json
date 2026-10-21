@@ -1,0 +1,22 @@
+{
+  "architecture": "resnet18",
+  "selected_checkpoints": [
+    "resnet18_seed_42/best_weights.pt",
+    "resnet18_seed_123/best_weights.pt",
+    "resnet18_seed_2026/best_weights.pt"
+  ],
+  "aggregation": "arithmetic mean of sigmoid probabilities, then positive temperature scaling",
+  "temperature": 0.6729322659796929,
+  "threshold": 0.7209051735307829,
+  "classes": [
+    "NORMAL",
+    "PNEUMONIA"
+  ],
+  "preprocessing": "RGB; bicubic letterbox 224; ToTensor; ImageNet mean/std",
+  "selection_architecture_mean_auroc": {
+    "densenet121": 0.9984364155016054,
+    "efficientnet_b0": 0.9979864082557262,
+    "resnet18": 0.9985660786063505
+  },
+  "research_status": "Exploratory; external confirmation required"
+}

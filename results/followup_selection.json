@@ -1,0 +1,18 @@
+{
+  "candidate_validation_auroc": [
+    0.9989576402750056,
+    0.9990657573741406,
+    0.998929917941894,
+    0.9990352628077179
+  ],
+  "selected_member_indices": [
+    1
+  ],
+  "selection_rule": "maximum validation AUROC among single members and equal-weight ensemble",
+  "checkpoints": [
+    "best_seed_42.pt",
+    "best_seed_123.pt",
+    "best_seed_2026.pt"
+  ],
+  "research_status": "exploratory follow-up; original test results already inspected"
+}

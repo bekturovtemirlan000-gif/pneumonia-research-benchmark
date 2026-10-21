@@ -1,0 +1,37 @@
+{
+  "reviewed_utc": "2026-10-21T18:03:00Z",
+  "related_work": [
+    {
+      "title": "Cross-dataset transportability of pediatric chest X-ray deep learning across three countries: discrimination, calibration, operating-point failure, and limited-label recovery",
+      "url": "https://arxiv.org/abs/2609.05140",
+      "status": "arXiv preprint; peer-review status not independently verified",
+      "relevance": "Prior work already studies calibration and fixed-threshold transfer from Guangzhou to BDCXR and VinDr. Our conventional three-architecture comparison is an exploratory benchmark, not a first demonstration of domain shift.",
+      "methodological_difference": "Their grouping namespaces bacterial and viral IDs separately; ours conservatively groups all person-number filenames together. Thus identical-looking IDs may over-group different children and remove more development images. Keep the already-frozen cohort and explicitly report this limitation.",
+      "comparison_limit": "Different development cohorts, preprocessing and model selection prevent a controlled numerical superiority claim."
+    }
+  ],
+  "dataset_provenance": [
+    {
+      "doi": "10.6084/m9.figshare.32086362",
+      "license_shown": "CC BY 4.0",
+      "access_status": "Source page visible; browser download did not complete",
+      "unresolved": [
+        "Published class counts sum to 3245 while total claims 3257",
+        "Included Data Use Agreement has not been inspected",
+        "Patient identity and metadata completeness not yet verified"
+      ]
+    }
+  ],
+  "publication_position": "Reproducible exploratory architecture/calibration benchmark. A credible draft must disclose previous test inspection, cohort exclusions, all trials and computational limits. Novelty and venue fit remain unestablished.",
+  "followup_document_review": {
+    "reviewed_utc": "2026-10-21T19:28:00Z",
+    "details": "results/external_source_inspection_summary.json",
+    "findings": [
+      "Included metadata and image files confirm Normal 880, Bacterial 1477, Viral 900, total 3257.",
+      "Included Data Use Agreement and two certificates were inspected in Kaggle version 360891626.",
+      "Named-party academic access restrictions conflict with the public CC BY listing; external model inference remains pending clarification.",
+      "No patient identity column was found; repeated-patient independence remains unverified."
+    ],
+    "note": "Earlier dataset_provenance entry is the original discovery-time record; this follow-up supersedes its unresolved count and uninspected-document items."
+  }
+}

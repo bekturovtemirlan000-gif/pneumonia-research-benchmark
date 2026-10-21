@@ -1,0 +1,19 @@
+{
+  "source": "Expanded Kaggle file preview for all_trial_results.json",
+  "kaggle_version": 360875315,
+  "raw_visible_text_sha256": "53a3858b101ee8bbee1e8478922cce9f00c7af27017a278902849e5965c3f4c5",
+  "checks": "Nine unique trials; expected field counts; all confusion totals and accuracies internally consistent",
+  "limitation": "UI transcription, not a downloaded archive. Independent Kaggle CPU artifact verification completed successfully in version 360888922; see benchmark224_cpu_verification.json.",
+  "environment_capture": {
+    "source": "environment.json rendered Kaggle output preview",
+    "kaggle_version": 360875315,
+    "fields": 7,
+    "destination": "results/benchmark224_environment.json"
+  },
+  "data_audit_capture": {
+    "source": "Fully expanded data_audit.json rendered Kaggle output preview",
+    "kaggle_version": 360875315,
+    "destination": "results/benchmark224_data_audit.json",
+    "checks": "Four partition image counts sum to retained total; each class pair sums to its partition size"
+  }
+}

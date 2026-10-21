@@ -1,0 +1,31 @@
+{
+  "started_utc": "2026-10-21T17:45:12Z",
+  "active_work_deadline_utc": "2026-10-21T22:45:12Z",
+  "status": "Kaggle GPU benchmark queued",
+  "architectures": [
+    "efficientnet_b0",
+    "densenet121",
+    "resnet18"
+  ],
+  "seeds": [
+    42,
+    123,
+    2026
+  ],
+  "research_question": "How do architecture and initialization affect discrimination, calibration and transfer of a development-selected decision threshold?",
+  "data": "Retain audited original training and test cohorts; divide prior validation by patient proxy into model-selection and calibration partitions.",
+  "selection": "Choose architecture by mean model-selection AUROC across completed seeds. Average its seed probabilities. Never use test metrics to choose.",
+  "calibration": "Fit one positive scalar temperature to calibration logits; choose Youden threshold on calibration predictions; freeze before test.",
+  "comparison": "Report every planned trial and both raw/calibrated scores; paired group-bootstrap intervals for selected comparison; no test-driven changes.",
+  "budget": "270 minutes including audit and training, approximately 30 minutes reserved for final evaluation/export; early stopping allowed. Queue/setup are separate.",
+  "limitations": [
+    "Previously inspected test set: exploratory, not confirmatory",
+    "Filename-derived patient IDs are proxies",
+    "No guarantee of paper acceptance or clinical validity"
+  ],
+  "external_data": "Investigate independent pediatric source with compatible reference labels and authorized access; do not substitute an incompatible task silently.",
+  "kaggle_version": 360875315,
+  "kaggle_url": "https://www.kaggle.com/code/temirlanbekturov/pneumonia-research-benchmark-three-architectures?scriptVersionId=360875315",
+  "submitted_utc": "2026-10-21T17:56:08Z",
+  "source_sha256": "02ac0f88e6c568eac2239bd712f5bbdf3c8a98732ac2a9be59b091c91b95405f"
+}

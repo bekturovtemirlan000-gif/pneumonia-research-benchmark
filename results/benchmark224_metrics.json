@@ -1,0 +1,33 @@
+{
+  "threshold": 0.7209051735307829,
+  "temperature": 0.6729322659796929,
+  "test": {
+    "auroc": 0.9581305860375628,
+    "average_precision": 0.9614192702794777,
+    "accuracy": 0.8737864077669902,
+    "sensitivity": 0.9974160206718347,
+    "specificity": 0.6666666666666666,
+    "brier_score": 0.13104739205929208,
+    "log_loss": 1.2775449557283203,
+    "tn": 154,
+    "fp": 77,
+    "fn": 1,
+    "tp": 386
+  },
+  "raw_test_at_0_5": {
+    "auroc": 0.957627213441167,
+    "average_precision": 0.959389205702154,
+    "accuracy": 0.8576051779935275,
+    "sensitivity": 0.9974160206718347,
+    "specificity": 0.6233766233766234,
+    "brier_score": 0.12752354303276867,
+    "log_loss": 0.9798796004755215,
+    "tn": 144,
+    "fp": 87,
+    "fn": 1,
+    "tp": 386
+  },
+  "selected_architecture": "resnet18",
+  "runtime_seconds": 3014.8543464110003,
+  "test_status": "Exploratory, previously inspected source test set"
+}

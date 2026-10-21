@@ -1,0 +1,16 @@
+{
+  "data_used": "calibration_predictions.csv only; no test predictions accessed",
+  "frozen_deployment_threshold": 0.8317002265352794,
+  "rule": "Maximum Youden J; first maximum in sklearn roc_curve output",
+  "bootstrap_replicates": 1000,
+  "filename_proxy_groups": 268,
+  "threshold_percentiles_2_5_25_50_75_97_5": [
+    0.6067196110925308,
+    0.6067196110925308,
+    0.8317002265352794,
+    0.8401093629007963,
+    0.8922339982936415
+  ],
+  "distinct_selected_thresholds": 8,
+  "limitations": "Descriptive resampling stability, not a guaranteed confidence interval for an optimal clinical threshold. Calibration temperature is held fixed; this omits uncertainty from fitting temperature. Filename groups are proxies. Deployment threshold was not changed."
+}

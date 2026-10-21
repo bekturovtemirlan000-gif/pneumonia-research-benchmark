@@ -1,0 +1,16 @@
+{
+  "recorded_utc": "2026-10-21T19:30:24Z",
+  "status": "Exploratory addition after observing 224-pixel results and before 320-pixel test evaluation",
+  "question": "How sensitive is the architecture/resolution choice to resampling the available model-selection groups?",
+  "method": "Jointly resample filename-derived selection groups with replacement 1000 times, random seed 42. For each fixed architecture/resolution candidate, calculate mean AUROC across its three fixed seed models. Record the maximum with the unchanged lower-resolution/alphabetical tie rule.",
+  "selection_policy": "Descriptive only. Do not replace the original full-development-sample choice or tune any model, threshold or temperature.",
+  "data": "Only selection predictions and development manifest/configuration checks; no test scores used.",
+  "reporting": "Report winner counts/fractions, tied-maximum count and percentile ranges of resampled mean selection AUROC for all six candidates, including zero-win candidates.",
+  "limitations": [
+    "Winner frequencies are not posterior probabilities or estimates of external superiority",
+    "The same partition selected checkpoints, so selection optimism remains",
+    "Fixed-model conditional analysis: training and checkpoint selection are not repeated",
+    "Filename-derived groups are unverified patient proxies",
+    "Protocol addition is exploratory, not a prespecified primary endpoint"
+  ]
+}

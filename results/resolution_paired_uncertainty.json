@@ -1,0 +1,101 @@
+{
+  "status": "Exploratory; the original source test was previously inspected",
+  "benchmark_metrics": {
+    "auroc": 0.9639864872423012,
+    "average_precision": 0.9671534835786258,
+    "accuracy": 0.8737864077669902,
+    "sensitivity": 0.9974160206718347,
+    "specificity": 0.6666666666666666,
+    "brier_score": 0.13948213880721633
+  },
+  "benchmark_cluster_bootstrap_95ci": {
+    "auroc": [
+      0.9469993626831574,
+      0.9787395238045937
+    ],
+    "average_precision": [
+      0.9449802050354255,
+      0.983986748578524
+    ],
+    "accuracy": [
+      0.8441536429672022,
+      0.9017221865345202
+    ],
+    "sensitivity": [
+      0.9915706396833504,
+      1
+    ],
+    "specificity": [
+      0.6086722263868066,
+      0.7273021159874609
+    ],
+    "brier_score": [
+      0.11122579107797653,
+      0.16663857098972593
+    ]
+  },
+  "bootstrap_replicates": 1000,
+  "paired_comparison": {
+    "status": "Exploratory paired comparison; original test results already inspected",
+    "direction": "followup minus baseline; lower is better for Brier score only",
+    "images": 618,
+    "filename_proxy_groups": 426,
+    "baseline": {
+      "auroc": 0.9581305860375628,
+      "average_precision": 0.9614192702794777,
+      "accuracy": 0.8737864077669902,
+      "sensitivity": 0.9974160206718347,
+      "specificity": 0.6666666666666666,
+      "brier_score": 0.1310473920592921
+    },
+    "followup": {
+      "auroc": 0.9639864872423012,
+      "average_precision": 0.9671534835786258,
+      "accuracy": 0.8737864077669902,
+      "sensitivity": 0.9974160206718347,
+      "specificity": 0.6666666666666666,
+      "brier_score": 0.13948213880721633
+    },
+    "difference": {
+      "auroc": 0.005855901204738334,
+      "average_precision": 0.005734213299148139,
+      "accuracy": 0,
+      "sensitivity": 0,
+      "specificity": 0,
+      "brier_score": 0.008434746747924216
+    },
+    "paired_cluster_bootstrap_95ci": {
+      "auroc": [
+        -0.005463462243134085,
+        0.016982823042909174
+      ],
+      "average_precision": [
+        -0.007888511428924027,
+        0.020758124024135117
+      ],
+      "accuracy": [
+        -0.013678425357873272,
+        0.013115832614322639
+      ],
+      "sensitivity": [
+        0,
+        0
+      ],
+      "specificity": [
+        -0.035726405946994166,
+        0.033656381856540074
+      ],
+      "brier_score": [
+        -0.001246445688436483,
+        0.01832465904884185
+      ]
+    },
+    "bootstrap_replicates": 1000,
+    "limitations": "Filename groups are proxies. Intervals describe test sampling, not training variation, model selection uncertainty or external generalization. No multiplicity adjustment. Thresholds remain those saved by each experiment."
+  },
+  "interpretation": "Conditional test-sampling uncertainty only. Does not capture training, model selection, proxy-group error or external generalization. No threshold refitting or model selection occurs.",
+  "experiment_mapping": {
+    "baseline": "224-pixel development-selected ensemble",
+    "followup": "320-pixel development-selected ensemble"
+  }
+}
