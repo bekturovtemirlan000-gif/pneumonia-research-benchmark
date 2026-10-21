@@ -140,5 +140,37 @@
     ],
     "observation": "Both pairs have perceptual-hash distance 2 and normal source labels. Framing and image appearance differ visibly in the first pair. Similar appearance in the second is inconclusive at thumbnail resolution. No duplicate or patient-identity conclusion is established.",
     "limitations": "Partial sheet review only; no cohort exclusions or model changes. High-resolution source comparison remains necessary for duplicate adjudication."
+  },
+  "sheet1_additional_visual_review": {
+    "sheet": "candidate_review_1.png",
+    "method": "Rendered Kaggle thumbnail preview; nonclinical image-correspondence inspection",
+    "pairs_inspected": [
+      [
+        "IM-0307-0001.jpeg",
+        "NORMAL2-IM-0849-0001.jpeg"
+      ],
+      [
+        "IM-0507-0001.jpeg",
+        "IM-0697-0001.jpeg"
+      ],
+      [
+        "NORMAL2-IM-0814-0001.jpeg",
+        "NORMAL2-IM-1261-0001.jpeg"
+      ],
+      [
+        "NORMAL2-IM-0869-0001.jpeg",
+        "NORMAL2-IM-0395-0001.jpeg"
+      ],
+      [
+        "NORMAL2-IM-1041-0001.jpeg",
+        "NORMAL2-IM-1020-0001-0002.jpeg"
+      ],
+      [
+        "NORMAL2-IM-1136-0001.jpeg",
+        "NORMAL2-IM-1114-0001.jpeg"
+      ]
+    ],
+    "observation": "Differences in positioning, framing or overall image appearance were visible in these six additional displayed pairs. No duplicate was confirmed. This supplements the two earlier sheet-one observations, including the explicitly inconclusive similar-appearance pair.",
+    "limitations": "Thumbnail correspondence review is not high-resolution duplicate adjudication or clinical patient-identity verification. No images, labels, cohorts, checkpoints or thresholds were changed."
   }
 }

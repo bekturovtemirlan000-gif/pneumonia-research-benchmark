@@ -540,8 +540,8 @@
     },
     {
       "path": "results/similarity_screening_summary.json",
-      "bytes": 5509,
-      "sha256": "e01e2fc5bab34763ef7b55de6d66079b7577cc145c785e96b1d19af3c60f2b8c"
+      "bytes": 6772,
+      "sha256": "e15ba958f8fbc0212294c00e535c9c237e5a6be4d3f0984824e41a1c801f8160"
     },
     {
       "path": "results/source_consistency_audit.json",
