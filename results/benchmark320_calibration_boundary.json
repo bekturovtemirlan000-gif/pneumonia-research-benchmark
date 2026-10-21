@@ -1,0 +1,23 @@
+{
+  "image_size": 320,
+  "images": 482,
+  "cutoff": 0.8317002265352794,
+  "changed_images": [],
+  "max_absolute_score_difference": 0.0000032037083975700043,
+  "reread_saved_score_decisions_differ_from_stored": 0,
+  "saved_score_distance_to_cutoff_percentiles": [
+    0,
+    0.1291379760480138,
+    0.16660550580847813,
+    0.1682937715439582
+  ],
+  "saved_images_within_1e_4_of_cutoff": 1,
+  "strict_verification_status": "passed",
+  "frozen_config_changed": false,
+  "interpretation": "Post hoc numerical-discrepancy inspection on calibration images only. Does not relax the original zero-change criterion, change the cutoff, or establish clinical validity.",
+  "provenance": {
+    "kaggle_version": 360914770,
+    "capture": "visible Kaggle log",
+    "source_sha256_lf": "1d9ae3b59f17ffd61537ebb90408fb1a4855a54ea9a1062fd5906f25f9ee9651"
+  }
+}

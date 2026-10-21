@@ -7,6 +7,7 @@ from pathlib import Path
 
 
 DIRECT = {
+    'pneumonia_calibration_boundary.ipynb': 'inspect_calibration_boundary.py',
     'pneumonia_kaggle.ipynb': 'train.py',
     'pneumonia_ensemble_kaggle.ipynb': 'train_ensemble.py',
     'pneumonia_research_benchmark.ipynb': 'research_benchmark.py',
@@ -18,8 +19,11 @@ EMBEDDED = [
     'pneumonia_export_verification_320.ipynb',
     'pneumonia_paired_comparison.ipynb',
     'pneumonia_resolution_analysis.ipynb',
+    'pneumonia_calibration_reproduction.ipynb',
 ]
 FROZEN = {
+    'pneumonia_calibration_boundary.ipynb': '1d9ae3b59f17ffd61537ebb90408fb1a4855a54ea9a1062fd5906f25f9ee9651',
+    'pneumonia_calibration_reproduction.ipynb': '78b068f73f23a7882f12c241512266ef650c232b0787a7247237875a30bb2a0e',
     'pneumonia_research_benchmark.ipynb': '02ac0f88e6c568eac2239bd712f5bbdf3c8a98732ac2a9be59b091c91b95405f',
     'pneumonia_resolution320.ipynb': '0e3d7cf1bdedbfc43957c0cb6cdb0b0763f53b74fa181eb36e3bd24a31af6913',
     'pneumonia_export_verification.ipynb': '04c689993b783902680e82f03bd3ec6b251c3b22afdea17a3989a973119b5d0b',

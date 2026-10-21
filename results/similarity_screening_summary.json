@@ -76,5 +76,25 @@
     ],
     "observation": "Differences in framing, positioning or image appearance were visible. No duplicate was confirmed from these thumbnails. The first pair has discordant source labels; perceptual similarity does not establish label error.",
     "limitations": "Thumbnail review cannot establish patient identity or rule out transformed/repeated acquisitions. No exclusions or model changes."
+  },
+  "sheet4_visual_review": {
+    "sheet": "candidate_review_4.png",
+    "method": "Rendered Kaggle thumbnail preview; nonclinical image-correspondence inspection",
+    "pairs_inspected": [
+      [
+        "IM-0520-0001.jpeg",
+        "person88_bacteria_439.jpeg"
+      ],
+      [
+        "IM-0571-0001.jpeg",
+        "NORMAL2-IM-1020-0001.jpeg"
+      ],
+      [
+        "IM-0592-0001.jpeg",
+        "IM-0276-0001.jpeg"
+      ]
+    ],
+    "observation": "Visible framing, positioning or appearance differences; no duplicate confirmed from these thumbnails. Discordant labels in the first pair are not evidence of a labeling error.",
+    "limitations": "Partial sheet review only; no patient-identity conclusion, no cohort exclusions or model changes."
   }
 }

@@ -51,6 +51,30 @@ def audit(root=Path('.')):
         if stops!={'early_stopping'}:
             raise ValueError('Report early-stopping claim requires revision')
         checks.append(f'{size}: nine trials, development choice, frozen parameters, 29 confusion records and CPU summary agree')
+    for size,expected_changes in ((224,1),(320,0)):
+        calibration=read(f'benchmark{size}_calibration_reproduction.json')
+        boundary=read(f'benchmark{size}_calibration_boundary.json')
+        if calibration['images']!=482 or boundary['images']!=482:
+            raise ValueError('Calibration cohort count mismatch')
+        if calibration['changed_frozen_calibration_predictions']!=expected_changes or len(boundary['changed_images'])!=expected_changes:
+            raise ValueError('Calibration classification discrepancy record mismatch')
+        if calibration['status']!=boundary['strict_verification_status']:
+            raise ValueError('Boundary review must preserve strict verification status')
+        if calibration['test_predictions_accessed'] or calibration['frozen_config_changed'] or boundary['frozen_config_changed']:
+            raise ValueError('Calibration-only frozen configuration claim violated')
+        same(calibration['saved_threshold'],boundary['cutoff'],'boundary cutoff')
+        same(calibration['max_frozen_score_difference'],boundary['max_absolute_score_difference'],'boundary score error')
+        if boundary['reread_saved_score_decisions_differ_from_stored']!=0:
+            raise ValueError('CSV round-trip decision claim requires revision')
+        if size==224:
+            row=boundary['changed_images'][0]
+            same(row['saved_margin'],0,'cutoff equality')
+            same(row['cpu_margin'],row['cpu_score']-boundary['cutoff'],'CPU cutoff margin')
+            if row['cpu_margin']>=0 or calibration['status']=='passed':
+                raise ValueError('Comparator strict failure must remain explicit')
+        elif calibration['status']!='passed':
+            raise ValueError('Selected model calibration reproduction did not pass')
+        checks.append(f'{size}: calibration reproduction and boundary records agree; strict status preserved')
     selection=read('resolution_development_selection.json')
     best=min(candidates,key=lambda x:(-x[0],x[1],x[2]))
     if (selection['selected']['image_size'],selection['selected']['architecture'])!=(best[1],best[2]):
@@ -76,7 +100,7 @@ def audit(root=Path('.')):
         scope='Internal consistency of compact published records only; not an independent recomputation of image-level AUROC or bootstrap intervals',
         limitations=['Raw per-image prediction archives remain on Kaggle; local records came from visible logs and previews',
                      'CPU verification reloaded images and checkpoints on Kaggle; this audit checks its saved summary',
-                     'Raw calibration probabilities were not exported, so saved calibrated files alone cannot independently reproduce the original temperature optimization',
+                     'Original GPU raw calibration probabilities were not exported; fresh CPU scores support a separate refit with one comparator boundary disagreement',
                      'Test sampling intervals omit training and selection uncertainty; filename groups are proxies'])
 
 

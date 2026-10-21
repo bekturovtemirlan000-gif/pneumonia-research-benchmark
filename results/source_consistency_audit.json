@@ -1,10 +1,18 @@
 {
   "status": "passed",
-  "checked_utc": "2026-10-21T20:22:21.249710+00:00",
+  "checked_utc": "2026-10-21T21:04:18.230714+00:00",
   "hash_convention": "UTF-8 notebook code cells concatenated in order, CRLF normalized to LF",
   "scope": "Local source consistency; does not independently attest remote execution or results",
   "similarity_historical_raw_crlf_sha256": "d0dc2c236117a72d183636d9431ec2cf7aa19d416ff06573cdb09e716677915f",
   "notebooks": [
+    {
+      "notebook": "pneumonia_calibration_boundary.ipynb",
+      "code_sha256_lf": "1d9ae3b59f17ffd61537ebb90408fb1a4855a54ea9a1062fd5906f25f9ee9651",
+      "checks": {
+        "inspect_calibration_boundary.py": true,
+        "frozen_submitted_source": true
+      }
+    },
     {
       "notebook": "pneumonia_kaggle.ipynb",
       "code_sha256_lf": "d6b364ef09f33086e618b495680c74286fcee7872dc51bb228844bc36ac70249",
@@ -86,6 +94,18 @@
         "inspect_selection_stability.py": true,
         "compare_experiments.py": true,
         "analyze_benchmark_comparison.py": true,
+        "frozen_submitted_source": true
+      }
+    },
+    {
+      "notebook": "pneumonia_calibration_reproduction.ipynb",
+      "code_sha256_lf": "78b068f73f23a7882f12c241512266ef650c232b0787a7247237875a30bb2a0e",
+      "checks": {
+        "predict.py": true,
+        "validate_artifacts.py": true,
+        "validate_benchmark.py": true,
+        "verify_exported_model.py": true,
+        "verify_calibration_fit.py": true,
         "frozen_submitted_source": true
       }
     },

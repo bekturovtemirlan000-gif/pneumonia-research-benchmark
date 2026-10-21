@@ -12,22 +12,22 @@ Training/selection/calibration/test contain 3,815/456/482/618 images. Selection 
 
 | Test metric | Estimate | Descriptive 95% group-bootstrap interval |
 |---|---:|---:|
-| AUROC | 0.96399 | 0.94700â€“0.97874 |
-| Average precision | 0.96715 | 0.94498â€“0.98399 |
-| Accuracy | 87.38% | 84.42â€“90.17% |
-| Sensitivity | 99.74% | 99.16â€“100.00% |
-| Specificity | 66.67% | 60.87â€“72.73% |
-| Brier score | 0.13948 | 0.11123â€“0.16664 |
+| AUROC | 0.96399 | 0.94700–0.97874 |
+| Average precision | 0.96715 | 0.94498–0.98399 |
+| Accuracy | 87.38% | 84.42–90.17% |
+| Sensitivity | 99.74% | 99.16–100.00% |
+| Specificity | 66.67% | 60.87–72.73% |
+| Brier score | 0.13948 | 0.11123–0.16664 |
 
 TN 154, FP 77, FN 1, TP 386. The false-positive rate among the 231 NORMAL-labeled test images is 33.33%. This does not support clinical deployment. Intervals use 1,000 resamples of 426 filename groups and omit training, model-selection and external-population uncertainty.
 
-Compared with the 224-pixel ResNet18 ensemble, AUROC differs by +0.00586 (paired interval âˆ’0.00546 to +0.01698) and Brier score by +0.00843 (âˆ’0.00125 to +0.01832). Neither improvement nor equivalence is established. Identical confusion totals do not imply identical predictions. Within the 320-pixel ensemble, temperature scaling reduced test Brier score from 0.14313 to 0.13948 and log loss from 1.15973 to 0.78876; the 224-pixel ensemble showed the opposite calibration effect.
+Compared with the 224-pixel ResNet18 ensemble, AUROC differs by +0.00586 (paired interval −0.00546 to +0.01698) and Brier score by +0.00843 (−0.00125 to +0.01832). Neither improvement nor equivalence is established. Identical confusion totals do not imply identical predictions. Within the 320-pixel ensemble, temperature scaling reduced test Brier score from 0.14313 to 0.13948 and log loss from 1.15973 to 0.78876; the 224-pixel ensemble showed the opposite calibration effect.
 
 All nine 320-pixel checkpoints loaded and ran on CPU. Fresh selected-ensemble inference on all 618 hash-matched test images changed zero classifications; maximum score difference was 0.000004643. [Verification run 360906861](https://www.kaggle.com/code/temirlanbekturov/pneumonia-resolution-320-cpu-verification?scriptVersionId=360906861) passed in 433.3 seconds. Exact results and checkpoint hashes are in `results/benchmark320_cpu_verification.json`.
 
-Selection-group resampling retained this candidate in 852/1,000 replicates. That frequency is descriptive stability, not a probability of superiority. Calibration-only cutoff percentiles were 0.60672â€“0.89223 (2.5thâ€“97.5th), holding temperature fixed; the cutoff was not changed. Full results for all 18 trials are retained, including models with higher test scores that were not selected.
+Selection-group resampling retained this candidate in 852/1,000 replicates. That frequency is descriptive stability, not a probability of superiority. Calibration-only cutoff percentiles were 0.60672–0.89223 (2.5th–97.5th), holding temperature fixed; the cutoff was not changed. Full results for all 18 trials are retained, including models with higher test scores that were not selected.
 
-Raw calibration probabilities were not exported. Independent CPU reproduction verifies the saved transformation and test predictions, but does not independently refit the calibration temperature from the original raw calibration scores. Repeating that fit requires fresh inference or a future export that retains those scores.
+Original GPU raw calibration probabilities were not exported. Fresh CPU inference on all 482 calibration images now exports raw scores and independently refits temperature and cutoff. The selected 320-pixel ensemble passed: relative temperature difference 0.000001736, absolute cutoff difference 0.000000940, and zero changed calibration classifications. The 224-pixel comparator had one changed calibration classification: its saved score exactly equaled the cutoff and CPU inference moved it lower by 0.000001038. Its strict zero-change check remains failed; neither model nor cutoff was altered. Both models reproduced all test classifications. These fresh CPU exports do not replace the missing original GPU raw scores. Kaggle versions 360912398 (both calibration fits; combined strict failure) and 360914770 (successful boundary inspection) preserve this evidence.
 
 The following sections preserve historical baseline and comparison results; their configurations are distinct from the current selected model.
 
@@ -65,7 +65,7 @@ Normal-image mean scores were 0.01834 in validation and 0.40409 in test. This is
 
 Descriptive calibration analysis found a Brier score of 0.01527 on validation versus 0.13507 on test (lower is better). The 10-bin equal-width expected calibration error was 0.01463 versus 0.14713. These bin-dependent estimates include sparsely populated bins and should not be treated as precise clinical calibration measurements. `analyze_predictions.py` saves bin counts alongside the plot.
 
-A separate validation-only stability analysis resampled 538 filename-derived patient groups 1,000 times and recomputed maximum-Youden thresholds. The threshold distribution had median 0.10017, interquartile range 0.07572Ã¢â‚¬â€œ0.56028, and 2.5thÃ¢â‚¬â€œ97.5th percentiles 0.04361Ã¢â‚¬â€œ0.98781. This suggests sensitivity of the selected cutoff to the development sample. These descriptive percentiles are not a guaranteed interval for an optimal clinical cutoff, and the same validation set had already been used for checkpoint selection. The saved deployment threshold was not changed. Run `inspect_threshold_stability.py` to reproduce the calculation without accessing test predictions.
+A separate validation-only stability analysis resampled 538 filename-derived patient groups 1,000 times and recomputed maximum-Youden thresholds. The threshold distribution had median 0.10017, interquartile range 0.07572–0.56028, and 2.5th–97.5th percentiles 0.04361–0.98781. This suggests sensitivity of the selected cutoff to the development sample. These descriptive percentiles are not a guaranteed interval for an optimal clinical cutoff, and the same validation set had already been used for checkpoint selection. The saved deployment threshold was not changed. Run `inspect_threshold_stability.py` to reproduce the calculation without accessing test predictions.
 
 The exported state dictionaries were checked for exact equality, and the prediction CLI successfully loaded the baseline on CPU and produced deterministic finite scores on a synthetic fixture. This is an engineering smoke test, not medical validation. Local testing used a newer PyTorch release than the Kaggle training container; versions are recorded separately in `requirements-local-lock.txt` and the exported `environment.json`.
 
@@ -98,15 +98,15 @@ No research manuscript should present this baseline as a novel algorithm. A defe
 
 | Source test metric | Estimate | Descriptive 95% group-bootstrap interval |
 |---|---:|---:|
-| AUROC | 0.95813 | 0.93952Ã¢â‚¬â€œ0.97529 |
-| Accuracy | 87.38% | 84.47Ã¢â‚¬â€œ90.32% |
-| Sensitivity | 99.74% | 99.16Ã¢â‚¬â€œ100.00% |
-| Specificity | 66.67% | 60.37Ã¢â‚¬â€œ73.02% |
-| Brier score | 0.13105 | 0.10311Ã¢â‚¬â€œ0.15994 |
+| AUROC | 0.95813 | 0.93952–0.97529 |
+| Accuracy | 87.38% | 84.47–90.32% |
+| Sensitivity | 99.74% | 99.16–100.00% |
+| Specificity | 66.67% | 60.37–73.02% |
+| Brier score | 0.13105 | 0.10311–0.15994 |
 
 Confusion counts are TN 154, FP 77, FN 1 and TP 386. Relative to the earlier selected follow-up, accuracy differs by -0.81 percentage points (paired interval -2.56 to +0.84) and AUROC by -0.01031 (interval -0.02579 to +0.00527). These intervals do not establish improvement or equivalence. The Brier difference is -0.01203 (interval -0.02421 to -0.00062), an exploratory comparison without multiplicity adjustment. All intervals use 1,000 resamples of the same 426 filename groups and omit training and selection uncertainty.
 
-For this ensemble, temperature scaling worsened test Brier score from 0.12752 to 0.13105 and log loss from 0.97988 to 1.27754. Calibration-only threshold resampling gave 2.5thÃ¢â‚¬â€œ97.5th percentiles 0.18496Ã¢â‚¬â€œ0.94266, holding temperature fixed. These observations do not justify retuning on the source test.
+For this ensemble, temperature scaling worsened test Brier score from 0.12752 to 0.13105 and log loss from 0.97988 to 1.27754. Calibration-only threshold resampling gave 2.5th–97.5th percentiles 0.18496–0.94266, holding temperature fixed. These observations do not justify retuning on the source test.
 
 [CPU verification version 360888922](https://www.kaggle.com/code/temirlanbekturov/pneumonia-checkpoint-cpu-verification?scriptVersionId=360888922) reconstructed the ensemble and all reported trial metrics, loaded all nine checkpoints, verified the decoded pixels of all 618 source test images and reproduced every selected-model classification. Maximum score difference was 0.000004414. This verifies engineering reproduction, not medical validity.
 

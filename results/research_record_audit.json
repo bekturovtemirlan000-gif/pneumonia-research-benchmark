@@ -3,6 +3,8 @@
   "checks": [
     "224: nine trials, development choice, frozen parameters, 29 confusion records and CPU summary agree",
     "320: nine trials, development choice, frozen parameters, 29 confusion records and CPU summary agree",
+    "224: calibration reproduction and boundary records agree; strict status preserved",
+    "320: calibration reproduction and boundary records agree; strict status preserved",
     "Combined choice agrees with all six development candidate means",
     "Paired point differences agree with saved ensemble metrics; all reported paired intervals include zero",
     "Selection-bootstrap winner counts and fractions agree"
@@ -11,7 +13,7 @@
   "limitations": [
     "Raw per-image prediction archives remain on Kaggle; local records came from visible logs and previews",
     "CPU verification reloaded images and checkpoints on Kaggle; this audit checks its saved summary",
-    "Raw calibration probabilities were not exported, so saved calibrated files alone cannot independently reproduce the original temperature optimization",
+    "Original GPU raw calibration probabilities were not exported; fresh CPU scores support a separate refit with one comparator boundary disagreement",
     "Test sampling intervals omit training and selection uncertainty; filename groups are proxies"
   ]
 }

@@ -1,0 +1,37 @@
+{
+  "status": "numerical discrepancy requires review",
+  "image_size": 224,
+  "architecture": "resnet18",
+  "images": 482,
+  "checkpoints": [
+    {
+      "checkpoint": "resnet18_seed_42/best_weights.pt",
+      "sha256": "2d2c0fc18edfaf1a53175c31d3150cd5ac1e68fa930e3ba1637c15c372711d57"
+    },
+    {
+      "checkpoint": "resnet18_seed_123/best_weights.pt",
+      "sha256": "ffa64a285172412c8c4c8b450938ade39ed21475dd43376e5750a5cf2b8adb22"
+    },
+    {
+      "checkpoint": "resnet18_seed_2026/best_weights.pt",
+      "sha256": "26ca9af543265d60779313186234cd53294e0391392c6e73c5502755b312ecbf"
+    }
+  ],
+  "saved_temperature": 0.6729322659796929,
+  "cpu_refitted_temperature": 0.6729331909759689,
+  "relative_temperature_error": 0.0000013745756040073331,
+  "saved_threshold": 0.7209051735307829,
+  "cpu_refitted_threshold": 0.7209038735131078,
+  "absolute_threshold_error": 0.0000013000176750654902,
+  "max_frozen_score_difference": 0.0000023952565001428283,
+  "changed_frozen_calibration_predictions": 1,
+  "tolerances": {
+    "score_absolute": 0.0001,
+    "temperature_relative": 0.001,
+    "threshold_absolute": 0.0001
+  },
+  "test_predictions_accessed": false,
+  "frozen_config_changed": false,
+  "torch_version": "2.11.0+cpu",
+  "interpretation": "Calibration-only numerical reproduction from original pixels and saved checkpoints; no clinical or external validation. Fresh CPU scores are additional evidence, not original GPU calibration scores."
+}

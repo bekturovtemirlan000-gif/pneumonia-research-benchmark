@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-21T20:29:01.321146+00:00",
+  "updated_utc": "2026-10-21T21:04:17.761915+00:00",
   "experiments": [
     {
       "experiment": "benchmark224",
@@ -67,6 +67,42 @@
       "source_sha256_lf": "d5554d25dd3726fde0eada34dc91f86d0740c5ca445de416fbf1da567ac17609",
       "status": "completed",
       "job_runtime_seconds": 66.2
+    },
+    {
+      "experiment": "calibration_reproduction_v1_failed",
+      "kaggle_version": 360910997,
+      "url": "https://www.kaggle.com/code/temirlanbekturov/pneumonia-calibration-fit-reproduction?scriptVersionId=360910997",
+      "notebook": "pneumonia_calibration_reproduction.ipynb",
+      "source_sha256_lf": "dd6f005f66139a13d6a8247988803bb0b644c8735429573fdf9a87150fe6867b",
+      "status": "failed before inference: prediction CSV has no split column",
+      "job_runtime_seconds": 66.1
+    },
+    {
+      "experiment": "calibration_reproduction_v2_failed",
+      "kaggle_version": 360911693,
+      "url": "https://www.kaggle.com/code/temirlanbekturov/pneumonia-calibration-fit-reproduction?scriptVersionId=360911693",
+      "notebook": "pneumonia_calibration_reproduction.ipynb",
+      "source_sha256_lf": "42c4cadce01007951dc450751e3818d689f2975b047963dc6dcb6116000c26ab",
+      "status": "failed before inference: original 224 configuration omits image_size",
+      "job_runtime_seconds": 78.2
+    },
+    {
+      "experiment": "calibration_reproduction",
+      "kaggle_version": 360912398,
+      "url": "https://www.kaggle.com/code/temirlanbekturov/pneumonia-calibration-fit-reproduction?scriptVersionId=360912398",
+      "notebook": "pneumonia_calibration_reproduction.ipynb",
+      "source_sha256_lf": "78b068f73f23a7882f12c241512266ef650c232b0787a7247237875a30bb2a0e",
+      "status": "completed inference; strict check failed for 224 (one changed calibration label); 320 passed",
+      "job_runtime_seconds": 454.8
+    },
+    {
+      "experiment": "calibration_boundary",
+      "kaggle_version": 360914770,
+      "url": "https://www.kaggle.com/code/temirlanbekturov/pneumonia-calibration-boundary-review?scriptVersionId=360914770",
+      "notebook": "pneumonia_calibration_boundary.ipynb",
+      "source_sha256_lf": "1d9ae3b59f17ffd61537ebb90408fb1a4855a54ea9a1062fd5906f25f9ee9651",
+      "status": "completed; comparator cutoff equality explains one numerical crossing; strict failure preserved",
+      "job_runtime_seconds": 23.7
     }
   ],
   "provenance_notes": [

@@ -1,0 +1,7 @@
+{
+  "purpose": "PDF report generation only; not training",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "reportlab": "4.4.9",
+  "pillow": "12.3.0",
+  "builder": "build_research_report.py"
+}
