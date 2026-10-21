@@ -1,0 +1,12 @@
+{
+  "recorded_utc": "2026-10-21T22:03:17.824948+00:00",
+  "purpose": "Verify actual predict.py subprocess entry point against frozen selected 320-pixel export",
+  "selection": "First six test rows in ascending decoded-pixel SHA-256 order, independent of scores and correctness",
+  "images": 6,
+  "score_tolerance": 0.0001,
+  "required_changed_classifications": 0,
+  "checkpoint_identity": "Match all three SHA-256 hashes and config in external_model_lock.json",
+  "source_identity": "Match frozen predict.py LF SHA-256",
+  "scope": "Engineering smoke test only; does not replace full 618-image CPU check or external validation",
+  "changes": "No retraining, threshold adjustment, model selection or clinical claims"
+}

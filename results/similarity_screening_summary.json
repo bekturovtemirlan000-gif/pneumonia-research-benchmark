@@ -124,5 +124,21 @@
     ],
     "observation": "Visible differences in positioning, framing or appearance; no duplicate confirmed from these thumbnails. Discordant source labels in one pair do not establish label error.",
     "limitations": "Partial sheet review; no patient-identity conclusion or claim to have ruled out transformed/repeated acquisitions. No cohort exclusions or model changes."
+  },
+  "sheet1_visual_review": {
+    "sheet": "candidate_review_1.png",
+    "method": "Rendered Kaggle thumbnail preview; nonclinical image-correspondence inspection",
+    "pairs_inspected": [
+      [
+        "IM-0286-0001.jpeg",
+        "IM-0307-0001.jpeg"
+      ],
+      [
+        "IM-0299-0001.jpeg",
+        "NORMAL2-IM-1332-0001.jpeg"
+      ]
+    ],
+    "observation": "Both pairs have perceptual-hash distance 2 and normal source labels. Framing and image appearance differ visibly in the first pair. Similar appearance in the second is inconclusive at thumbnail resolution. No duplicate or patient-identity conclusion is established.",
+    "limitations": "Partial sheet review only; no cohort exclusions or model changes. High-resolution source comparison remains necessary for duplicate adjudication."
   }
 }

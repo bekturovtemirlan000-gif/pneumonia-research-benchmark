@@ -1,0 +1,81 @@
+{
+  "status": "passed",
+  "images": 6,
+  "selection": "First six test images by ascending decoded-pixel SHA-256",
+  "max_absolute_score_difference": 0.000001204688663936082,
+  "changed_classifications": 0,
+  "score_tolerance": 0.0001,
+  "inference_source_sha256_lf": "2ba76d5b03a78cb108fee19cdfb8f1cd89d3a1dcc9bf05b2e68f87283dbdb64a",
+  "checkpoint_hashes_verified": [
+    {
+      "checkpoint": "efficientnet_b0_seed_42/best_weights.pt",
+      "sha256": "1cf56a0225e9c9ba65e8808d226703895f0ce8cda7a3acfe6f4e106c26cb8005"
+    },
+    {
+      "checkpoint": "efficientnet_b0_seed_123/best_weights.pt",
+      "sha256": "74f455d965587842516241047541e84981af291a5743c74745ec6d1cf8ab00e8"
+    },
+    {
+      "checkpoint": "efficientnet_b0_seed_2026/best_weights.pt",
+      "sha256": "2a8776986c46efcb8a9bdacd2e0f587a8674d90a4b580e1027cbf44b2b6ca7d4"
+    }
+  ],
+  "records": [
+    {
+      "sha256": "0022396c3189b1d693c679e0972dc970e71fd881912c94e2ce39d176f5c2e2db",
+      "saved_score": 0.9999795708210082,
+      "cli_score": 0.9999795708210082,
+      "absolute_score_difference": 0,
+      "changed_classification": false,
+      "exit_code": 0
+    },
+    {
+      "sha256": "007f45d191f2e532f8a87b19b89a97d0f57ac3f8ab58a0f2141a5d2a3fc03767",
+      "saved_score": 0.9999939980792375,
+      "cli_score": 0.9999939980792375,
+      "absolute_score_difference": 0,
+      "changed_classification": false,
+      "exit_code": 0
+    },
+    {
+      "sha256": "00afe62072436ce4c1cbdb48db130a12edc74a1d74cd9d7c4e816e7e0d801616",
+      "saved_score": 0.9999939980792375,
+      "cli_score": 0.9999939980792375,
+      "absolute_score_difference": 0,
+      "changed_classification": false,
+      "exit_code": 0
+    },
+    {
+      "sha256": "00b070f6acb32b60b294c05cb7f4709fedcfa53fa89c86a2ae005182d7edad6d",
+      "saved_score": 0.015658503027658283,
+      "cli_score": 0.015658619756578323,
+      "absolute_score_difference": 1.1672892004030433e-7,
+      "changed_classification": false,
+      "exit_code": 0
+    },
+    {
+      "sha256": "00d1af29fcc6f2c21791618f1031e6083388161a8f0a5941509d3358d305336d",
+      "saved_score": 0.7307401478891254,
+      "cli_score": 0.7307413525777894,
+      "absolute_score_difference": 0.000001204688663936082,
+      "changed_classification": false,
+      "exit_code": 0
+    },
+    {
+      "sha256": "00d34ae3fb372a2a15657e7e02e538c14621ea21fea3fbea01d39628ea708166",
+      "saved_score": 0.9999939980792375,
+      "cli_score": 0.9999939980792375,
+      "absolute_score_difference": 0,
+      "changed_classification": false,
+      "exit_code": 0
+    }
+  ],
+  "scope": "Actual predict.py subprocess smoke test; not full-cohort or external validation",
+  "provenance": {
+    "kaggle_version": 360927122,
+    "job_runtime_seconds": 76.8,
+    "url": "https://www.kaggle.com/code/temirlanbekturov/pneumonia-inference-command-verification?scriptVersionId=360927122",
+    "source_sha256_lf": "5938aac53d987fe405b9f2fd25f984eed1f0de21c0b79febcd815bb42cabb790",
+    "capture": "Visible completed Kaggle log; not archive download"
+  }
+}

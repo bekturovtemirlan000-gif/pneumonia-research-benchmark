@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-21T21:57:21.899022+00:00",
+  "updated_utc": "2026-10-21T22:12:18.235608+00:00",
   "experiments": [
     {
       "experiment": "benchmark224",
@@ -138,6 +138,15 @@
       "source_sha256_lf": "aac58565602ee7cc57a115f28ccd80578d2ca4c1d49bfa587f03346cb7382a15",
       "status": "completed; all 5371 exported scores reconstructed exactly; 1000 paired bootstrap resamples",
       "job_runtime_seconds": 33.5
+    },
+    {
+      "experiment": "inference_cli_smoke",
+      "kaggle_version": 360927122,
+      "url": "https://www.kaggle.com/code/temirlanbekturov/pneumonia-inference-command-verification?scriptVersionId=360927122",
+      "notebook": "pneumonia_inference_cli_smoke.ipynb",
+      "source_sha256_lf": "5938aac53d987fe405b9f2fd25f984eed1f0de21c0b79febcd815bb42cabb790",
+      "status": "completed; actual CLI passed on six hash-selected images; zero changed classes",
+      "job_runtime_seconds": 76.8
     }
   ],
   "provenance_notes": [

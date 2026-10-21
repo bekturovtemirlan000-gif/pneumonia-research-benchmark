@@ -8,6 +8,7 @@
     "224: reliability-bin counts, positive totals, ECE and mean scores reconcile; log-loss convention labeled",
     "320: reliability-bin counts, positive totals, ECE and mean scores reconcile; log-loss convention labeled",
     "Prospective external model lock matches selected config, two checkpoint checks and inference source; no external evaluation implied",
+    "Actual CLI six-image smoke test matches source/checkpoint lock and satisfies numerical tolerances",
     "Frozen error overlap, class-specific counts and subgroup metric decomposition agree",
     "Geometry coefficient verification passed; same 618-image cohort and geometry-minus-neural differences reconcile",
     "Combined choice agrees with all six development candidate means",

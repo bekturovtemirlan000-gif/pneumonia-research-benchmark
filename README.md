@@ -70,7 +70,9 @@ Saved reliability-bin diagnostics show substantial differences between fitted ca
 5. For calibration-fit reproduction, import `pneumonia_calibration_reproduction.ipynb` into a CPU notebook with **both** completed training outputs and the original image dataset. It checks all 482 calibration images per model and exports fresh raw CPU scores. A strict failure can occur after both reports are saved; read each report separately. To inspect score crossings without changing the criteria, run `pneumonia_calibration_boundary.ipynb` with that calibration notebook's output attached.
 6. For descriptive error overlap and filename subgroups, run `pneumonia_frozen_error_analysis.ipynb` on CPU with both completed training outputs. This reads frozen test predictions; it does not choose models or fit thresholds. Filename subgroup annotations are not independently verified clinical diagnoses.
 7. For the post hoc dimension-only control, run `pneumonia_geometry_control.ipynb` on CPU with the completed 224-pixel output and original image dataset. It verifies all retained pixel identities, then fits a fixed logistic regression using log width and log height on training images only. Image loading can take substantially longer than fitting. This control is separate from the selected neural model.
-8. Retain immutable Kaggle version IDs and download complete outputs when possible. Keep `inference_config.json` beside its checkpoint subdirectories. GitHub contains compact evidence records and training source; it does not contain the new checkpoint archives or per-image predictions.
+8. Run `pneumonia_geometry_analysis.ipynb` on CPU with the completed geometry-control output and completed 320-pixel training output. It reconstructs every geometry score from the saved coefficients, verifies partition metrics, and computes paired uncertainty with direction geometry minus neural.
+9. To exercise the actual single-image command, run `pneumonia_inference_cli_smoke.ipynb` on CPU with the **original recorded** 320-pixel output (version 360888746) and original dataset. It checks the frozen configuration, inference source and checkpoint hashes, then calls `predict.py` in six separate processes on the first six test hashes. This supplements the full-cohort check; it is not external validation. Its embedded lock intentionally rejects newly retrained weights. To verify your independent rerun, create a separate documented model lock from that run and rebuild the notebook; do not label it verification of the original weights.
+10. Retain immutable Kaggle version IDs and download complete outputs when possible. Keep `inference_config.json` beside its checkpoint subdirectories. GitHub contains compact evidence records and training source; it does not contain the new checkpoint archives or per-image predictions.
 
 Training requires the original audited source cohort and deliberately fails if cohort digests differ. Do not disable those checks and treat a changed dataset as the same experiment. A different dataset requires a separate documented protocol.
 
@@ -113,6 +115,14 @@ python validate_artifacts.py artifacts/baseline_v1/pneumonia_outputs
 python -m unittest discover -s tests -v
 ```
 
+For the **current selected 320-pixel ensemble**, download your completed resolution notebook output, then use its `pneumonia_resolution320_outputs` directory:
+
+```powershell
+python predict.py --model-dir path/to/pneumonia_resolution320_outputs --image path/to/xray.jpeg --device cpu
+```
+
+Keep `inference_config.json` and the three `efficientnet_b0_seed_*/best_weights.pt` subdirectories together. The command loads the model locally, averages the three sigmoid scores, applies the saved temperature, and uses the saved threshold. It does not train or download model weights. The examples above reference historical experiments, whose checkpoints are not interchangeable with the selected model.
+
 Prediction requires PyTorch, torchvision and Pillow. The output score is not a calibrated clinical probability. The model does not verify that an input is a valid chest X-ray. Do not interpret predictions on arbitrary images as medical findings.
 
 ## Follow-up experiment
@@ -150,3 +160,6 @@ The neural ensemble's AUROC exceeded this control by 0.0556. The archived paired
 The control was specified after neural test results were inspected and before its own results were observed. Strong predictability from dimensions signals a dataset association; it does not prove that the neural network relies on dimensions or establish a causal explanation. Dimensions are measured in pixels, not physical units. No checkpoint, cohort or cutoff was changed.
 
 [Control run](https://www.kaggle.com/code/temirlanbekturov/pneumonia-image-geometry-control?scriptVersionId=360920257) completed in 1,221.4 seconds. [Independent coefficient reconstruction and comparison](https://www.kaggle.com/code/temirlanbekturov/pneumonia-geometry-control-verification?scriptVersionId=360924812) completed in 33.5 seconds: all 5,371 scores reconstructed exactly, with zero changed classifications. Full records are in `results/geometry_control.json` and `results/geometry_analysis.json`.
+
+
+The [actual inference-command smoke test](https://www.kaggle.com/code/temirlanbekturov/pneumonia-inference-command-verification?scriptVersionId=360927122) also passed. It verified the frozen source, configuration and all three checkpoint hashes, then ran `predict.py` in six separate CPU subprocesses on the first six test images by ascending pixel hash. All commands exited successfully, no classification changed, and the maximum score difference was 0.000001205. This small entry-point check supplements the separate 618-image verification; it is not external validation. See `results/inference_cli_smoke.json`.

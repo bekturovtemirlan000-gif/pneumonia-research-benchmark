@@ -103,6 +103,15 @@ def audit(root=Path('.')):
     if hashlib.sha256((root/'predict.py').read_text(encoding='utf-8').encode()).hexdigest()!=lock['inference_source_sha256_lf']:
         raise ValueError('External inference source lock mismatch')
     checks.append('Prospective external model lock matches selected config, two checkpoint checks and inference source; no external evaluation implied')
+    cli=read('inference_cli_smoke.json')
+    if cli['status']!='passed' or cli['images']!=6 or len(cli['records'])!=6 or cli['changed_classifications']!=0:
+        raise ValueError('Inference CLI smoke result failed')
+    if cli['inference_source_sha256_lf']!=lock['inference_source_sha256_lf'] or cli['checkpoint_hashes_verified']!=lock['checkpoints']:
+        raise ValueError('CLI source or checkpoint lock mismatch')
+    same(max(row['absolute_score_difference'] for row in cli['records']),cli['max_absolute_score_difference'],'CLI maximum score difference')
+    if cli['max_absolute_score_difference']>cli['score_tolerance'] or any(row['exit_code']!=0 or row['changed_classification'] for row in cli['records']):
+        raise ValueError('CLI subprocess reproduction failed')
+    checks.append('Actual CLI six-image smoke test matches source/checkpoint lock and satisfies numerical tolerances')
     errors=read('frozen_error_analysis.json')
     overlap=errors['overlap']
     if sum(overlap[k] for k in ('both_correct','both_incorrect','only_224_correct','only_320_correct'))!=errors['images']:
