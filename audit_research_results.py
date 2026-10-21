@@ -75,6 +75,22 @@ def audit(root=Path('.')):
         elif calibration['status']!='passed':
             raise ValueError('Selected model calibration reproduction did not pass')
         checks.append(f'{size}: calibration reproduction and boundary records agree; strict status preserved')
+    for size in (224,320):
+        diagnostic=read(f'benchmark{size}_prediction_diagnostics.json')
+        for split,n,positive in (('selection',456,319),('calibration',482,349),('test',618,387)):
+            item=diagnostic[split];bins=item['calibration_bins']
+            if item['n']!=n or sum(row[2] for row in bins)!=n:
+                raise ValueError('Diagnostic bin population mismatch')
+            if any(not (0<=a<=1 and 0<=b<=1 and count>0 and count==int(count)) for a,b,count in bins):
+                raise ValueError('Invalid reliability bin')
+            same(sum(b*count for a,b,count in bins),positive,'bin positive total')
+            same(sum(count*abs(a-b) for a,b,count in bins)/n,item['ece_10_equal_width_bins'],'bin ECE')
+            same(sum(a*count for a,b,count in bins)/n,((n-positive)*item['class_0_mean_score']+positive*item['class_1_mean_score'])/n,'bin mean score')
+        for metric in ('auroc','average_precision','brier_score'):
+            same(diagnostic['test'][metric],read(f'benchmark{size}_metrics.json')['test'][metric],'diagnostic test metric')
+        if 'diagnostic_log_loss' not in diagnostic['metric_definitions']:
+            raise ValueError('Distinct log-loss convention must be disclosed')
+        checks.append(f'{size}: reliability-bin counts, positive totals, ECE and mean scores reconcile; log-loss convention labeled')
     errors=read('frozen_error_analysis.json')
     overlap=errors['overlap']
     if sum(overlap[k] for k in ('both_correct','both_incorrect','only_224_correct','only_320_correct'))!=errors['images']:

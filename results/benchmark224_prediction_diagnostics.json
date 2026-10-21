@@ -1,0 +1,192 @@
+{
+  "interpretation": "Descriptive frozen-score diagnostics; development partitions influenced fitting or selection and are not unbiased evaluation.",
+  "selection": {
+    "n": 456,
+    "auroc": 0.9986270965379951,
+    "average_precision": 0.9994035879499652,
+    "brier_score": 0.01014545273471342,
+    "log_loss": 0.06065287773561449,
+    "ece_10_equal_width_bins": 0.013277624282780502,
+    "class_0_mean_score": 0.019531708965511905,
+    "class_1_mean_score": 0.9854348219956662,
+    "calibration_bins": [
+      [
+        0.0016821272878809615,
+        0.007462686567164179,
+        134
+      ],
+      [
+        0.1803309929333302,
+        0.0,
+        1
+      ],
+      [
+        0.286412886263954,
+        0.5,
+        2
+      ],
+      [
+        0.3048153180536972,
+        1.0,
+        1
+      ],
+      [
+        0.5933191341327458,
+        1.0,
+        1
+      ],
+      [
+        0.6576124300200136,
+        1.0,
+        1
+      ],
+      [
+        0.7825318603558893,
+        1.0,
+        3
+      ],
+      [
+        0.8571809087188569,
+        1.0,
+        5
+      ],
+      [
+        0.999551115311646,
+        0.9935064935064936,
+        308
+      ]
+    ]
+  },
+  "calibration": {
+    "n": 482,
+    "auroc": 0.9998491931835319,
+    "average_precision": 0.9999427860400779,
+    "brier_score": 0.005240375940356681,
+    "log_loss": 0.015220176381409546,
+    "ece_10_equal_width_bins": 0.007961457113040903,
+    "class_0_mean_score": 0.01475573806496495,
+    "class_1_mean_score": 0.9918732023375897,
+    "calibration_bins": [
+      [
+        0.002093634372393557,
+        0.0,
+        128
+      ],
+      [
+        0.1381988266784123,
+        0.3333333333333333,
+        3
+      ],
+      [
+        0.274373931584529,
+        0.5,
+        2
+      ],
+      [
+        0.3996036883760833,
+        1.0,
+        1
+      ],
+      [
+        0.5410023211195926,
+        0.0,
+        1
+      ],
+      [
+        0.6728540326864748,
+        0.0,
+        1
+      ],
+      [
+        0.7289453176582164,
+        1.0,
+        2
+      ],
+      [
+        0.9994871527851451,
+        1.0,
+        344
+      ]
+    ]
+  },
+  "test": {
+    "n": 618,
+    "auroc": 0.9581305860375628,
+    "average_precision": 0.9614192702794777,
+    "brier_score": 0.13104739205929208,
+    "log_loss": 1.1607870535035445,
+    "ece_10_equal_width_bins": 0.14583451722489846,
+    "class_0_mean_score": 0.3954417952385678,
+    "class_1_mean_score": 0.996844126472553,
+    "calibration_bins": [
+      [
+        0.01112425289498029,
+        0.0,
+        112
+      ],
+      [
+        0.16001644332107148,
+        0.08333333333333333,
+        12
+      ],
+      [
+        0.25315894644773024,
+        0.0,
+        9
+      ],
+      [
+        0.34425855650061316,
+        0.0,
+        5
+      ],
+      [
+        0.4414547270799187,
+        0.0,
+        7
+      ],
+      [
+        0.5260344116874607,
+        0.0,
+        3
+      ],
+      [
+        0.644833791550632,
+        0.0,
+        6
+      ],
+      [
+        0.7446050532753865,
+        0.2,
+        5
+      ],
+      [
+        0.8721721468435667,
+        0.0,
+        3
+      ],
+      [
+        0.9979891752621288,
+        0.8442982456140351,
+        456
+      ]
+    ]
+  },
+  "metric_definitions": {
+    "calibration_bins": [
+      "mean_score",
+      "observed_positive_fraction",
+      "image_count"
+    ],
+    "ece": "Count-weighted absolute mean-score versus observed-frequency difference in ten equal-width score bins; empty bins omitted",
+    "diagnostic_log_loss": "Saved analyze_predictions.py applies explicit score clipping to [1e-7,1-1e-7] after calibration before sklearn log_loss",
+    "main_benchmark_log_loss": "research_benchmark.py uses sklearn log_loss directly on calibrated float64 scores, with library default clipping; distinct from diagnostic convention",
+    "scope": "Source-partition descriptive comparison; ECE is bin-dependent and development curves are optimistic"
+  },
+  "provenance": {
+    "kaggle_version": 360888922,
+    "file": "verification_outputs/prediction_analysis.json",
+    "capture": "All scalar values and nested bin rows expanded in visible Kaggle JSON preview",
+    "checks": "Bin counts, positive totals, ECE and class-weighted mean scores reconcile",
+    "source": "analyze_predictions.py; frozen saved GPU predictions, not new CPU scores"
+  }
+}

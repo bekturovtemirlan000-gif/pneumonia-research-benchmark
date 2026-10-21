@@ -59,6 +59,8 @@ Both arms completed; `plot_resolution_comparison.py` accepts their two `all_tria
 
 The separate similarity-screening notebook completed. Its 64-bit perceptual-hash screen found 814 cross-partition candidate pairs, including 269 involving test images, among 5,371 retained images. These are not confirmed duplicates. Limited contact-sheet inspection found visible differences in the reviewed examples; it does not establish patient independence or exclude duplicates elsewhere. The counts and review limitations are recorded in `results/similarity_screening_summary.json`. No cohort exclusions or model changes were made from this screen.
 
+Saved reliability-bin diagnostics show substantial differences between fitted calibration and source-test behavior. Ten-bin ECE is 0.00941 on calibration versus 0.16577 on test for the selected model; this is descriptive, bin-dependent, and has no uncertainty interval here. All bin counts are retained in `results/benchmark320_prediction_diagnostics.json` and the corresponding 224-pixel record. `plot_calibration_diagnostics.py` creates the report's reliability figure. These records distinguish the diagnostic log-loss clipping rule from the main benchmark rule: the 224-pixel test log losses are 1.16079 and 1.27754 respectively. Neither convention was changed after evaluation.
+
 ## Reproduce the current research comparison on Kaggle
 
 1. Import `pneumonia_research_benchmark.ipynb` into a new Kaggle notebook. Attach [Chest X-Ray Images (Pneumonia)](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia), select a GPU and enable Internet for official ImageNet weights. Use **Save Version → Save & Run All**. This runs nine 224-pixel trials and writes `/kaggle/working/pneumonia_benchmark_outputs`.

@@ -31,6 +31,8 @@ Original GPU raw calibration probabilities were not exported. Fresh CPU inferenc
 
 Frozen error analysis found 531 test images correct for both ensembles, 69 incorrect for both, and nine correct only for each model. All 18 disagreements were NORMAL-labeled images; both models missed the same one pneumonia-labeled image. Both detected 239/240 bacterial-filename and 147/147 viral-filename pneumonia images. These post hoc counts describe binary classification of source labels, not differential diagnosis or guaranteed future sensitivity. One filename proxy group spans both pneumonia subgroups, so subgroup group counts are not independent patient counts. See `results/frozen_error_analysis.json` and Kaggle version 360916945.
 
+The selected model's ten-bin ECE is 0.00941 on its fitted calibration partition and 0.16577 on source test. Mean score for NORMAL-labeled images is 0.02119 versus 0.44694. These descriptive diagnostics expose poor transport of development calibration; they do not identify its cause or validate patient-level probabilities. Sparse-bin counts are retained with the figure. Diagnostic log loss uses extra clipping to [1e-7, 1-1e-7], so its values must not be mixed with the main benchmark's default-clipping log loss.
+
 The following sections preserve historical baseline and comparison results; their configurations are distinct from the current selected model.
 
 ## Completed baseline

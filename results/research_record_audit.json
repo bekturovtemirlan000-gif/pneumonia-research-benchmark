@@ -5,6 +5,8 @@
     "320: nine trials, development choice, frozen parameters, 29 confusion records and CPU summary agree",
     "224: calibration reproduction and boundary records agree; strict status preserved",
     "320: calibration reproduction and boundary records agree; strict status preserved",
+    "224: reliability-bin counts, positive totals, ECE and mean scores reconcile; log-loss convention labeled",
+    "320: reliability-bin counts, positive totals, ECE and mean scores reconcile; log-loss convention labeled",
     "Frozen error overlap, class-specific counts and subgroup metric decomposition agree",
     "Combined choice agrees with all six development candidate means",
     "Paired point differences agree with saved ensemble metrics; all reported paired intervals include zero",
