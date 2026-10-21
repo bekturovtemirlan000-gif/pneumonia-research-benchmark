@@ -15,8 +15,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 27385,
-      "sha256": "cbb1c8a13b2c3945f628dd043e2ac9c2fd2b8abd4dcc950ad0afd7f2ede78c4c"
+      "bytes": 27776,
+      "sha256": "aac02e8b1190ee3c766da528568aa1483984853eab1ed6751fd0ab61502ea74b"
     },
     {
       "path": "analyze_benchmark_comparison.py",
@@ -60,8 +60,8 @@
     },
     {
       "path": "build_research_report.py",
-      "bytes": 41740,
-      "sha256": "b21bf49c97cdb9d7837cf913da3a17261185950aa23dd35e3f2298a0f6529b1b"
+      "bytes": 43544,
+      "sha256": "4f0958f4c51f663304391aa9faa2944b2eb0c55839afe8e36f252f137e15a49f"
     },
     {
       "path": "build_resolution_analysis.py",
@@ -139,6 +139,16 @@
       "sha256": "6308be03931f1e25eec050b3366a9ac8eec1a295caca11b9eb8ac5cc8ba386c7"
     },
     {
+      "path": "output/figures/cohort_flow/cohort_flow.pdf",
+      "bytes": 21102,
+      "sha256": "c25d414897b7ed86235b4302238a5dbc1bcdcd1c221693ee05cb8364dfbb712d"
+    },
+    {
+      "path": "output/figures/cohort_flow/cohort_flow.png",
+      "bytes": 173022,
+      "sha256": "6d0e6d1ba571ecf480a59a612cf6873a1b337ab78b983c97ed73acf18d0e9e76"
+    },
+    {
       "path": "output/figures/resolution_comparison/matched_resolution_trials.pdf",
       "bytes": 25177,
       "sha256": "ee64fb76d6c623db41cabd5331f997cab927b7ee577cdfad2bd3a0c00ef6bb73"
@@ -150,8 +160,8 @@
     },
     {
       "path": "output/pdf/pneumonia_research_report.pdf",
-      "bytes": 697062,
-      "sha256": "22ea941fbeec2f549d2c85aeb3d152086d4fbdb0ee08787dbafea55bc540c482"
+      "bytes": 875562,
+      "sha256": "a57004306b409b84fd2e5185769b10129cba97611c211262e15007f2fbdf3a9d"
     },
     {
       "path": "package_research.py",
@@ -167,6 +177,11 @@
       "path": "plot_calibration_diagnostics.py",
       "bytes": 2838,
       "sha256": "31c4c329bc6c7f254d132a7bd97a78388f9424a983c115c0629469acb2cfc435"
+    },
+    {
+      "path": "plot_cohort_flow.py",
+      "bytes": 3958,
+      "sha256": "372c4ebbb1c9c1d100d8324e513de2885a2e36173ab6d64aa7d0efb5ace910a7"
     },
     {
       "path": "plot_resolution_comparison.py",
@@ -492,6 +507,11 @@
       "path": "results/report_build_environment.json",
       "bytes": 235,
       "sha256": "226c8654d46ec008d581714682ca37cee0ac94b11b0ab06208f721a484c10037"
+    },
+    {
+      "path": "results/reporting_gap_review.json",
+      "bytes": 6144,
+      "sha256": "33daecf1ac6e3ecf617d99b79a52e4b30373bf05e70bdd527034e75b6e10ae65"
     },
     {
       "path": "results/research_record_audit.json",

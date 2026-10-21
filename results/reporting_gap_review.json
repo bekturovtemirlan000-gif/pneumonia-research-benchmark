@@ -1,0 +1,181 @@
+{
+  "reviewed_utc": "2026-10-21T22:20:17.621127+00:00",
+  "status": "Focused reporting-gap review; not a completed CLAIM checklist, score, certification or peer review",
+  "guidance": "https://doi.org/10.1148/ryai.240300",
+  "scope": "Selected reporting topics compared with the current report, code and evidence records; original checklist wording is not reproduced",
+  "findings": [
+    {
+      "items": [
+        1,
+        2,
+        5,
+        6
+      ],
+      "assessment": "Addressed in title/abstract and study design",
+      "evidence": [
+        "build_research_report.py"
+      ],
+      "detail": "Retrospective exploratory study; conventional pretrained convolutional networks; no clinical-use claim."
+    },
+    {
+      "items": [
+        7,
+        8,
+        14,
+        16,
+        17
+      ],
+      "assessment": "Partial source documentation",
+      "evidence": [
+        "results/source_population_review.json"
+      ],
+      "detail": "Original paper provides population and physician grading context. This project inherits labels, without independent adjudication or complete annotation instructions."
+    },
+    {
+      "items": [
+        9,
+        10,
+        12,
+        19,
+        20
+      ],
+      "assessment": "Documented with limitations",
+      "evidence": [
+        "research_benchmark.py",
+        "research_resolution320.py",
+        "results/benchmark224_data_audit.json"
+      ],
+      "detail": "Preprocessing, frozen cohorts and exact-hash separation are explicit. Grouping uses filename proxies; no claim of verified clinical patient independence. No covariate imputation."
+    },
+    {
+      "items": [
+        11,
+        13,
+        18,
+        36
+      ],
+      "assessment": "Unavailable or not independently assessed",
+      "evidence": [
+        "results/source_population_review.json",
+        "MODEL_CARD.md"
+      ],
+      "detail": "No independent de-identification audit, scanner/exposure/date metadata, reader-agreement estimates, or individual demographics for the retained cohort."
+    },
+    {
+      "items": [
+        21
+      ],
+      "assessment": "Explicit descriptive sample-size basis",
+      "evidence": [
+        "build_research_report.py",
+        "results/benchmark224_data_audit.json"
+      ],
+      "detail": "Available source data determine sample size; no prospective power calculation or confirmatory significance claim."
+    },
+    {
+      "items": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "assessment": "Code and protocol available",
+      "evidence": [
+        "research_benchmark.py",
+        "research_resolution320.py",
+        "results/benchmark320_environment.json",
+        "results/benchmark320_selection.json"
+      ],
+      "detail": "Standard torchvision models, newly initialized heads, all parameters fine-tuned, fixed hyperparameters, development-only selection, and equal-weight probability ensemble are documented."
+    },
+    {
+      "items": [
+        28,
+        29,
+        30,
+        32,
+        37,
+        38,
+        39
+      ],
+      "assessment": "Reported for source experiments with bounded scope",
+      "evidence": [
+        "results/resolution_paired_uncertainty.json",
+        "results/resolution_selection_stability.json",
+        "results/frozen_error_analysis.json",
+        "results/geometry_analysis.json"
+      ],
+      "detail": "Metrics, paired group bootstrap, seed/resolution comparisons, calibration diagnostics and frozen error overlap are available. Intervals omit training/selection uncertainty; no independent clinical error adjudication."
+    },
+    {
+      "items": [
+        31
+      ],
+      "assessment": "No explanation method applied",
+      "evidence": [
+        "build_research_report.py"
+      ],
+      "detail": "No saliency or validated localization claims. Dimension-only predictability does not show neural-model feature use."
+    },
+    {
+      "items": [
+        33
+      ],
+      "assessment": "External testing absent and explained",
+      "evidence": [
+        "external_evaluation_protocol.json",
+        "results/external_source_inspection_summary.json"
+      ],
+      "detail": "Candidate source investigated; unresolved access/provenance statements prevent its use here. No external scores reported."
+    },
+    {
+      "items": [
+        34
+      ],
+      "assessment": "No clinical trial",
+      "evidence": [
+        "research_protocol.json"
+      ],
+      "detail": "Retrospective public-data experiment with no patient enrollment or intervention. No trial registration claimed."
+    },
+    {
+      "items": [
+        35
+      ],
+      "assessment": "Image counts reported; exclusion detail limited",
+      "evidence": [
+        "results/data_audit.json",
+        "results/benchmark224_data_audit.json",
+        "output/figures/cohort_flow/cohort_flow.pdf"
+      ],
+      "detail": "Raw and retained image totals and partition counts reconcile. Development exclusions are an aggregate of overlapping criteria, not independently verified patient counts. Supplementary Figure S1 displays the image flow."
+    },
+    {
+      "items": [
+        40,
+        41,
+        42,
+        43
+      ],
+      "assessment": "Limitations and access conditions documented",
+      "evidence": [
+        "README.md",
+        "MODEL_CARD.md",
+        "results/experiment_registry.json"
+      ],
+      "detail": "Source code and report are public; new weights remain in owner-access Kaggle outputs. Prior test inspection and clinical/generalization limits are explicit."
+    },
+    {
+      "items": [
+        44
+      ],
+      "assessment": "Responsible author input still required",
+      "evidence": [
+        "build_research_report.py"
+      ],
+      "detail": "Funding, support and funder roles are not invented. Authorship, affiliations, conflicts, AI-assistance disclosure and applicable ethics determination also require responsible human verification before submission."
+    }
+  ]
+}

@@ -24,6 +24,7 @@ Both selected ensembles passed fresh CPU inference on all 618 test images with z
 [Frozen error analysis](https://www.kaggle.com/code/temirlanbekturov/pneumonia-frozen-error-analysis?scriptVersionId=360916945) found 531 images correct for both models, 69 incorrect for both, and nine correct only for each model. All 18 disagreements were NORMAL-labeled images. Both models missed the same one pneumonia-labeled image. Source-filename subgroup counts and their limitations are preserved in `results/frozen_error_analysis.json`; they do not establish clinical etiology or patient independence.
 
 - [Research report](output/pdf/pneumonia_research_report.pdf): methods, all trials, uncertainty, provenance and limitations.
+- [Cohort flow](output/figures/cohort_flow/cohort_flow.pdf): audited image counts and partition construction.
 - [Model card](MODEL_CARD.md): intended use and model limitations.
 - [Experiment registry](results/experiment_registry.json): immutable Kaggle version links and submitted source hashes.
 - [Matched trial figure](output/figures/resolution_comparison/matched_resolution_trials.png): all 18 individual trials; lines are not confidence intervals.
@@ -165,3 +166,5 @@ The control was specified after neural test results were inspected and before it
 The [actual inference-command smoke test](https://www.kaggle.com/code/temirlanbekturov/pneumonia-inference-command-verification?scriptVersionId=360927122) also passed. It verified the frozen source, configuration and all three checkpoint hashes, then ran `predict.py` in six separate CPU subprocesses on the first six test images by ascending pixel hash. All commands exited successfully, no classification changed, and the maximum score difference was 0.000001205. This small entry-point check supplements the separate 618-image verification; it is not external validation. See `results/inference_cli_smoke.json`.
 
 The paper now distinguishes source-reported population and labeling procedures from this project's own checks. See `results/source_population_review.json` and the model card; no independent diagnosis adjudication or demographic audit is claimed.
+
+`results/reporting_gap_review.json` records a focused review against selected CLAIM 2024 topics, including unavailable acquisition/demographic information and author declarations still needed before submission. It is not a completed checklist, compliance score or peer review.

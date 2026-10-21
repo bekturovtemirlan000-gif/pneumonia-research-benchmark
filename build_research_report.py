@@ -8,7 +8,7 @@ from reportlab.lib import colors
 from reportlab.lib.enums import TA_CENTER
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, KeepTogether, Image
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, KeepTogether, Image, PageBreak
 
 
 def build(output, benchmark=None):
@@ -36,20 +36,21 @@ def build(output, benchmark=None):
     story=[]
     def p(text,style='Normal'): story.append(Paragraph(text,styles[style]))
     def h(text): p(text,'Heading1')
-    def table(rows,widths):
+    def table(rows,widths,keep_previous=False):
         content=[[Paragraph(escape(str(cell)),styles['TableText']) for cell in row] for row in rows]
         t=Table(content,colWidths=widths,repeatRows=1,hAlign='LEFT')
         t.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),colors.HexColor('#e9edf1')),
              ('GRID',(0,0),(-1,-1),.4,colors.HexColor('#d9d9d9')),('VALIGN',(0,0),(-1,-1),'MIDDLE'),
              ('TOPPADDING',(0,0),(-1,-1),6),('BOTTOMPADDING',(0,0),(-1,-1),6),
              ('LEFTPADDING',(0,0),(-1,-1),7),('RIGHTPADDING',(0,0),(-1,-1),7)]))
-        story.append(KeepTogether([t,Spacer(1,9)]))
+        prefix=[story.pop() for _ in range(int(keep_previous))][::-1] if keep_previous else []
+        story.append(KeepTogether(prefix+[t,Spacer(1,9)]))
     p('Architecture, resolution and calibration in pediatric pneumonia image classification','Title')
     p('An exploratory reproducible benchmark','Heading2')
     p('Research report | 22 October 2026','Small')
     h('Abstract')
     p('<b>Purpose.</b> To compare conventional pretrained image classifiers under a fixed development protocol, separating ranking performance from calibration and threshold-dependent classification. This report concerns dataset labels on pediatric chest radiographs and does not establish clinical diagnosis or utility.')
-    p('<b>Methods.</b> A decoded-image audit and conservative filename grouping retain 3,815 training, 456 model-selection, 482 calibration and 618 test images. EfficientNet-B0, DenseNet121 and ResNet18 are trained with three seeds each at 224 and 320 pixels (18 trials). Mean selection AUROC chooses the architecture; its seed probabilities are averaged. A positive temperature and a Youden threshold are fit on the separate calibration partition before test evaluation. All comparisons on the original test set are exploratory because prior results were inspected.')
+    p('<b>Methods.</b> A decoded-image audit and conservative filename grouping retain 3,815 training, 456 model-selection, 482 calibration and 618 test images. Three pretrained convolutional networks (EfficientNet-B0, DenseNet121 and ResNet18) are trained with three seeds each at 224 and 320 pixels (18 trials). Mean selection AUROC chooses the architecture; its seed probabilities are averaged. A positive temperature and a Youden threshold are fit on the separate calibration partition before test evaluation. All comparisons on the original test set are exploratory because prior results were inspected.')
     if result:
         m=resolution['test']
         p(f"<b>Results.</b> All 18 trials completed. Development-only selection across both resolutions chose the 320-pixel EfficientNet-B0 ensemble. Its test AUROC was {m['auroc']:.4f} (95% group-bootstrap interval 0.9470 to 0.9787), accuracy {100*m['accuracy']:.2f}%, sensitivity {100*m['sensitivity']:.2f}% and specificity {100*m['specificity']:.2f}%. The paired AUROC difference versus the 224-pixel ResNet18 ensemble was 0.0059 (95% interval -0.0055 to 0.0170), which does not establish improvement. CPU test reproduction changed zero classifications for either ensemble. A post hoc classifier using only source image dimensions achieved test AUROC 0.9084, highlighting a dataset association requiring further investigation.")
@@ -64,17 +65,17 @@ def build(output, benchmark=None):
     if environment_path.is_file():
         env=json.loads(environment_path.read_text())
         p(f"<b>Computing environment.</b> Both resolution arms ran sequentially on one {escape(env['gpu'])}, with PyTorch {escape(env['torch'])}, torchvision {escape(env['torchvision'])}, NumPy {escape(env['numpy'])}, pandas {escape(env['pandas'])} and scikit-learn {escape(env['sklearn'])}. The local CPU development environment differs; its dependency snapshot is recorded separately. GPU and CPU agreement is evaluated numerically rather than assumed to be bitwise identical.")
-    p('<b>Study design.</b> This is a retrospective computational study of public research images. No patient care is involved. The preliminary baseline and follow-up were completed before this benchmark was designed. Their original test outcomes were already known; therefore the current source test evaluation cannot be described as an untouched confirmatory test.')
+    p('<b>Study design.</b> This is a retrospective computational study of public research images. No patient care is involved. Sample size is determined by the available audited source data; no prospective power calculation was performed. The preliminary baseline and follow-up were completed before this benchmark was designed. Their original test outcomes were already known; therefore the current source test evaluation cannot be described as an untouched confirmatory test.')
     p('<b>Source population and reference labels.</b> The source authors describe retrospective anterior-posterior radiographs from children aged one to five at Guangzhou Women and Children&apos;s Medical Center, obtained during routine care [9]. They report excluding unreadable or low-quality scans, diagnosis grading by two expert physicians, and evaluation-set review by a third. These are source-reported procedures. This reanalysis inherits directory labels without independent clinical adjudication; individual demographics, microbiological evidence and verified clinical patient IDs were not available to this analysis. OCT-specific labeling and independence statements in the shared resource are not treated as chest-radiograph evidence.')
-    p('<b>Data audit.</b> The attached Kaggle resource contains 5,856 decoded images. The audit hashes grayscale dimensions and pixels, detects conflicting labels for identical images, removes exact duplicate test images, and excludes development images sharing a derived group or pixel hash with test. Development duplicates are removed deterministically. The audit removes 479 development images in aggregate and six exact duplicate test images, leaving 5,371 images. The aggregate development count combines overlapping exclusion reasons and is not a count of unique patients. Near-duplicate detection and clinical patient-ID verification are not established by this exact-hash check.')
-    p('<b>Grouping limitation.</b> Groups are derived from filename patterns IM, NORMAL2-IM and person-number. The person-number rule groups bacterial and viral filenames together, although numbers may be reused across disease namespaces. This conservative grouping may merge unrelated children and exclude additional development images. The groups should not be called verified patient identities. The frozen split is retained to preserve the planned comparison.')
+    p('<b>Data audit.</b> The attached Kaggle resource contains 5,856 decoded images. The audit hashes grayscale dimensions and pixels, detects conflicting labels for identical images, removes exact duplicate test images, and excludes development images sharing a derived group or pixel hash with test. Development duplicates are removed deterministically. The audit removes 479 development images in aggregate and six exact duplicate test images, leaving 5,371 images. The aggregate development count combines overlapping exclusion reasons and is not a count of unique patients. Supplementary Figure S1 summarizes the image flow. Near-duplicate detection and clinical patient-ID verification are not established by this exact-hash check.')
+    p('<b>Grouping limitation.</b> Groups are derived from filename patterns IM, NORMAL2-IM and person-number. The person-number rule groups bacterial and viral filenames together, although numbers may be reused across disease namespaces. This conservative grouping may merge unrelated children and exclude additional development images. The groups should not be called verified patient identities. No demographic covariates are used or imputed; unreadable input images or unrecognized filename patterns cause the audit to fail rather than silently imputing inputs. The frozen split is retained to preserve the planned comparison.')
     table([['Partition','Images','Derived groups','Normal','Pneumonia'],
            ['Training',3815,2153,1078,2737],['Model selection',456,270,137,319],
            ['Calibration',482,268,133,349],['Source test',618,426,231,387]],
           [1.5*inch,1*inch,1.2*inch,1*inch,1.3*inch])
     p('The earlier 938-image validation cohort is divided by group and class into selection and calibration partitions using a fixed hash ordering. Explicit original held-out group membership and SHA-256 cohort digests prevent scikit-learn version changes from silently changing the training or test images. Every pair of partitions must have zero exact-pixel-hash and derived-group overlap.')
     p('<b>Image processing.</b> Images are converted to RGB, resized with bicubic interpolation and padded to 224 by 224 or 320 by 320 pixels while preserving the entire image and aspect ratio. Training applies random affine augmentation with at most 7 degrees of rotation, translation fractions 0.03 and scale 0.95 to 1.05. Tensors use ImageNet channel means and standard deviations. Lossless PNG caching of resized images avoids repeated original-image decoding. Local checks confirm equality of cached and direct preprocessing tensors.')
-    p('<b>Model training.</b> Torchvision ImageNet V1 weights [7] initialize EfficientNet-B0, DenseNet121 and ResNet18; each receives one binary output. Seeds are 42, 123 and 2026, including each trial\'s data-loader order and augmentation seeds. AdamW uses a backbone learning rate of 0.0001, head learning rate of 0.001 and weight decay of 0.0001. Weighted binary cross entropy assigns the positive class the training normal-to-pneumonia count ratio. Batch size is 32. Training uses mixed precision, whereas evaluation uses float32.')
+    p('<b>Model training.</b> Torchvision ImageNet V1 weights [7] initialize EfficientNet-B0, DenseNet121 and ResNet18; each receives one newly initialized linear binary output using the framework default initialization. All network parameters are fine-tuned; no feature layers are frozen. Seeds are 42, 123 and 2026, including each trial\'s data-loader order and augmentation seeds. AdamW uses a backbone learning rate of 0.0001, head learning rate of 0.001 and weight decay of 0.0001. Weighted binary cross entropy assigns the positive class the training normal-to-pneumonia count ratio. Batch size is 32. Training uses mixed precision, whereas evaluation uses float32.')
     p('The scheduler halves the learning rate after a plateau of two epochs. Selection AUROC determines checkpoint replacement with a minimum improvement of 0.00001; training stops after eight unimproved epochs or a time limit, with a maximum of 60 epochs per trial. Architecture order rotates across seeds. The 270-minute audit-and-training budget is allocated dynamically over remaining trials. This is a shared time-budget comparison, not a guarantee of equal epochs or identical FLOPs. Partial final epochs and stop reasons are retained in the histories. One GPU is used even if Kaggle allocates a T4 pair.')
     p('<b>Selection and calibration.</b> Architecture is selected by mean model-selection AUROC over all three seeds; exact ties use alphabetical order. Seed sigmoid probabilities are averaged. The averaged probability is clipped to [0.0000001, 0.9999999], converted to a logit and divided by a positive scalar temperature. Temperature minimizes calibration-set negative log likelihood, with log-temperature bounded between -3 and 3. Maximum Youden J on calibration scores determines the binary cutoff. The inference configuration is saved before test evaluation. No test-based choice of model, temperature or threshold is permitted.')
     p('<b>Outcome measures.</b> Primary descriptive outcomes are AUROC and sensitivity and specificity at the frozen development threshold. Average precision, accuracy, Brier score, log loss and confusion counts supplement them. Fixed raw-score threshold 0.5 results are also retained. Positive temperature scaling preserves ordering apart from clipping or numerical ties; an AUROC gain is not an intended calibration effect. Calibration and threshold fitting share one calibration partition, so in-sample calibration performance should not be interpreted as unbiased future performance.')
@@ -92,10 +93,11 @@ def build(output, benchmark=None):
     if result and trial_path.is_file():
         trials=json.loads(trial_path.read_text())
         p('<b>224-pixel individual trials.</b> The following values describe individual calibrated models, not their ensemble.')
+        story[-1].keepWithNext=True
         rows=[['Architecture and seed','Epochs','Selection AUROC','Test AUROC','Test Brier']]
         for r in trials:
             rows.append([r['trial'],r['epochs_completed'],f"{r['selection_auroc']:.5f}",f"{r['calibrated_test']['auroc']:.5f}",f"{r['calibrated_test']['brier_score']:.5f}"])
-        table(rows,[2.3*inch,.7*inch,1*inch,1*inch,1*inch])
+        table(rows,[2.3*inch,.7*inch,1*inch,1*inch,1*inch],keep_previous=True)
         figure=root/'output/figures/benchmark224/trial_discrimination_and_calibration.png'
         if figure.is_file():
             figure_image=Image(str(figure),width=6.6*inch,height=2.475*inch)
@@ -129,10 +131,11 @@ def build(output, benchmark=None):
     h('Resolution comparison')
     high_trials=json.loads((root/'results/benchmark320_all_trial_results.json').read_text())
     p('<b>320-pixel individual trials.</b> All nine planned trials completed. The same architecture-seed combinations and image identities were retained across resolutions. These are matched protocol comparisons, with adaptive early stopping; they do not isolate resolution from differences in selected checkpoints or training duration.')
+    story[-1].keepWithNext=True
     rows=[['Architecture and seed','Epochs','Selection AUROC','Test AUROC','Test Brier']]
     for r in high_trials:
         rows.append([r['trial'],r['epochs_completed'],f"{r['selection_auroc']:.5f}",f"{r['calibrated_test']['auroc']:.5f}",f"{r['calibrated_test']['brier_score']:.5f}"])
-    table(rows,[2.3*inch,.7*inch,1*inch,1*inch,1*inch])
+    table(rows,[2.3*inch,.7*inch,1*inch,1*inch,1*inch],keep_previous=2)
     figure=root/'output/figures/resolution_comparison/matched_resolution_trials.png'
     figure_image=Image(str(figure),width=6.6*inch,height=6.6*inch*1152/3120)
     figure_image.keepWithNext=True
@@ -179,7 +182,7 @@ def build(output, benchmark=None):
     p('Strong label predictability from source dimensions identifies a dataset association that may reflect acquisition, processing or cohort composition. Width and height are pixel dimensions, not physical anatomical measurements. This experiment does not show that the neural networks use dimensions, identify the causal source of the association, or establish performance on another hospital. No neural checkpoint, cohort or threshold was changed following these findings.')
     h('Discussion and limitations')
     p('The preliminary results illustrate that operating thresholds can change observed accuracy and specificity without improving ranking or calibration. A credible analysis must therefore distinguish performance of the score from performance of a particular decision rule. The new experiment separates model selection from calibration, but its small calibration cohort and conservative grouping introduce uncertainty that additional GPU time cannot remove.')
-    p('The source test set was previously inspected. Its results are exploratory, the filename groups are proxies, and the study lacks independent clinical adjudication, documented acquisition-site strata and adequate demographic information for a fairness analysis. Exact-pixel duplicate removal cannot rule out transformed duplicates, pretraining overlap or acquisition shortcuts. The binary dataset target does not establish etiology, severity, treatment need or validity for non-chest images.')
+    p('The source test set was previously inspected. Its results are exploratory, the filename groups are proxies, and the study lacks independent clinical adjudication, documented acquisition-site strata and adequate demographic information for a fairness analysis. Acquisition dates, scanner models, exposure parameters, individual demographic distributions and quantitative reader-agreement measurements were unavailable to this analysis. No independent de-identification audit is claimed. Exact-pixel duplicate removal cannot rule out transformed duplicates, pretraining overlap or acquisition shortcuts. The binary dataset target does not establish etiology, severity, treatment need or validity for non-chest images.')
     p('The similarity screen found 814 candidate cross-partition pairs, including 269 involving test images, among 5,371 retained images. Limited contact-sheet inspection showed visible differences in reviewed pairs and did not confirm image duplication. Most candidates remain unreviewed. Perceptual similarity can reflect shared anatomy, and visual differences do not establish different patients. These counts must not be presented as a measured leakage rate or proof of clean patient separation.')
     p('BDCXR-3257 is a candidate external pediatric source [5]. The public record lists CC BY 4.0 and describes contrast enhancement and cropping, which would create preprocessing differences. A documentation-only inspection of a Kaggle copy [8] confirmed 880 normal, 1,477 bacterial and 900 viral images and 3,257 metadata rows. Filename, Age, Gender and Class fields have no missing values. Included certificates agree with these counts, resolving the numerical discrepancy in the public description; no individual patient identifier is supplied.')
     p('The mirror provides no provenance citation and lists its license as unknown. Its included agreement identifies a particular hospital and university research laboratory as parties, limits access to authorized research personnel, and restricts raw-image redistribution. These statements have not been reconciled with the public CC BY listing. Document authenticity and release authority were not independently verified. No external inference was performed, no agreement was accepted, and no claim of applicable ethics approval is made for the present project. External testing remains pending source clarification.')
@@ -205,6 +208,12 @@ def build(output, benchmark=None):
     ]
     for reference in references: p(escape(reference),'Small')
     story[reference_start:]=[KeepTogether(story[reference_start:])]
+    cohort_figure=root/'output/figures/cohort_flow/cohort_flow.png'
+    if cohort_figure.is_file():
+        story.append(PageBreak())
+        h('Supplementary Figure S1. Cohort flow')
+        story.append(Image(str(cohort_figure),width=6.6*inch,height=4.752*inch))
+        p('Image counts reconcile with the saved audit records. The original training and validation directories form the development pool; the original test set remains separate after exact duplicate removal. The 938-image held-out development cohort is divided into selection and calibration groups. Development exclusion reasons are aggregated, so separate cause-specific counts cannot be inferred from this diagram. Filename groups are proxies rather than verified clinical patient IDs. No new cohort exclusions were introduced for this figure.','Small')
     output.parent.mkdir(parents=True,exist_ok=True)
     def footer(canvas,doc):
         canvas.setFont('Times-Roman',9); canvas.drawRightString(7.5*inch,.45*inch,str(doc.page))
