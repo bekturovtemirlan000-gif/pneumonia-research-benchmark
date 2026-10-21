@@ -96,5 +96,33 @@
     ],
     "observation": "Visible framing, positioning or appearance differences; no duplicate confirmed from these thumbnails. Discordant labels in the first pair are not evidence of a labeling error.",
     "limitations": "Partial sheet review only; no patient-identity conclusion, no cohort exclusions or model changes."
+  },
+  "sheet5_visual_review": {
+    "sheet": "candidate_review_5.png",
+    "method": "Rendered Kaggle thumbnail preview; nonclinical image-correspondence inspection",
+    "pairs_inspected": [
+      [
+        "IM-0608-0001.jpeg",
+        "NORMAL2-IM-0131-0001.jpeg"
+      ],
+      [
+        "IM-0640-0001-0002.jpeg",
+        "NORMAL2-IM-0423-0001.jpeg"
+      ],
+      [
+        "IM-0713-0001.jpeg",
+        "NORMAL2-IM-0321-0001.jpeg"
+      ],
+      [
+        "IM-0752-0001.jpeg",
+        "person1230_virus_2081.jpeg"
+      ],
+      [
+        "NORMAL2-IM-0423-0001.jpeg",
+        "IM-0063-0001.jpeg"
+      ]
+    ],
+    "observation": "Visible differences in positioning, framing or appearance; no duplicate confirmed from these thumbnails. Discordant source labels in one pair do not establish label error.",
+    "limitations": "Partial sheet review; no patient-identity conclusion or claim to have ruled out transformed/repeated acquisitions. No cohort exclusions or model changes."
   }
 }

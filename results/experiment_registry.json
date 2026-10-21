@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-21T21:04:17.761915+00:00",
+  "updated_utc": "2026-10-21T21:15:25.630578+00:00",
   "experiments": [
     {
       "experiment": "benchmark224",
@@ -103,6 +103,23 @@
       "source_sha256_lf": "1d9ae3b59f17ffd61537ebb90408fb1a4855a54ea9a1062fd5906f25f9ee9651",
       "status": "completed; comparator cutoff equality explains one numerical crossing; strict failure preserved",
       "job_runtime_seconds": 23.7
+    },
+    {
+      "experiment": "frozen_error_analysis_v1",
+      "kaggle_version": 360916545,
+      "url": "https://www.kaggle.com/code/temirlanbekturov/pneumonia-frozen-error-analysis?scriptVersionId=360916545",
+      "source_sha256_lf": "4c27089fc4dfecde6af3213b2ded5f09c4dd1639a10068e50cab2b4fcc3490f8",
+      "status": "completed; descriptive overlap and filename subgroup counts",
+      "job_runtime_seconds": 18.8
+    },
+    {
+      "experiment": "frozen_error_analysis",
+      "kaggle_version": 360916945,
+      "url": "https://www.kaggle.com/code/temirlanbekturov/pneumonia-frozen-error-analysis?scriptVersionId=360916945",
+      "notebook": "pneumonia_frozen_error_analysis.ipynb",
+      "source_sha256_lf": "40074a90628557544959f8fa46589b3b8b3aaddcae67c64ef85cc222885ccc19",
+      "status": "completed; added class-specific overlap and subgroup proxy-group overlap caveat",
+      "job_runtime_seconds": 22.5
     }
   ],
   "provenance_notes": [

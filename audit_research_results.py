@@ -75,6 +75,25 @@ def audit(root=Path('.')):
         elif calibration['status']!='passed':
             raise ValueError('Selected model calibration reproduction did not pass')
         checks.append(f'{size}: calibration reproduction and boundary records agree; strict status preserved')
+    errors=read('frozen_error_analysis.json')
+    overlap=errors['overlap']
+    if sum(overlap[k] for k in ('both_correct','both_incorrect','only_224_correct','only_320_correct'))!=errors['images']:
+        raise ValueError('Error overlap counts do not cover cohort')
+    if overlap['only_224_correct']+overlap['only_320_correct']!=overlap['different_binary_predictions']:
+        raise ValueError('Binary disagreement counts do not agree')
+    for size in (224,320):
+        total=errors['models'][str(size)]
+        for metric in ('sensitivity','specificity','brier_score'):
+            same(total[metric],read(f'benchmark{size}_metrics.json')['test'][metric],'error analysis metric')
+        parts=list(errors['subgroups'][str(size)].values())
+        for key in ('images','tn','fp','fn','tp'):
+            if sum(part[key] for part in parts)!=total[key]:
+                raise ValueError('Subgroup confusion counts do not sum')
+        same(sum(part['images']*part['brier_score'] for part in parts)/total['images'],total['brier_score'],'subgroup Brier decomposition')
+    for key in ('both_correct','both_incorrect','only_224_correct','only_320_correct'):
+        if sum(part[key] for part in errors['overlap_by_source_label'].values())!=overlap[key]:
+            raise ValueError('Class-specific overlap does not sum')
+    checks.append('Frozen error overlap, class-specific counts and subgroup metric decomposition agree')
     selection=read('resolution_development_selection.json')
     best=min(candidates,key=lambda x:(-x[0],x[1],x[2]))
     if (selection['selected']['image_size'],selection['selected']['architecture'])!=(best[1],best[2]):

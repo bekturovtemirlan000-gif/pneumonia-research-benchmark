@@ -1,0 +1,139 @@
+{
+  "status": "Post hoc descriptive error analysis; no model or cutoff changes",
+  "images": 618,
+  "filename_proxy_groups": 426,
+  "overlap": {
+    "both_correct": 531,
+    "both_incorrect": 69,
+    "only_224_correct": 9,
+    "only_320_correct": 9,
+    "different_binary_predictions": 18
+  },
+  "models": {
+    "224": {
+      "images": 618,
+      "filename_proxy_groups": 426,
+      "tn": 154,
+      "fp": 77,
+      "fn": 1,
+      "tp": 386,
+      "sensitivity": 0.9974160206718347,
+      "specificity": 0.6666666666666666,
+      "brier_score": 0.1310473920592921
+    },
+    "320": {
+      "images": 618,
+      "filename_proxy_groups": 426,
+      "tn": 154,
+      "fp": 77,
+      "fn": 1,
+      "tp": 386,
+      "sensitivity": 0.9974160206718347,
+      "specificity": 0.6666666666666666,
+      "brier_score": 0.1394821388072163
+    }
+  },
+  "subgroups": {
+    "224": {
+      "normal_source_label": {
+        "images": 231,
+        "filename_proxy_groups": 224,
+        "tn": 154,
+        "fp": 77,
+        "fn": 0,
+        "tp": 0,
+        "sensitivity": null,
+        "specificity": 0.6666666666666666,
+        "brier_score": 0.34726931199354955
+      },
+      "pneumonia_bacteria_filename": {
+        "images": 240,
+        "filename_proxy_groups": 77,
+        "tn": 0,
+        "fp": 0,
+        "fn": 1,
+        "tp": 239,
+        "sensitivity": 0.9958333333333333,
+        "specificity": null,
+        "brier_score": 0.002914375417251623
+      },
+      "pneumonia_virus_filename": {
+        "images": 147,
+        "filename_proxy_groups": 126,
+        "tn": 0,
+        "fp": 0,
+        "fn": 0,
+        "tp": 147,
+        "sensitivity": 1,
+        "specificity": null,
+        "brier_score": 0.00046685117001485864
+      }
+    },
+    "320": {
+      "normal_source_label": {
+        "images": 231,
+        "filename_proxy_groups": 224,
+        "tn": 154,
+        "fp": 77,
+        "fn": 0,
+        "tp": 0,
+        "sensitivity": null,
+        "specificity": 0.6666666666666666,
+        "brier_score": 0.3722160782274725
+      },
+      "pneumonia_bacteria_filename": {
+        "images": 240,
+        "filename_proxy_groups": 77,
+        "tn": 0,
+        "fp": 0,
+        "fn": 1,
+        "tp": 239,
+        "sensitivity": 0.9958333333333333,
+        "specificity": null,
+        "brier_score": 0.0008655956223320503
+      },
+      "pneumonia_virus_filename": {
+        "images": 147,
+        "filename_proxy_groups": 126,
+        "tn": 0,
+        "fp": 0,
+        "fn": 0,
+        "tp": 147,
+        "sensitivity": 1,
+        "specificity": null,
+        "brier_score": 0.00007010042825745059
+      }
+    }
+  },
+  "limitations": [
+    "Subgroups are inferred from source filenames, not independently confirmed etiology.",
+    "The model is binary pneumonia-label classification, not bacterial-versus-viral diagnosis.",
+    "Post hoc source-test description; no confirmatory subgroup comparisons or external validity.",
+    "Filename groups are proxies; image-level rates do not establish independent patient-level performance.",
+    "No age, sex or hospital subgroup information is inferred. Small error counts do not guarantee future sensitivity.",
+    "Subgroup proxy-group counts can overlap and must not be summed as independent patients."
+  ],
+  "overlap_by_source_label": {
+    "0": {
+      "images": 231,
+      "both_correct": 145,
+      "both_incorrect": 68,
+      "only_224_correct": 9,
+      "only_320_correct": 9
+    },
+    "1": {
+      "images": 387,
+      "both_correct": 386,
+      "both_incorrect": 1,
+      "only_224_correct": 0,
+      "only_320_correct": 0
+    }
+  },
+  "proxy_groups_spanning_filename_subgroups": 1,
+  "provenance": {
+    "kaggle_version": 360916945,
+    "source_sha256_lf": "40074a90628557544959f8fa46589b3b8b3aaddcae67c64ef85cc222885ccc19",
+    "capture": "visible completed Kaggle log",
+    "job_runtime_seconds": 22.5
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "recorded_utc": "2026-10-21T21:09:15.249446+00:00",
+  "status": "Post hoc descriptive analysis specified before reading subgroup and error-overlap outputs",
+  "prior_knowledge": "Overall test results and identical confusion totals already known; not preregistered or confirmatory",
+  "inputs": [
+    "Completed 224-pixel benchmark output",
+    "Completed 320-pixel benchmark output"
+  ],
+  "analyses": [
+    "Hash-aligned binary prediction overlap",
+    "Source-filename normal, bacterial-labeled pneumonia, viral-labeled pneumonia and unspecified pneumonia counts",
+    "Frozen confusion counts, sensitivity where positives exist, specificity where negatives exist, Brier score"
+  ],
+  "no_model_or_threshold_changes": true,
+  "no_external_or_clinical_validation": true,
+  "source_sha256_lf": "4c27089fc4dfecde6af3213b2ded5f09c4dd1639a10068e50cab2b4fcc3490f8",
+  "extension_after_v1": {
+    "recorded_utc": "2026-10-21T21:13:32.511131+00:00",
+    "reason": "After observing 18 disagreements and subgroup proxy counts, add class-specific overlap and count proxy groups spanning filename subgroups",
+    "prior_version": 360916545,
+    "source_sha256_lf": "40074a90628557544959f8fa46589b3b8b3aaddcae67c64ef85cc222885ccc19",
+    "no_model_or_threshold_changes": true
+  }
+}

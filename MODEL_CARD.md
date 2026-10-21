@@ -29,6 +29,8 @@ Selection-group resampling retained this candidate in 852/1,000 replicates. That
 
 Original GPU raw calibration probabilities were not exported. Fresh CPU inference on all 482 calibration images now exports raw scores and independently refits temperature and cutoff. The selected 320-pixel ensemble passed: relative temperature difference 0.000001736, absolute cutoff difference 0.000000940, and zero changed calibration classifications. The 224-pixel comparator had one changed calibration classification: its saved score exactly equaled the cutoff and CPU inference moved it lower by 0.000001038. Its strict zero-change check remains failed; neither model nor cutoff was altered. Both models reproduced all test classifications. These fresh CPU exports do not replace the missing original GPU raw scores. Kaggle versions 360912398 (both calibration fits; combined strict failure) and 360914770 (successful boundary inspection) preserve this evidence.
 
+Frozen error analysis found 531 test images correct for both ensembles, 69 incorrect for both, and nine correct only for each model. All 18 disagreements were NORMAL-labeled images; both models missed the same one pneumonia-labeled image. Both detected 239/240 bacterial-filename and 147/147 viral-filename pneumonia images. These post hoc counts describe binary classification of source labels, not differential diagnosis or guaranteed future sensitivity. One filename proxy group spans both pneumonia subgroups, so subgroup group counts are not independent patient counts. See `results/frozen_error_analysis.json` and Kaggle version 360916945.
+
 The following sections preserve historical baseline and comparison results; their configurations are distinct from the current selected model.
 
 ## Completed baseline
