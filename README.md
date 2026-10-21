@@ -105,26 +105,33 @@ Saved artifacts include model weights, a split manifest, audit counts, per-image
 
 The baseline and three-seed follow-up completed successfully. Validation selected the seed-123 single model over the averaged ensemble. At its validation-selected threshold, test accuracy was 88.19%, sensitivity 99.22%, specificity 69.70%, and AUROC 0.96844. Accuracy and specificity increased relative to the baseline, while sensitivity, ranking metrics and calibration did not improve. See `MODEL_CARD.md` for the comparison and limitations. The follow-up is exploratory because the original test results had already been inspected. A single dataset does not establish a new scientific contribution. The current report adds comparator models and a documented question; independent external validation and subgroup/error analysis remain limited by source access and metadata. Dataset-specific performance does not establish clinical safety or generalization to other hospitals or populations.
 
-## Exported model use
+## Use the current trained model
 
-`predict.py` loads the selected checkpoints from `inference_config.json` without downloading weights or starting training. For baseline exports, create that configuration from the recorded threshold and `best_weights.pt`; the downloaded local baseline already includes it.
+The current weights are in the owner's [completed 320-pixel Kaggle output](https://www.kaggle.com/code/temirlanbekturov/pneumonia-research-resolution-320/output?scriptVersionId=360888746). Kaggle sign-in and owner access may be required. Cloning this public GitHub repository does **not** download those weights.
 
-```powershell
-python predict.py --model-dir artifacts/baseline_v1/pneumonia_outputs --image path/to/xray.jpeg
-python predict.py --model-dir artifacts/ensemble_v3/pneumonia_ensemble_outputs --image path/to/xray.jpeg
-python validate_artifacts.py artifacts/baseline_v1/pneumonia_outputs
-python -m unittest discover -s tests -v
-```
-
-For the **current selected 320-pixel ensemble**, download your completed resolution notebook output, then use its `pneumonia_resolution320_outputs` directory:
+1. Download the completed output through Kaggle and extract it. Keep the `pneumonia_resolution320_outputs` directory structure intact.
+2. Use a Python environment with PyTorch, torchvision and Pillow. The recorded Kaggle versions are in `results/benchmark320_environment.json`; `requirements-local-lock.txt` describes a different local environment.
+3. Run the repository's inference command, replacing both example paths with your actual paths:
 
 ```powershell
 python predict.py --model-dir path/to/pneumonia_resolution320_outputs --image path/to/xray.jpeg --device cpu
 ```
 
-Keep `inference_config.json` and the three `efficientnet_b0_seed_*/best_weights.pt` subdirectories together. The command loads the model locally, averages the three sigmoid scores, applies the saved temperature, and uses the saved threshold. It does not train or download model weights. The examples above reference historical experiments, whose checkpoints are not interchangeable with the selected model.
+The model directory must contain `inference_config.json` and these three files:
 
-Prediction requires PyTorch, torchvision and Pillow. The output score is not a calibrated clinical probability. The model does not verify that an input is a valid chest X-ray. Do not interpret predictions on arbitrary images as medical findings.
+```text
+efficientnet_b0_seed_42/best_weights.pt
+efficientnet_b0_seed_123/best_weights.pt
+efficientnet_b0_seed_2026/best_weights.pt
+```
+
+`predict.py` loads locally without downloading weights or starting training, averages the three sigmoid scores, applies the saved temperature and uses the frozen threshold. `results/external_model_lock.json` records the exact original configuration and checkpoint hashes. The actual command passed the six-image CPU smoke test, in addition to the separate full-cohort verification.
+
+The output score is not a calibrated clinical probability. The model does not verify that an input is a valid chest X-ray. Do not interpret predictions on arbitrary images as medical findings.
+
+If you do not have access to the owner's outputs, use the Kaggle reproduction steps above to train under your account. Independently retrained checkpoints are a new run and will not match the original checkpoint lock.
+
+Historical baseline and follow-up outputs are separate models. Their local examples use `artifacts/baseline_v1/pneumonia_outputs` and `artifacts/ensemble_v3/pneumonia_ensemble_outputs`, which are excluded from this repository. Do not substitute their checkpoints into the current model directory. Baseline exports require an `inference_config.json` built from the recorded threshold and `best_weights.pt`; the owner's previously downloaded local baseline includes it.
 
 ## Follow-up experiment
 
