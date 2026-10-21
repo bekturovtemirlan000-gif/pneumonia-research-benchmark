@@ -69,11 +69,14 @@ Saved reliability-bin diagnostics show substantial differences between fitted ca
 4. Import `pneumonia_resolution_analysis.ipynb` into a CPU notebook and attach **both** completed training outputs. It saves the development-only choice before reading test predictions, then reports selection stability and paired test uncertainty. It requires matching cohorts.
 5. For calibration-fit reproduction, import `pneumonia_calibration_reproduction.ipynb` into a CPU notebook with **both** completed training outputs and the original image dataset. It checks all 482 calibration images per model and exports fresh raw CPU scores. A strict failure can occur after both reports are saved; read each report separately. To inspect score crossings without changing the criteria, run `pneumonia_calibration_boundary.ipynb` with that calibration notebook's output attached.
 6. For descriptive error overlap and filename subgroups, run `pneumonia_frozen_error_analysis.ipynb` on CPU with both completed training outputs. This reads frozen test predictions; it does not choose models or fit thresholds. Filename subgroup annotations are not independently verified clinical diagnoses.
-7. Retain immutable Kaggle version IDs and download complete outputs when possible. Keep `inference_config.json` beside its checkpoint subdirectories. GitHub contains compact evidence records and training source; it does not contain the new checkpoint archives or per-image predictions.
+7. For the post hoc dimension-only control, run `pneumonia_geometry_control.ipynb` on CPU with the completed 224-pixel output and original image dataset. It verifies all retained pixel identities, then fits a fixed logistic regression using log width and log height on training images only. Image loading can take substantially longer than fitting. This control is separate from the selected neural model.
+8. Retain immutable Kaggle version IDs and download complete outputs when possible. Keep `inference_config.json` beside its checkpoint subdirectories. GitHub contains compact evidence records and training source; it does not contain the new checkpoint archives or per-image predictions.
 
 Training requires the original audited source cohort and deliberately fails if cohort digests differ. Do not disable those checks and treat a changed dataset as the same experiment. A different dataset requires a separate documented protocol.
 
 The recorded training packages are in `results/benchmark224_environment.json` and `results/benchmark320_environment.json`. `requirements-local-lock.txt` describes separate local development, not the Kaggle container. Original saved outputs are authoritative. Registry links may require access to the owner's private Kaggle notebooks; the public source notebooks allow independent reruns under your account.
+
+`results/external_model_lock.json` identifies the selected model, frozen preprocessing and decision rule, inference source hash, and three checkpoint hashes for any future external evaluation. It does not authorize dataset access or claim that external testing was performed. Source-access issues remain documented in `external_evaluation_protocol.json`.
 
 Local checks without training:
 
@@ -136,3 +139,14 @@ The comparison pairs identical image hashes and filename-derived patient groups,
 - Kermany, Zhang and Goldbaum. *Labeled Optical Coherence Tomography (OCT) and Chest X-Ray Images for Classification*, version 2 (2018). [DOI: 10.17632/rscbjbr9sj.2](https://data.mendeley.com/datasets/rscbjbr9sj/2). Source lists CC BY 4.0; verify the attached Kaggle version's terms before redistributing data. No images are included in this repository.
 - [Kaggle dataset](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia).
 - [Torchvision EfficientNet-B0 documentation](https://docs.pytorch.org/vision/main/models/generated/torchvision.models.efficientnet_b0.html). The experiment uses full-image letterboxing instead of the pretrained weights' standard center crop.
+
+
+## Post hoc image-dimension control
+
+A fixed logistic regression using only log source-image width and height achieved test AUROC **0.9084** (95% filename-group bootstrap interval 0.8807–0.9343), accuracy **80.91%**, sensitivity **96.38%**, specificity **54.98%** and Brier score **0.13329**. Confusion counts: TN 127, FP 104, FN 14, TP 373. The scaler and classifier were fit only on 3,815 training images; threshold 0.5 was fixed, with no hyperparameter search or calibration. Pixel hashes verified identity and were not model features.
+
+The neural ensemble's AUROC exceeded this control by 0.0556. The archived paired analysis uses **geometry minus neural**, giving −0.0556 (95% interval −0.0798 to −0.0325). The Brier difference was −0.0062 (−0.0223 to 0.0106), so an overall calibration advantage is not established. These are exploratory, conditional intervals from 1,000 resamples of 426 filename-derived groups; they omit training and selection uncertainty.
+
+The control was specified after neural test results were inspected and before its own results were observed. Strong predictability from dimensions signals a dataset association; it does not prove that the neural network relies on dimensions or establish a causal explanation. Dimensions are measured in pixels, not physical units. No checkpoint, cohort or cutoff was changed.
+
+[Control run](https://www.kaggle.com/code/temirlanbekturov/pneumonia-image-geometry-control?scriptVersionId=360920257) completed in 1,221.4 seconds. [Independent coefficient reconstruction and comparison](https://www.kaggle.com/code/temirlanbekturov/pneumonia-geometry-control-verification?scriptVersionId=360924812) completed in 33.5 seconds: all 5,371 scores reconstructed exactly, with zero changed classifications. Full records are in `results/geometry_control.json` and `results/geometry_analysis.json`.

@@ -1,0 +1,55 @@
+{
+  "recorded_utc": "2026-10-21T21:38:59.854431+00:00",
+  "status": "Prospective external-evaluation model lock; external inference not performed",
+  "basis": "Combined development-only architecture-resolution selection; source test results already inspected",
+  "training_kaggle_version": 360888746,
+  "selection_kaggle_version": 360907021,
+  "configuration": {
+    "image_size": 320,
+    "architecture": "efficientnet_b0",
+    "selected_checkpoints": [
+      "efficientnet_b0_seed_42/best_weights.pt",
+      "efficientnet_b0_seed_123/best_weights.pt",
+      "efficientnet_b0_seed_2026/best_weights.pt"
+    ],
+    "aggregation": "arithmetic mean of sigmoid probabilities, then positive temperature scaling",
+    "temperature": 1.340557747633612,
+    "threshold": 0.8317002265352794,
+    "classes": [
+      "NORMAL",
+      "PNEUMONIA"
+    ],
+    "preprocessing": "RGB; bicubic letterbox 320; ToTensor; ImageNet mean/std",
+    "selection_architecture_mean_auroc": {
+      "densenet121": 0.9977499637706031,
+      "efficientnet_b0": 0.99908473102533,
+      "resnet18": 0.9982838706724939
+    },
+    "research_status": "Exploratory; external confirmation required"
+  },
+  "checkpoints": [
+    {
+      "checkpoint": "efficientnet_b0_seed_42/best_weights.pt",
+      "sha256": "1cf56a0225e9c9ba65e8808d226703895f0ce8cda7a3acfe6f4e106c26cb8005"
+    },
+    {
+      "checkpoint": "efficientnet_b0_seed_123/best_weights.pt",
+      "sha256": "74f455d965587842516241047541e84981af291a5743c74745ec6d1cf8ab00e8"
+    },
+    {
+      "checkpoint": "efficientnet_b0_seed_2026/best_weights.pt",
+      "sha256": "2a8776986c46efcb8a9bdacd2e0f587a8674d90a4b580e1027cbf44b2b6ca7d4"
+    }
+  ],
+  "verification_versions": [
+    360906861,
+    360912398
+  ],
+  "inference_source": "predict.py",
+  "external_protocol": "external_evaluation_protocol.json",
+  "access_status": "Candidate external dataset access and provenance statements remain unresolved; this lock does not authorize access or accept an agreement",
+  "adaptation": "No external-label fitting, temperature refit, cutoff change, checkpoint selection or model selection",
+  "original_224_comparator": "Preserved separately; not the locked primary external model",
+  "limits": "Checkpoint hashes were read from completed in-Kaggle CPU verification; weight archives are not included in GitHub. No clinical validity or external performance claimed.",
+  "inference_source_sha256_lf": "2ba76d5b03a78cb108fee19cdfb8f1cd89d3a1dcc9bf05b2e68f87283dbdb64a"
+}

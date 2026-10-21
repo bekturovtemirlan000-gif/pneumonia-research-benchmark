@@ -1,0 +1,229 @@
+{
+  "status": "Post hoc descriptive dimension-only control; not a clinical classifier",
+  "environment": {
+    "python": "3.13.15",
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "sklearn": "1.6.1"
+  },
+  "configuration": {
+    "features": [
+      "natural_log_width",
+      "natural_log_height"
+    ],
+    "fit_partition": "train",
+    "standardization_mean": [
+      7.157192678304262,
+      6.81180137584014
+    ],
+    "standardization_scale": [
+      0.28209257084064915,
+      0.4085727348215909
+    ],
+    "coefficient": [
+      0.5189710869202862,
+      -3.3164248732174353
+    ],
+    "intercept": 1.9655343120142068,
+    "classes": [
+      0,
+      1
+    ],
+    "C": 1,
+    "solver": "lbfgs",
+    "max_iter": 1000,
+    "class_weight": null,
+    "threshold": 0.5,
+    "temperature_fitting": false,
+    "hyperparameter_search": false,
+    "iterations": 11
+  },
+  "decoded_pixels_used_only_for_identity_check": true,
+  "radiographic_pixels_used_as_predictor_features": false,
+  "original_models_or_thresholds_changed": false,
+  "metrics": {
+    "train": {
+      "images": 3815,
+      "filename_proxy_groups": 2153,
+      "auroc": 0.9192190710276205,
+      "average_precision": 0.9701438510178837,
+      "accuracy": 0.8411533420707733,
+      "sensitivity": 0.9093898428936792,
+      "specificity": 0.6679035250463822,
+      "brier_score": 0.10602622749318692,
+      "tn": 720,
+      "fp": 358,
+      "fn": 248,
+      "tp": 2489
+    },
+    "selection": {
+      "images": 456,
+      "filename_proxy_groups": 270,
+      "auroc": 0.9182664805619751,
+      "average_precision": 0.9660240644922565,
+      "accuracy": 0.8421052631578947,
+      "sensitivity": 0.9216300940438872,
+      "specificity": 0.656934306569343,
+      "brier_score": 0.109000616138687,
+      "tn": 90,
+      "fp": 47,
+      "fn": 25,
+      "tp": 294
+    },
+    "calibration": {
+      "images": 482,
+      "filename_proxy_groups": 268,
+      "auroc": 0.9180903548268954,
+      "average_precision": 0.9717925530380076,
+      "accuracy": 0.8319502074688797,
+      "sensitivity": 0.9083094555873925,
+      "specificity": 0.631578947368421,
+      "brier_score": 0.11013871801310414,
+      "tn": 84,
+      "fp": 49,
+      "fn": 32,
+      "tp": 317
+    },
+    "test": {
+      "images": 618,
+      "filename_proxy_groups": 426,
+      "auroc": 0.9083917804848037,
+      "average_precision": 0.9335307919387633,
+      "accuracy": 0.8090614886731392,
+      "sensitivity": 0.9638242894056848,
+      "specificity": 0.5497835497835498,
+      "brier_score": 0.13328811380337693,
+      "tn": 127,
+      "fp": 104,
+      "fn": 14,
+      "tp": 373
+    }
+  },
+  "geometry_summary": {
+    "train": {
+      "0": {
+        "images": 1078,
+        "width_percentiles_25_50_75": [
+          1472,
+          1646,
+          1828
+        ],
+        "height_percentiles_25_50_75": [
+          1156,
+          1329,
+          1544.25
+        ]
+      },
+      "1": {
+        "images": 2737,
+        "width_percentiles_25_50_75": [
+          1000,
+          1168,
+          1376
+        ],
+        "height_percentiles_25_50_75": [
+          640,
+          776,
+          976
+        ]
+      }
+    },
+    "selection": {
+      "0": {
+        "images": 137,
+        "width_percentiles_25_50_75": [
+          1446,
+          1626,
+          1774
+        ],
+        "height_percentiles_25_50_75": [
+          1140,
+          1314,
+          1527
+        ]
+      },
+      "1": {
+        "images": 319,
+        "width_percentiles_25_50_75": [
+          1032,
+          1206,
+          1384
+        ],
+        "height_percentiles_25_50_75": [
+          672,
+          800,
+          960
+        ]
+      }
+    },
+    "calibration": {
+      "0": {
+        "images": 133,
+        "width_percentiles_25_50_75": [
+          1432,
+          1576,
+          1804
+        ],
+        "height_percentiles_25_50_75": [
+          1125,
+          1302,
+          1510
+        ]
+      },
+      "1": {
+        "images": 349,
+        "width_percentiles_25_50_75": [
+          1000,
+          1144,
+          1328
+        ],
+        "height_percentiles_25_50_75": [
+          640,
+          747,
+          917
+        ]
+      }
+    },
+    "test": {
+      "0": {
+        "images": 231,
+        "width_percentiles_25_50_75": [
+          1537,
+          1762,
+          2029.5
+        ],
+        "height_percentiles_25_50_75": [
+          1040.5,
+          1318,
+          1636.5
+        ]
+      },
+      "1": {
+        "images": 387,
+        "width_percentiles_25_50_75": [
+          992,
+          1106,
+          1256
+        ],
+        "height_percentiles_25_50_75": [
+          628,
+          728,
+          871.5
+        ]
+      }
+    }
+  },
+  "limitations": [
+    "Specified after the neural-network test results were inspected; exploratory, not confirmatory.",
+    "Dimension predictability can reflect acquisition, processing or cohort selection; it does not identify the cause.",
+    "This control cannot establish whether the neural networks actually use dimensions or related shortcuts.",
+    "Width and height are not diagnostic findings. Filename groups are unverified patient proxies.",
+    "No feature or hyperparameter search, threshold tuning, calibration fit or external evaluation."
+  ],
+  "provenance": {
+    "kaggle_version": 360920257,
+    "source_sha256_lf": "9cf3633e6c2afd5584458ad0f5213b03e582f191c6b8f37dae36b1c08ed0d0fa",
+    "capture": "visible completed Kaggle log",
+    "job_runtime_seconds": 1221.4
+  }
+}

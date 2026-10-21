@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-21T21:15:25.630578+00:00",
+  "updated_utc": "2026-10-21T21:57:21.899022+00:00",
   "experiments": [
     {
       "experiment": "benchmark224",
@@ -120,6 +120,24 @@
       "source_sha256_lf": "40074a90628557544959f8fa46589b3b8b3aaddcae67c64ef85cc222885ccc19",
       "status": "completed; added class-specific overlap and subgroup proxy-group overlap caveat",
       "job_runtime_seconds": 22.5
+    },
+    {
+      "experiment": "geometry_control",
+      "kaggle_version": 360920257,
+      "url": "https://www.kaggle.com/code/temirlanbekturov/pneumonia-image-geometry-control?scriptVersionId=360920257",
+      "notebook": "pneumonia_geometry_control.ipynb",
+      "source_sha256_lf": "9cf3633e6c2afd5584458ad0f5213b03e582f191c6b8f37dae36b1c08ed0d0fa",
+      "status": "completed; training-only image-dimension control; all 5371 image identities checked",
+      "job_runtime_seconds": 1221.4
+    },
+    {
+      "experiment": "geometry_analysis",
+      "kaggle_version": 360924812,
+      "url": "https://www.kaggle.com/code/temirlanbekturov/pneumonia-geometry-control-verification?scriptVersionId=360924812",
+      "notebook": "pneumonia_geometry_analysis.ipynb",
+      "source_sha256_lf": "aac58565602ee7cc57a115f28ccd80578d2ca4c1d49bfa587f03346cb7382a15",
+      "status": "completed; all 5371 exported scores reconstructed exactly; 1000 paired bootstrap resamples",
+      "job_runtime_seconds": 33.5
     }
   ],
   "provenance_notes": [

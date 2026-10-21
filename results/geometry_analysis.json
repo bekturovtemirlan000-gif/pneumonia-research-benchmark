@@ -1,0 +1,126 @@
+{
+  "status": "Completed frozen geometry-control analysis; exploratory",
+  "export_verification": {
+    "status": "passed",
+    "images": 5371,
+    "max_absolute_score_difference": 0,
+    "changed_classifications": 0,
+    "score_tolerance": 1e-12,
+    "scope": "Reconstruction from saved dimensions and coefficients; original pixel identities were checked in the control run"
+  },
+  "comparison": {
+    "status": "Exploratory; the original source test was previously inspected",
+    "benchmark_metrics": {
+      "auroc": 0.9083917804848037,
+      "average_precision": 0.9335307919387633,
+      "accuracy": 0.8090614886731392,
+      "sensitivity": 0.9638242894056848,
+      "specificity": 0.5497835497835498,
+      "brier_score": 0.133288113803377
+    },
+    "benchmark_cluster_bootstrap_95ci": {
+      "auroc": [
+        0.8807193721609465,
+        0.9342575728130693
+      ],
+      "average_precision": [
+        0.9001957919824581,
+        0.9588866578957835
+      ],
+      "accuracy": [
+        0.773724282771352,
+        0.8448
+      ],
+      "sensitivity": [
+        0.9425244144844871,
+        0.9826763281166826
+      ],
+      "specificity": [
+        0.48847926267281105,
+        0.6181120257695061
+      ],
+      "brier_score": [
+        0.10980372720750092,
+        0.15714545919358325
+      ]
+    },
+    "bootstrap_replicates": 1000,
+    "paired_comparison": {
+      "status": "Exploratory paired comparison; original test results already inspected",
+      "direction": "followup minus baseline; lower is better for Brier score only",
+      "images": 618,
+      "filename_proxy_groups": 426,
+      "baseline": {
+        "auroc": 0.9639864872423012,
+        "average_precision": 0.9671534835786258,
+        "accuracy": 0.8737864077669902,
+        "sensitivity": 0.9974160206718347,
+        "specificity": 0.6666666666666666,
+        "brier_score": 0.13948213880721633
+      },
+      "followup": {
+        "auroc": 0.9083917804848037,
+        "average_precision": 0.9335307919387633,
+        "accuracy": 0.8090614886731392,
+        "sensitivity": 0.9638242894056848,
+        "specificity": 0.5497835497835498,
+        "brier_score": 0.133288113803377
+      },
+      "difference": {
+        "auroc": -0.05559470675749745,
+        "average_precision": -0.033622691639862534,
+        "accuracy": -0.06472491909385103,
+        "sensitivity": -0.03359173126614989,
+        "specificity": -0.11688311688311681,
+        "brier_score": -0.006194025003839337
+      },
+      "paired_cluster_bootstrap_95ci": {
+        "auroc": [
+          -0.07981715984457827,
+          -0.03253808915840902
+        ],
+        "average_precision": [
+          -0.05744850100424949,
+          -0.01118292816025143
+        ],
+        "accuracy": [
+          -0.0914831652955609,
+          -0.038772927638870566
+        ],
+        "sensitivity": [
+          -0.0547597935206004,
+          -0.015187011004389009
+        ],
+        "specificity": [
+          -0.17826863354037265,
+          -0.059555694618272835
+        ],
+        "brier_score": [
+          -0.022270995458236402,
+          0.01063212237734437
+        ]
+      },
+      "bootstrap_replicates": 1000,
+      "limitations": "Filename groups are proxies. Intervals describe test sampling, not training variation, model selection uncertainty or external generalization. No multiplicity adjustment. Thresholds remain those saved by each experiment."
+    },
+    "interpretation": "Conditional test-sampling uncertainty only. Does not capture training, model selection, proxy-group error or external generalization. No threshold refitting or model selection occurs."
+  },
+  "mapping": {
+    "baseline": "Frozen selected 320-pixel EfficientNet-B0 ensemble",
+    "followup": "Fixed image-dimension logistic control",
+    "difference": "geometry minus neural; lower Brier is better"
+  },
+  "limitations": [
+    "Intervals are conditional on fitted models and filename-proxy grouping; no training or selection uncertainty.",
+    "Control was specified after neural-network test results; it is not confirmatory.",
+    "Dimension predictability does not establish that the neural networks rely on dimensions.",
+    "No external evaluation, threshold adjustment or model selection."
+  ],
+  "provenance": {
+    "kaggle_version": 360924812,
+    "job_runtime_seconds": 33.5,
+    "url": "https://www.kaggle.com/code/temirlanbekturov/pneumonia-geometry-control-verification?scriptVersionId=360924812",
+    "source_sha256_lf": "aac58565602ee7cc57a115f28ccd80578d2ca4c1d49bfa587f03346cb7382a15",
+    "capture": "Visible Kaggle log; not downloaded archive"
+  }
+}

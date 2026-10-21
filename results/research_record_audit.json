@@ -7,7 +7,9 @@
     "320: calibration reproduction and boundary records agree; strict status preserved",
     "224: reliability-bin counts, positive totals, ECE and mean scores reconcile; log-loss convention labeled",
     "320: reliability-bin counts, positive totals, ECE and mean scores reconcile; log-loss convention labeled",
+    "Prospective external model lock matches selected config, two checkpoint checks and inference source; no external evaluation implied",
     "Frozen error overlap, class-specific counts and subgroup metric decomposition agree",
+    "Geometry coefficient verification passed; same 618-image cohort and geometry-minus-neural differences reconcile",
     "Combined choice agrees with all six development candidate means",
     "Paired point differences agree with saved ensemble metrics; all reported paired intervals include zero",
     "Selection-bootstrap winner counts and fractions agree"

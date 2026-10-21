@@ -1,10 +1,18 @@
 {
   "status": "passed",
-  "checked_utc": "2026-10-21T21:14:25.577098+00:00",
+  "checked_utc": "2026-10-21T21:57:22.290721+00:00",
   "hash_convention": "UTF-8 notebook code cells concatenated in order, CRLF normalized to LF",
   "scope": "Local source consistency; does not independently attest remote execution or results",
   "similarity_historical_raw_crlf_sha256": "d0dc2c236117a72d183636d9431ec2cf7aa19d416ff06573cdb09e716677915f",
   "notebooks": [
+    {
+      "notebook": "pneumonia_geometry_control.ipynb",
+      "code_sha256_lf": "9cf3633e6c2afd5584458ad0f5213b03e582f191c6b8f37dae36b1c08ed0d0fa",
+      "checks": {
+        "image_geometry_control.py": true,
+        "frozen_submitted_source": true
+      }
+    },
     {
       "notebook": "pneumonia_frozen_error_analysis.ipynb",
       "code_sha256_lf": "40074a90628557544959f8fa46589b3b8b3aaddcae67c64ef85cc222885ccc19",
@@ -56,6 +64,16 @@
       "code_sha256_lf": "4e6ba61555155bee0be868c4c706fef56b47423320d4c0f9c097de8b41a16b60",
       "checks": {
         "external_source_inspection.py": true,
+        "frozen_submitted_source": true
+      }
+    },
+    {
+      "notebook": "pneumonia_geometry_analysis.ipynb",
+      "code_sha256_lf": "aac58565602ee7cc57a115f28ccd80578d2ca4c1d49bfa587f03346cb7382a15",
+      "checks": {
+        "compare_experiments.py": true,
+        "analyze_benchmark_comparison.py": true,
+        "analyze_geometry_control.py": true,
         "frozen_submitted_source": true
       }
     },

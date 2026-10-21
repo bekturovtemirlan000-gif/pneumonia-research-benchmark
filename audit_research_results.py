@@ -1,5 +1,6 @@
 """Cross-check compact published records; does not re-evaluate images or refit models."""
 import json
+import hashlib
 import math
 from pathlib import Path
 
@@ -91,6 +92,17 @@ def audit(root=Path('.')):
         if 'diagnostic_log_loss' not in diagnostic['metric_definitions']:
             raise ValueError('Distinct log-loss convention must be disclosed')
         checks.append(f'{size}: reliability-bin counts, positive totals, ECE and mean scores reconcile; log-loss convention labeled')
+    lock=read('external_model_lock.json')
+    if lock['configuration']!=read('benchmark320_selection.json'):
+        raise ValueError('External model lock differs from selected configuration')
+    if lock['checkpoints']!=read('benchmark320_calibration_reproduction.json')['checkpoints']:
+        raise ValueError('External model checkpoint lock mismatch')
+    test_hashes={row['trial']:row['sha256'] for row in read('benchmark320_cpu_verification.json')['checkpoints']}
+    if any(test_hashes[row['checkpoint'].split('/')[0]]!=row['sha256'] for row in lock['checkpoints']):
+        raise ValueError('External lock disagrees with test checkpoint verification')
+    if hashlib.sha256((root/'predict.py').read_text(encoding='utf-8').encode()).hexdigest()!=lock['inference_source_sha256_lf']:
+        raise ValueError('External inference source lock mismatch')
+    checks.append('Prospective external model lock matches selected config, two checkpoint checks and inference source; no external evaluation implied')
     errors=read('frozen_error_analysis.json')
     overlap=errors['overlap']
     if sum(overlap[k] for k in ('both_correct','both_incorrect','only_224_correct','only_320_correct'))!=errors['images']:
@@ -110,6 +122,24 @@ def audit(root=Path('.')):
         if sum(part[key] for part in errors['overlap_by_source_label'].values())!=overlap[key]:
             raise ValueError('Class-specific overlap does not sum')
     checks.append('Frozen error overlap, class-specific counts and subgroup metric decomposition agree')
+    geometry=read('geometry_control.json')
+    analysis=read('geometry_analysis.json')
+    verification=analysis['export_verification']
+    if verification['status']!='passed' or verification['images']!=5371 or verification['changed_classifications']!=0 or verification['max_absolute_score_difference']>verification['score_tolerance']:
+        raise ValueError('Geometry coefficient reconstruction failed')
+    if geometry['configuration']['fit_partition']!='train' or geometry['configuration']['threshold']!=.5 or geometry['configuration']['hyperparameter_search']:
+        raise ValueError('Geometry fitting protocol changed')
+    comparison=analysis['comparison']['paired_comparison']
+    if comparison['images']!=618 or comparison['filename_proxy_groups']!=426:
+        raise ValueError('Geometry paired cohort differs')
+    for key,delta in comparison['difference'].items():
+        same(comparison['baseline'][key],read('benchmark320_metrics.json')['test'][key],'geometry neural metric')
+        same(comparison['followup'][key],geometry['metrics']['test'][key],'geometry control metric')
+        same(delta,comparison['followup'][key]-comparison['baseline'][key],'geometry-minus-neural difference')
+        lo,hi=comparison['paired_cluster_bootstrap_95ci'][key]
+        if not math.isfinite(lo+hi) or lo>hi:
+            raise ValueError('Invalid geometry paired interval')
+    checks.append('Geometry coefficient verification passed; same 618-image cohort and geometry-minus-neural differences reconcile')
     selection=read('resolution_development_selection.json')
     best=min(candidates,key=lambda x:(-x[0],x[1],x[2]))
     if (selection['selected']['image_size'],selection['selected']['architecture'])!=(best[1],best[2]):

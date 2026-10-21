@@ -33,5 +33,25 @@
       "No patient identity column was found; repeated-patient independence remains unverified."
     ],
     "note": "Earlier dataset_provenance entry is the original discovery-time record; this follow-up supersedes its unresolved count and uninspected-document items."
+  },
+  "training_selection_source_review": {
+    "reviewed_utc": "2026-10-21T21:43:21.295758+00:00",
+    "scope": "Manual review of source control flow plus exact reconstruction of the resolution variant; does not independently attest execution",
+    "source_sha256_lf": {
+      "research_benchmark.py": "02ac0f88e6c568eac2239bd712f5bbdf3c8a98732ac2a9be59b091c91b95405f",
+      "research_resolution320.py": "0e3d7cf1bdedbfc43957c0cb6cdb0b0763f53b74fa181eb36e3bd24a31af6913",
+      "select_resolution.py": "061beaaf4f87eaa5a9954031fff47488b6b61903747b8b3225cb17b15f4d335f"
+    },
+    "findings": [
+      "Epoch checkpoint choice, learning-rate scheduling and early stopping use selection AUROC only.",
+      "Per-trial temperature and threshold use calibration labels and scores.",
+      "The architecture choice averages selection AUROC across three seeds; the saved ensemble configuration is written before test inference.",
+      "The combined resolution selector reads selection predictions and development manifest identities, not test predictions.",
+      "The 320 source exactly reconstructs from the recorded substitutions: image size, output/cache paths and budget/config metadata; selection logic is unchanged."
+    ],
+    "limitations": [
+      "The source test had already been inspected in earlier experiments; these remain exploratory.",
+      "Development checkpoint/model selection and calibration fitting introduce optimism even without test-based selection."
+    ]
   }
 }

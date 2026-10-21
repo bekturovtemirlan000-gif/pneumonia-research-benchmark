@@ -10,18 +10,23 @@
     },
     {
       "path": "MODEL_CARD.md",
-      "bytes": 15977,
-      "sha256": "3d17f2636cde4d93c1a82ebbd4770f2c7e3df46b812a6aa0e57cdf3029603705"
+      "bytes": 17855,
+      "sha256": "f3c19575eacaa8b792bd3e855015206e5001108022c9efb3b47ff934353b7929"
     },
     {
       "path": "README.md",
-      "bytes": 22221,
-      "sha256": "8290e34c249d2efa563ffcf2f84073a8eb88a43fa02787ce1e4b018304e4d907"
+      "bytes": 24864,
+      "sha256": "b31d31260f0816eb9db1ab2b6a2539e97549e894d9d111138d2ad56ad3ef4372"
     },
     {
       "path": "analyze_benchmark_comparison.py",
       "bytes": 1990,
       "sha256": "0f93200c858b00ea82e0764601b4929680414796c82d4a133562e5d2a5b9e2f9"
+    },
+    {
+      "path": "analyze_geometry_control.py",
+      "bytes": 4349,
+      "sha256": "e257cbaf6794e7394d69b8e9f86fe8fd7c7a3d58e6cac101acd3b0f5bd8fff60"
     },
     {
       "path": "analyze_predictions.py",
@@ -30,13 +35,13 @@
     },
     {
       "path": "audit_reproducibility.py",
-      "bytes": 4759,
-      "sha256": "57eeee3fc90b1efa80fb3fd6ce2377cafa9cab6127484d4d89f9285e3366f981"
+      "bytes": 5090,
+      "sha256": "4b617c3ecdb699817c8f0f1f10b41cd00e91e9aade78da89d3fd27f893ec6adf"
     },
     {
       "path": "audit_research_results.py",
-      "bytes": 10389,
-      "sha256": "c3d3804b3d672460a6a4aa41c6f22a73bb68403c5f55a8ce110deb2c9ab62572"
+      "bytes": 13103,
+      "sha256": "a32938555275f39fd63ea81ade137f6c37b25ffe6ec72cfe548d0c477f8ab4ac"
     },
     {
       "path": "build_calibration_notebook.py",
@@ -44,9 +49,14 @@
       "sha256": "1e381f3375278a6b5b88a13a1a1df499da1879a94c9565ec42935bb71244e8f4"
     },
     {
+      "path": "build_geometry_analysis.py",
+      "bytes": 1712,
+      "sha256": "9f8ed76ccabbc6e0cd920c7f6d01def792515e752dd72d22c1746fae90462973"
+    },
+    {
       "path": "build_research_report.py",
-      "bytes": 37309,
-      "sha256": "dd963348b82de3ed2243739d8e9fb70a7d076bbb783918ac63ffdf09d9c0a16d"
+      "bytes": 40062,
+      "sha256": "2ed21f194fa523d330a71fc99254d34c173f5f717445234f426d82e18f17c629"
     },
     {
       "path": "build_resolution_analysis.py",
@@ -77,6 +87,11 @@
       "path": "external_source_inspection.py",
       "bytes": 2610,
       "sha256": "4e6ba61555155bee0be868c4c706fef56b47423320d4c0f9c097de8b41a16b60"
+    },
+    {
+      "path": "image_geometry_control.py",
+      "bytes": 6893,
+      "sha256": "9cf3633e6c2afd5584458ad0f5213b03e582f191c6b8f37dae36b1c08ed0d0fa"
     },
     {
       "path": "inspect_calibration_boundary.py",
@@ -130,8 +145,8 @@
     },
     {
       "path": "output/pdf/pneumonia_research_report.pdf",
-      "bytes": 693574,
-      "sha256": "5ef13bec6e07f059037641bd845457380db7216fbd47207f5d888d77233e6b94"
+      "bytes": 695945,
+      "sha256": "4d4a3f6ff209a398a89f2bce022952f39107398b08b4374cb07854c781bd7bc2"
     },
     {
       "path": "package_research.py",
@@ -187,6 +202,16 @@
       "path": "pneumonia_frozen_error_analysis.ipynb",
       "bytes": 7234,
       "sha256": "3959a135d59e4114303498f834c478b40d17666903556ff2f6f328dee6030eaa"
+    },
+    {
+      "path": "pneumonia_geometry_analysis.ipynb",
+      "bytes": 12551,
+      "sha256": "2d8001122c7bcdc97e746d57a1a437f2191a526123543f005bb6ecf44411fec3"
+    },
+    {
+      "path": "pneumonia_geometry_control.ipynb",
+      "bytes": 8931,
+      "sha256": "3a3f6e7e06a3e5f1c58d727d4a3d6162d22d54d4dae9966edd6bac8ecfb3cebb"
     },
     {
       "path": "pneumonia_kaggle.ipynb",
@@ -245,8 +270,8 @@
     },
     {
       "path": "research_evidence_notes.json",
-      "bytes": 2626,
-      "sha256": "272a2aee171d7afbe26029b480ebddeb93885b4d82e7ba710d1737f458f60381"
+      "bytes": 4130,
+      "sha256": "50509aff85fab65f3568b99ee4c4b80f53f3e84242d15d4487ea198a4e77b282"
     },
     {
       "path": "research_protocol.json",
@@ -385,8 +410,13 @@
     },
     {
       "path": "results/experiment_registry.json",
-      "bytes": 7154,
-      "sha256": "00624dd528b0a793fa34fd3c9e4232b6533fd6bcfbd57cd788200485f119400e"
+      "bytes": 8174,
+      "sha256": "ac646b83da7af194d160fd63688070c1887b816692a8a249f33f5857992fb124"
+    },
+    {
+      "path": "results/external_model_lock.json",
+      "bytes": 2539,
+      "sha256": "f1be64881ac33b90f8ed6a234cda5a9630797ab259d1259c8fe23712b8c786d7"
     },
     {
       "path": "results/external_source_inspection_summary.json",
@@ -414,6 +444,26 @@
       "sha256": "8e3d14561b7a78a3516520fe35c9f129d0b56385677b8a1d603af4aa9bbf789a"
     },
     {
+      "path": "results/geometry_analysis.json",
+      "bytes": 4584,
+      "sha256": "0cfbae0eb4ea48d4a352c826cd0745fb052aa6bfc531620efc995df04cf34db9"
+    },
+    {
+      "path": "results/geometry_control.json",
+      "bytes": 5451,
+      "sha256": "404f2c93751c01e0dd98641653eef7c7bc90d685c12a63758e63a658c2f7ac11"
+    },
+    {
+      "path": "results/geometry_control_plan.json",
+      "bytes": 2138,
+      "sha256": "de14829a60eacf8bba3ee73fafef1e41affdd20db0640ecfd36c4c832b142257"
+    },
+    {
+      "path": "results/local_test_validation.json",
+      "bytes": 5427,
+      "sha256": "4049654e8b3f4f0a9ae13ee4f49a5edc7ca3617f23fe7f5808440f83286006bb"
+    },
+    {
       "path": "results/paired_comparison.json",
       "bytes": 1817,
       "sha256": "04f4ccb1536607c17b9647d012836c049f037923b587a867c691194eff3eacd0"
@@ -425,8 +475,8 @@
     },
     {
       "path": "results/research_record_audit.json",
-      "bytes": 1649,
-      "sha256": "47eff0283bc7f65f6b99fa3a7fa9d280fb1bef674119217d025c53060472a6c5"
+      "bytes": 1909,
+      "sha256": "8abd082aecb57da23f9ecdb6794966f1665527c108d64470cef44590d44cf46b"
     },
     {
       "path": "results/resolution_development_selection.json",
@@ -450,8 +500,8 @@
     },
     {
       "path": "results/source_consistency_audit.json",
-      "bytes": 4647,
-      "sha256": "cc9786139d27552bbbea3734b00fe6c5c0eff2c24b37d14ffbea98227d3a2a5d"
+      "bytes": 5293,
+      "sha256": "822cf8d0f78c80f216ddaf823aa83956703e725c022def01cf3ba76ebcc41873"
     },
     {
       "path": "results/training_environment.json",
@@ -502,6 +552,16 @@
       "path": "tests/test_frozen_errors.py",
       "bytes": 2355,
       "sha256": "004cab64b1f3e3ad0ab9c0c2523e88f44367a063bbfec1989eacd79cb3088687"
+    },
+    {
+      "path": "tests/test_geometry_control.py",
+      "bytes": 994,
+      "sha256": "79b1dae2da59c57d1bd31b10a7a19c1fa285c61034b1d3f760b8ffe5fe38d60e"
+    },
+    {
+      "path": "tests/test_geometry_export.py",
+      "bytes": 1639,
+      "sha256": "38b93b9c3585a35c1f8555f360af45ef50aa7e8c0cb2f1bc55f8d7b321ee834c"
     },
     {
       "path": "tests/test_resolution_selection.py",

@@ -1,0 +1,29 @@
+{
+  "recorded_utc": "2026-10-21T21:28:23.133403+00:00",
+  "status": "Post hoc control specified before geometry features or outcomes were examined",
+  "prior_knowledge": "Neural-network source-test metrics, error overlaps and score diagnostics already known; this is not preregistered or confirmatory",
+  "question": "Can source image width and height predict the binary source label without radiographic pixel features?",
+  "features": [
+    "natural_log_width",
+    "natural_log_height"
+  ],
+  "fit_partition": "train only",
+  "model": "StandardScaler then L2 logistic regression, C=1, lbfgs, max_iter=1000, class_weight=None",
+  "threshold": 0.5,
+  "no_feature_or_hyperparameter_search": true,
+  "no_temperature_fit": true,
+  "no_changes_to_original_models": true,
+  "identity": "Verify all 5371 retained decoded image hashes; retain frozen training and test cohort digests",
+  "evaluation": "Report all four partitions, confusion counts and descriptive AUROC, AP, Brier; no confirmatory comparisons",
+  "interpretation": "Dimension predictability does not prove the neural networks use those shortcuts",
+  "source_sha256_lf": "9cf3633e6c2afd5584458ad0f5213b03e582f191c6b8f37dae36b1c08ed0d0fa",
+  "uncertainty_and_export_check_extension": {
+    "recorded_utc": "2026-10-21T21:50:17.423313+00:00",
+    "prior_knowledge": "Geometry job live at 4000-image identity milestone; no geometry performance output observed",
+    "reconstruction": "Reconstruct all saved geometry scores from exported log-dimension standardization and logistic coefficients; require max absolute error <=1e-12 and zero changed classifications",
+    "comparison": "Compare fixed geometry control against frozen 320-pixel selected ensemble on hash-aligned test images",
+    "uncertainty": "1000 seed-42 filename-group bootstrap replicates; percentile intervals for geometry metrics and paired geometry-minus-neural differences",
+    "limitations": "Post hoc source-test uncertainty conditional on fitted models; no training or model-selection uncertainty, clinical or external validation",
+    "no_model_or_threshold_changes": true
+  }
+}

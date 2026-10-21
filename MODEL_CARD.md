@@ -119,3 +119,14 @@ The person-number grouping rule may merge unrelated bacterial and viral subjects
 ## Data attribution
 
 [Kaggle Chest X-Ray Images (Pneumonia)](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia), with original source [Kermany, Zhang and Goldbaum, Mendeley Data v2](https://doi.org/10.17632/rscbjbr9sj.2). Do not redistribute images without verifying applicable licensing and attribution requirements.
+
+
+## Post hoc image-dimension control
+
+A fixed logistic regression using only log source-image width and height achieved test AUROC **0.9084** (95% filename-group bootstrap interval 0.8807–0.9343), accuracy **80.91%**, sensitivity **96.38%**, specificity **54.98%** and Brier score **0.13329**. Confusion counts: TN 127, FP 104, FN 14, TP 373. The scaler and classifier were fit only on 3,815 training images; threshold 0.5 was fixed, with no hyperparameter search or calibration. Pixel hashes verified identity and were not model features.
+
+The neural ensemble's AUROC exceeded this control by 0.0556. The archived paired analysis uses **geometry minus neural**, giving −0.0556 (95% interval −0.0798 to −0.0325). The Brier difference was −0.0062 (−0.0223 to 0.0106), so an overall calibration advantage is not established. These are exploratory, conditional intervals from 1,000 resamples of 426 filename-derived groups; they omit training and selection uncertainty.
+
+The control was specified after neural test results were inspected and before its own results were observed. Strong predictability from dimensions signals a dataset association; it does not prove that the neural network relies on dimensions or establish a causal explanation. Dimensions are measured in pixels, not physical units. No checkpoint, cohort or cutoff was changed.
+
+[Control run](https://www.kaggle.com/code/temirlanbekturov/pneumonia-image-geometry-control?scriptVersionId=360920257) completed in 1,221.4 seconds. [Independent coefficient reconstruction and comparison](https://www.kaggle.com/code/temirlanbekturov/pneumonia-geometry-control-verification?scriptVersionId=360924812) completed in 33.5 seconds: all 5,371 scores reconstructed exactly, with zero changed classifications. Full records are in `results/geometry_control.json` and `results/geometry_analysis.json`.
