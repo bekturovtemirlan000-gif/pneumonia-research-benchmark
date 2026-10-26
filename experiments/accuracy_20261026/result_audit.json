@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "candidate_count": 12,
+  "test_images": 618,
+  "proxy_groups": 426,
+  "source_sha256_lf": "41463a0d348c4c93d36bcc58f2b3082eec887801a7e0fde37ea4a75346c0d784",
+  "scope": "Compact-record arithmetic and source consistency, not recomputation of image-level AUROC or bootstrap intervals"
+}

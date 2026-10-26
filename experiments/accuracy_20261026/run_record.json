@@ -1,0 +1,15 @@
+{
+  "status": "completed; higher development cross-fitted accuracy but lower source-test accuracy; original model preserved",
+  "observed_utc": "2026-10-26T14:58:47.706083+00:00",
+  "kaggle_version": 362533753,
+  "url": "https://www.kaggle.com/code/temirlanbekturov/pneumonia-development-accuracy-experiment?scriptVersionId=362533753",
+  "source_sha256_lf": "41463a0d348c4c93d36bcc58f2b3082eec887801a7e0fde37ea4a75346c0d784",
+  "source_verified": "Copied complete editor text matches local source after CRLF normalization; matching SHA-256",
+  "accelerator": "GPU T4 x2; code uses one GPU",
+  "user_objective": "Highest overall accuracy on development data",
+  "training_performed": false,
+  "completed_observed_utc": "2026-10-26T15:06:43.680807+00:00",
+  "job_runtime_seconds": 359.4,
+  "summary_provenance": "Parsed complete ACCURACY_EXPERIMENT_DONE JSON from visible Kaggle logs",
+  "deployment_decision": "Do not replace the original model with this candidate"
+}

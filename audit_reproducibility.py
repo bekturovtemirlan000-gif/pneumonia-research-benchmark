@@ -17,6 +17,7 @@ DIRECT = {
     'pneumonia_external_source_inspection.ipynb': 'external_source_inspection.py',
 }
 EMBEDDED = [
+    'experiments/accuracy_20261026/pneumonia_accuracy_experiment.ipynb',
     'pneumonia_inference_cli_smoke.ipynb',
     'pneumonia_geometry_analysis.ipynb',
     'pneumonia_export_verification.ipynb',
@@ -26,6 +27,7 @@ EMBEDDED = [
     'pneumonia_calibration_reproduction.ipynb',
 ]
 FROZEN = {
+    'experiments/accuracy_20261026/pneumonia_accuracy_experiment.ipynb': '41463a0d348c4c93d36bcc58f2b3082eec887801a7e0fde37ea4a75346c0d784',
     'pneumonia_inference_cli_smoke.ipynb': '5938aac53d987fe405b9f2fd25f984eed1f0de21c0b79febcd815bb42cabb790',
     'pneumonia_geometry_analysis.ipynb': 'aac58565602ee7cc57a115f28ccd80578d2ca4c1d49bfa587f03346cb7382a15',
     'pneumonia_geometry_control.ipynb': '9cf3633e6c2afd5584458ad0f5213b03e582f191c6b8f37dae36b1c08ed0d0fa',
@@ -64,7 +66,9 @@ def audit(root=Path('.')):
             if len(assignments)!=1:
                 raise ValueError('Expected one embedded sources mapping: '+name)
             for filename,content in ast.literal_eval(assignments[0].value).items():
-                checks[filename]=content==(root/filename).read_text(encoding='utf-8')
+                local=(root/name).parent/filename
+                if not local.is_file(): local=root/filename
+                checks[local.relative_to(root).as_posix()]=content==local.read_text(encoding='utf-8')
         else:
             base=(root/'research_benchmark.py').read_text(encoding='utf-8').split("if __name__=='__main__':")[0]
             extra=(root/'similarity_audit.py').read_text(encoding='utf-8').replace('from research_benchmark import split_cohorts, patient_id\n','')

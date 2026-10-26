@@ -2,6 +2,26 @@
 
 Completed exploratory PyTorch benchmark: three architectures, three seeds and two input resolutions (18 training runs). This is a binary image classifier (NORMAL / PNEUMONIA), not a clinical diagnostic system.
 
+## Accuracy-focused follow-up — 26 October 2026
+
+**The new accuracy-focused experiment did not improve source-test accuracy. The original selected model remains preserved.** This follow-up reused the 18 frozen checkpoints; it did not perform new training. [Kaggle run 362533753](https://www.kaggle.com/code/temirlanbekturov/pneumonia-development-accuracy-experiment?scriptVersionId=362533753) completed in 359.4 seconds. Its code, prospective protocol and measured records are in [experiments/accuracy_20261026](experiments/accuracy_20261026).
+
+At the user's request, the new objective was overall development accuracy. Twelve fixed equal-weight combinations were compared on the original selection partition. Five grouped folds fitted a maximum-accuracy cutoff on four folds and evaluated the fifth. This selected the 224-pixel ResNet18 three-seed ensemble: 452/456 correct (99.12%), versus 448/456 (98.25%) for the original EfficientNet candidate **under that same new cross-fitted cutoff procedure**. These values are not the original model's fixed-threshold evaluation and are not unbiased generalization estimates: checkpoint selection had already used the entire selection partition.
+
+The selected candidate's final raw-score cutoff, 0.24212709, was fitted on the separate 482-image calibration partition (479/482 correct in sample). The configuration and copied checkpoint hashes were frozen before test scoring. No temperature calibration was applied; scores are not clinical probabilities.
+
+| Source-test result | Original selected model | Accuracy-focused candidate |
+|---|---:|---:|
+| Accuracy | 87.38% | 81.23% |
+| Sensitivity | 99.74% | 100.00% |
+| Specificity | 66.67% | 49.78% |
+| AUROC | 0.96399 | 0.95763 |
+| False positives / false negatives | 77 / 1 | 116 / 0 |
+
+The accuracy change was **−6.15 percentage points**, with a paired 95% filename-group bootstrap interval of −8.05 to −4.24 points (1,000 resamples, same 618 images and 426 groups). The candidate had 39 more false positives in aggregate while missing one fewer pneumonia-labeled image. This result illustrates that optimizing development accuracy need not improve performance on the source test cohort. No cutoff was retuned after seeing it. The bootstrap is conditional on the fixed models and omits training, selection and patient-proxy uncertainty; observed 100% sensitivity does not guarantee future sensitivity.
+
+All 18 original checkpoint hashes passed, and fresh calibration/test inference verified decoded image identities. The exported candidate's actual CPU command reproduced two hash-selected GPU predictions exactly. Five focused local tests and source consistency across 17 notebooks passed. The compact-record audit checks arithmetic and provenance, not independent image-level metric recomputation. The earlier 14-page report remains the original benchmark record; this section and the follow-up records document the later negative result.
+
 ## Current selected model and results
 
 Development-only selection across the six architecture/resolution candidates chose a **320-pixel EfficientNet-B0 three-seed ensemble**. All 18 trials finished with early stopping. The two training jobs took 134.58 minutes combined, including Kaggle overhead. Longer training is not evidence of better performance.

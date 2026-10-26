@@ -15,8 +15,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 28985,
-      "sha256": "840c8ffd4a308cc0b98cef5c6ee87ac1ad39ff2dbab611cf525509d83911896f"
+      "bytes": 31951,
+      "sha256": "3227cc02df5f3fc618e54a6dbeebff721482651fbcf16b817f8dc22d1b8ccf1d"
     },
     {
       "path": "analyze_benchmark_comparison.py",
@@ -35,8 +35,8 @@
     },
     {
       "path": "audit_reproducibility.py",
-      "bytes": 5246,
-      "sha256": "f5dd8b11819511028a08644567530a61b1286c7866c48ba656494c2266034026"
+      "bytes": 5590,
+      "sha256": "0213c3ceabf1761d6dc9479c64060e3af137d7147adf7897197d88c1af00e11b"
     },
     {
       "path": "audit_research_results.py",
@@ -82,6 +82,76 @@
       "path": "compare_experiments.py",
       "bytes": 3958,
       "sha256": "a1ccd88c7ccda0073361f74728aea932390c032bcd1e4fcb8559d7e2cf70c7ed"
+    },
+    {
+      "path": "experiments/accuracy_20261026/accuracy_selection.py",
+      "bytes": 4338,
+      "sha256": "edd547bf616b0a16f630165c8d69a502cae4928dc0aa3ffeedf6174f0e2ed1d7"
+    },
+    {
+      "path": "experiments/accuracy_20261026/audit_result.py",
+      "bytes": 2921,
+      "sha256": "8bd97aabf94660d17720c8bc9b77af1c48142111f0b221fdbf589fc9c389a1b2"
+    },
+    {
+      "path": "experiments/accuracy_20261026/build_notebook.py",
+      "bytes": 4844,
+      "sha256": "d51d95d4da1b3f8a93d08497348359afc3e91c7df84705f34c2b2146ce6cf969"
+    },
+    {
+      "path": "experiments/accuracy_20261026/development_choice.json",
+      "bytes": 11690,
+      "sha256": "59e2f2586476edfdc5160999331d27c3ae0add89d6b916229c0643aec42f26b5"
+    },
+    {
+      "path": "experiments/accuracy_20261026/local_validation.json",
+      "bytes": 844,
+      "sha256": "f1ba97d7836e9073b159d3fe410d3b9a7501b54e24117a50fea10d0ad6365c54"
+    },
+    {
+      "path": "experiments/accuracy_20261026/pneumonia_accuracy_experiment.ipynb",
+      "bytes": 31921,
+      "sha256": "1eff17ad30b62813a1fcd1a161c3d3e455e96c1b4b21d5eaf76e2837dc8c46af"
+    },
+    {
+      "path": "experiments/accuracy_20261026/predict_accuracy.py",
+      "bytes": 3416,
+      "sha256": "bc4b13394fe0e584a2978481f34c75c48ddf004577a3bb161fe5032d3a212e21"
+    },
+    {
+      "path": "experiments/accuracy_20261026/protocol.json",
+      "bytes": 2215,
+      "sha256": "87ae7d1f75a17559de6aa0148e972f439731cffc6f204b0887c80f5209c33af0"
+    },
+    {
+      "path": "experiments/accuracy_20261026/result_audit.json",
+      "bytes": 317,
+      "sha256": "2231efa8e6b623fdc21890cbfc80056c2a42261336f09224b072ab6b4b815590"
+    },
+    {
+      "path": "experiments/accuracy_20261026/run_accuracy_experiment.py",
+      "bytes": 10780,
+      "sha256": "a834ceeb6dc69b18440cc2ff7f55beae721038f97a611826b393b0dfac3442ce"
+    },
+    {
+      "path": "experiments/accuracy_20261026/run_record.json",
+      "bytes": 980,
+      "sha256": "cd23c1b396d7404a8a59bcd0992e7a62bff1c8dd6963215e4d45904d790eef14"
+    },
+    {
+      "path": "experiments/accuracy_20261026/submitted_source.py",
+      "bytes": 30390,
+      "sha256": "5fad874efb7e0a050126b0843cb09b75279556a388d93b7cde3332423654bcfd"
+    },
+    {
+      "path": "experiments/accuracy_20261026/summary.json",
+      "bytes": 5152,
+      "sha256": "52a2bb40f33355224471b1fd225a813d0c0940cb06750cde35890943574b3362"
+    },
+    {
+      "path": "experiments/accuracy_20261026/test_accuracy_selection.py",
+      "bytes": 1812,
+      "sha256": "4eaef83a4a10c1fd0c80a16fb5170a9e8cb270fa1df71b0cbe96fb0681f84270"
     },
     {
       "path": "external_evaluation_protocol.json",
@@ -165,8 +235,8 @@
     },
     {
       "path": "package_research.py",
-      "bytes": 3014,
-      "sha256": "531c3315f0f76b24a4487346283f5052d48f4e965f6f50776a2628b48d2e3024"
+      "bytes": 3174,
+      "sha256": "71a7590a577b0020b8b929becd2f9ea15d8e5bc66d8d03b34a9e03bb27472e6f"
     },
     {
       "path": "plot_benchmark_trials.py",
@@ -545,8 +615,8 @@
     },
     {
       "path": "results/source_consistency_audit.json",
-      "bytes": 5599,
-      "sha256": "5667ae343291129a826038d0f31d8ed0436393b470902ce77cc7846a2e177cd2"
+      "bytes": 6168,
+      "sha256": "7bcb6009e7aade4d1ce3081a329baa51cc8ab35bc13ab1b24cffcacc82d6c1c5"
     },
     {
       "path": "results/source_population_review.json",

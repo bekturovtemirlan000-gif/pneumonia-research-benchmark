@@ -1,0 +1,14 @@
+{
+  "checked_utc": "2026-10-26T14:58:13.617136+00:00",
+  "status": "passed",
+  "focused_tests": 5,
+  "source_sha256": {
+    "accuracy_selection.py": "edd547bf616b0a16f630165c8d69a502cae4928dc0aa3ffeedf6174f0e2ed1d7",
+    "build_notebook.py": "d51d95d4da1b3f8a93d08497348359afc3e91c7df84705f34c2b2146ce6cf969",
+    "predict_accuracy.py": "bc4b13394fe0e584a2978481f34c75c48ddf004577a3bb161fe5032d3a212e21",
+    "run_accuracy_experiment.py": "a834ceeb6dc69b18440cc2ff7f55beae721038f97a611826b393b0dfac3442ce",
+    "submitted_source.py": "5fad874efb7e0a050126b0843cb09b75279556a388d93b7cde3332423654bcfd",
+    "test_accuracy_selection.py": "4eaef83a4a10c1fd0c80a16fb5170a9e8cb270fa1df71b0cbe96fb0681f84270"
+  },
+  "scope": "Five focused threshold/group selection tests passed; latest source syntax checked. Remote inference pending."
+}

@@ -1,0 +1,157 @@
+{
+  "status": "completed",
+  "selected_candidate": "224_resnet18",
+  "members": 3,
+  "selection_oof_accuracy": 0.9912280701754386,
+  "calibration_accuracy": 0.9937759336099585,
+  "threshold": 0.2421270903820793,
+  "test_metrics": {
+    "auroc": 0.957627213441167,
+    "average_precision": 0.959389205702154,
+    "accuracy": 0.8122977346278317,
+    "sensitivity": 1,
+    "specificity": 0.49783549783549785,
+    "brier_score": 0.12752353987854897
+  },
+  "paired_comparison": {
+    "status": "Exploratory; the original source test was previously inspected",
+    "benchmark_metrics": {
+      "auroc": 0.957627213441167,
+      "average_precision": 0.959389205702154,
+      "accuracy": 0.8122977346278317,
+      "sensitivity": 1,
+      "specificity": 0.49783549783549785,
+      "brier_score": 0.12752353987854897
+    },
+    "benchmark_cluster_bootstrap_95ci": {
+      "auroc": [
+        0.9386508903392893,
+        0.9750987819352666
+      ],
+      "average_precision": [
+        0.9317618467854135,
+        0.9812493038137923
+      ],
+      "accuracy": [
+        0.7785369698973748,
+        0.8455571853736479
+      ],
+      "sensitivity": [
+        1,
+        1
+      ],
+      "specificity": [
+        0.43576894179057263,
+        0.5627590136759221
+      ],
+      "brier_score": [
+        0.10120089015588293,
+        0.15485840273644907
+      ]
+    },
+    "bootstrap_replicates": 1000,
+    "paired_comparison": {
+      "status": "Exploratory paired comparison; original test results already inspected",
+      "direction": "followup minus baseline; lower is better for Brier score only",
+      "images": 618,
+      "filename_proxy_groups": 426,
+      "baseline": {
+        "auroc": 0.9639864872423012,
+        "average_precision": 0.9671534835786258,
+        "accuracy": 0.8737864077669902,
+        "sensitivity": 0.9974160206718347,
+        "specificity": 0.6666666666666666,
+        "brier_score": 0.13948213880721633
+      },
+      "followup": {
+        "auroc": 0.957627213441167,
+        "average_precision": 0.959389205702154,
+        "accuracy": 0.8122977346278317,
+        "sensitivity": 1,
+        "specificity": 0.49783549783549785,
+        "brier_score": 0.12752353987854897
+      },
+      "difference": {
+        "auroc": -0.006359273801134213,
+        "average_precision": -0.007764277876471826,
+        "accuracy": -0.06148867313915851,
+        "sensitivity": 0.0025839793281653423,
+        "specificity": -0.16883116883116878,
+        "brier_score": -0.011958598928667352
+      },
+      "paired_cluster_bootstrap_95ci": {
+        "auroc": [
+          -0.017661603790181283,
+          0.004884686743069939
+        ],
+        "average_precision": [
+          -0.02402565592729741,
+          0.006973532975416851
+        ],
+        "accuracy": [
+          -0.0805178528517331,
+          -0.042446196933962205
+        ],
+        "sensitivity": [
+          0,
+          0.008429360316649606
+        ],
+        "specificity": [
+          -0.21519129250156102,
+          -0.12016277367931805
+        ],
+        "brier_score": [
+          -0.021563798501166527,
+          -0.0031011749536319962
+        ]
+      },
+      "bootstrap_replicates": 1000,
+      "limitations": "Filename groups are proxies. Intervals describe test sampling, not training variation, model selection uncertainty or external generalization. No multiplicity adjustment. Thresholds remain those saved by each experiment."
+    },
+    "interpretation": "Conditional test-sampling uncertainty only. Does not capture training, model selection, proxy-group error or external generalization. No threshold refitting or model selection occurs."
+  },
+  "cli_verification": {
+    "passed": true,
+    "images": 2,
+    "selection": "First two ascending pixel hashes",
+    "checks": [
+      {
+        "sha256": "0022396c3189b1d693c679e0972dc970e71fd881912c94e2ce39d176f5c2e2db",
+        "score_difference": 0,
+        "changed_prediction": 0
+      },
+      {
+        "sha256": "007f45d191f2e532f8a87b19b89a97d0f57ac3f8ab58a0f2141a5d2a3fc03767",
+        "score_difference": 0,
+        "changed_prediction": 0
+      }
+    ],
+    "tolerance": 0.0001
+  },
+  "confusion": {
+    "tn": 115,
+    "fp": 116,
+    "fn": 0,
+    "tp": 387
+  },
+  "environment": {
+    "device": "cuda",
+    "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+    "torch": "2.11.0+cu128",
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "sklearn": "1.6.1",
+    "gpu": "Tesla T4"
+  },
+  "runtime_seconds": 307.274280853,
+  "config_sha256": "132e77167d850855fee22055b902d600815316b477e2785b25183a69669ee82b",
+  "training_performed": false,
+  "limitations": [
+    "Previously inspected selection, calibration and test cohorts: exploratory, not confirmatory",
+    "Original checkpoint selection used all selection images; threshold cross-fitting does not remove that optimism",
+    "Candidate selection optimism and training uncertainty are not covered by test bootstrap intervals",
+    "Filename groups are proxies, not verified patient identities",
+    "Accuracy is prevalence-dependent and may trade away pneumonia sensitivity",
+    "No external or clinical validation; original model remains preserved"
+  ]
+}

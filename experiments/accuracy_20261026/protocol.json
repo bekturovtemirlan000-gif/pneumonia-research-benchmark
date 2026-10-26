@@ -1,0 +1,26 @@
+{
+  "recorded_utc": "2026-10-26T14:49:54.913997+00:00",
+  "objective": "Highest overall accuracy on development data, explicitly requested by user",
+  "method": "Reuse original frozen checkpoints; no further training in this stage",
+  "candidates": "12 fixed equal-weight raw-sigmoid combinations: six size/architecture triples, two size-wide nine-member ensembles, three architecture-wide six-member ensembles, and all eighteen",
+  "selection": "Five-fold StratifiedGroupKFold seed 20261026 on original selection partition; fit maximum-accuracy threshold on four folds and score the fifth; rank pooled correct counts",
+  "selection_ties": "Prefer original 320 EfficientNet-B0 candidate, then fewer members, then name",
+  "final_threshold": "Fit maximum accuracy using fresh original-checkpoint inference on separate calibration partition; choose lowest midpoint threshold on ties",
+  "score_calibration": "None; raw averaged sigmoid score is not asserted to be a calibrated probability",
+  "test": "Freeze exported weights and config before test scoring; report all changes including sensitivity losses; no subsequent tuning on observed results",
+  "comparison": "Original selected 320 model; paired 1000 seed-42 filename-group bootstrap on identical test images",
+  "verification": "Original eighteen checkpoint hashes, manifest identity, decoded calibration/test pixels, two hash-selected actual CPU CLI subprocesses at tolerance 1e-4 and zero changed predictions",
+  "source_versions": {
+    "224": 360875315,
+    "320": 360888746
+  },
+  "limitations": [
+    "Previously inspected selection, calibration and test cohorts: exploratory, not confirmatory",
+    "Original checkpoint selection used all selection images; threshold cross-fitting does not remove that optimism",
+    "Candidate selection optimism and training uncertainty are not covered by test bootstrap intervals",
+    "Filename groups are proxies, not verified patient identities",
+    "Accuracy is prevalence-dependent and may trade away pneumonia sensitivity",
+    "No external or clinical validation; original model remains preserved"
+  ],
+  "reference": "https://scikit-learn.org/stable/modules/cross_validation.html"
+}

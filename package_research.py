@@ -18,6 +18,8 @@ def package(root=Path('.')):
     audit(root)
     files=[root/name for name in ROOT_FILES]
     for pattern in ['*.py','*.ipynb','tests/*.py','results/*.json',
+                    'experiments/accuracy_20261026/*.py','experiments/accuracy_20261026/*.json',
+                    'experiments/accuracy_20261026/*.ipynb',
                     'output/pdf/*.pdf','output/figures/**/*.png','output/figures/**/*.pdf']:
         files.extend(root.glob(pattern))
     files=sorted(set(files),key=lambda p:p.relative_to(root).as_posix())
