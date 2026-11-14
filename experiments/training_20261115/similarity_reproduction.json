@@ -1,0 +1,73 @@
+{
+  "status": "completed",
+  "recorded_utc": "2026-11-14T19:16:08.013551+00:00",
+  "original_images": 5856,
+  "archive_bytes": 2463365435,
+  "archive_tree_prefix": "chest_xray",
+  "retained_images": 5371,
+  "retained_counts": {
+    "calibration": 482,
+    "selection": 456,
+    "test": 618,
+    "train": 3815
+  },
+  "candidate_pairs": 814,
+  "candidate_test_pairs": 269,
+  "candidate_rule": "Original 64-bit low-frequency DCT pHash; DC bit zero; Hamming distance <=6",
+  "prior_kaggle_version": 360881277,
+  "prior_counts_reproduced": true,
+  "fingerprint_table_sha256": "b22d6b0cc87908f4d29114679a27f8a74027b82d8c70ae585e5be857075d33bf",
+  "candidate_table_sha256": "cec022888b93db6e5854b31ec5445bf6dbb2944ac95e1a8fd3cb21324042df01",
+  "published_candidate_table_sha256": "e677bb2d1f8563cf2656eb6b5cd04f8f6de2daa361458565eb54619d22634237",
+  "executed_source_sha256": "255ec710b9f14585ff94bb3e68ee15d6de23b4adb40c444376b81c86fce77d12",
+  "descriptive_pixel_correlation": {
+    "method": "Pearson correlation after full-image grayscale 160-pixel bicubic letterbox; used for review ordering only",
+    "maximum": 0.9627798199653625,
+    "quantiles_50_90_95_99": [
+      0.7699673473834991,
+      0.8928036749362945,
+      0.9169074475765228,
+      0.9432873368263245
+    ],
+    "ranked_review_pair_ids": [
+      "f14134c65dea2d4f",
+      "4eb5598f85ca690c",
+      "0f1cc06779898e86",
+      "2280d6437083aa17",
+      "28a45f5e01f3b28d",
+      "25a629be0e1f585e",
+      "258c737ae800dee4",
+      "719b2245ee1c5ccf",
+      "77e76296276d542f",
+      "1d40bf409307bd9b",
+      "2a286f3368b7da79",
+      "d1e6fd72e72a09e2",
+      "704da98ff32056a8",
+      "85eb793ad87c4752",
+      "762405f93ea22861",
+      "7dd719130c424959",
+      "eab996c1500a483a",
+      "8afcbda1196497a5",
+      "fb29152f476df730",
+      "03a1f634f563653c",
+      "e171e0b1543b5083",
+      "dc072327170f4cc0",
+      "076a3644d4be7f3c",
+      "cc404a3962c37b20"
+    ]
+  },
+  "frozen_train_and_test_digests_verified": true,
+  "environment": {
+    "python": "3.14.0",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1"
+  },
+  "seconds": 88.26381969999966,
+  "no_cohort_or_model_changes": true,
+  "limitations": [
+    "Agreement in total counts does not establish byte-for-byte equality with the unavailable original candidate table",
+    "Neither perceptual similarity nor pixel correlation proves duplicate image or patient identity",
+    "Different photographs, transformations, or repeated acquisitions can evade this screen",
+    "The 24 contact-sheet pairs are a selected review subset, not exhaustive adjudication"
+  ]
+}

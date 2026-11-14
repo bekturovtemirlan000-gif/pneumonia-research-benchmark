@@ -1,0 +1,10 @@
+{
+  "recorded_utc": "2026-11-14T18:59:28.2887817Z",
+  "github_commit": "f57dc8ab365931a64aa57433c1bc429447896b5c",
+  "github_tree": "7a1ceda2c62beadcc129e8dd8b140e2ac26265bb",
+  "main_completed_trials_at_specification": 3,
+  "main_candidate_and_test_observed": false,
+  "cv_status_at_specification": "Queued",
+  "cv_outcomes_observed": false,
+  "scope": "Independent CPU reconstruction, fixed-bin score diagnostics, and grouped geometry control; does not change frozen neural training or selection"
+}

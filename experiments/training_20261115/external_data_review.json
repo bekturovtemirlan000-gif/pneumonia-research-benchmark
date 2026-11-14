@@ -1,0 +1,45 @@
+{
+  "reviewed_utc": "2026-11-14T19:05:29.1651280Z",
+  "purpose": "Focused independent pediatric-data suitability review while November training ran; not a systematic review",
+  "external_inference_performed": false,
+  "datasets": [
+    {
+      "name": "VinDr-PCXR / PediCXR 1.0.0",
+      "primary_source": "https://physionet.org/content/vindr-pcxr/1.0.0/",
+      "dataset_paper": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10133237/",
+      "reported_studies": 9125,
+      "reported_test_studies": 1397,
+      "access": "Restricted Health Data License 1.5.0; registered user must sign specified DUA",
+      "decision": "Not acquired in this session; no agreement accepted",
+      "methodological_requirements": "Prospectively harmonize pneumonia/no-finding labels; inspect DICOM processing and photometric interpretation; preserve source-defined test cohort and patient identifiers if available; evaluate frozen source model without refitting",
+      "scope": "Website contains inconsistent wording on hospitals, radiologist counts and adult/pediatric use; primary paper and release documentation need reconciliation before use"
+    },
+    {
+      "name": "Child Pneumonia Dataset v1",
+      "primary_source": "https://data.mendeley.com/datasets/3tx8xymdsv/1",
+      "doi": "10.17632/3tx8xymdsv.1",
+      "license_observed": "CC BY 4.0",
+      "reported_images": 282,
+      "reported_origin": "North Bangle Medical Hospital and College, Sirajganj, Bangladesh",
+      "reported_acquisition": "Mobile-device photographs; JPG; authors report quality filtering",
+      "browser_observation": "Root folders Augmented, Test and Train. Test has Normal and Pneumonia folders. A Normal file preview showed metadata but failed to render the image.",
+      "decision": "No predictions or confirmed external-validation claim",
+      "unresolved": [
+        "Public description does not establish how normal/pneumonia reference labels were adjudicated",
+        "Patient identifiers and independence cannot be verified from the viewed release page",
+        "De-identification and raw-versus-augmented separation need a complete artifact review"
+      ],
+      "scope": "Page and file-tree review only; not a downloaded image-content or privacy audit"
+    }
+  ],
+  "related_work": {
+    "title": "Cross-dataset transportability of pediatric chest X-ray deep learning across three countries: discrimination, calibration, operating-point failure, and limited-label recovery",
+    "author": "Nazim-E-Alam",
+    "version": "arXiv:2609.05140v1",
+    "date": "2026-09-04",
+    "url": "https://arxiv.org/abs/2609.05140v1",
+    "status": "Preprint; abstract-level review only",
+    "relevance": "Separates discrimination, calibration and frozen operating-point transport across pediatric datasets",
+    "scope": "Independent study with different splits and models. Its findings are not evidence of this project model performance; no claim of new methodological invention is made"
+  }
+}
