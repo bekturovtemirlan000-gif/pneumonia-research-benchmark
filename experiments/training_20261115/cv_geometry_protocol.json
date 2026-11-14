@@ -1,0 +1,18 @@
+{
+  "recorded_utc": "2026-11-14T18:58:19.6404837Z",
+  "status": "Prospective specification before grouped-CV outcomes; primary seed-42 selection results already observed",
+  "purpose": "Same-fold dimension-only comparator for neural grouped CV",
+  "cohort": "Only original 3815 training images and 2153 filename groups",
+  "folds": "Same StratifiedGroupKFold 3 folds seed 20261115 and inner split as cv_protocol.json",
+  "features": [
+    "natural log of original pixel width",
+    "natural log of original pixel height"
+  ],
+  "model": "StandardScaler and L2 logistic regression C=1, lbfgs, max_iter=1000, no class weights",
+  "fit": "Fit scaler and coefficients on inner-fit groups only; fit maximum-accuracy cutoff on inner holdout; freeze all three models and cutoffs before any outer scoring",
+  "evaluation": "Three-fold OOF predictions, pooled metrics and fold metrics; paired correctness counts against fixed neural recipes; no inference-based model or cutoff change",
+  "uncertainty": "No fold-based standard error or significance test",
+  "prior_information": "Original source-test image-geometry control was previously inspected; exploratory comparison",
+  "interpretation": "Image-size predictability is a dataset association, not proof neural networks use it",
+  "execution": "CPU verification notebook after neural CV completion; coefficient export reconstruction at tolerance 1e-12"
+}

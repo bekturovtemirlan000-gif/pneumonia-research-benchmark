@@ -1,0 +1,21 @@
+{
+  "status": "queued",
+  "kaggle_version": 369629773,
+  "kaggle_url": "https://www.kaggle.com/code/temirlanbekturov/pneumonia-grouped-training-cross-validation?scriptVersionId=369629773",
+  "submitted_utc": "2026-11-14T18:47:33Z",
+  "submitted_source_sha256_lf": "7b9a0f4785ec9f81088743cde27dd374fb4eea6d88f90fe3c3ed55777e93b9b4",
+  "editor_full_clipboard_source_exact_match": true,
+  "prospective_github_commit": "d4100541ff91a8e73fd6cd90de4b1e9167c38900",
+  "prospective_github_tree": "0e88a85c0354bcec5214d06c447eb59052cc23fc",
+  "initial_protocol_commit": "f413fad063ee489a715d5cb1529db3acf538f72f",
+  "initial_single_seed_plan_run": false,
+  "planned_fresh_models": 27,
+  "outer_folds": 3,
+  "seeds_per_recipe_per_fold": [42, 123, 2026],
+  "allocated_accelerator": "GPU T4 x2",
+  "training_uses_gpus": 1,
+  "maximum_training_minutes_excluding_setup_and_evaluation": 225,
+  "primary_model_selection_changed": false,
+  "source_test_evaluation": false,
+  "results": "Pending; no performance claim"
+}

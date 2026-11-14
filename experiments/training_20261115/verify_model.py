@@ -10,7 +10,7 @@ from PIL import Image
 import torch
 from torch.utils.data import Dataset, DataLoader
 from model import make_model, image_tensor, load_config
-from selection import choose, threshold
+from selection import choose, threshold, internal_split
 from research_benchmark import metrics
 
 
@@ -38,6 +38,26 @@ class Images(Dataset):
     def __getitem__(self, index): return image_tensor(self.paths[index])
 
 
+def score_diagnostics(frame):
+    """Fixed descriptive bins; never refits a prediction rule."""
+    y, p = frame.y_true.to_numpy(), frame.probability.to_numpy()
+    ids = np.minimum((p * 10).astype(int), 9)
+    bins = []
+    for index in range(10):
+        selected = ids == index
+        bins.append(dict(lower=index / 10, upper=(index + 1) / 10, count=int(selected.sum()),
+                         mean_score=float(p[selected].mean()) if selected.any() else None,
+                         observed_fraction=float(y[selected].mean()) if selected.any() else None))
+    ece = sum(b['count'] * abs(b['mean_score'] - b['observed_fraction']) for b in bins if b['count']) / len(y)
+    classes = {}
+    for label, name in [(0, 'normal'), (1, 'pneumonia')]:
+        values = p[y == label]
+        classes[name] = dict(images=len(values), mean_score=float(values.mean()),
+                             quantiles_5_25_50_75_95=np.quantile(values, [.05, .25, .5, .75, .95]).tolist())
+    return dict(images=len(y), fixed_equal_width_bins=bins, expected_calibration_error=float(ece),
+                class_scores=classes, note='Descriptive and bin dependent, without uncertainty intervals. Scores are not validated clinical probabilities.')
+
+
 def verify(folder, data_root, output, submitted_source_hash=None):
     started = time.monotonic()
     folder, data_root, output = map(Path, [folder, data_root, output])
@@ -58,6 +78,10 @@ def verify(folder, data_root, output, submitted_source_hash=None):
     expected_roles = dict(fit=3034, early_stop=781, selection=456, calibration=482, test=618)
     if source.groupby('training_role').size().to_dict() != expected_roles:
         raise ValueError('Unexpected internal cohort sizes')
+    fit, stop = internal_split(source.loc[source.split == 'train'].reset_index(drop=True))
+    for role, frame in [('fit', fit), ('early_stop', stop)]:
+        if set(frame.sha256) != set(source.loc[source.training_role == role, 'sha256']):
+            raise ValueError('Internal checkpoint partition cannot be reconstructed')
     for split, expected in [('train', '293c6127291992894864b58fa85e1d7438d9b09544c800d8503fd61c9a8c8b6d'),
                             ('test', 'c0de6a4a18c8c295d85551b5b8602410e2e26d173b8ab9f141e82cd6fdca9378')]:
         if hashlib.sha256('\n'.join(source.loc[source.split == split, 'sha256']).encode()).hexdigest() != expected:
@@ -162,6 +186,7 @@ def verify(folder, data_root, output, submitted_source_hash=None):
                   checkpoint_checks=checkpoint_checks, candidate_choice_reproduced=True,
                   calibration_cutoff_reconstructed=True, stored_test_metrics_recomputed=True,
                   config_sha256=config_hash, partitions=fresh_results, elapsed_seconds=time.monotonic() - started,
+                  descriptive_score_diagnostics={name: score_diagnostics(values) for name, values in stored.items()},
                   training_source_sha256_lf=submitted_source_hash,
                   environment=dict(python=sys.version, torch=torch.__version__, device='cpu'),
                   scope='Artifact consistency and fresh CPU reproduction on the same cohorts. Does not establish independent patient identity, external accuracy or clinical safety.')
