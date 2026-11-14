@@ -24,6 +24,8 @@ def package(root=Path('.')):
                     'experiments/training_20261115/*.ipynb',
                     'experiments/training_20261115/*.md',
                     'experiments/training_20261115/similarity_candidate_pairs.csv',
+                    'experiments/training_20261115/cv_similarity_fingerprints.csv',
+                    'experiments/training_20261115/cv_similarity_candidate_pairs.csv',
                     'experiments/training_20261115/predictions/*.csv',
                     'output/pdf/*.pdf','output/figures/**/*.png','output/figures/**/*.pdf']:
         files.extend(root.glob(pattern))

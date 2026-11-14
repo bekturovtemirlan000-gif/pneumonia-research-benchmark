@@ -1,0 +1,30 @@
+{
+  "status": "Post hoc plan recorded before running this additional screen",
+  "recorded_utc": "2026-11-14T23:19:01.667491+00:00",
+  "timing": "Specified after completed grouped-CV GPU outcomes and after the dimension-only result; independent neural CPU verification was still running. This was not part of the prospective training protocol.",
+  "purpose": "Address the fact that the original cross-partition similarity screen omitted pairs both drawn from the original training partition, which may be separated by the new outer folds.",
+  "scope": "Every pair of original-training images assigned to different actual exported outer folds; no selection by model error, score or class label.",
+  "rule": "Reuse the local original 64-bit low-frequency DCT pHash, DC bit zero; screen Hamming distance <=6",
+  "maximum_hamming_distance": 6,
+  "fingerprint_table_sha256": "b22d6b0cc87908f4d29114679a27f8a74027b82d8c70ae585e5be857075d33bf",
+  "cv_summary_sha256_lf": "a2af60e133179167b04c2e2776259ce63dd27bdecf01cf0d859c5ddaec53e061",
+  "source_cohort_digest": "293c6127291992894864b58fa85e1d7438d9b09544c800d8503fd61c9a8c8b6d",
+  "membership_source": "All four exact-hash CPU prediction exports must agree on image, filename proxy, inherited label and outer-fold identity.",
+  "planned_outputs": [
+    "cv_similarity_fingerprints.csv",
+    "cv_similarity_candidate_pairs.csv",
+    "cv_similarity_screen.json"
+  ],
+  "validation": "Check source/OOF hashes and cohort identities; compare vectorized candidate selection with exhaustive Python integer bit counts over every cross-fold pair; recheck published file hashes and regenerate all candidates.",
+  "cohort_or_model_changes": false,
+  "new_visual_adjudication_planned": false,
+  "limitations": [
+    "Candidates are not confirmed duplicate images or shared patients. Similar anatomy can create matches, including distance-zero pHashes.",
+    "The screen can miss transformations or repeated acquisitions and cannot establish patient independence.",
+    "The local fingerprint table was reproduced from the original public image archive; aggregate agreement with the earlier Kaggle screen does not prove byte-identical original fingerprints.",
+    "The previous 24-pair and 269-pair visual reviews concerned original cross-partition candidates; they do not adjudicate the new within-original-training cross-fold pairs.",
+    "This post hoc screen neither revises the reported accuracies nor estimates performance after duplicate removal. Independent adjudication and a newly specified evaluation would be needed."
+  ],
+  "screen_source_sha256_lf": "2dec4545561a5ad7769bb50227d42780fdee5413d54154315fc63e2b59c19901",
+  "source_frozen_utc": "2026-11-14T23:21:28.159935+00:00"
+}

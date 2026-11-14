@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "checked_utc": "2026-11-14T23:21:28.187976+00:00",
+  "screen_source_sha256_lf": "2dec4545561a5ad7769bb50227d42780fdee5413d54154315fc63e2b59c19901",
+  "synthetic_images": 7,
+  "exhaustive_cross_fold_comparisons": 16,
+  "expected_candidates": 9,
+  "checks": [
+    "Known accepted and rejected pairs, including distances zero, six and seven",
+    "Same-fold pairs excluded",
+    "Label inversion leaves candidate identity unchanged",
+    "Vectorized and exhaustive scalar bit counts agree"
+  ],
+  "scope": "Mechanics check only; no actual CV candidate screen run yet"
+}
