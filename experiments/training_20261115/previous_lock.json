@@ -1,0 +1,23 @@
+{
+  "config": {
+    "architecture": "efficientnet_b0",
+    "selected_checkpoints": [
+      "efficientnet_b0_seed_42/best_weights.pt",
+      "efficientnet_b0_seed_123/best_weights.pt",
+      "efficientnet_b0_seed_2026/best_weights.pt"
+    ],
+    "temperature": 1.340557747633612,
+    "threshold": 0.8317002265352794
+  },
+  "checkpoints": {
+    "efficientnet_b0_seed_42": "1cf56a0225e9c9ba65e8808d226703895f0ce8cda7a3acfe6f4e106c26cb8005",
+    "densenet121_seed_42": "e51c0545594816ac6e7249e1f9d5a2b2788ba577619e805eb7d690d9ea392fb4",
+    "resnet18_seed_42": "132095b8681d705b54456ca28df3de4e3689ec699764206d079237d0263a7ed1",
+    "densenet121_seed_123": "fca651ec98306c528a7a6b021b3793364ee0d9b5e9805a7bda4f65fd52c3f932",
+    "resnet18_seed_123": "8a940f5fb633720a3c64a732fdea9c55671392b7909e36db98c72166021bbf77",
+    "efficientnet_b0_seed_123": "74f455d965587842516241047541e84981af291a5743c74745ec6d1cf8ab00e8",
+    "resnet18_seed_2026": "528ccbd44715427f8fb49c773c52c70a1bcda6307895ff4c614f73096a59974c",
+    "efficientnet_b0_seed_2026": "2a8776986c46efcb8a9bdacd2e0f587a8674d90a4b580e1027cbf44b2b6ca7d4",
+    "densenet121_seed_2026": "a9e3e1de9fa64a34d5785b8a1f608cc774a73fdd4f0cf9523f074e919658db3a"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "scope": "CPU synthetic gradient/320-pixel forward, frozen cohort/internal split checks, six development-selection tests, preprocessing and checkpoint integrity rejection; not Kaggle training execution",
+  "models": [
+    {
+      "architecture": "efficientnet_b0",
+      "cpu_gradient_update": true,
+      "full_resolution_forward": true
+    },
+    {
+      "architecture": "efficientnet_v2_s",
+      "cpu_gradient_update": true,
+      "full_resolution_forward": true
+    }
+  ],
+  "fit_images": 3034,
+  "early_stop_images": 781,
+  "fit_groups": 1721,
+  "early_stop_groups": 432,
+  "source_sha256_lf": "4250f8e8a0b5fc950e22366c38d7809a44bf318687fc71e713aa6f42d39ed1e4",
+  "seconds": 4.0805518999998185,
+  "tests": "test_internal_split_deterministic_and_grouped (test_selection.SelectionTests.test_internal_split_deterministic_and_grouped) ... ok\ntest_invalid_scores (test_selection.SelectionTests.test_invalid_scores) ... ok\ntest_known_best_midpoint (test_selection.SelectionTests.test_known_best_midpoint) ... ok\ntest_model_choice_is_grouped_and_tie_prefers_smaller (test_selection.SelectionTests.test_model_choice_is_grouped_and_tie_prefers_smaller) ... ok\ntest_tie_preserves_sensitivity (test_selection.SelectionTests.test_tie_preserves_sensitivity) ... ok\ntest_unexpected_predictions_rejected (test_selection.SelectionTests.test_unexpected_predictions_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.025s\n\nOK",
+  "torch": "2.14.1+cpu"
+}

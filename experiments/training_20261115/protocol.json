@@ -1,0 +1,83 @@
+{
+  "recorded_utc": "2026-11-14T18:24:21.753903+00:00",
+  "local_date": "2026-11-15",
+  "session_started_utc": "2026-11-14T18:18:30Z",
+  "approximate_work_deadline_utc": "2026-11-14T23:18:30Z",
+  "objective": "Highest overall accuracy on development data; nine fresh training runs and honest GitHub results",
+  "source_dataset": "paultimothymooney/chest-xray-pneumonia",
+  "source_manifest_version": 360888746,
+  "source_previous_model": "https://www.kaggle.com/code/temirlanbekturov/pneumonia-research-resolution-320?scriptVersionId=360888746",
+  "frozen_counts": {
+    "train": 3815,
+    "selection": 456,
+    "calibration": 482,
+    "test": 618
+  },
+  "internal_holdout": "From original training only: hash-order proxy groups within class with salt 20261115, reserve every fifth group. Same split for every trial.",
+  "recipes": {
+    "b0_standard": {
+      "architecture": "efficientnet_b0",
+      "loss": "Unweighted BCE",
+      "mixup_alpha": 0,
+      "label_smoothing": 0,
+      "color_jitter": 0,
+      "weight_decay": 0.0001
+    },
+    "b0_regularized": {
+      "architecture": "efficientnet_b0",
+      "loss": "Unweighted BCE with soft targets",
+      "mixup_alpha": 0.2,
+      "label_smoothing": 0.05,
+      "color_jitter": 0.15,
+      "weight_decay": 0.0005
+    },
+    "v2s_regularized": {
+      "architecture": "efficientnet_v2_s",
+      "loss": "Unweighted BCE with soft targets",
+      "mixup_alpha": 0.2,
+      "label_smoothing": 0.05,
+      "color_jitter": 0.15,
+      "weight_decay": 0.0005
+    }
+  },
+  "seeds": [
+    42,
+    123,
+    2026
+  ],
+  "image_size": 320,
+  "batch_size": 24,
+  "epochs_max": 36,
+  "minimum_epochs": 8,
+  "patience": 8,
+  "pretrained": "Official torchvision ImageNet1K_V1 for each architecture; all layers fine-tuned from start",
+  "optimizer": "AdamW backbone LR 1e-4, head LR 1e-3; cosine schedule 36 epochs to 1e-6; norm clipping 5; float16 AMP training and float32 evaluation",
+  "augmentation": "All: affine rotation +/-7 degrees, translate +/-3%, scale 0.95-1.05, bilinear sampling. Regularized: brightness and contrast +/-15%, mixup alpha 0.2, label smoothing 0.05.",
+  "preprocessing": "RGB; full-image bicubic letterbox to 320; ImageNet channel normalization. No test-time augmentation or cropping.",
+  "checkpoint_selection": "Maximum internal-holdout correct count at cutoff 0.5; tie lower log loss; only complete epochs qualify. Early stop after eight stale epochs and at least eight complete epochs unless time budget intervenes.",
+  "candidates": "Four fixed equal-weight raw-sigmoid ensembles: each recipe across three seeds, and all nine members",
+  "candidate_selection": "Five StratifiedGroupKFold folds seed 20261115 on original 456 selection images. Fit max-accuracy cutoff on four folds, score fifth; maximize pooled correct count. Tie fewer members, then candidate name.",
+  "threshold_tie_rule": "Lowest cutoff among 0, unique-score midpoints and nextafter(max_score,+inf)",
+  "final_threshold": "Fit maximum accuracy cutoff on separate 482 calibration images; no temperature scaling; freeze configuration and checkpoint hashes before test inference.",
+  "evaluation": "Only selected ensemble scored on previously inspected 618-image source test. Also report fixed 0.5 cutoff descriptively; it cannot replace the frozen cutoff based on outcomes.",
+  "comparison": "Original selected 320 EfficientNet-B0 model, paired 1000 seed-42 filename-group bootstrap; preserve original model and all historical results.",
+  "training_budget_minutes": 225,
+  "allocation": "225 minutes from after image audit divided across remaining trials; rotated recipe order across seeds; unused early-stop time redistributed. Queue, audit and final evaluation excluded; total work target about five hours.",
+  "incomplete_policy": "Save partial trials and fail if all nine lack a complete trained checkpoint; record time-limited runs without claiming full convergence.",
+  "verification": "All decoded pixels and frozen cohort digests; local meaningful selection tests and architecture forward checks; two actual exported CPU CLI subprocesses; separate full test-cohort CPU reproduction after run when time allows.",
+  "limitations": [
+    "All source cohorts previously inspected: exploratory, not confirmatory or external validation",
+    "New checkpoint holdout prevents this run from selecting checkpoints on selection cohort; it does not erase prior experimentation on these cohorts",
+    "Candidate selection optimism and training uncertainty are not captured by conditional test bootstrap",
+    "Internal holdout reduces optimization training size; this experiment changes multiple factors relative to original model and is not a controlled attribution of all differences",
+    "Filename groups are patient proxies, similarity audit not fully adjudicated",
+    "Accuracy depends on class prevalence and may reduce sensitivity",
+    "No clinical safety or perfect-accuracy claim; report failures and negative results"
+  ],
+  "references": [
+    "https://docs.pytorch.org/vision/stable/models/generated/torchvision.models.efficientnet_v2_s.html",
+    "https://docs.pytorch.org/docs/stable/generated/torch.optim.AdamW.html",
+    "https://docs.pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.CosineAnnealingLR.html",
+    "https://scikit-learn.org/stable/modules/cross_validation.html"
+  ]
+}
