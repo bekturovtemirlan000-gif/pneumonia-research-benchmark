@@ -1,0 +1,46 @@
+{
+  "status": "passed",
+  "original_kaggle_version": 360888746,
+  "images": 618,
+  "groups": 426,
+  "checkpoint_hashes_verified": 9,
+  "frozen_configuration": {
+    "architecture": "efficientnet_b0",
+    "selected_checkpoints": [
+      "efficientnet_b0_seed_42/best_weights.pt",
+      "efficientnet_b0_seed_123/best_weights.pt",
+      "efficientnet_b0_seed_2026/best_weights.pt"
+    ],
+    "temperature": 1.340557747633612,
+    "threshold": 0.8317002265352794
+  },
+  "config_file_sha256": "ef56d6689db34049ae02e41d4d7d9f65378b9ff9a45a3504e67c09b115e337a6",
+  "source_prediction_file_sha256": "593ef0665191c5cf15a1e34076c40240ed865c4f1e93f130b5ad8708d939b5a1",
+  "metrics": {
+    "auroc": 0.9639864872423012,
+    "average_precision": 0.9671534835786258,
+    "accuracy": 0.8737864077669902,
+    "sensitivity": 0.9974160206718347,
+    "specificity": 0.6666666666666666,
+    "brier_score": 0.13948213880721633
+  },
+  "public_prediction_exports": {
+    "original_320": {
+      "filename": "public_original_320_test_predictions.csv",
+      "rows": 618,
+      "columns": [
+        "sha256",
+        "patient",
+        "y_true",
+        "probability",
+        "prediction",
+        "threshold"
+      ],
+      "sha256": "48a99ff1450fc22c07183b6fb60a69a573025658e585cfde1da7378ee2ef7a8f",
+      "blocks": 13,
+      "format": "UTF-8 CSV, LF, no index, floats %.17g",
+      "scope": "Public research-dataset pixel hashes, filename proxy groups, inherited labels and model scores; no image pixels or verified patient identity"
+    }
+  },
+  "scope": "Artifact export after outcomes were known. No fitting, inference, cutoff change or model selection. Scores are the saved original temperature-scaled scores, not raw sigmoid probabilities."
+}

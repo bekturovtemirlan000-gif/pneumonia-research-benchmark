@@ -1,0 +1,33 @@
+[
+  {
+    "trial": "b0_standard_fold_0_seed_42",
+    "recipe": "b0_standard",
+    "architecture": "efficientnet_b0",
+    "seed": 42,
+    "best_epoch": 2,
+    "epochs_completed": 10,
+    "stop_reason": "early_stopping",
+    "seconds": 148.36286868600007,
+    "best_internal_correct": 505,
+    "best_internal_log_loss": 0.05116546101185505,
+    "checkpoint_sha256": "f9bd8b4d4d0b7b4750f008dc0eb301297c07e4d874ad4f1235212a6c9563f8e7",
+    "parameters": 4008829,
+    "internal_checkpoint_holdout_at_0_5": {
+      "auroc": 0.9985069612929715,
+      "average_precision": 0.9994148429159333,
+      "accuracy": 0.9844054580896686,
+      "sensitivity": 0.9918256130790191,
+      "specificity": 0.9657534246575342,
+      "brier_score": 0.01389526049846256,
+      "log_loss": 0.05116546101185505,
+      "tn": 141,
+      "fp": 5,
+      "fn": 3,
+      "tp": 364
+    },
+    "fold": 0,
+    "fit_images": 2011,
+    "internal_images": 513,
+    "outer_images": 1291
+  }
+]

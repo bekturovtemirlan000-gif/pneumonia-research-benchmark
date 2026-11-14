@@ -12,7 +12,7 @@ HERE = Path(__file__).resolve().parent
 
 def capture(log, kind):
     raw = Path(log).read_text(encoding='utf-8')
-    report_marker = 'NOVEMBER_CPU_VERIFICATION' if kind == 'primary' else 'GROUPED_CV_CPU_VERIFICATION'
+    report_marker = {'primary':'NOVEMBER_CPU_VERIFICATION', 'cv':'GROUPED_CV_CPU_VERIFICATION', 'comparator':'COMPARATOR_EXPORT_DONE'}[kind]
     final = []; tables = {}; blocks = {}
     for line in raw.splitlines():
         row = re.match(r'^([0-9]+(?:\.[0-9]+)?)s\s+([0-9]+)\s+(.*)$', line)
@@ -46,7 +46,7 @@ def capture(log, kind):
         payloads[name] = payload
     destination = HERE / 'predictions'; destination.mkdir(exist_ok=True)
     for name, payload in payloads.items(): (destination/name).write_bytes(payload)
-    filename = 'cpu_verification.json' if kind == 'primary' else 'cv_cpu_verification.json'
+    filename = {'primary':'cpu_verification.json', 'cv':'cv_cpu_verification.json', 'comparator':'comparator_export.json'}[kind]
     (HERE/filename).write_text(json.dumps(report, indent=2), encoding='utf-8')
     receipt = dict(captured_utc=datetime.now(timezone.utc).isoformat(), source='Visible Kaggle Logs table via Chrome',
                    kind=kind, verification_status=report['status'], log_sha256=hashlib.sha256(raw.encode()).hexdigest(),
@@ -60,5 +60,5 @@ def capture(log, kind):
 
 if __name__ == '__main__':
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('log',type=Path);parser.add_argument('--kind',choices=['primary','cv'],required=True)
+    parser.add_argument('log',type=Path);parser.add_argument('--kind',choices=['primary','cv','comparator'],required=True)
     args=parser.parse_args();capture(args.log,args.kind)

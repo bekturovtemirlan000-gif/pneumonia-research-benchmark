@@ -1,0 +1,19 @@
+{
+  "status": "completed",
+  "recorded_utc": "2026-11-14T19:59:10.155600+00:00",
+  "source_sha256_lf": "0a164b577bfa167dd6ae5cb8b71fb98de3ddb5d4f53f70086389eb8cde1c1282",
+  "purpose": "Export original frozen comparator test scores for independent local paired-bootstrap reproduction; retrospective artifact verification only",
+  "original_kaggle_version": 360888746,
+  "fitting": false,
+  "inference": false,
+  "threshold_change": false,
+  "model_selection": false,
+  "kaggle_version": 369647702,
+  "kaggle_url": "https://www.kaggle.com/code/temirlanbekturov/pneumonia-original-comparator-score-export?scriptVersionId=369647702",
+  "submitted_utc": "2026-11-14T19:59:48Z",
+  "verified_utc": "2026-11-14T20:02:59.450210+00:00",
+  "observed_terminal_status": "Successfully ran in 33.5s",
+  "kaggle_runtime_seconds": 33.5,
+  "editor_full_clipboard_source_exact_match": true,
+  "public_csv_hashes_verified": true
+}

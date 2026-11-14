@@ -22,6 +22,7 @@ def package(root=Path('.')):
                     'experiments/accuracy_20261026/*.ipynb',
                     'experiments/training_20261115/*.py','experiments/training_20261115/*.json',
                     'experiments/training_20261115/*.ipynb',
+                    'experiments/training_20261115/*.md',
                     'experiments/training_20261115/similarity_candidate_pairs.csv',
                     'experiments/training_20261115/predictions/*.csv',
                     'output/pdf/*.pdf','output/figures/**/*.png','output/figures/**/*.pdf']:
@@ -39,7 +40,7 @@ def package(root=Path('.')):
         payload=path.read_bytes()
         manifest.append(dict(path=relative,bytes=len(payload),sha256=hashlib.sha256(payload).hexdigest()))
     record=dict(status='Exploratory research source release; not peer reviewed or clinically validated',
-                scope='Code, protocols, compact results, figures and draft report',
+                scope='Code, protocols, compact records, complete public prediction tables, figures and draft reports',
                 excluded='Raw datasets, model weights, local artifacts, credentials and browser screenshots',
                 files=manifest)
     out=root/'artifacts';out.mkdir(exist_ok=True)

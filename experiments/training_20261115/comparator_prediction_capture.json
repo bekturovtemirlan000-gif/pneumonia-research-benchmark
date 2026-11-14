@@ -1,0 +1,27 @@
+{
+  "captured_utc": "2026-11-14T20:02:38.065573+00:00",
+  "source": "Visible Kaggle Logs table via Chrome",
+  "kind": "comparator",
+  "verification_status": "passed",
+  "log_sha256": "6a7ca0c3b79d0e5e77c95add89496adb32684d540f851baf14454c02b74c43b7",
+  "tables": [
+    {
+      "filename": "public_original_320_test_predictions.csv",
+      "rows": 618,
+      "columns": [
+        "sha256",
+        "patient",
+        "y_true",
+        "probability",
+        "prediction",
+        "threshold"
+      ],
+      "sha256": "48a99ff1450fc22c07183b6fb60a69a573025658e585cfde1da7378ee2ef7a8f",
+      "blocks": 13,
+      "format": "UTF-8 CSV, LF, no index, floats %.17g",
+      "scope": "Public research-dataset pixel hashes, filename proxy groups, inherited labels and model scores; no image pixels or verified patient identity"
+    }
+  ],
+  "all_export_byte_hashes_verified": true,
+  "scope": "Complete image-level score exports reconstructed from bounded JSON log blocks and matched to Kaggle CSV SHA256; source images and weights not included"
+}

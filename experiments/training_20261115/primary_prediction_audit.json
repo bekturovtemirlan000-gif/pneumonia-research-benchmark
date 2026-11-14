@@ -1,0 +1,144 @@
+{
+  "status": "passed",
+  "kind": "primary",
+  "checked_utc": "2026-11-14T20:02:40.745891+00:00",
+  "environment": {
+    "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+    "numpy": "2.5.2",
+    "pandas": "3.0.6",
+    "sklearn": "1.9.1"
+  },
+  "results": {
+    "calibration": {
+      "images": 482,
+      "groups": 268,
+      "stored_metrics": {
+        "auroc": 0.9998491931835319,
+        "average_precision": 0.9999427860400779,
+        "accuracy": 0.9937759336099585,
+        "sensitivity": 1.0,
+        "specificity": 0.9774436090225563,
+        "brier_score": 0.0063824244832368475,
+        "log_loss": 0.0470384868647802,
+        "tn": 130,
+        "fp": 3,
+        "fn": 0,
+        "tp": 349
+      },
+      "fresh_metrics": {
+        "auroc": 0.9998491931835319,
+        "average_precision": 0.9999427860400779,
+        "accuracy": 0.9937759336099585,
+        "sensitivity": 1.0,
+        "specificity": 0.9774436090225563,
+        "brier_score": 0.006382428665145105,
+        "log_loss": 0.047038495387988585,
+        "tn": 130,
+        "fp": 3,
+        "fn": 0,
+        "tp": 349
+      },
+      "cpu_reproduction": {
+        "max_absolute_score_difference": 3.5564104715613e-06,
+        "changed_predictions": 0,
+        "passed": true
+      }
+    },
+    "test": {
+      "images": 618,
+      "groups": 426,
+      "stored_metrics": {
+        "auroc": 0.9443046187232235,
+        "average_precision": 0.9366889352130532,
+        "accuracy": 0.8398058252427184,
+        "sensitivity": 0.9974160206718347,
+        "specificity": 0.5757575757575758,
+        "brier_score": 0.10432085742359735,
+        "log_loss": 0.3738408824569609,
+        "tn": 133,
+        "fp": 98,
+        "fn": 1,
+        "tp": 386
+      },
+      "fresh_metrics": {
+        "auroc": 0.9443046187232235,
+        "average_precision": 0.9366889352130532,
+        "accuracy": 0.8398058252427184,
+        "sensitivity": 0.9974160206718347,
+        "specificity": 0.5757575757575758,
+        "brier_score": 0.10432087149337259,
+        "log_loss": 0.37384086558580953,
+        "tn": 133,
+        "fp": 98,
+        "fn": 1,
+        "tp": 386
+      },
+      "cpu_reproduction": {
+        "max_absolute_score_difference": 3.5812457402917275e-06,
+        "changed_predictions": 0,
+        "passed": true
+      }
+    },
+    "single_model_group_bootstrap_reproduced": {
+      "replicates": 1000,
+      "seed": 42,
+      "intervals": {
+        "auroc": [
+          0.9203758330561489,
+          0.966828495578938
+        ],
+        "average_precision": [
+          0.901334013979951,
+          0.9702781711433288
+        ],
+        "accuracy": [
+          0.8044962232434262,
+          0.8711192032160957
+        ],
+        "sensitivity": [
+          0.9915706396833504,
+          1.0
+        ],
+        "specificity": [
+          0.5147648429638261,
+          0.6419227451614643
+        ],
+        "brier_score": [
+          0.08181711720335909,
+          0.12779265996639305
+        ]
+      }
+    },
+    "paired_group_bootstrap_reproduced": {
+      "replicates": 1000,
+      "seed": 42,
+      "intervals": {
+        "auroc": [
+          -0.03651447850299135,
+          -0.004589267156711904
+        ],
+        "average_precision": [
+          -0.06106566224934968,
+          -0.003403168683481535
+        ],
+        "accuracy": [
+          -0.05102581668709892,
+          -0.015847860538827252
+        ],
+        "sensitivity": [
+          0.0,
+          0.0
+        ],
+        "specificity": [
+          -0.13426600647732934,
+          -0.04484304932735428
+        ],
+        "brier_score": [
+          -0.04697779582635375,
+          -0.024228433595662416
+        ]
+      }
+    },
+    "scope": "Complete calibration and test scores; all reported test and fresh CPU metrics, decisions, score summaries and single-model group-bootstrap intervals independently recomputed. Original comparator scores also verify every paired interval. No cutoff or model changed."
+  }
+}

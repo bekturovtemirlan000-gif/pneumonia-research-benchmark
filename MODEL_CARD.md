@@ -4,7 +4,26 @@
 
 Educational and research study of binary chest X-ray classification. Not validated for clinical decisions, triage, screening, diagnosis, or use on arbitrary uploaded images. A label of NORMAL means the dataset class, not an assurance that the person is healthy.
 
-## Current development-selected model
+## November 2026 training experiment
+
+Nine fresh models completed under a prospectively recorded accuracy-oriented protocol: standard EfficientNet-B0, regularized EfficientNet-B0 and regularized EfficientNetV2-S, each at seeds 42, 123 and 2026. The selected research candidate is the three-seed regularized EfficientNetV2-S ensemble, using the mean raw sigmoid score and a calibration-fitted cutoff of **0.31521070624391234**. No temperature scaling is applied. Its export is separate from the original benchmark model below.
+
+Checkpoint selection used 781 internal holdout images, disjoint by filename proxy group from the 3,034 fitting images. Five-fold cutoff cross-fitting on 456 selection images chose the candidate with **447/456 correct (98.03%)**. The final cutoff fitted 479/482 calibration images correctly in sample. Neither development figure estimates external performance.
+
+| Source-test measure | November candidate | Original 320-pixel comparator |
+|---|---:|---:|
+| Accuracy | 83.98% | 87.38% |
+| Sensitivity | 99.74% | 99.74% |
+| Specificity | 57.58% | 66.67% |
+| AUROC | 0.94430 | 0.96399 |
+| Brier score | 0.10432 | 0.13948 |
+| TN / FP / FN / TP | 133 / 98 / 1 / 386 | 154 / 77 / 1 / 386 |
+
+The paired accuracy difference was **−3.40 percentage points**, with a descriptive 95% filename-group bootstrap interval of −5.10 to −1.58 points. Brier score improved while accuracy and discrimination decreased. The separately prespecified cutoff 0.5 scored 87.70% accuracy but does not replace the primary calibration-selected rule. No decision rule changed after test scoring, and no improvement or perfection is claimed. All source cohorts had already been inspected in earlier experiments.
+
+The nine models completed 132 epochs, with 60.94 minutes in the training region and 69 minutes 52.6 seconds for the full Kaggle job. Two exported-command CPU checks passed. Independent full-cohort CPU reproduction then passed for all 482 calibration and 618 test images, with zero changed classifications and maximum test score difference 0.000003582. All nine checkpoints passed strict loading and hash checks. Exact-byte public score exports and a separate local metric/bootstrap audit passed. The training-cohort-only 27-model grouped assessment is still running; its results are not assumed. Source, immutable run records, configuration and checkpoint hashes are in [the November experiment folder](experiments/training_20261115). The original model remains unchanged.
+
+## Original benchmark-selected model
 
 EfficientNet-B0, 320-pixel RGB letterboxed input, three seeds (42, 123, 2026). Average member sigmoid probabilities, clip to [1e-7, 1-1e-7], transform to logit, divide by temperature **1.340557747633612**, then apply sigmoid. Predict PNEUMONIA at scores at least **0.8317002265352794**. Architecture and resolution were selected by mean development AUROC; temperature and cutoff were fit on a separate calibration partition before test evaluation.
 

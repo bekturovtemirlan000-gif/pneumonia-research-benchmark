@@ -1,0 +1,22 @@
+{
+  "status": "completed",
+  "kaggle_version": 369643988,
+  "kaggle_url": "https://www.kaggle.com/code/temirlanbekturov/pneumonia-november-cpu-reproduction?scriptVersionId=369643988",
+  "submitted_utc": "2026-11-14T19:43:46Z",
+  "submitted_source_sha256_lf": "83725618719bf76752e1bebfff7dd2ca0b91ce29dbf8795c54e6c9bb4cb1ab6e",
+  "editor_full_clipboard_source_exact_match": true,
+  "prospective_github_commit": "1e1ee18cc0e3e99a5842495d019be4f1fc7bf623",
+  "expected_primary_configuration_sha256": "63db3ad4e44aad4b4de4a34edf7918fd0f53ad24b6da92534cb472636e86230a",
+  "allocated_accelerator": "None",
+  "scope": "All nine checkpoint integrity checks; reconstruct selection and cutoff; fresh CPU inference on 482 calibration and 618 test images; hash-checked image-level score export",
+  "observed_terminal_status": "Successfully ran in 769.4s",
+  "kaggle_runtime_seconds": 769.4,
+  "verified_utc": "2026-11-14T19:58:32.833281+00:00",
+  "strict_verification_status": "passed",
+  "calibration_images": 482,
+  "test_images": 618,
+  "changed_calibration_predictions": 0,
+  "changed_test_predictions": 0,
+  "public_csv_hashes_verified": true,
+  "local_image_level_metric_audit": "passed"
+}

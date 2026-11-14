@@ -1,0 +1,47 @@
+{
+  "captured_utc": "2026-11-14T19:58:03.721253+00:00",
+  "source": "Visible Kaggle Logs table via Chrome",
+  "kind": "primary",
+  "verification_status": "passed",
+  "log_sha256": "18b8d17230e3795817c06bcdbe72c2cd45b2559ec6f4a73099243b907a7d5843",
+  "tables": [
+    {
+      "filename": "public_calibration_predictions.csv",
+      "rows": 482,
+      "columns": [
+        "sha256",
+        "patient",
+        "y_true",
+        "probability",
+        "prediction",
+        "threshold",
+        "fresh_cpu_probability",
+        "fresh_cpu_prediction"
+      ],
+      "sha256": "d406221e66c59cb6a151da0b4d77ff34016d3be9213aaf53258f0e8e071b0483",
+      "blocks": 10,
+      "format": "UTF-8 CSV, LF, no index, floats %.17g",
+      "scope": "Public research-dataset pixel hashes, filename proxy groups, inherited labels and model scores; no image pixels or verified patient identity"
+    },
+    {
+      "filename": "public_test_predictions.csv",
+      "rows": 618,
+      "columns": [
+        "sha256",
+        "patient",
+        "y_true",
+        "probability",
+        "prediction",
+        "threshold",
+        "fresh_cpu_probability",
+        "fresh_cpu_prediction"
+      ],
+      "sha256": "76dab4af5d379bb02e5563272be4d6e4dbf493f24f8ea61185ec14e91371135a",
+      "blocks": 13,
+      "format": "UTF-8 CSV, LF, no index, floats %.17g",
+      "scope": "Public research-dataset pixel hashes, filename proxy groups, inherited labels and model scores; no image pixels or verified patient identity"
+    }
+  ],
+  "all_export_byte_hashes_verified": true,
+  "scope": "Complete image-level score exports reconstructed from bounded JSON log blocks and matched to Kaggle CSV SHA256; source images and weights not included"
+}

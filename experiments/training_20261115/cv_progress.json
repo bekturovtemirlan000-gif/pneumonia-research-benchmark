@@ -1,0 +1,24 @@
+{
+  "captured_utc": "2026-11-14T20:00:13.162701+00:00",
+  "source": "Visible Kaggle Logs table through Chrome",
+  "log_sha256": "b807ff38e7f502963878b0d38765ea89ee61fee1ef7c5cf027cff1b8a55dbd93",
+  "completed_trials": 1,
+  "planned_trials": 27,
+  "completed_fold_ensembles": 0,
+  "logged_epoch_rows": 11,
+  "last_epoch": {
+    "epoch": 1,
+    "train_loss": 0.34189172707820403,
+    "images_seen": 2011,
+    "complete_epoch": true,
+    "early_stop_accuracy": 0.9707602339181286,
+    "early_stop_log_loss": 0.12153426328211561,
+    "early_stop_auroc": 0.995464894927401,
+    "seconds": 14.936326597000061,
+    "backbone_lr": 0.0001,
+    "trial": "b0_regularized_fold_0_seed_42",
+    "kaggle_elapsed_seconds": 636.4
+  },
+  "complete_summary_observed": false,
+  "scope": "Compact observed logs; does not independently attest terminal success or complete artifact download"
+}

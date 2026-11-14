@@ -1,0 +1,371 @@
+{
+  "status": "passed",
+  "checkpoint_checks": [
+    {
+      "trial": "b0_standard_seed_42",
+      "sha256": "a41efb7ffe9ce43a03a0069c3062fd713ccfb0cc7b3eb70ebddac25a635f469a",
+      "strict_load_and_forward": true,
+      "best_epoch_rule_verified": true,
+      "complete_epochs": 11
+    },
+    {
+      "trial": "b0_regularized_seed_42",
+      "sha256": "2e31d1c0a2de3087e8c64e2efcb4d9ad6d8c41749cb8b2a0189b8b209affa952",
+      "strict_load_and_forward": true,
+      "best_epoch_rule_verified": true,
+      "complete_epochs": 11
+    },
+    {
+      "trial": "v2s_regularized_seed_42",
+      "sha256": "81dc6f25f241e70c1fceb7471b7c15d15f83f3454d7a2a6c0b2c6e6c0885bf34",
+      "strict_load_and_forward": true,
+      "best_epoch_rule_verified": true,
+      "complete_epochs": 19
+    },
+    {
+      "trial": "b0_regularized_seed_123",
+      "sha256": "e2a674a4a7d40d9bedb77b0d52dcc5174994bc833bcdb4d8d98506f95d5a0c3b",
+      "strict_load_and_forward": true,
+      "best_epoch_rule_verified": true,
+      "complete_epochs": 14
+    },
+    {
+      "trial": "v2s_regularized_seed_123",
+      "sha256": "2b8bae21489714d21b8e3b56c45a55a54d5df9250b40d090d13a7c341c5b5ec8",
+      "strict_load_and_forward": true,
+      "best_epoch_rule_verified": true,
+      "complete_epochs": 12
+    },
+    {
+      "trial": "b0_standard_seed_123",
+      "sha256": "c98180c7a971707399d5dc6e7ea909306eb25bc57e889812bb202a8675e9a4e8",
+      "strict_load_and_forward": true,
+      "best_epoch_rule_verified": true,
+      "complete_epochs": 15
+    },
+    {
+      "trial": "v2s_regularized_seed_2026",
+      "sha256": "021c1661a0ab0674d550b1986ddd975a249c23f1d6d46b298a4dafa93d56b038",
+      "strict_load_and_forward": true,
+      "best_epoch_rule_verified": true,
+      "complete_epochs": 16
+    },
+    {
+      "trial": "b0_standard_seed_2026",
+      "sha256": "5d13c15eb0a70dcdf57520b9ecb4088c0feb293e10cb2f76d8b83f049f18d242",
+      "strict_load_and_forward": true,
+      "best_epoch_rule_verified": true,
+      "complete_epochs": 12
+    },
+    {
+      "trial": "b0_regularized_seed_2026",
+      "sha256": "77cd466ec45b7e1f3da33ec3a466917f7976d0d31c89b99fa5d5f00e0d6a17ec",
+      "strict_load_and_forward": true,
+      "best_epoch_rule_verified": true,
+      "complete_epochs": 22
+    }
+  ],
+  "candidate_choice_reproduced": true,
+  "calibration_cutoff_reconstructed": true,
+  "stored_test_metrics_recomputed": true,
+  "config_sha256": "63db3ad4e44aad4b4de4a34edf7918fd0f53ad24b6da92534cb472636e86230a",
+  "partitions": {
+    "calibration": {
+      "images": 482,
+      "pixel_identities_verified": true,
+      "max_absolute_score_difference": 3.5564104715613e-06,
+      "mean_absolute_score_difference": 9.492147883868828e-08,
+      "changed_predictions": 0,
+      "score_tolerance": 0.0001,
+      "passed": true,
+      "fresh_metrics": {
+        "auroc": 0.9998491931835319,
+        "average_precision": 0.9999427860400779,
+        "accuracy": 0.9937759336099585,
+        "sensitivity": 1.0,
+        "specificity": 0.9774436090225563,
+        "brier_score": 0.006382428665145105,
+        "log_loss": 0.047038495387988585,
+        "tn": 130,
+        "fp": 3,
+        "fn": 0,
+        "tp": 349
+      },
+      "fresh_refitted_threshold": 0.3152112004657587,
+      "fresh_refitted_correct": 479,
+      "refit_note": "Diagnostic only; frozen model configuration unchanged"
+    },
+    "test": {
+      "images": 618,
+      "pixel_identities_verified": true,
+      "max_absolute_score_difference": 3.5812457402917275e-06,
+      "mean_absolute_score_difference": 1.917650446981595e-07,
+      "changed_predictions": 0,
+      "score_tolerance": 0.0001,
+      "passed": true,
+      "fresh_metrics": {
+        "auroc": 0.9443046187232235,
+        "average_precision": 0.9366889352130532,
+        "accuracy": 0.8398058252427184,
+        "sensitivity": 0.9974160206718347,
+        "specificity": 0.5757575757575758,
+        "brier_score": 0.10432087149337259,
+        "log_loss": 0.37384086558580953,
+        "tn": 133,
+        "fp": 98,
+        "fn": 1,
+        "tp": 386
+      }
+    }
+  },
+  "elapsed_seconds": 725.1032912450002,
+  "descriptive_score_diagnostics": {
+    "calibration": {
+      "images": 482,
+      "fixed_equal_width_bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "count": 116,
+          "mean_score": 0.04015809242699248,
+          "observed_fraction": 0.0
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "count": 8,
+          "mean_score": 0.12561997522910434,
+          "observed_fraction": 0.0
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "count": 6,
+          "mean_score": 0.23519363337092924,
+          "observed_fraction": 0.0
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "count": 3,
+          "mean_score": 0.3592323801583714,
+          "observed_fraction": 0.6666666666666666
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 0,
+          "mean_score": null,
+          "observed_fraction": null
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "count": 1,
+          "mean_score": 0.5506939888000488,
+          "observed_fraction": 1.0
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "count": 2,
+          "mean_score": 0.6592712948719661,
+          "observed_fraction": 0.0
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "count": 1,
+          "mean_score": 0.7490758697191874,
+          "observed_fraction": 1.0
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 2,
+          "mean_score": 0.889402836561203,
+          "observed_fraction": 1.0
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "count": 343,
+          "mean_score": 0.9729358115974738,
+          "observed_fraction": 1.0
+        }
+      ],
+      "expected_calibration_error": 0.04049740013129296,
+      "class_scores": {
+        "normal": {
+          "images": 133,
+          "mean_score": 0.06582589806722738,
+          "quantiles_5_25_50_75_95": [
+            0.0281879842281341,
+            0.0326606848587592,
+            0.0386407760282357,
+            0.0510013767828544,
+            0.21447611103455222
+          ]
+        },
+        "pneumonia": {
+          "images": 349,
+          "mean_score": 0.9670814169640186,
+          "quantiles_5_25_50_75_95": [
+            0.9462279756863912,
+            0.9704511761665344,
+            0.976018766562144,
+            0.9791079958279928,
+            0.9824563344319661
+          ]
+        }
+      },
+      "note": "Descriptive and bin dependent, without uncertainty intervals. Scores are not validated clinical probabilities."
+    },
+    "test": {
+      "images": 618,
+      "fixed_equal_width_bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "count": 72,
+          "mean_score": 0.05912861526357349,
+          "observed_fraction": 0.0
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "count": 41,
+          "mean_score": 0.1395457366678288,
+          "observed_fraction": 0.024390243902439025
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "count": 19,
+          "mean_score": 0.24626260028596503,
+          "observed_fraction": 0.0
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "count": 18,
+          "mean_score": 0.35351395234465594,
+          "observed_fraction": 0.0
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 7,
+          "mean_score": 0.42813135115873246,
+          "observed_fraction": 0.0
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "count": 7,
+          "mean_score": 0.5438934550398872,
+          "observed_fraction": 0.0
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "count": 6,
+          "mean_score": 0.6712753044234381,
+          "observed_fraction": 0.0
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "count": 7,
+          "mean_score": 0.7486678468329565,
+          "observed_fraction": 0.0
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 14,
+          "mean_score": 0.8576649072624388,
+          "observed_fraction": 0.35714285714285715
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "count": 427,
+          "mean_score": 0.9729639212662684,
+          "observed_fraction": 0.892271662763466
+        }
+      ],
+      "expected_calibration_error": 0.12549559794519066,
+      "class_scores": {
+        "normal": {
+          "images": 231,
+          "mean_score": 0.38410444546915584,
+          "quantiles_5_25_50_75_95": [
+            0.03892477881163355,
+            0.07921934065719441,
+            0.2185525099436442,
+            0.7464954853057861,
+            0.9766117930412292
+          ]
+        },
+        "pneumonia": {
+          "images": 387,
+          "mean_score": 0.9711321773301107,
+          "quantiles_5_25_50_75_95": [
+            0.9537102599938709,
+            0.9727811614672344,
+            0.9768205881118774,
+            0.979722261428833,
+            0.9824306031068167
+          ]
+        }
+      },
+      "note": "Descriptive and bin dependent, without uncertainty intervals. Scores are not validated clinical probabilities."
+    }
+  },
+  "public_prediction_exports": {
+    "calibration": {
+      "filename": "public_calibration_predictions.csv",
+      "rows": 482,
+      "columns": [
+        "sha256",
+        "patient",
+        "y_true",
+        "probability",
+        "prediction",
+        "threshold",
+        "fresh_cpu_probability",
+        "fresh_cpu_prediction"
+      ],
+      "sha256": "d406221e66c59cb6a151da0b4d77ff34016d3be9213aaf53258f0e8e071b0483",
+      "blocks": 10,
+      "format": "UTF-8 CSV, LF, no index, floats %.17g",
+      "scope": "Public research-dataset pixel hashes, filename proxy groups, inherited labels and model scores; no image pixels or verified patient identity"
+    },
+    "test": {
+      "filename": "public_test_predictions.csv",
+      "rows": 618,
+      "columns": [
+        "sha256",
+        "patient",
+        "y_true",
+        "probability",
+        "prediction",
+        "threshold",
+        "fresh_cpu_probability",
+        "fresh_cpu_prediction"
+      ],
+      "sha256": "76dab4af5d379bb02e5563272be4d6e4dbf493f24f8ea61185ec14e91371135a",
+      "blocks": 13,
+      "format": "UTF-8 CSV, LF, no index, floats %.17g",
+      "scope": "Public research-dataset pixel hashes, filename proxy groups, inherited labels and model scores; no image pixels or verified patient identity"
+    }
+  },
+  "training_source_sha256_lf": "4250f8e8a0b5fc950e22366c38d7809a44bf318687fc71e713aa6f42d39ed1e4",
+  "environment": {
+    "python": "3.13.18 (main, Oct 26 2026, 15:28:15) [GCC 13.3.0]",
+    "torch": "2.11.0+cpu",
+    "device": "cpu"
+  },
+  "scope": "Artifact consistency and fresh CPU reproduction on the same cohorts. Does not establish independent patient identity, external accuracy or clinical safety."
+}
