@@ -1,5 +1,5 @@
 {
-  "status": "running",
+  "status": "completed",
   "kaggle_version": 369645087,
   "kaggle_url": "https://www.kaggle.com/code/temirlanbekturov/pneumonia-grouped-training-cross-validation?scriptVersionId=369645087",
   "submitted_utc": "2026-11-14T19:48:30Z",
@@ -21,8 +21,15 @@
   "maximum_training_minutes_excluding_setup_and_evaluation": 225,
   "primary_model_selection_changed": false,
   "source_test_evaluation": false,
-  "results": "Pending; no performance claim",
+  "results": "All 27 fits and nine fold ensembles completed; see cv_summary.json. Independent CPU reproduction is running.",
   "retry_of_version": 369629773,
   "retry_reason": "Original commit remained queued for approximately one hour and was cancelled after zero execution seconds; unchanged source resubmitted and observed running.",
-  "cancelled_attempt_record": "cv_run_record_v1_cancelled.json"
+  "cancelled_attempt_record": "cv_run_record_v1_cancelled.json",
+  "observed_terminal_status": "Successfully ran in 10157.9s",
+  "kaggle_runtime_seconds": 10157.9,
+  "output_size_display": "1.06 GB",
+  "verified_utc": "2026-11-14T22:42:02.493580+00:00",
+  "complete_training_epochs": 481,
+  "incomplete_training_epoch_rows": 2,
+  "summary_sha256_lf": "a2af60e133179167b04c2e2776259ce63dd27bdecf01cf0d859c5ddaec53e061"
 }

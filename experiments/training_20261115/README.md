@@ -1,6 +1,8 @@
 # November 2026 training and verification
 
-The primary experiment completed nine fresh models. Development accuracy selected the three-seed regularized EfficientNetV2-S ensemble, but its frozen decision rule achieved **83.98% source-test accuracy**, compared with **87.38%** for the original benchmark comparator. No threshold was changed after observing that result. Full CPU reproduction passed on all 1,100 calibration/test images with zero changed classifications. Secondary grouped training is running; execution is tracked in the records below.
+The primary experiment completed nine fresh models. Development accuracy selected the three-seed regularized EfficientNetV2-S ensemble, but its frozen decision rule achieved **83.98% source-test accuracy**, compared with **87.38%** for the original benchmark comparator. No threshold was changed after observing that result. Full CPU reproduction passed on all 1,100 calibration/test images with zero changed classifications. Secondary grouped training completed 27 additional models; its independent CPU verification is running.
+
+The grouped assessment produced one out-of-fold prediction per original training image: standard B0 was correct on 3,764/3,815 (98.66%), regularized B0 on 3,772 (98.87%), and regularized V2-S on 3,774 (98.93%). All checkpoints were fixed before outer scoring. These internal scores do not measure source-test or external clinical performance and do not change the primary model. The 27 fits completed 481 epochs in a 158.13-minute training region; 23 used early stopping, two reached a time allowance and two reached the 36-epoch limit. Two incomplete epochs were retained in the history and were ineligible for checkpoint selection.
 
 This folder contains exploratory research, not clinical validation. All original source cohorts had already been used in earlier experiments. Filename groups are patient proxies, and independent external testing is incomplete.
 
@@ -11,6 +13,7 @@ This folder contains exploratory research, not clinical validation. All original
 | Nine primary fits | `submitted_source.py` | `protocol.json` | `run_record.json` |
 | Three-fold, three-seed, three-recipe internal assessment | `submitted_grouped_cv.py` | `cv_protocol.json` | `cv_run_record.json` |
 | Primary full-cohort CPU reproduction | `submitted_verification.py` | `verification_plan_record.json` | `cpu_run_record.json` |
+| Grouped-CV full-cohort CPU reproduction and dimension control | `submitted_cv_verification.py` | `verification_plan_record.json`, `cv_geometry_protocol.json` | `cv_cpu_run_record.json` |
 | Original comparator score export (retrospective, no fitting) | `submitted_comparator_export.py` | `previous_lock.json` | `comparator_export_run_record.json` |
 
 Each submitted file is also embedded in its corresponding `.ipynb`. Source hashes normalize CRLF to LF, matching the verified full Kaggle editor clipboard. Checkpoint and exported-file digests concern exact binary bytes. GitHub commit identifiers in the run records establish the prospective versions.
@@ -23,6 +26,7 @@ The original single-seed CV proposal was amended to three seeds before submissio
 2. Use Save & Run All. Training fits nine models, selects a development ensemble, freezes its calibration-only cutoff and checkpoints, then scores the previously inspected source test. The 225-minute training cap excludes auditing and final evaluation; early stopping can use much less time.
 3. Attach that completed output and the original dataset to `pneumonia_cpu_verification.ipynb`, use CPU, and run it. The packaged verification is pinned to the observed configuration hash. A new training rerun requires rebuilding the verifier for its newly observed frozen hash; the existing execution record must remain historical.
 4. The separate `pneumonia_grouped_cv.ipynb` uses only the original training cohort, trains 27 fresh models, and produces out-of-fold scores. Its three recipe ensembles use inner-only checkpoint and cutoff selection. It does not select a replacement primary model or score the original selection, calibration or test images.
+5. Attach that completed grouped output and the original dataset to `pneumonia_cv_cpu_verification.ipynb`, use CPU, and run it. This verifier is pinned to the observed completed summary hash, checks all 27 checkpoints, repeats inference on every outer image, runs the prespecified dimension-only comparator, and exports four complete prediction tables. A new training rerun needs a newly pinned verifier; retain the historical execution records.
 
 Required inputs are discovered beneath `/kaggle/input`; ambiguous or mismatched artifacts cause an error. Complete weight archives remain in the Kaggle outputs, subject to notebook visibility. They are not included in this repository.
 

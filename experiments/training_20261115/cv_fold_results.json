@@ -1,0 +1,407 @@
+[
+  {
+    "recipe": "b0_standard",
+    "fold": 0,
+    "seeds": [
+      42,
+      123,
+      2026
+    ],
+    "fit_images": 2011,
+    "internal_images": 513,
+    "outer_images": 1291,
+    "threshold": 0.5371208290259044,
+    "internal_fit_correct": 508,
+    "outer_metrics": {
+      "auroc": 0.9990951874905116,
+      "average_precision": 0.9996863278131487,
+      "accuracy": 0.9899302865995352,
+      "sensitivity": 0.9872476089266737,
+      "specificity": 0.9971428571428571,
+      "brier_score": 0.00851908243100939,
+      "log_loss": 0.0347104306778182,
+      "tn": 349,
+      "fp": 1,
+      "fn": 12,
+      "tp": 929
+    },
+    "members": [
+      {
+        "trial": "b0_standard_fold_0_seed_42",
+        "checkpoint": "b0_standard_fold_0_seed_42/best_weights.pt",
+        "sha256": "f9bd8b4d4d0b7b4750f008dc0eb301297c07e4d874ad4f1235212a6c9563f8e7"
+      },
+      {
+        "trial": "b0_standard_fold_0_seed_123",
+        "checkpoint": "b0_standard_fold_0_seed_123/best_weights.pt",
+        "sha256": "f01552cab4a07df436ad98d788aacd2362b952f66744891f3944618a097de87d"
+      },
+      {
+        "trial": "b0_standard_fold_0_seed_2026",
+        "checkpoint": "b0_standard_fold_0_seed_2026/best_weights.pt",
+        "sha256": "c427a89318512e8e8a7cc5b673589f85a32c6f67279423b0ec7a1ddf2c5f66d2"
+      }
+    ],
+    "frozen_config_sha256": "1c1a182c86bbd8935da8bb85c20e39c4b808581929521cb78c35ffddd678bf0e"
+  },
+  {
+    "recipe": "b0_regularized",
+    "fold": 0,
+    "seeds": [
+      42,
+      123,
+      2026
+    ],
+    "fit_images": 2011,
+    "internal_images": 513,
+    "outer_images": 1291,
+    "threshold": 0.3541022837162018,
+    "internal_fit_correct": 506,
+    "outer_metrics": {
+      "auroc": 0.9996174282678002,
+      "average_precision": 0.9998615459899938,
+      "accuracy": 0.9907048799380326,
+      "sensitivity": 0.9968119022316685,
+      "specificity": 0.9742857142857143,
+      "brier_score": 0.008100709813872826,
+      "log_loss": 0.05248734778762804,
+      "tn": 341,
+      "fp": 9,
+      "fn": 3,
+      "tp": 938
+    },
+    "members": [
+      {
+        "trial": "b0_regularized_fold_0_seed_42",
+        "checkpoint": "b0_regularized_fold_0_seed_42/best_weights.pt",
+        "sha256": "1644a41e738d23130e6da6e70a5a98fe961f2e7975113a8749b3dadaacb3695e"
+      },
+      {
+        "trial": "b0_regularized_fold_0_seed_123",
+        "checkpoint": "b0_regularized_fold_0_seed_123/best_weights.pt",
+        "sha256": "6b82485000c98b3dab3ec12deec9ec3769fbb75a80fdaf332cd369b2c500f41c"
+      },
+      {
+        "trial": "b0_regularized_fold_0_seed_2026",
+        "checkpoint": "b0_regularized_fold_0_seed_2026/best_weights.pt",
+        "sha256": "8afab099b3c30144629f47f9a9b85b04e5ae722a8b618ce2a43f225c93a3e8b3"
+      }
+    ],
+    "frozen_config_sha256": "a15c3ae27cc96345304e71a5e7f386699b4b252be29db81c8b4359c51a86f030"
+  },
+  {
+    "recipe": "v2s_regularized",
+    "fold": 0,
+    "seeds": [
+      42,
+      123,
+      2026
+    ],
+    "fit_images": 2011,
+    "internal_images": 513,
+    "outer_images": 1291,
+    "threshold": 0.34032929688692093,
+    "internal_fit_correct": 509,
+    "outer_metrics": {
+      "auroc": 0.9994443601032337,
+      "average_precision": 0.9998057169668613,
+      "accuracy": 0.9907048799380326,
+      "sensitivity": 0.9968119022316685,
+      "specificity": 0.9742857142857143,
+      "brier_score": 0.007451801404028269,
+      "log_loss": 0.04909814102841709,
+      "tn": 341,
+      "fp": 9,
+      "fn": 3,
+      "tp": 938
+    },
+    "members": [
+      {
+        "trial": "v2s_regularized_fold_0_seed_42",
+        "checkpoint": "v2s_regularized_fold_0_seed_42/best_weights.pt",
+        "sha256": "577b91a0609550a91058e3ad61c708c6d749c0f407d42415130467c78e01613a"
+      },
+      {
+        "trial": "v2s_regularized_fold_0_seed_123",
+        "checkpoint": "v2s_regularized_fold_0_seed_123/best_weights.pt",
+        "sha256": "ef8e32c748269c8e5974130e745a1569e7231bbbdf6c2c7b63c114acf2da733f"
+      },
+      {
+        "trial": "v2s_regularized_fold_0_seed_2026",
+        "checkpoint": "v2s_regularized_fold_0_seed_2026/best_weights.pt",
+        "sha256": "8725932d6bf31f842392405714b70fa570d81f3ceb8e390130485fdf0675c620"
+      }
+    ],
+    "frozen_config_sha256": "dc96b6020e5c0fdc2890fc1aafac270b004c4eff5757d5a457dd2c969a95d169"
+  },
+  {
+    "recipe": "b0_standard",
+    "fold": 1,
+    "seeds": [
+      42,
+      123,
+      2026
+    ],
+    "fit_images": 2025,
+    "internal_images": 495,
+    "outer_images": 1295,
+    "threshold": 0.5664710241059463,
+    "internal_fit_correct": 493,
+    "outer_metrics": {
+      "auroc": 0.9993452269097058,
+      "average_precision": 0.9997480665289091,
+      "accuracy": 0.9884169884169884,
+      "sensitivity": 0.9935344827586207,
+      "specificity": 0.9754768392370572,
+      "brier_score": 0.008868480310696791,
+      "log_loss": 0.030228810897864566,
+      "tn": 358,
+      "fp": 9,
+      "fn": 6,
+      "tp": 922
+    },
+    "members": [
+      {
+        "trial": "b0_standard_fold_1_seed_42",
+        "checkpoint": "b0_standard_fold_1_seed_42/best_weights.pt",
+        "sha256": "e8d45467663a977cd7f5dcc1e9a44d6ebeeb0b6d10e76f1c049bdba0ba671ec7"
+      },
+      {
+        "trial": "b0_standard_fold_1_seed_123",
+        "checkpoint": "b0_standard_fold_1_seed_123/best_weights.pt",
+        "sha256": "1672f07661bc67aaba623b2c6644da8c164a405212faf25c424bf8e96a3767c7"
+      },
+      {
+        "trial": "b0_standard_fold_1_seed_2026",
+        "checkpoint": "b0_standard_fold_1_seed_2026/best_weights.pt",
+        "sha256": "fc4a205e0b2813e2d982626c31792d0aaf6037f346cde995d1776643bd3ff617"
+      }
+    ],
+    "frozen_config_sha256": "a83507b402810942b8e8b84d63d22b66e5f31034c6d5496dcb05cdaf28438e3c"
+  },
+  {
+    "recipe": "b0_regularized",
+    "fold": 1,
+    "seeds": [
+      42,
+      123,
+      2026
+    ],
+    "fit_images": 2025,
+    "internal_images": 495,
+    "outer_images": 1295,
+    "threshold": 0.5520522544781368,
+    "internal_fit_correct": 494,
+    "outer_metrics": {
+      "auroc": 0.9993804613360895,
+      "average_precision": 0.999761730155014,
+      "accuracy": 0.9876447876447877,
+      "sensitivity": 0.9924568965517241,
+      "specificity": 0.9754768392370572,
+      "brier_score": 0.010001930349532498,
+      "log_loss": 0.05688979125063588,
+      "tn": 358,
+      "fp": 9,
+      "fn": 7,
+      "tp": 921
+    },
+    "members": [
+      {
+        "trial": "b0_regularized_fold_1_seed_42",
+        "checkpoint": "b0_regularized_fold_1_seed_42/best_weights.pt",
+        "sha256": "0f8a22c6c4b8c266dcb87c703841121428bd38dc8917bf5cb58f0a029e37469e"
+      },
+      {
+        "trial": "b0_regularized_fold_1_seed_123",
+        "checkpoint": "b0_regularized_fold_1_seed_123/best_weights.pt",
+        "sha256": "cca884e76eaba3283b2abfb2378366aed746642287a151b5fb86aef63881bd0e"
+      },
+      {
+        "trial": "b0_regularized_fold_1_seed_2026",
+        "checkpoint": "b0_regularized_fold_1_seed_2026/best_weights.pt",
+        "sha256": "2295b18d463771933d80b4778d9c160af7d42fd944051dc2ef5af619eb738d2a"
+      }
+    ],
+    "frozen_config_sha256": "7257a6a50f96bd5761038db21b274fe67230f95b111c8b27c776849dc51b19c9"
+  },
+  {
+    "recipe": "v2s_regularized",
+    "fold": 1,
+    "seeds": [
+      42,
+      123,
+      2026
+    ],
+    "fit_images": 2025,
+    "internal_images": 495,
+    "outer_images": 1295,
+    "threshold": 0.4391041944424311,
+    "internal_fit_correct": 491,
+    "outer_metrics": {
+      "auroc": 0.9988842431645213,
+      "average_precision": 0.999587480317326,
+      "accuracy": 0.9915057915057915,
+      "sensitivity": 0.9946120689655172,
+      "specificity": 0.9836512261580381,
+      "brier_score": 0.010865010450463895,
+      "log_loss": 0.07033688559188864,
+      "tn": 361,
+      "fp": 6,
+      "fn": 5,
+      "tp": 923
+    },
+    "members": [
+      {
+        "trial": "v2s_regularized_fold_1_seed_42",
+        "checkpoint": "v2s_regularized_fold_1_seed_42/best_weights.pt",
+        "sha256": "78b3dac068d3ce0adb77498421c933e82da1e9e8047f6547f56b6e2bb57d6ae3"
+      },
+      {
+        "trial": "v2s_regularized_fold_1_seed_123",
+        "checkpoint": "v2s_regularized_fold_1_seed_123/best_weights.pt",
+        "sha256": "9c0d80e5c46c4242cc021da6388a32bb146092890978f9f309e977ae76532f6e"
+      },
+      {
+        "trial": "v2s_regularized_fold_1_seed_2026",
+        "checkpoint": "v2s_regularized_fold_1_seed_2026/best_weights.pt",
+        "sha256": "f3e7831b038f35ca5a8074da3b03f46c5b0123d1c71d158ee75ce80eb240e874"
+      }
+    ],
+    "frozen_config_sha256": "9a4e45cb3953dd80819ca84aecb9b7f693e63b0ad3759e905e7025ff7d042979"
+  },
+  {
+    "recipe": "b0_standard",
+    "fold": 2,
+    "seeds": [
+      42,
+      123,
+      2026
+    ],
+    "fit_images": 2079,
+    "internal_images": 507,
+    "outer_images": 1229,
+    "threshold": 0.2475409246981144,
+    "internal_fit_correct": 502,
+    "outer_metrics": {
+      "auroc": 0.998908561726898,
+      "average_precision": 0.9995644572446445,
+      "accuracy": 0.9812855980471928,
+      "sensitivity": 0.9942396313364056,
+      "specificity": 0.9501385041551247,
+      "brier_score": 0.010677350374188864,
+      "log_loss": 0.0382367372656256,
+      "tn": 343,
+      "fp": 18,
+      "fn": 5,
+      "tp": 863
+    },
+    "members": [
+      {
+        "trial": "b0_standard_fold_2_seed_42",
+        "checkpoint": "b0_standard_fold_2_seed_42/best_weights.pt",
+        "sha256": "40f4dc20210b76c7d9b7b52f047eaa7f4d4b03cef52193b67d72860baa7f5d5e"
+      },
+      {
+        "trial": "b0_standard_fold_2_seed_123",
+        "checkpoint": "b0_standard_fold_2_seed_123/best_weights.pt",
+        "sha256": "9a93b6b048cbd1d11b1571cdab1be90e4bb402635a1ddb8ab6cace4310d2fec3"
+      },
+      {
+        "trial": "b0_standard_fold_2_seed_2026",
+        "checkpoint": "b0_standard_fold_2_seed_2026/best_weights.pt",
+        "sha256": "b55d0063f1fe2ff7519e41540da58a59604cb98e60a6fa6c650bb1bc78c324e0"
+      }
+    ],
+    "frozen_config_sha256": "97a3bc7d7dd0a92ec942f00c64038c643ea85be5ba9ec09b6e415b4a9e0b1e4e"
+  },
+  {
+    "recipe": "b0_regularized",
+    "fold": 2,
+    "seeds": [
+      42,
+      123,
+      2026
+    ],
+    "fit_images": 2079,
+    "internal_images": 507,
+    "outer_images": 1229,
+    "threshold": 0.42893418172995246,
+    "internal_fit_correct": 504,
+    "outer_metrics": {
+      "auroc": 0.9992851398445178,
+      "average_precision": 0.9997118928231025,
+      "accuracy": 0.9877949552481693,
+      "sensitivity": 0.9896313364055299,
+      "specificity": 0.9833795013850416,
+      "brier_score": 0.010738929180849422,
+      "log_loss": 0.059263296260853256,
+      "tn": 355,
+      "fp": 6,
+      "fn": 9,
+      "tp": 859
+    },
+    "members": [
+      {
+        "trial": "b0_regularized_fold_2_seed_42",
+        "checkpoint": "b0_regularized_fold_2_seed_42/best_weights.pt",
+        "sha256": "5feb46008658367e45e24bcc055655beb9cac83cfb73d798b9fa6cd99e7e53fd"
+      },
+      {
+        "trial": "b0_regularized_fold_2_seed_123",
+        "checkpoint": "b0_regularized_fold_2_seed_123/best_weights.pt",
+        "sha256": "2d4a78c01df16b60965e731ab387b7209ebfbcbca4d21cc84156d8e362a534cf"
+      },
+      {
+        "trial": "b0_regularized_fold_2_seed_2026",
+        "checkpoint": "b0_regularized_fold_2_seed_2026/best_weights.pt",
+        "sha256": "edc4c5e543f693730ce60739ffd5791e30ee8eb61116bf20c3b50949e4c47ef4"
+      }
+    ],
+    "frozen_config_sha256": "4d3a399e791cc11113213d99b4a779cc2af8eb8a3c290e2c50bbf7c7632ace42"
+  },
+  {
+    "recipe": "v2s_regularized",
+    "fold": 2,
+    "seeds": [
+      42,
+      123,
+      2026
+    ],
+    "fit_images": 2079,
+    "internal_images": 507,
+    "outer_images": 1229,
+    "threshold": 0.4626163293917974,
+    "internal_fit_correct": 504,
+    "outer_metrics": {
+      "auroc": 0.9993106705643565,
+      "average_precision": 0.9997154768702129,
+      "accuracy": 0.985353946297803,
+      "sensitivity": 0.9861751152073732,
+      "specificity": 0.9833795013850416,
+      "brier_score": 0.012699672404572863,
+      "log_loss": 0.06664023395891887,
+      "tn": 355,
+      "fp": 6,
+      "fn": 12,
+      "tp": 856
+    },
+    "members": [
+      {
+        "trial": "v2s_regularized_fold_2_seed_42",
+        "checkpoint": "v2s_regularized_fold_2_seed_42/best_weights.pt",
+        "sha256": "15f3df329199f235269fc7d267eab56c18004269513262aeadb41f897b46101e"
+      },
+      {
+        "trial": "v2s_regularized_fold_2_seed_123",
+        "checkpoint": "v2s_regularized_fold_2_seed_123/best_weights.pt",
+        "sha256": "13955c170ad39685a7f7a3b2e584873b7358b6ad15d8c54c884ecec6736c3fd9"
+      },
+      {
+        "trial": "v2s_regularized_fold_2_seed_2026",
+        "checkpoint": "v2s_regularized_fold_2_seed_2026/best_weights.pt",
+        "sha256": "e423fdb09965af7b3ca18273d143ed48281a72238ebacfef6cea97a5078518e6"
+      }
+    ],
+    "frozen_config_sha256": "8a05e98f8d9a584f741802082ed535047f527b785d176afad308292650cba3e3"
+  }
+]

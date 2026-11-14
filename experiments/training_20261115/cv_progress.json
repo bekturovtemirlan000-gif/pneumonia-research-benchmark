@@ -1,24 +1,24 @@
 {
-  "captured_utc": "2026-11-14T20:57:42.462783+00:00",
+  "captured_utc": "2026-11-14T22:37:52.168503+00:00",
   "source": "Visible Kaggle Logs table through Chrome",
-  "log_sha256": "f2d3aaadb761b84166b067a975d5b1dcd48d15652fdb64a9a97fa9faec54e6c3",
-  "completed_trials": 10,
+  "log_sha256": "16a3f39e3454a072daca4f046a6ec2d84750662e654ff212f03cd21ea5ee6c1e",
+  "completed_trials": 27,
   "planned_trials": 27,
-  "completed_fold_ensembles": 0,
-  "logged_epoch_rows": 182,
+  "completed_fold_ensembles": 9,
+  "logged_epoch_rows": 483,
   "last_epoch": {
     "epoch": 16,
-    "train_loss": 0.17831251748182156,
-    "images_seen": 2025,
+    "train_loss": 0.004199974829390508,
+    "images_seen": 2079,
     "complete_epoch": true,
-    "early_stop_accuracy": 0.9797979797979798,
-    "early_stop_log_loss": 0.06433185972314079,
-    "early_stop_auroc": 0.9992386905477422,
-    "seconds": 30.416244394000387,
+    "early_stop_accuracy": 0.9861932938856016,
+    "early_stop_log_loss": 0.04218214596643882,
+    "early_stop_auroc": 0.9991752091433959,
+    "seconds": 14.317606104001243,
     "backbone_lr": 6.331154273257479e-05,
-    "trial": "v2s_regularized_fold_1_seed_42",
-    "kaggle_elapsed_seconds": 4130.8
+    "trial": "b0_standard_fold_2_seed_2026",
+    "kaggle_elapsed_seconds": 9958.0
   },
-  "complete_summary_observed": false,
+  "complete_summary_observed": true,
   "scope": "Compact observed logs; does not independently attest terminal success or complete artifact download"
 }

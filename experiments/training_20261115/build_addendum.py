@@ -19,6 +19,9 @@ def build():
     if record['status'] != 'completed' or result['status'] != 'completed' or len(result['trials']) != 9:
         raise ValueError('Verified completed Kaggle run required before report generation')
     verification = read('cpu_verification.json') if (HERE / 'cpu_verification.json').exists() else None
+    cv = read('cv_summary.json') if (HERE / 'cv_summary.json').exists() else None
+    if cv and (cv['status'] != 'completed' or read('cv_run_record.json')['status'] != 'completed'):
+        raise ValueError('Completed grouped-CV execution required before reporting its outcomes')
     cmp = result['uncertainty']['paired_comparison']
     ci = result['uncertainty']['benchmark_cluster_bootstrap_95ci']
     m = result['test']
@@ -48,13 +51,24 @@ def build():
                               ('TOPPADDING', (0, 0), (-1, -1), 5), ('BOTTOMPADDING', (0, 0), (-1, -1), 5)]))
         story.extend([t, Spacer(1, 8)])
     pct = lambda x: f'{100*x:.2f}%'
+    candidate_label = {'b0_standard': 'standard EfficientNet-B0',
+                       'b0_regularized': 'regularized EfficientNet-B0',
+                       'v2s_regularized': 'regularized EfficientNetV2-S',
+                       'all_nine': 'the all-nine-model ensemble'}.get(result['selected_candidate'], result['selected_candidate'])
     p('Development-accuracy selection after regularized deep-learning training', 'Title')
     p('Pediatric pneumonia image classification | Research addendum | 15 November 2026', 'SmallNote')
     p('Exploratory computational study. This document supplements the original October benchmark; it is not a peer-reviewed publication or evidence of clinical diagnostic safety.', 'SmallNote')
     h('Abstract')
-    p('<b>Purpose.</b> To evaluate a new development-accuracy-oriented training protocol after an earlier frozen-checkpoint experiment improved development accuracy but reduced source-test accuracy. A perfect classifier was not assumed or promised.')
-    p('<b>Methods.</b> Nine fresh transfer-learning trials compared standard EfficientNet-B0, regularized EfficientNet-B0, and regularized EfficientNet-V2-S, each at three seeds. An internal holdout selected checkpoints; four fixed ensemble candidates were ranked by grouped cross-fitted cutoff accuracy on a separate development cohort. A calibration-only cutoff and all model hashes were frozen before source-test inference. All source cohorts had been used in earlier experiments.')
-    p(f"<b>Results.</b> Development selection chose {escape(result['selected_candidate'])}: {choice['selected']['correct']}/456 correct ({pct(choice['selected']['cross_fitted_accuracy'])}) under the cutoff cross-fitting procedure. On the 618-image source test, accuracy was {pct(m['accuracy'])} (95% filename-group bootstrap interval {pct(ci['accuracy'][0])} to {pct(ci['accuracy'][1])}), sensitivity {pct(m['sensitivity'])}, specificity {pct(m['specificity'])}, and AUROC {m['auroc']:.4f}. The paired accuracy difference from the original model was {100*cmp['difference']['accuracy']:+.2f} percentage points (95% interval {100*cmp['paired_cluster_bootstrap_95ci']['accuracy'][0]:+.2f} to {100*cmp['paired_cluster_bootstrap_95ci']['accuracy'][1]:+.2f}).")
+    p('<b>Purpose.</b> To test whether accuracy-oriented retraining improves a development-selected pneumonia image classifier, while comparing fixed training recipes through grouped internal assessment.')
+    methods = '<b>Methods.</b> Nine fresh transfer-learning trials compared standard EfficientNet-B0, regularized EfficientNet-B0, and regularized EfficientNet-V2-S, each at three seeds. Separate checkpoint, ensemble-selection and cutoff-fitting cohorts fixed the primary rule before source-test inference.'
+    if cv:
+        methods += ' A secondary three-fold grouped assessment fitted 27 additional models with inner-only checkpoint and cutoff selection.'
+    p(methods + ' All source cohorts had been used in earlier experiments.')
+    abstract_results = f"<b>Results.</b> Development selection chose {escape(candidate_label)}: {choice['selected']['correct']}/456 correct ({pct(choice['selected']['cross_fitted_accuracy'])}) under cutoff cross-fitting. On the 618-image source test, accuracy was {pct(m['accuracy'])} (95% filename-group bootstrap interval {pct(ci['accuracy'][0])} to {pct(ci['accuracy'][1])}), sensitivity {pct(m['sensitivity'])}, specificity {pct(m['specificity'])}, and AUROC {m['auroc']:.4f}. The paired accuracy difference from the original model was {100*cmp['difference']['accuracy']:+.2f} percentage points (95% interval {100*cmp['paired_cluster_bootstrap_95ci']['accuracy'][0]:+.2f} to {100*cmp['paired_cluster_bootstrap_95ci']['accuracy'][1]:+.2f})."
+    if cv:
+        values = [pct(cv['recipes'][name]['pooled_metrics']['accuracy']) for name in ['b0_standard', 'b0_regularized', 'v2s_regularized']]
+        abstract_results += f" Secondary internal accuracies were {values[0]}, {values[1]} and {values[2]} for standard B0, regularized B0 and regularized V2-S, respectively."
+    p(abstract_results)
     p('<b>Interpretation.</b> Fresh accuracy-oriented training did not improve source-test accuracy under the frozen development-selected rule. Brier score improved while discrimination and specificity decreased. Repeated development use, filename-based patient proxies, and absent external testing limit generalization. Conditional bootstrap intervals omit training and model-selection uncertainty.')
     h('Design and data')
     p('This is a retrospective secondary analysis of the existing public research-image resource. The source literature describes pediatric anterior-posterior radiographs from Guangzhou; this project inherits directory labels and does not independently adjudicate clinical diagnosis [1]. The previous decoded-pixel audit retained 5,371 of 5,856 source images. The current run verifies every retained image against the frozen pixel identity and reconstructs the original partitions. No new exclusions are made after observing outcomes.')
