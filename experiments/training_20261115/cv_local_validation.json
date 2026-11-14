@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "scope": "All outer/inner group partitions and complete OOF coverage, source syntax; no Kaggle run or new performance result",
+  "images": 3815,
+  "groups": 2153,
+  "folds": [
+    {
+      "fold": 0,
+      "fit_images": 2008,
+      "internal_images": 535,
+      "outer_images": 1272,
+      "outer_groups": 718,
+      "outer_normal": 359,
+      "outer_pneumonia": 913
+    },
+    {
+      "fold": 1,
+      "fit_images": 2028,
+      "internal_images": 515,
+      "outer_images": 1272,
+      "outer_groups": 718,
+      "outer_normal": 360,
+      "outer_pneumonia": 912
+    },
+    {
+      "fold": 2,
+      "fit_images": 2048,
+      "internal_images": 496,
+      "outer_images": 1271,
+      "outer_groups": 717,
+      "outer_normal": 359,
+      "outer_pneumonia": 912
+    }
+  ],
+  "source_sha256_lf": "55de642181527d1150f5648040d84a5831c8145ac23e7645598531ca5e6608b7"
+}
