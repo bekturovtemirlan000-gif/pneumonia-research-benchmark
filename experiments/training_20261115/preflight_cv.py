@@ -32,10 +32,13 @@ for fold, (train, test) in enumerate(folds):
                         outer_groups=int(held.patient.nunique()), outer_normal=int(np.sum(held.label == 0)),
                         outer_pneumonia=int(np.sum(held.label == 1))))
 assert seen == set(frame.sha256)
+protocol = json.loads((HERE / 'cv_protocol.json').read_text(encoding='utf-8'))
+assert protocol['initialization_seeds'] == [42, 123, 2026]
+assert len(folds) * len(protocol['recipes']) * len(protocol['initialization_seeds']) == 27
 for file in ['run_grouped_cv.py', 'build_grouped_cv.py', 'submitted_grouped_cv.py']:
     compile((HERE / file).read_text(encoding='utf-8'), file, 'exec')
 report = dict(status='passed', scope='All outer/inner group partitions and complete OOF coverage, source syntax; no Kaggle run or new performance result',
-              images=len(frame), groups=int(frame.patient.nunique()), folds=records,
+              images=len(frame), groups=int(frame.patient.nunique()), folds=records, planned_fresh_checkpoints=27,
               source_sha256_lf=hashlib.sha256((HERE / 'submitted_grouped_cv.py').read_text(encoding='utf-8').encode()).hexdigest())
 (HERE / 'cv_local_validation.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
 print(json.dumps(report, indent=2))

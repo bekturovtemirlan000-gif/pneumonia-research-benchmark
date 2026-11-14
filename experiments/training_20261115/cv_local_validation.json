@@ -32,5 +32,6 @@
       "outer_pneumonia": 912
     }
   ],
-  "source_sha256_lf": "55de642181527d1150f5648040d84a5831c8145ac23e7645598531ca5e6608b7"
+  "planned_fresh_checkpoints": 27,
+  "source_sha256_lf": "7b9a0f4785ec9f81088743cde27dd374fb4eea6d88f90fe3c3ed55777e93b9b4"
 }

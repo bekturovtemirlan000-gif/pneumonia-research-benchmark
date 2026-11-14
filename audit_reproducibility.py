@@ -29,7 +29,7 @@ EMBEDDED = [
     'pneumonia_calibration_reproduction.ipynb',
 ]
 FROZEN = {
-    'experiments/training_20261115/pneumonia_grouped_cv.ipynb': '55de642181527d1150f5648040d84a5831c8145ac23e7645598531ca5e6608b7',
+    'experiments/training_20261115/pneumonia_grouped_cv.ipynb': '7b9a0f4785ec9f81088743cde27dd374fb4eea6d88f90fe3c3ed55777e93b9b4',
     'experiments/training_20261115/pneumonia_training.ipynb': '4250f8e8a0b5fc950e22366c38d7809a44bf318687fc71e713aa6f42d39ed1e4',
     'experiments/accuracy_20261026/pneumonia_accuracy_experiment.ipynb': '41463a0d348c4c93d36bcc58f2b3082eec887801a7e0fde37ea4a75346c0d784',
     'pneumonia_inference_cli_smoke.ipynb': '5938aac53d987fe405b9f2fd25f984eed1f0de21c0b79febcd815bb42cabb790',

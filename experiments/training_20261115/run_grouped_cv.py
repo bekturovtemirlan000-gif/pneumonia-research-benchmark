@@ -67,47 +67,70 @@ def run(data_root, previous, out, protocol, previous_lock):
                                               normal=int(np.sum((fold_ids == f) & (source.label == 0))),
                                               pneumonia=int(np.sum((fold_ids == f) & (source.label == 1)))) for f in range(3)}), flush=True)
     names = list(RECIPES)
-    trials = [(fold, names[(fold + j) % 3]) for fold in range(3) for j in range(3)]
+    seeds = [42, 123, 2026]
+    trials = [(fold, names[(fold + si + j) % 3], seed) for fold in range(3)
+              for si, seed in enumerate(seeds) for j in range(3)]
     train_start = time.monotonic(); deadline = train_start + protocol['training_budget_minutes'] * 60
-    records = []; all_predictions = {name: [] for name in RECIPES}
-    for index, (fold, recipe) in enumerate(trials):
+    training_records = []; inner_scores = {}
+    for index, (fold, recipe, seed) in enumerate(trials):
         outer_train, outer_test = folds[fold]
         fit, stop = internal_split(source.iloc[outer_train].reset_index(drop=True))
         held = source.iloc[outer_test].reset_index(drop=True)
         if set(held.patient) & (set(fit.patient) | set(stop.patient)):
             raise ValueError('Inner/outer leakage')
-        dest = out / f'{recipe}_fold_{fold}'; dest.mkdir(exist_ok=True)
+        dest = out / f'{recipe}_fold_{fold}_seed_{seed}'; dest.mkdir(exist_ok=True)
         pd.concat([fit.assign(role='fit'), stop.assign(role='checkpoint_and_cutoff'), held.assign(role='outer_test')]).drop(columns='cache_path').to_csv(
             dest / 'fold_manifest.csv', index=False)
         remaining = deadline - time.monotonic()
         if remaining < 120: raise RuntimeError('Insufficient CV budget; preserve partial outputs')
         # Pass the inner holdout for both helper evaluation roles; outer images are not scored here.
-        rec, inner_p = fit_trial(recipe, 42, dict(fit=fit, early_stop=stop, selection=stop), dest,
+        rec, inner_p = fit_trial(recipe, seed, dict(fit=fit, early_stop=stop, selection=stop), dest,
                                 time.monotonic() + remaining / (len(trials) - index), protocol)
         rec['internal_checkpoint_holdout_at_0_5'] = rec.pop('selection_at_0_5')
         save(dest / 'development_summary.json', rec)
         (dest / 'selection_predictions.csv').rename(dest / 'checkpoint_holdout_predictions.csv')
+        training_records.append(dict(rec, fold=fold, fit_images=len(fit), internal_images=len(stop), outer_images=len(held)))
+        inner_scores[dest.name] = inner_p
+        save(out / 'training_records.json', training_records)
+        print('CV_TRIAL_DONE', json.dumps(training_records[-1]), flush=True)
+    training_seconds = time.monotonic() - train_start
+    if len(training_records) != 27: raise ValueError('All 27 fresh checkpoints required')
+    records = []; all_predictions = {name: [] for name in RECIPES}
+    # Every planned checkpoint is selected before any outer-fold prediction is generated.
+    for fold in range(3):
+      for recipe in names:
+        outer_train, outer_test = folds[fold]
+        fit, stop = internal_split(source.iloc[outer_train].reset_index(drop=True))
+        held = source.iloc[outer_test].reset_index(drop=True)
+        dest = out / f'{recipe}_fold_{fold}_ensemble'; dest.mkdir(exist_ok=True)
+        members = [f'{recipe}_fold_{fold}_seed_{seed}' for seed in seeds]
+        inner_p = np.mean([inner_scores[name] for name in members], axis=0)
         cut, count = threshold(stop.label, inner_p)
         frozen = dict(recipe=recipe, fold=fold, threshold=cut, architecture=RECIPES[recipe]['architecture'],
-                      checkpoint_sha256=sha(dest / 'best_weights.pt'), primary_model_changed=False)
+                      members=[dict(trial=name, checkpoint=name+'/best_weights.pt', sha256=sha(out/name/'best_weights.pt')) for name in members],
+                      aggregation='mean_raw_sigmoid', primary_model_changed=False)
         save(dest / 'frozen_fold_config.json', frozen)
         print('CV_FOLD_FROZEN', json.dumps(frozen), flush=True)
-        model, _ = make_model(RECIPES[recipe]['architecture'])
-        model.load_state_dict(torch.load(dest / 'best_weights.pt', map_location='cpu', weights_only=True), strict=True)
-        model.to('cuda')
-        outer_p = probabilities(model, loader(held), 'cuda')
-        del model; torch.cuda.empty_cache()
+        outer_members = []
+        for member in frozen['members']:
+            model, _ = make_model(RECIPES[recipe]['architecture'])
+            model.load_state_dict(torch.load(out/member['checkpoint'], map_location='cpu', weights_only=True), strict=True)
+            model.to('cuda')
+            member_p = probabilities(model, loader(held), 'cuda')
+            outer_members.append(member_p)
+            prediction_file(out/member['trial']/'outer_predictions.csv', held, member_p, cut)
+            del model; torch.cuda.empty_cache()
+        outer_p = np.mean(outer_members, axis=0)
         prediction_file(dest / 'inner_predictions.csv', stop, inner_p, cut)
         prediction_file(dest / 'outer_predictions.csv', held, outer_p, cut)
         # Outer results cannot change weights, cutoff, remaining recipe settings, or the primary experiment.
-        fold_record = dict(recipe=recipe, fold=fold, seed=42, fit_images=len(fit), internal_images=len(stop), outer_images=len(held),
+        fold_record = dict(recipe=recipe, fold=fold, seeds=seeds, fit_images=len(fit), internal_images=len(stop), outer_images=len(held),
                            threshold=cut, internal_fit_correct=count, outer_metrics=metrics(held.label, outer_p, cut),
-                           training=rec, checkpoint_sha256=sha(dest / 'best_weights.pt'))
+                           members=frozen['members'], frozen_config_sha256=sha(dest/'frozen_fold_config.json'))
         records.append(fold_record); save(out / 'fold_results.json', records)
         all_predictions[recipe].append(held[['sha256', 'patient', 'label']].assign(
             y_true=held.label, probability=outer_p, prediction=(outer_p >= cut).astype(int), fold=fold, threshold=cut))
         print('CV_FOLD_DONE', json.dumps(fold_record), flush=True)
-    training_seconds = time.monotonic() - train_start
     reports = {}
     for recipe, pieces in all_predictions.items():
         if len(pieces) != 3: raise ValueError('Incomplete three-fold recipe')
@@ -119,11 +142,11 @@ def run(data_root, previous, out, protocol, previous_lock):
                                fold_accuracies=[r['outer_metrics']['accuracy'] for r in records if r['recipe'] == recipe],
                                interpretation='Each image is predicted by a model that excluded its proxy group from parameter fitting, checkpoint choice and cutoff fitting; pooled AUROC combines differently scaled fold models.')
     result = dict(status='completed', images=3815, filename_proxy_groups=int(source.patient.nunique()),
-                  recipes=reports, folds=records, training_seconds=training_seconds,
+                  recipes=reports, folds=records, training_records=training_records, training_seconds=training_seconds,
                   total_seconds=time.monotonic() - started, environment=environment,
                   primary_model_changed=False, original_selection_calibration_test_scored=False,
                   limitations=['Secondary grouped internal assessment on the original training cohort; not external testing',
-                               'One initialization per fold; fold training sets overlap and are not independent repetitions',
+                               'Three initialization seeds are averaged per fold; overlapping fold training sets are not independent repetitions',
                                'Filename groups are unverified patient proxies; near-duplicate independence remains unresolved',
                                'Checkpoint and cutoff share an inner holdout, but outer-fold groups are excluded from both',
                                'Recipes are fixed in advance; results do not change the primary experiment or choose a deployed model'])

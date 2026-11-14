@@ -1,5 +1,5 @@
 {
-  "recorded_utc": "2026-11-14T18:41:02.797574+00:00",
+  "recorded_utc": "2026-11-15T00:41:02.797574+06:00",
   "purpose": "Secondary internal generalization comparison of the three prespecified training recipes; no change to the primary model selection",
   "prospective_status": "Recorded while primary run 369624654 is training, before its candidate selection and test outcomes",
   "cohort": "Only the frozen original 3815 training images / 2153 filename proxy groups; no original selection, calibration or test predictions",
@@ -10,23 +10,34 @@
     "b0_regularized",
     "v2s_regularized"
   ],
-  "initialization_seed": 42,
   "recipe_definitions": "Identical to primary training experiment. Unweighted BCE; optional mixup 0.2, smoothing 0.05, color jitter 0.15; fixed optimizer and preprocessing.",
   "checkpoint": "Inner holdout correct count at 0.5, tie lower log loss; no outer image participates",
   "cutoff": "Maximum inner-holdout accuracy; freeze checkpoint SHA and cutoff before any outer-fold inference",
-  "evaluation": "Pool the three out-of-fold predictions per recipe with fold-specific frozen cutoffs. Report pooled accuracy, sensitivity, specificity, Brier, AUROC/AP and per-fold accuracy; pooled ranking scores combine differently scaled models.",
-  "inference": "This tests individual fitted models with one seed per fold, not the primary three-seed ensemble. No model promotion or threshold change follows these results.",
-  "training_budget_minutes": 165,
+  "evaluation": "Train all 27 checkpoints first. Within each recipe/fold, average three seed inner scores and fit the inner-only cutoff; freeze the member hashes and cutoff before outer inference. Pool each recipe three-fold ensemble predictions with fold-specific cutoffs. Report pooled metrics and per-fold accuracy; pooled AUROC combines differently scaled fold ensembles.",
+  "inference": "Three-seed ensembles match the primary aggregation. Secondary results cannot promote a model or change primary thresholds.",
+  "training_budget_minutes": 225,
   "epochs_max": 36,
   "minimum_epochs": 8,
   "patience": 8,
-  "allocation": "Rotate recipe order across folds; divide remaining budget among remaining trials; preserve partial outputs and fail if nine trained checkpoints cannot be completed",
+  "allocation": "Rotate recipe order across folds and seeds; divide 225 remaining minutes among 27 trials; all checkpoints required; retain time-limited runs and fail if no complete epoch for any planned trial.",
   "uncertainty": "No fold-based standard error or significance test: overlapping training sets make folds dependent. No external-generalization confidence claim.",
   "limitations": [
     "Filename group identifiers are unverified patient proxies",
-    "Original training cohort already used during previous research; this is secondary exploratory analysis",
-    "A single initialization per fold does not quantify seed uncertainty",
-    "Checkpoint and cutoff use the same inner holdout; the outer fold excludes those groups",
+    "Original training cohort already used during previous research; secondary exploratory analysis",
+    "Three seeds are averaged per outer fold; overlapping fold training sets are dependent",
+    "Checkpoint and cutoff use the same inner holdout; outer groups are excluded from both",
     "The primary candidate and its prespecified evaluation are unchanged"
+  ],
+  "amendment": {
+    "planned_fits": 27,
+    "prior_protocol_commit": "f413fad063ee489a715d5cb1529db3acf538f72f",
+    "recorded_utc": "2026-11-14T18:44:48.3794797Z",
+    "reason": "Match the primary three-seed ensemble rather than evaluate one seed per fold; amended before any CV training or primary candidate/test outcome",
+    "initial_plan_status": "Never submitted or run"
+  },
+  "initialization_seeds": [
+    42,
+    123,
+    2026
   ]
 }

@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "checked_utc": "2026-11-14T18:42:06.816092+00:00",
+  "checked_utc": "2026-11-14T18:45:47.536014+00:00",
   "hash_convention": "UTF-8 notebook code cells concatenated in order, CRLF normalized to LF",
   "scope": "Local source consistency; does not independently attest remote execution or results",
   "similarity_historical_raw_crlf_sha256": "d0dc2c236117a72d183636d9431ec2cf7aa19d416ff06573cdb09e716677915f",
@@ -69,7 +69,7 @@
     },
     {
       "notebook": "experiments/training_20261115/pneumonia_grouped_cv.ipynb",
-      "code_sha256_lf": "55de642181527d1150f5648040d84a5831c8145ac23e7645598531ca5e6608b7",
+      "code_sha256_lf": "7b9a0f4785ec9f81088743cde27dd374fb4eea6d88f90fe3c3ed55777e93b9b4",
       "checks": {
         "experiments/training_20261115/model.py": true,
         "experiments/training_20261115/selection.py": true,
