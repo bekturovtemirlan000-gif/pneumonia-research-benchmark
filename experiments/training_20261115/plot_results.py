@@ -21,7 +21,8 @@ def plot():
     colors = {42: '#20639b', 123: '#dd8452', 2026: '#2a8c70'}
     names = {'b0_standard': 'EfficientNet-B0 / standard', 'b0_regularized': 'EfficientNet-B0 / regularized',
              'v2s_regularized': 'EfficientNet-V2-S / regularized'}
-    plt.rcParams.update({'font.family': 'DejaVu Sans', 'font.size': 9, 'axes.spines.top': False, 'axes.spines.right': False})
+    plt.rcParams.update({'font.family': 'DejaVu Sans', 'font.size': 11, 'pdf.fonttype': 42,
+                         'axes.spines.top': False, 'axes.spines.right': False})
     fig, axes = plt.subplots(3, 2, figsize=(10.5, 9), sharex=True, constrained_layout=True)
     for row, recipe in enumerate(names):
         for seed in [42, 123, 2026]:
@@ -59,7 +60,7 @@ def plot():
     axes[0].barh(y + .17, [100 * comparison['baseline'][k] for k, _ in metric_names], height=.32, color='#61788a', label='Original 320 ensemble')
     axes[0].barh(y - .17, [100 * comparison['followup'][k] for k, _ in metric_names], height=.32, color='#207f79', label='November candidate')
     axes[0].set(yticks=y, yticklabels=[n for _, n in metric_names], xlim=(0, 105), xlabel='Observed source-test percentage')
-    axes[0].legend(loc='lower left', bbox_to_anchor=(0, 1.01), frameon=False, fontsize=8)
+    axes[0].legend(loc='lower left', bbox_to_anchor=(0, 1.01), frameon=False, fontsize=10)
     for i, (key, _) in enumerate(metric_names):
         delta = 100 * comparison['difference'][key]
         low, high = np.array(comparison['paired_cluster_bootstrap_95ci'][key]) * 100
@@ -88,7 +89,7 @@ def plot():
                             label=f"{split.title()} (n={diagnostics[split]['images']})")
         axes[0].set(xlabel='Mean raw ensemble score in bin', ylabel='Observed pneumonia-label fraction',
                     title='Ten fixed equal-width bins', xlim=(-.03, 1.03), ylim=(-.03, 1.03))
-        axes[0].legend(frameon=False, fontsize=8, loc='lower right')
+        axes[0].legend(frameon=False, fontsize=10, loc='lower right')
         positions, labels = [], []
         for i, (split, label) in enumerate([('calibration', 'normal'), ('test', 'normal'),
                                            ('calibration', 'pneumonia'), ('test', 'pneumonia')]):

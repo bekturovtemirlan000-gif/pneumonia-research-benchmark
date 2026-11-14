@@ -26,6 +26,20 @@ The original single-seed CV proposal was amended to three seeds before submissio
 
 Required inputs are discovered beneath `/kaggle/input`; ambiguous or mismatched artifacts cause an error. Complete weight archives remain in the Kaggle outputs, subject to notebook visibility. They are not included in this repository.
 
+The observed primary training run is [Kaggle version 369624654](https://www.kaggle.com/code/temirlanbekturov/pneumonia-regularized-training-november-2026?scriptVersionId=369624654); its independent CPU check is [version 369643988](https://www.kaggle.com/code/temirlanbekturov/pneumonia-november-cpu-reproduction?scriptVersionId=369643988). The grouped assessment uses [version 369645087](https://www.kaggle.com/code/temirlanbekturov/pneumonia-grouped-training-cross-validation?scriptVersionId=369645087). A link does not imply that a private Kaggle output is accessible to every reader.
+
+The observed Kaggle environment uses scikit-learn **1.6.1**. A local preflight with **1.9.1** produced different `StratifiedGroupKFold` assignments despite the same seed; that preflight validates mechanics, not the actual remote fold membership. The captured Kaggle fold records and exported out-of-fold `fold` column are authoritative for this execution. Reproduce its assignments with the recorded environment, rather than assuming that a current library release has identical behavior. Complete observed versions are in `environment.json` and `cv_environment.json`.
+
+## Run the exported primary model
+
+After downloading the completed primary output, keep `inference_config.json` and its referenced member folders together. With the recorded PyTorch, torchvision and Pillow environment, classify a research image using:
+
+```sh
+python experiments/training_20261115/model.py --model-dir /path/to/pneumonia_november_outputs --image /path/to/image.jpeg --device cpu
+```
+
+The model directory is the folder containing `inference_config.json`; use the actual extracted folder name. The command checks each selected checkpoint's SHA256, applies the same 320-pixel letterbox preprocessing, averages the three raw sigmoid scores and applies the frozen cutoff. Its JSON output includes the score, cutoff and binary label. It performs no training or cutoff fitting. The November export is a research artifact with lower frozen source-test accuracy than the original comparator; it has not replaced that comparator as the recommended benchmark reference.
+
 ## Audit public prediction tables
 
 The original comparator export preserves its 618 saved, temperature-scaled test scores. The independent CPU jobs export every selected calibration/test prediction and, for the grouped assessment, every neural and dimension-only out-of-fold prediction. Bounded JSON log blocks carry a SHA256 for the exact UTF-8 CSV bytes. `capture_verification.py` refuses missing blocks, changed scores, duplicate images or a missing final report before writing any table.
@@ -45,5 +59,7 @@ Public table columns are decoded-pixel SHA256, filename proxy group, inherited b
 ## Data review and paper
 
 `similarity_reproduction.json`, `similarity_candidate_pairs.csv` and `similarity_visual_review.json` document a local reproduction of the original perceptual-similarity screen and a limited 24-pair visual review. The 814 candidates, including 269 involving source-test images, are not confirmed duplicates. No new exclusion was made. `external_data_review.json` records potential external resources and unresolved access/provenance requirements; no external predictions were produced.
+
+`test_similarity_review_plan.json`, `test_similarity_review_observations.json` and `test_similarity_visual_review.json` preserve a subsequent review of all 269 test-involving candidates in 45 sheets. No transformed copy was established at the displayed thumbnail resolution. The two passes cover 283 unique candidates; 531 remain unreviewed. `prepare_test_similarity_review.py` checks decoded image hashes while rendering the local panels, and `finalize_test_similarity_review.py` checks recorded review coverage and panel hashes without generating visual decisions. This post hoc, AI-assisted inspection makes no clinical or patient-identity determination and does not change the experiment.
 
 The report builder consumes measured records and generates a separate November addendum. The original October report stays unchanged. Plots distinguish development, exploratory source-test and secondary internal-fold evidence. Author declarations, independent clinical review, external validation and journal submission remain outside the completed computational evidence.

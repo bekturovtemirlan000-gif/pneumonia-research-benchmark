@@ -1,0 +1,35 @@
+{
+  "status": "completed",
+  "analysis_timing": "Post hoc, after primary source-test outcomes were observed",
+  "recorded_utc": "2026-11-14T20:08:06.648107+00:00",
+  "images": 618,
+  "proxy_groups": 426,
+  "paired_correctness": {
+    "both_correct": 513,
+    "original_only_correct": 27,
+    "november_only_correct": 6,
+    "neither_correct": 72
+  },
+  "by_inherited_class": {
+    "normal": {
+      "images": 231,
+      "decisions_differ": 33,
+      "original_only_correct": 27,
+      "november_only_correct": 6
+    },
+    "pneumonia": {
+      "images": 387,
+      "decisions_differ": 0,
+      "original_only_correct": 0,
+      "november_only_correct": 0
+    }
+  },
+  "shared_false_negatives": 1,
+  "source_table_sha256": {
+    "public_original_320_test_predictions.csv": "48a99ff1450fc22c07183b6fb60a69a573025658e585cfde1da7378ee2ef7a8f",
+    "public_test_predictions.csv": "76dab4af5d379bb02e5563272be4d6e4dbf493f24f8ea61185ec14e91371135a"
+  },
+  "configuration_changed": false,
+  "fitting": false,
+  "interpretation": "Describes disagreements under the two original frozen cutoffs. No new selection, significance test, clinical adjudication or external claim."
+}

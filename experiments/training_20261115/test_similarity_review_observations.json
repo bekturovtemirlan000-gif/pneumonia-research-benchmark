@@ -1,0 +1,589 @@
+{
+  "reviewer": "OpenAI Codex assisted image-correspondence inspection; no clinical expert review",
+  "notes": [
+    {
+      "sheet": 1,
+      "observed_pairs": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "observation": "All six pairs show visible differences in positioning, internal image patterns or marker placement. No transformed copy was established from these panels.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 2,
+      "observed_pairs": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "observation": "The two normal-label pairs differ in positioning and image content; the remaining pairs have visible framing, marker or internal-pattern differences. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 3,
+      "observed_pairs": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "observation": "Visible differences include body positioning, overlaid lines/markers, shoulder outlines and internal image patterns. No transformed copy was established at thumbnail scale.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 4,
+      "observed_pairs": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "observation": "All six comparisons have visible differences in framing, positioning or internal image patterns. Similar centered chest layouts did not establish image identity.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 5,
+      "observed_pairs": [
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "observation": "Visible marker placement, shoulder position, chest framing and internal-pattern differences occur across these pairs. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 6,
+      "observed_pairs": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "observation": "Inspected all six comparisons, including the bottom rows in a separate full-sheet view. Different positioning, framing and internal patterns were visible; no transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 7,
+      "observed_pairs": [
+        37,
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "observation": "Differences in positioning, upper-body outlines, markers and internal image patterns are visible throughout. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 8,
+      "observed_pairs": [
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "observation": "The paired images differ in shoulder/body positioning, framing, internal patterns or overlaid equipment. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 9,
+      "observed_pairs": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+      ],
+      "observation": "Visible differences in shoulder alignment, torso framing, internal patterns and marker placement. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 10,
+      "observed_pairs": [
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ],
+      "observation": "Image framing, shoulder outlines, markers and internal patterns differ between members of each pair. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 11,
+      "observed_pairs": [
+        61,
+        62,
+        63,
+        64,
+        65,
+        66
+      ],
+      "observation": "Distinct overlaid structures in row 61 and visible positional/internal-pattern differences in the remaining rows. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 12,
+      "observed_pairs": [
+        67,
+        68,
+        69,
+        70,
+        71,
+        72
+      ],
+      "observation": "Similar centered layouts coexist with visible shoulder, torso-positioning and internal-pattern differences. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 13,
+      "observed_pairs": [
+        73,
+        74,
+        75,
+        76,
+        77,
+        78
+      ],
+      "observation": "Visible framing, positional and internal-pattern differences. Row 77 was also inspected as an individual pair crop to resolve a display issue. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 14,
+      "observed_pairs": [
+        79,
+        80,
+        81,
+        82,
+        83,
+        84
+      ],
+      "observation": "Some pairs share acquisition-marking style, but visible body positioning and internal-pattern differences remain. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 15,
+      "observed_pairs": [
+        85,
+        86,
+        87,
+        88,
+        89,
+        90
+      ],
+      "observation": "Visible differences in framing, shoulder positions and internal patterns; even the pHash-distance-2 pair is not established as a copy by the displayed content.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 16,
+      "observed_pairs": [
+        91,
+        92,
+        93,
+        94,
+        95,
+        96
+      ],
+      "observation": "All six comparisons show visible positioning or internal-pattern differences. Marker style and centered framing alone do not establish a duplicate. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 17,
+      "observed_pairs": [
+        97,
+        98,
+        99,
+        100,
+        101,
+        102
+      ],
+      "observation": "Visible internal-pattern and positioning differences in all pairs, including the similarly framed pair in row 100. No transformed copy was established; patient identity is not inferred.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 18,
+      "observed_pairs": [
+        103,
+        104,
+        105,
+        106,
+        107,
+        108
+      ],
+      "observation": "Visible differences in positioning, external lines and internal patterns. Row 106 was also inspected as a separate pair crop. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 19,
+      "observed_pairs": [
+        109,
+        110,
+        111,
+        112,
+        113,
+        114
+      ],
+      "observation": "Visible differences in positioning, framing and internal patterns in all six pairs. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 20,
+      "observed_pairs": [
+        115,
+        116,
+        117,
+        118,
+        119,
+        120
+      ],
+      "observation": "Visible differences in shoulder/body positioning, markers and internal patterns. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 21,
+      "observed_pairs": [
+        121,
+        122,
+        123,
+        124,
+        125,
+        126
+      ],
+      "observation": "Visible differences in positioning, image extent, markers or internal patterns across all six comparisons. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 22,
+      "observed_pairs": [
+        127,
+        128,
+        129,
+        130,
+        131,
+        132
+      ],
+      "observation": "Each pair shows visible differences in positioning, internal patterns or markers. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 23,
+      "observed_pairs": [
+        133,
+        134,
+        135,
+        136,
+        137,
+        138
+      ],
+      "observation": "Positioning, image extent, shoulder outlines and internal patterns differ visibly. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 24,
+      "observed_pairs": [
+        139,
+        140,
+        141,
+        142,
+        143,
+        144
+      ],
+      "observation": "Visible framing, rotation and internal-pattern differences. Row 143 was separately viewed to resolve a display issue. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 25,
+      "observed_pairs": [
+        145,
+        146,
+        147,
+        148,
+        149,
+        150
+      ],
+      "observation": "Visible image-content and positioning differences remain even in similarly cropped pairs. No transformed copy was established; repeated acquisition or common patient identity is not excluded.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 26,
+      "observed_pairs": [
+        151,
+        152,
+        153,
+        154,
+        155,
+        156
+      ],
+      "observation": "Visible differences in framing, positioning, markers and internal patterns. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 27,
+      "observed_pairs": [
+        157,
+        158,
+        159,
+        160,
+        161,
+        162
+      ],
+      "observation": "Visible differences in shoulder alignment, body positioning, image extent and internal patterns. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 28,
+      "observed_pairs": [
+        163,
+        164,
+        165,
+        166,
+        167,
+        168
+      ],
+      "observation": "Visible differences in body positioning, overlaid lines/objects and internal patterns. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 29,
+      "observed_pairs": [
+        169,
+        170,
+        171,
+        172,
+        173,
+        174
+      ],
+      "observation": "Differences in positioning, markers, image extent or internal patterns are visible in each comparison. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 30,
+      "observed_pairs": [
+        175,
+        176,
+        177,
+        178,
+        179,
+        180
+      ],
+      "observation": "The repeated test image in rows 175-177 differs from each paired training/selection image. Other rows also show visible positioning or internal-pattern differences. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 31,
+      "observed_pairs": [
+        181,
+        182,
+        183,
+        184,
+        185,
+        186
+      ],
+      "observation": "Visible differences in body positioning, upper-body outlines, markers/lines and internal patterns. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 32,
+      "observed_pairs": [
+        187,
+        188,
+        189,
+        190,
+        191,
+        192
+      ],
+      "observation": "Visible differences in positioning, image extent, equipment overlays or internal patterns. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 33,
+      "observed_pairs": [
+        193,
+        194,
+        195,
+        196,
+        197,
+        198
+      ],
+      "observation": "Visible differences in positioning, overlays and internal patterns. Row 196 was also inspected separately to resolve a display issue. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 34,
+      "observed_pairs": [
+        199,
+        200,
+        201,
+        202,
+        203,
+        204
+      ],
+      "observation": "Visible differences in positioning, framing, overlays or internal patterns. No transformed copy was established at this resolution.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 35,
+      "observed_pairs": [
+        205,
+        206,
+        207,
+        208,
+        209,
+        210
+      ],
+      "observation": "Visible positioning and internal-pattern differences. Row 205 was separately inspected to resolve a display issue. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 36,
+      "observed_pairs": [
+        211,
+        212,
+        213,
+        214,
+        215,
+        216
+      ],
+      "observation": "Visible differences in framing, body position and internal patterns throughout these six comparisons. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 37,
+      "observed_pairs": [
+        217,
+        218,
+        219,
+        220,
+        221,
+        222
+      ],
+      "observation": "Visible differences in positioning, image extent, markers and internal patterns. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 38,
+      "observed_pairs": [
+        223,
+        224,
+        225,
+        226,
+        227,
+        228
+      ],
+      "observation": "Visible differences in framing, markers/overlays, body positioning and internal patterns. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 39,
+      "observed_pairs": [
+        229,
+        230,
+        231,
+        232,
+        233,
+        234
+      ],
+      "observation": "Visible positioning, framing and internal-pattern differences in all six pairs. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 40,
+      "observed_pairs": [
+        235,
+        236,
+        237,
+        238,
+        239,
+        240
+      ],
+      "observation": "Visible differences in body positioning, image extent, markers and internal patterns. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 41,
+      "observed_pairs": [
+        241,
+        242,
+        243,
+        244,
+        245,
+        246
+      ],
+      "observation": "Visible differences in framing, body positioning, shoulder outlines and internal patterns. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 42,
+      "observed_pairs": [
+        247,
+        248,
+        249,
+        250,
+        251,
+        252
+      ],
+      "observation": "Visible differences in framing, body positioning and internal patterns, including the similarly framed comparison in row 249. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 43,
+      "observed_pairs": [
+        253,
+        254,
+        255,
+        256,
+        257,
+        258
+      ],
+      "observation": "Visible differences in positioning, image extent, overlays or internal patterns. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 44,
+      "observed_pairs": [
+        259,
+        260,
+        261,
+        262,
+        263,
+        264
+      ],
+      "observation": "Visible positioning, framing and internal-pattern differences. Row 263 was also separately viewed to resolve a display issue. No transformed copy was established.",
+      "possible_copy_rows": []
+    },
+    {
+      "sheet": 45,
+      "observed_pairs": [
+        265,
+        266,
+        267,
+        268,
+        269
+      ],
+      "observation": "The five final comparisons show visible differences in image extent, body positioning and internal patterns. No transformed copy was established.",
+      "possible_copy_rows": []
+    }
+  ]
+}
