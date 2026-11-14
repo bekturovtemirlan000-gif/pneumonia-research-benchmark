@@ -20,6 +20,8 @@ def package(root=Path('.')):
     for pattern in ['*.py','*.ipynb','tests/*.py','results/*.json',
                     'experiments/accuracy_20261026/*.py','experiments/accuracy_20261026/*.json',
                     'experiments/accuracy_20261026/*.ipynb',
+                    'experiments/training_20261115/*.py','experiments/training_20261115/*.json',
+                    'experiments/training_20261115/*.ipynb',
                     'output/pdf/*.pdf','output/figures/**/*.png','output/figures/**/*.pdf']:
         files.extend(root.glob(pattern))
     files=sorted(set(files),key=lambda p:p.relative_to(root).as_posix())

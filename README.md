@@ -2,6 +2,14 @@
 
 Completed exploratory PyTorch benchmark: three architectures, three seeds and two input resolutions (18 training runs). This is a binary image classifier (NORMAL / PNEUMONIA), not a clinical diagnostic system.
 
+## New training session — 15 November 2026
+
+**Status: new Kaggle training run in progress; results pending.** [Kaggle version 369624654](https://www.kaggle.com/code/temirlanbekturov/pneumonia-regularized-training-november-2026?scriptVersionId=369624654) runs nine fresh trials: standard EfficientNet-B0, regularized EfficientNet-B0, and regularized EfficientNet-V2-S, each with seeds 42, 123 and 2026 at 320 pixels. The [protocol and code](experiments/training_20261115) were committed before the run produced results. No improved-accuracy claim is made while training is pending.
+
+The original 3,815-image training cohort is split by filename proxy group into 3,034 fitting images and 781 internal checkpoint-selection images. The original selection (456), calibration (482), and source test (618) cohorts are retained. Checkpoints use only the new internal holdout; four fixed ensemble candidates use development accuracy; the final cutoff uses the calibration partition. Configuration and checkpoint hashes are frozen before test scoring. All source cohorts have been inspected in previous experiments, so this remains exploratory. The original selected model and the negative October follow-up remain preserved below.
+
+The session targets approximately five hours of work, including setup, monitoring, evaluation and publication. Training is capped at 225 minutes with early stopping; elapsed work time and actual GPU training time will be reported separately. Local checks passed for both architectures, including synthetic gradient updates, full-resolution forward passes, six development-selection tests and partition checks. These are engineering checks, not completed training results.
+
 ## Accuracy-focused follow-up — 26 October 2026
 
 **The new accuracy-focused experiment did not improve source-test accuracy. The original selected model remains preserved.** This follow-up reused the 18 frozen checkpoints; it did not perform new training. [Kaggle run 362533753](https://www.kaggle.com/code/temirlanbekturov/pneumonia-development-accuracy-experiment?scriptVersionId=362533753) completed in 359.4 seconds. Its code, prospective protocol and measured records are in [experiments/accuracy_20261026](experiments/accuracy_20261026).
