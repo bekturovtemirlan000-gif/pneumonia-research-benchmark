@@ -12,6 +12,7 @@ from torch.utils.data import Dataset, DataLoader
 from model import make_model, image_tensor, load_config
 from selection import choose, threshold, internal_split
 from research_benchmark import metrics
+from export_predictions import export
 
 
 def sha(path):
@@ -128,7 +129,7 @@ def verify(folder, data_root, output, submitted_source_hash=None):
     selected_names = [m['trial'] for m in config['members']]
     if selected_names != choice['selected']['members']:
         raise ValueError('Export does not contain development-selected members')
-    stored = {}; fresh_results = {}
+    stored = {}; fresh_results = {}; public_exports = {}
     for split in ['calibration', 'test']:
         frame = frames[split]
         stored[split] = saved_scores(folder / (split + '_predictions.csv'), frame)
@@ -169,6 +170,11 @@ def verify(folder, data_root, output, submitted_source_hash=None):
                                    changed_predictions=changed, score_tolerance=1e-4,
                                    passed=bool(errors.max() <= 1e-4 and changed == 0),
                                    fresh_metrics=metrics(frame.label, fresh, config['threshold']))
+        public = stored[split][['sha256','patient','y_true','probability','prediction']].copy()
+        public['threshold'] = config['threshold']
+        public['fresh_cpu_probability'] = fresh
+        public['fresh_cpu_prediction'] = (fresh >= config['threshold']).astype(int)
+        public_exports[split] = export(public, output, 'public_' + split + '_predictions.csv')
         if split == 'calibration':
             recut, recorrect = threshold(frame.label, fresh)
             fresh_results[split]['fresh_refitted_threshold'] = recut
@@ -187,6 +193,7 @@ def verify(folder, data_root, output, submitted_source_hash=None):
                   calibration_cutoff_reconstructed=True, stored_test_metrics_recomputed=True,
                   config_sha256=config_hash, partitions=fresh_results, elapsed_seconds=time.monotonic() - started,
                   descriptive_score_diagnostics={name: score_diagnostics(values) for name, values in stored.items()},
+                  public_prediction_exports=public_exports,
                   training_source_sha256_lf=submitted_source_hash,
                   environment=dict(python=sys.version, torch=torch.__version__, device='cpu'),
                   scope='Artifact consistency and fresh CPU reproduction on the same cohorts. Does not establish independent patient identity, external accuracy or clinical safety.')

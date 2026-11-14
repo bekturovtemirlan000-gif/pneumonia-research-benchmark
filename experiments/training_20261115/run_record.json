@@ -1,5 +1,5 @@
 {
-  "status": "running",
+  "status": "completed",
   "local_session_date": "2026-11-15",
   "session_started_utc": "2026-11-14T18:18:30Z",
   "approximate_work_deadline_utc": "2026-11-14T23:18:30Z",
@@ -16,6 +16,9 @@
   "planned_trials": 9,
   "new_training": true,
   "maximum_training_minutes_excluding_setup_and_evaluation": 225,
-  "results": "Pending; no improvement claim",
-  "original_model_preserved": true
+  "results": "Completed: v2s_regularized selected on development; source-test accuracy 83.9805825%, below original 87.3786408%; no test-based adjustment",
+  "original_model_preserved": true,
+  "kaggle_success_observed_utc": "2026-11-14T19:40:31.0607170Z",
+  "kaggle_runtime_seconds": 4192.6,
+  "kaggle_displayed_output_size": "345.61 MB"
 }

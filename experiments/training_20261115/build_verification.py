@@ -11,7 +11,7 @@ ROOT = HERE.parents[1]
 def build(config_sha256):
     if len(config_sha256) != 64 or any(c not in '0123456789abcdef' for c in config_sha256):
         raise ValueError('Expected frozen configuration SHA256')
-    sources = {name: (HERE / name).read_text(encoding='utf-8') for name in ['model.py', 'selection.py', 'verify_model.py']}
+    sources = {name: (HERE / name).read_text(encoding='utf-8') for name in ['model.py', 'selection.py', 'verify_model.py', 'export_predictions.py']}
     sources['research_benchmark.py'] = (ROOT / 'research_benchmark.py').read_text(encoding='utf-8')
     training_hash = hashlib.sha256((HERE / 'submitted_source.py').read_text(encoding='utf-8').encode()).hexdigest()
     code = "from pathlib import Path\nimport hashlib, sys\ncode_dir=Path('/kaggle/working/november_verify_code');code_dir.mkdir(exist_ok=True)\n"

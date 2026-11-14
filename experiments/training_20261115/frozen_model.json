@@ -1,0 +1,36 @@
+{
+  "config": {
+    "image_size": 320,
+    "members": [
+      {
+        "trial": "v2s_regularized_seed_42",
+        "architecture": "efficientnet_v2_s",
+        "checkpoint": "v2s_regularized_seed_42/best_weights.pt",
+        "sha256": "81dc6f25f241e70c1fceb7471b7c15d15f83f3454d7a2a6c0b2c6e6c0885bf34"
+      },
+      {
+        "trial": "v2s_regularized_seed_123",
+        "architecture": "efficientnet_v2_s",
+        "checkpoint": "v2s_regularized_seed_123/best_weights.pt",
+        "sha256": "2b8bae21489714d21b8e3b56c45a55a54d5df9250b40d090d13a7c341c5b5ec8"
+      },
+      {
+        "trial": "v2s_regularized_seed_2026",
+        "architecture": "efficientnet_v2_s",
+        "checkpoint": "v2s_regularized_seed_2026/best_weights.pt",
+        "sha256": "021c1661a0ab0674d550b1986ddd975a249c23f1d6d46b298a4dafa93d56b038"
+      }
+    ],
+    "aggregation": "mean_raw_sigmoid",
+    "threshold": 0.31521070624391234,
+    "classes": [
+      "NORMAL",
+      "PNEUMONIA"
+    ],
+    "candidate": "v2s_regularized",
+    "preprocessing": "RGB; bicubic full-image letterbox 320; ToTensor; ImageNet normalization",
+    "probability_calibration": "None; raw scores are not clinical probabilities",
+    "research_status": "Exploratory; source cohorts previously inspected; no external clinical validation"
+  },
+  "config_sha256": "63db3ad4e44aad4b4de4a34edf7918fd0f53ad24b6da92534cb472636e86230a"
+}

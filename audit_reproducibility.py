@@ -17,6 +17,7 @@ DIRECT = {
     'pneumonia_external_source_inspection.ipynb': 'external_source_inspection.py',
 }
 EMBEDDED = [
+    'experiments/training_20261115/pneumonia_cpu_verification.ipynb',
     'experiments/training_20261115/pneumonia_grouped_cv.ipynb',
     'experiments/training_20261115/pneumonia_training.ipynb',
     'experiments/accuracy_20261026/pneumonia_accuracy_experiment.ipynb',
@@ -29,6 +30,7 @@ EMBEDDED = [
     'pneumonia_calibration_reproduction.ipynb',
 ]
 FROZEN = {
+    'experiments/training_20261115/pneumonia_cpu_verification.ipynb': '83725618719bf76752e1bebfff7dd2ca0b91ce29dbf8795c54e6c9bb4cb1ab6e',
     'experiments/training_20261115/pneumonia_grouped_cv.ipynb': '7b9a0f4785ec9f81088743cde27dd374fb4eea6d88f90fe3c3ed55777e93b9b4',
     'experiments/training_20261115/pneumonia_training.ipynb': '4250f8e8a0b5fc950e22366c38d7809a44bf318687fc71e713aa6f42d39ed1e4',
     'experiments/accuracy_20261026/pneumonia_accuracy_experiment.ipynb': '41463a0d348c4c93d36bcc58f2b3082eec887801a7e0fde37ea4a75346c0d784',

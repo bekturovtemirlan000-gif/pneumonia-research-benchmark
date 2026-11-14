@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "checked_utc": "2026-11-14T18:45:47.536014+00:00",
+  "checked_utc": "2026-11-14T19:41:10.809751+00:00",
   "hash_convention": "UTF-8 notebook code cells concatenated in order, CRLF normalized to LF",
   "scope": "Local source consistency; does not independently attest remote execution or results",
   "similarity_historical_raw_crlf_sha256": "d0dc2c236117a72d183636d9431ec2cf7aa19d416ff06573cdb09e716677915f",
@@ -64,6 +64,18 @@
       "code_sha256_lf": "4e6ba61555155bee0be868c4c706fef56b47423320d4c0f9c097de8b41a16b60",
       "checks": {
         "external_source_inspection.py": true,
+        "frozen_submitted_source": true
+      }
+    },
+    {
+      "notebook": "experiments/training_20261115/pneumonia_cpu_verification.ipynb",
+      "code_sha256_lf": "83725618719bf76752e1bebfff7dd2ca0b91ce29dbf8795c54e6c9bb4cb1ab6e",
+      "checks": {
+        "experiments/training_20261115/model.py": true,
+        "experiments/training_20261115/selection.py": true,
+        "experiments/training_20261115/verify_model.py": true,
+        "experiments/training_20261115/export_predictions.py": true,
+        "research_benchmark.py": true,
         "frozen_submitted_source": true
       }
     },

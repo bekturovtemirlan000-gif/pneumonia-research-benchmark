@@ -1,0 +1,30 @@
+{
+  "provenance": {
+    "captured_utc": "2026-11-14T19:40:30.856294+00:00",
+    "source": "Visible Kaggle Logs table copied through authenticated Chrome",
+    "log_sha256": "bba021e99ec5c3f561ebdb7df89ea6b1232e7d05e66fe010c58223b019677fc3",
+    "scope": "Compact log evidence; not a downloaded complete model or image-level prediction archive"
+  },
+  "training_summary_observed": true,
+  "completed_trials": 9,
+  "logged_epoch_rows": 132,
+  "last_epoch": {
+    "epoch": 22,
+    "train_loss": 0.19252577252150682,
+    "images_seen": 3034,
+    "complete_epoch": true,
+    "early_stop_accuracy": 0.9795134443021767,
+    "early_stop_log_loss": 0.0706197830244574,
+    "early_stop_auroc": 0.9979351032448378,
+    "seconds": 20.989559787999497,
+    "backbone_lr": 3.768845726742522e-05,
+    "trial": "b0_regularized_seed_2026",
+    "kaggle_elapsed_seconds": 4126.5
+  },
+  "last_audit": {
+    "images_verified": 5000,
+    "images_total": 5371,
+    "kaggle_elapsed_seconds": 442.9
+  },
+  "disclaimer": "Observed log records do not by themselves establish the Kaggle terminal success status"
+}

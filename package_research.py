@@ -23,6 +23,7 @@ def package(root=Path('.')):
                     'experiments/training_20261115/*.py','experiments/training_20261115/*.json',
                     'experiments/training_20261115/*.ipynb',
                     'experiments/training_20261115/similarity_candidate_pairs.csv',
+                    'experiments/training_20261115/predictions/*.csv',
                     'output/pdf/*.pdf','output/figures/**/*.png','output/figures/**/*.pdf']:
         files.extend(root.glob(pattern))
     files=sorted(set(files),key=lambda p:p.relative_to(root).as_posix())
