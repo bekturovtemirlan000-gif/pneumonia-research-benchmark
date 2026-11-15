@@ -12,7 +12,7 @@ def build(summary_sha256):
     if len(summary_sha256) != 64 or any(c not in '0123456789abcdef' for c in summary_sha256):
         raise ValueError('Expected completed CV summary SHA256')
     sources = {name: (HERE / name).read_text(encoding='utf-8') for name in
-               ['model.py', 'selection.py', 'verify_model.py', 'verify_grouped_cv.py', 'cv_geometry_control.py']}
+               ['model.py', 'selection.py', 'verify_model.py', 'verify_grouped_cv.py', 'cv_geometry_control.py', 'export_predictions.py']}
     for name in ['research_benchmark.py', 'compare_experiments.py']:
         sources[name] = (ROOT / name).read_text(encoding='utf-8')
     code = "from pathlib import Path\nimport hashlib, sys\ncode_dir=Path('/kaggle/working/november_cv_verify_code');code_dir.mkdir(exist_ok=True)\n"

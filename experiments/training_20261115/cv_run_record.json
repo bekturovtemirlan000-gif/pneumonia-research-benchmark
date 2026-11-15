@@ -21,7 +21,7 @@
   "maximum_training_minutes_excluding_setup_and_evaluation": 225,
   "primary_model_selection_changed": false,
   "source_test_evaluation": false,
-  "results": "All 27 fits and nine fold ensembles completed; see cv_summary.json. Independent CPU reproduction is running.",
+  "results": "All 27 fits and nine fold ensembles completed; independent CPU reconstruction passed. See cv_summary.json and cv_cpu_verification.json.",
   "retry_of_version": 369629773,
   "retry_reason": "Original commit remained queued for approximately one hour and was cancelled after zero execution seconds; unchanged source resubmitted and observed running.",
   "cancelled_attempt_record": "cv_run_record_v1_cancelled.json",

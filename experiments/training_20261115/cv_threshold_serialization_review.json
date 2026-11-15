@@ -1,0 +1,110 @@
+{
+  "recorded_utc": "2026-11-15T00:17:39.589565+00:00",
+  "initial_local_audit_status": "failed: Neural fold cutoff changed",
+  "initial_failure_rule": "The first local audit required exact binary equality between the public CSV cutoff field and the original frozen JSON cutoff.",
+  "cause": "The GPU output CSV was reread by pandas default high-precision parser before public export; two cutoff fields rounded down by one binary floating-point unit. The public CSV hash matches the actual Kaggle export.",
+  "original_failure_preserved": true,
+  "frozen_config_changed": false,
+  "public_exports_changed": false,
+  "initial_failure_resolved_by": "Reproduce that existing CSV parser path exactly, without a numerical tolerance, then recompute all saved and fresh classifications using the authoritative original JSON cutoff.",
+  "strict_cpu_score_tolerance_unchanged": 0.0001,
+  "strict_zero_changed_classification_requirement_unchanged": true,
+  "models_refit": false,
+  "cutoffs_refit": false,
+  "changed_decisions_at_original_json_cutoffs": 0,
+  "changed_cutoff_field_count": 2,
+  "audit_status": "passed",
+  "folds": [
+    {
+      "recipe": "b0_standard",
+      "fold": 0,
+      "frozen_json_cutoff": 0.5371208290259044,
+      "exported_csv_cutoff": 0.5371208290259044,
+      "difference": 0.0,
+      "parser_path_reproduced_exactly": true,
+      "stored_and_fresh_decisions_match_frozen_json": true,
+      "explanation": "GPU scores were written as CSV and reread with pandas default high parser before public export; original JSON rule and exact public CSV bytes are unchanged"
+    },
+    {
+      "recipe": "b0_standard",
+      "fold": 1,
+      "frozen_json_cutoff": 0.5664710241059463,
+      "exported_csv_cutoff": 0.5664710241059463,
+      "difference": 0.0,
+      "parser_path_reproduced_exactly": true,
+      "stored_and_fresh_decisions_match_frozen_json": true,
+      "explanation": "GPU scores were written as CSV and reread with pandas default high parser before public export; original JSON rule and exact public CSV bytes are unchanged"
+    },
+    {
+      "recipe": "b0_standard",
+      "fold": 2,
+      "frozen_json_cutoff": 0.2475409246981144,
+      "exported_csv_cutoff": 0.2475409246981144,
+      "difference": 0.0,
+      "parser_path_reproduced_exactly": true,
+      "stored_and_fresh_decisions_match_frozen_json": true,
+      "explanation": "GPU scores were written as CSV and reread with pandas default high parser before public export; original JSON rule and exact public CSV bytes are unchanged"
+    },
+    {
+      "recipe": "b0_regularized",
+      "fold": 0,
+      "frozen_json_cutoff": 0.3541022837162018,
+      "exported_csv_cutoff": 0.3541022837162018,
+      "difference": 0.0,
+      "parser_path_reproduced_exactly": true,
+      "stored_and_fresh_decisions_match_frozen_json": true,
+      "explanation": "GPU scores were written as CSV and reread with pandas default high parser before public export; original JSON rule and exact public CSV bytes are unchanged"
+    },
+    {
+      "recipe": "b0_regularized",
+      "fold": 1,
+      "frozen_json_cutoff": 0.5520522544781368,
+      "exported_csv_cutoff": 0.5520522544781368,
+      "difference": 0.0,
+      "parser_path_reproduced_exactly": true,
+      "stored_and_fresh_decisions_match_frozen_json": true,
+      "explanation": "GPU scores were written as CSV and reread with pandas default high parser before public export; original JSON rule and exact public CSV bytes are unchanged"
+    },
+    {
+      "recipe": "b0_regularized",
+      "fold": 2,
+      "frozen_json_cutoff": 0.42893418172995246,
+      "exported_csv_cutoff": 0.4289341817299524,
+      "difference": -5.551115123125783e-17,
+      "parser_path_reproduced_exactly": true,
+      "stored_and_fresh_decisions_match_frozen_json": true,
+      "explanation": "GPU scores were written as CSV and reread with pandas default high parser before public export; original JSON rule and exact public CSV bytes are unchanged"
+    },
+    {
+      "recipe": "v2s_regularized",
+      "fold": 0,
+      "frozen_json_cutoff": 0.34032929688692093,
+      "exported_csv_cutoff": 0.3403292968869209,
+      "difference": -5.551115123125783e-17,
+      "parser_path_reproduced_exactly": true,
+      "stored_and_fresh_decisions_match_frozen_json": true,
+      "explanation": "GPU scores were written as CSV and reread with pandas default high parser before public export; original JSON rule and exact public CSV bytes are unchanged"
+    },
+    {
+      "recipe": "v2s_regularized",
+      "fold": 1,
+      "frozen_json_cutoff": 0.4391041944424311,
+      "exported_csv_cutoff": 0.4391041944424311,
+      "difference": 0.0,
+      "parser_path_reproduced_exactly": true,
+      "stored_and_fresh_decisions_match_frozen_json": true,
+      "explanation": "GPU scores were written as CSV and reread with pandas default high parser before public export; original JSON rule and exact public CSV bytes are unchanged"
+    },
+    {
+      "recipe": "v2s_regularized",
+      "fold": 2,
+      "frozen_json_cutoff": 0.4626163293917974,
+      "exported_csv_cutoff": 0.4626163293917974,
+      "difference": 0.0,
+      "parser_path_reproduced_exactly": true,
+      "stored_and_fresh_decisions_match_frozen_json": true,
+      "explanation": "GPU scores were written as CSV and reread with pandas default high parser before public export; original JSON rule and exact public CSV bytes are unchanged"
+    }
+  ],
+  "regression_checks": "Six prediction-audit tests passed, including parser reproduction, rejection of an unexplained cutoff change, and rejection of a classification that would change at the original JSON boundary."
+}

@@ -7,7 +7,7 @@ import zipfile
 from audit_reproducibility import audit
 
 
-ROOT_FILES = ['README.md','MODEL_CARD.md','.gitignore','requirements-local-lock.txt',
+ROOT_FILES = ['README.md','MODEL_CARD.md','.gitignore','.gitattributes','requirements-local-lock.txt',
               'research_protocol.json','resolution_extension_protocol.json',
               'external_evaluation_protocol.json','research_evidence_notes.json',
               'selection_stability_protocol.json']

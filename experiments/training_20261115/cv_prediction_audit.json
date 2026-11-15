@@ -1,0 +1,267 @@
+{
+  "status": "passed",
+  "kind": "cv",
+  "checked_utc": "2026-11-15T00:16:56.762733+00:00",
+  "environment": {
+    "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+    "numpy": "2.5.2",
+    "pandas": "3.0.6",
+    "sklearn": "1.9.1"
+  },
+  "results": {
+    "geometry": {
+      "auroc": 0.9187367776020628,
+      "average_precision": 0.9699014322841119,
+      "accuracy": 0.8453473132372215,
+      "sensitivity": 0.8582389477530142,
+      "specificity": 0.8126159554730983,
+      "brier_score": 0.10648831639023436,
+      "log_loss": 0.3280490866293574,
+      "tn": 876,
+      "fp": 202,
+      "fn": 388,
+      "tp": 2349
+    },
+    "b0_standard": {
+      "images": 3815,
+      "stored_metrics": {
+        "auroc": 0.9989510202725923,
+        "average_precision": 0.999613218660325,
+        "accuracy": 0.9866317169069463,
+        "sensitivity": 0.9915966386554622,
+        "specificity": 0.974025974025974,
+        "brier_score": 0.009332970125993073,
+        "log_loss": 0.03432514448682876,
+        "tn": 1050,
+        "fp": 28,
+        "fn": 23,
+        "tp": 2714
+      },
+      "fresh_metrics": {
+        "auroc": 0.9989510202725924,
+        "average_precision": 0.999613218660325,
+        "accuracy": 0.9866317169069463,
+        "sensitivity": 0.9915966386554622,
+        "specificity": 0.974025974025974,
+        "brier_score": 0.009332961486289749,
+        "log_loss": 0.03432511628775561,
+        "tn": 1050,
+        "fp": 28,
+        "fn": 23,
+        "tp": 2714
+      },
+      "cpu_folds": [
+        {
+          "max_absolute_score_difference": 5.602836608886719e-06,
+          "changed_predictions": 0,
+          "passed": true,
+          "frozen_cutoff_check": {
+            "frozen_json_cutoff": 0.5371208290259044,
+            "exported_csv_cutoff": 0.5371208290259044,
+            "difference": 0.0,
+            "parser_path_reproduced_exactly": true,
+            "stored_and_fresh_decisions_match_frozen_json": true,
+            "explanation": "GPU scores were written as CSV and reread with pandas default high parser before public export; original JSON rule and exact public CSV bytes are unchanged"
+          },
+          "fold": 0
+        },
+        {
+          "max_absolute_score_difference": 5.116065343147014e-06,
+          "changed_predictions": 0,
+          "passed": true,
+          "frozen_cutoff_check": {
+            "frozen_json_cutoff": 0.5664710241059463,
+            "exported_csv_cutoff": 0.5664710241059463,
+            "difference": 0.0,
+            "parser_path_reproduced_exactly": true,
+            "stored_and_fresh_decisions_match_frozen_json": true,
+            "explanation": "GPU scores were written as CSV and reread with pandas default high parser before public export; original JSON rule and exact public CSV bytes are unchanged"
+          },
+          "fold": 1
+        },
+        {
+          "max_absolute_score_difference": 3.819664319337779e-06,
+          "changed_predictions": 0,
+          "passed": true,
+          "frozen_cutoff_check": {
+            "frozen_json_cutoff": 0.2475409246981144,
+            "exported_csv_cutoff": 0.2475409246981144,
+            "difference": 0.0,
+            "parser_path_reproduced_exactly": true,
+            "stored_and_fresh_decisions_match_frozen_json": true,
+            "explanation": "GPU scores were written as CSV and reread with pandas default high parser before public export; original JSON rule and exact public CSV bytes are unchanged"
+          },
+          "fold": 2
+        }
+      ],
+      "geometry_paired_correctness": {
+        "neural_only_correct": 567,
+        "geometry_only_correct": 28,
+        "both_correct": 3197,
+        "neither_correct": 23,
+        "accuracy_difference": 0.14128440366972483
+      }
+    },
+    "b0_regularized": {
+      "images": 3815,
+      "stored_metrics": {
+        "auroc": 0.9993814578344042,
+        "average_precision": 0.9997636828972445,
+        "accuracy": 0.9887287024901704,
+        "sensitivity": 0.9930580928023384,
+        "specificity": 0.9777365491651205,
+        "brier_score": 0.00959597906569288,
+        "log_loss": 0.05616462300602618,
+        "tn": 1054,
+        "fp": 24,
+        "fn": 19,
+        "tp": 2718
+      },
+      "fresh_metrics": {
+        "auroc": 0.9993814578344042,
+        "average_precision": 0.9997636828972445,
+        "accuracy": 0.9887287024901704,
+        "sensitivity": 0.9930580928023384,
+        "specificity": 0.9777365491651205,
+        "brier_score": 0.009595972025545336,
+        "log_loss": 0.05616459844124531,
+        "tn": 1054,
+        "fp": 24,
+        "fn": 19,
+        "tp": 2718
+      },
+      "cpu_folds": [
+        {
+          "max_absolute_score_difference": 2.354383468683441e-06,
+          "changed_predictions": 0,
+          "passed": true,
+          "frozen_cutoff_check": {
+            "frozen_json_cutoff": 0.3541022837162018,
+            "exported_csv_cutoff": 0.3541022837162018,
+            "difference": 0.0,
+            "parser_path_reproduced_exactly": true,
+            "stored_and_fresh_decisions_match_frozen_json": true,
+            "explanation": "GPU scores were written as CSV and reread with pandas default high parser before public export; original JSON rule and exact public CSV bytes are unchanged"
+          },
+          "fold": 0
+        },
+        {
+          "max_absolute_score_difference": 2.7939677238464355e-06,
+          "changed_predictions": 0,
+          "passed": true,
+          "frozen_cutoff_check": {
+            "frozen_json_cutoff": 0.5520522544781368,
+            "exported_csv_cutoff": 0.5520522544781368,
+            "difference": 0.0,
+            "parser_path_reproduced_exactly": true,
+            "stored_and_fresh_decisions_match_frozen_json": true,
+            "explanation": "GPU scores were written as CSV and reread with pandas default high parser before public export; original JSON rule and exact public CSV bytes are unchanged"
+          },
+          "fold": 1
+        },
+        {
+          "max_absolute_score_difference": 4.380941391046722e-06,
+          "changed_predictions": 0,
+          "passed": true,
+          "frozen_cutoff_check": {
+            "frozen_json_cutoff": 0.42893418172995246,
+            "exported_csv_cutoff": 0.4289341817299524,
+            "difference": -5.551115123125783e-17,
+            "parser_path_reproduced_exactly": true,
+            "stored_and_fresh_decisions_match_frozen_json": true,
+            "explanation": "GPU scores were written as CSV and reread with pandas default high parser before public export; original JSON rule and exact public CSV bytes are unchanged"
+          },
+          "fold": 2
+        }
+      ],
+      "geometry_paired_correctness": {
+        "neural_only_correct": 563,
+        "geometry_only_correct": 16,
+        "both_correct": 3209,
+        "neither_correct": 27,
+        "accuracy_difference": 0.14338138925294897
+      }
+    },
+    "v2s_regularized": {
+      "images": 3815,
+      "stored_metrics": {
+        "auroc": 0.9991950478666903,
+        "average_precision": 0.9997035428494132,
+        "accuracy": 0.9892529488859764,
+        "sensitivity": 0.9926927292656192,
+        "specificity": 0.9805194805194806,
+        "brier_score": 0.010301012196899419,
+        "log_loss": 0.0619587980195789,
+        "tn": 1057,
+        "fp": 21,
+        "fn": 20,
+        "tp": 2717
+      },
+      "fresh_metrics": {
+        "auroc": 0.9991950478666904,
+        "average_precision": 0.9997035428494132,
+        "accuracy": 0.9892529488859764,
+        "sensitivity": 0.9926927292656192,
+        "specificity": 0.9805194805194806,
+        "brier_score": 0.010301012283141828,
+        "log_loss": 0.06195878410953895,
+        "tn": 1057,
+        "fp": 21,
+        "fn": 20,
+        "tp": 2717
+      },
+      "cpu_folds": [
+        {
+          "max_absolute_score_difference": 3.069639205932617e-06,
+          "changed_predictions": 0,
+          "passed": true,
+          "frozen_cutoff_check": {
+            "frozen_json_cutoff": 0.34032929688692093,
+            "exported_csv_cutoff": 0.3403292968869209,
+            "difference": -5.551115123125783e-17,
+            "parser_path_reproduced_exactly": true,
+            "stored_and_fresh_decisions_match_frozen_json": true,
+            "explanation": "GPU scores were written as CSV and reread with pandas default high parser before public export; original JSON rule and exact public CSV bytes are unchanged"
+          },
+          "fold": 0
+        },
+        {
+          "max_absolute_score_difference": 4.356106122302417e-06,
+          "changed_predictions": 0,
+          "passed": true,
+          "frozen_cutoff_check": {
+            "frozen_json_cutoff": 0.4391041944424311,
+            "exported_csv_cutoff": 0.4391041944424311,
+            "difference": 0.0,
+            "parser_path_reproduced_exactly": true,
+            "stored_and_fresh_decisions_match_frozen_json": true,
+            "explanation": "GPU scores were written as CSV and reread with pandas default high parser before public export; original JSON rule and exact public CSV bytes are unchanged"
+          },
+          "fold": 1
+        },
+        {
+          "max_absolute_score_difference": 4.0630499522631425e-06,
+          "changed_predictions": 0,
+          "passed": true,
+          "frozen_cutoff_check": {
+            "frozen_json_cutoff": 0.4626163293917974,
+            "exported_csv_cutoff": 0.4626163293917974,
+            "difference": 0.0,
+            "parser_path_reproduced_exactly": true,
+            "stored_and_fresh_decisions_match_frozen_json": true,
+            "explanation": "GPU scores were written as CSV and reread with pandas default high parser before public export; original JSON rule and exact public CSV bytes are unchanged"
+          },
+          "fold": 2
+        }
+      ],
+      "geometry_paired_correctness": {
+        "neural_only_correct": 564,
+        "geometry_only_correct": 15,
+        "both_correct": 3210,
+        "neither_correct": 26,
+        "accuracy_difference": 0.14390563564875491
+      }
+    },
+    "scope": "All four complete OOF tables, pooled and fold metrics, paired correctness and strict CPU comparisons independently recomputed. No model promotion."
+  }
+}

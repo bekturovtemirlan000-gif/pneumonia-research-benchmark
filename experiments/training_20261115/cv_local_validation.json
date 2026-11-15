@@ -33,5 +33,12 @@
     }
   ],
   "planned_fresh_checkpoints": 27,
+  "environment": {
+    "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+    "numpy": "2.5.2",
+    "pandas": "3.0.6",
+    "sklearn": "1.9.1"
+  },
+  "fold_scope": "Local library-version preflight; the executed Kaggle environment and exported fold manifest govern run-specific reproduction",
   "source_sha256_lf": "7b9a0f4785ec9f81088743cde27dd374fb4eea6d88f90fe3c3ed55777e93b9b4"
 }

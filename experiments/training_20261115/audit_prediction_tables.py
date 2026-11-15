@@ -6,6 +6,7 @@ Run after capture_verification.py has recovered the hash-checked exports.
 import argparse
 from datetime import datetime, timezone
 import hashlib
+import io
 import json
 from pathlib import Path
 import sys
@@ -199,10 +200,13 @@ def cv_audit():
         for fold in [f for f in summary['folds'] if f['recipe'] == recipe]:
             part = frame.loc[frame.fold == fold['fold']]
             if len(part) != fold['outer_images']: raise ValueError('Neural fold count differs')
-            if not np.all(part.threshold == fold['threshold']): raise ValueError('Neural fold cutoff changed')
+            cutoff_check = check_neural_cutoff_serialization(part, fold['threshold'])
             compare_metrics(part, fold['outer_metrics'], recipe + ' fold')
             cpu = next(r for r in report['fold_reports'] if r['recipe'] == recipe and r['fold'] == fold['fold'])
-            folds.append(check_cpu(part, cpu, recipe + ' fold'))
+            fold_check = check_cpu(part, cpu, recipe + ' fold')
+            fold_check['frozen_cutoff_check'] = cutoff_check
+            fold_check['fold'] = fold['fold']
+            folds.append(fold_check)
         n_correct, g_correct = frame.prediction == frame.y_true, geometry.prediction == frame.y_true
         paired = dict(neural_only_correct=int(np.sum(n_correct & ~g_correct)),
                       geometry_only_correct=int(np.sum(~n_correct & g_correct)),
@@ -214,6 +218,26 @@ def cv_audit():
                                geometry_paired_correctness=paired)
     results['scope'] = 'All four complete OOF tables, pooled and fold metrics, paired correctness and strict CPU comparisons independently recomputed. No model promotion.'
     return results
+
+
+def check_neural_cutoff_serialization(frame, frozen):
+    """Trace the existing GPU-CSV -> pandas high parser -> public-CSV path.
+
+    The frozen JSON cutoff remains authoritative. No numerical tolerance is
+    applied to the metadata check, and both saved and fresh decisions must also
+    agree with the original JSON value, including boundary cases.
+    """
+    parsed = float(pd.read_csv(io.StringIO('threshold\n' + repr(frozen) + '\n'),
+                               float_precision='high').iloc[0, 0])
+    if not np.isfinite(frozen) or not np.all(frame.threshold == parsed):
+        raise ValueError('Neural fold cutoff does not reproduce its CSV parser path')
+    for prefix in ['', 'fresh_cpu_']:
+        if not np.array_equal(frame[prefix+'prediction'], frame[prefix+'probability'] >= frozen):
+            raise ValueError('Decision differs at the authoritative frozen JSON cutoff')
+    return dict(frozen_json_cutoff=frozen, exported_csv_cutoff=parsed,
+                difference=parsed-frozen, parser_path_reproduced_exactly=True,
+                stored_and_fresh_decisions_match_frozen_json=True,
+                explanation='GPU scores were written as CSV and reread with pandas default high parser before public export; original JSON rule and exact public CSV bytes are unchanged')
 
 
 def audit(kind):

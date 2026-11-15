@@ -15,6 +15,7 @@ from verify_model import Images, saved_scores, sha
 from research_benchmark import metrics
 from compare_experiments import metrics as frame_metrics
 from cv_geometry_control import run as run_geometry_control
+from export_predictions import export
 
 
 def verify(folder, data_root, output, expected_summary_sha256):
@@ -128,7 +129,7 @@ def verify(folder, data_root, output, expected_summary_sha256):
                       stored_metrics_recomputed=True, cutoff_reconstructed=True, members=len(fresh_members))
         fold_reports.append(report)
         print('CV_CPU_FOLD_DONE', json.dumps(report), flush=True)
-    pooled_checks = {}
+    pooled_checks = {}; public_exports = {}
     for recipe in recipes:
         stored = saved_scores(folder / (recipe + '_oof_predictions.csv'), frame)
         reported = result['recipes'][recipe]
@@ -143,6 +144,10 @@ def verify(folder, data_root, output, expected_summary_sha256):
         pooled_checks[recipe] = dict(images=len(fresh), groups=int(fresh.patient.nunique()),
                                     fresh_metrics=frame_metrics(fresh),
                                     changed_predictions=int(np.sum(fresh.prediction != stored.prediction)))
+        public = stored[['sha256','patient','y_true','probability','prediction','fold','threshold']].copy()
+        public['fresh_cpu_probability'] = fresh.probability.to_numpy()
+        public['fresh_cpu_prediction'] = fresh.prediction.to_numpy()
+        public_exports[recipe] = export(public, output, 'public_' + recipe + '_oof_predictions.csv')
         if not stored.sha256.equals(geometry_scores.sha256): raise ValueError('Control pairing mismatch')
         pooled_checks[recipe]['geometry_paired_correctness'] = dict(
             neural_only_correct=int(np.sum((stored.prediction == stored.y_true) & (geometry_scores.prediction != stored.y_true))),
@@ -150,10 +155,13 @@ def verify(folder, data_root, output, expected_summary_sha256):
             both_correct=int(np.sum((stored.prediction == stored.y_true) & (geometry_scores.prediction == stored.y_true))),
             neither_correct=int(np.sum((stored.prediction != stored.y_true) & (geometry_scores.prediction != stored.y_true))),
             accuracy_difference=float(np.mean(stored.prediction == stored.y_true) - geometry['pooled_metrics']['accuracy']))
+    public_exports['geometry'] = export(geometry_scores[['sha256','patient','y_true','probability','prediction','fold','threshold']],
+                                       output, 'public_geometry_oof_predictions.csv')
     report = dict(status='passed' if all(r['passed'] for r in fold_reports) else 'failed',
                   verified_checkpoints=27, image_identities_verified=3815, proxy_groups=2153,
                   folds_reconstructed=True, checkpoint_checks=checkpoint_checks, fold_reports=fold_reports,
-                  pooled=pooled_checks, geometry_control=geometry, elapsed_seconds=time.monotonic() - start,
+                  pooled=pooled_checks, geometry_control=geometry, public_prediction_exports=public_exports,
+                  elapsed_seconds=time.monotonic() - start,
                   summary_sha256=expected_summary_sha256, device='cpu', torch=torch.__version__,
                   scope='Same-data CPU reproduction and artifact integrity. Not new external evidence or a new selection rule.')
     (output / 'verification.json').write_text(json.dumps(report, indent=2), encoding='utf-8')

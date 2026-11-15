@@ -1,0 +1,77 @@
+{
+  "status": "completed",
+  "analysis_type": "Post hoc unadjudicated similarity screening",
+  "completed_utc": "2026-11-15T00:14:54.118215+00:00",
+  "images": 3815,
+  "groups": 2153,
+  "pairwise_comparisons": 4850039,
+  "candidate_pairs": 653,
+  "unique_candidate_images": 570,
+  "candidate_proxy_groups": 538,
+  "fold_pair_counts": {
+    "0-1": 199,
+    "0-2": 222,
+    "1-2": 232
+  },
+  "distance_counts": {
+    "0": 0,
+    "1": 0,
+    "2": 3,
+    "3": 0,
+    "4": 83,
+    "5": 0,
+    "6": 567
+  },
+  "label_pair_counts": {
+    "0-0": 443,
+    "0-1": 59,
+    "1-0": 43,
+    "1-1": 108
+  },
+  "fingerprint_table_sha256": "b22d6b0cc87908f4d29114679a27f8a74027b82d8c70ae585e5be857075d33bf",
+  "cv_summary_sha256_lf": "a2af60e133179167b04c2e2776259ce63dd27bdecf01cf0d859c5ddaec53e061",
+  "prediction_inputs": [
+    {
+      "recipe": "b0_standard",
+      "filename": "public_b0_standard_oof_predictions.csv",
+      "sha256": "e0d16539f25a94f7117513905c307d756a391fdb14ec21e16be93cf67640068c"
+    },
+    {
+      "recipe": "b0_regularized",
+      "filename": "public_b0_regularized_oof_predictions.csv",
+      "sha256": "42cd87be6762ee80e22eec8976b717929203da6cc40edc55001b1b623fd25a74"
+    },
+    {
+      "recipe": "v2s_regularized",
+      "filename": "public_v2s_regularized_oof_predictions.csv",
+      "sha256": "5ee3b4ac1d08a0940411e4561072748752736bd381f6a3b3b4f6816319e14251"
+    },
+    {
+      "recipe": "geometry",
+      "filename": "public_geometry_oof_predictions.csv",
+      "sha256": "3ceb6c5ee692cd031eaff1f1fae31b0ad1a8dccb0160d8998f79bc867216d16f"
+    }
+  ],
+  "public_fingerprints_sha256": "c6db4e34da8ac13e35e4ef71820d4cb4e024e09e569287f53a42dafc6cc6b6bc",
+  "public_candidates_sha256": "bfaed3a01e0b00172c2dae236cb6ad5c9117bac7fa39f8c82c24d32a88d21b75",
+  "plan_sha256": "1e4b070e4f5f00989e83422558e65b2e6db03a23bc13095bae044c0329498263",
+  "executed_source_sha256_lf": "2dec4545561a5ad7769bb50227d42780fdee5413d54154315fc63e2b59c19901",
+  "rule": "Reuse the local original 64-bit low-frequency DCT pHash, DC bit zero; screen Hamming distance <=6",
+  "vectorized_and_exhaustive_scalar_results_agree": true,
+  "model_scores_used_for_candidate_selection": false,
+  "new_visual_adjudication_performed": false,
+  "cohort_or_model_changes": false,
+  "cpu_reproduction_status": "passed",
+  "environment": {
+    "python": "3.14.0",
+    "numpy": "2.5.2",
+    "pandas": "3.0.6"
+  },
+  "limitations": [
+    "Candidates are not confirmed duplicate images or shared patients. Similar anatomy can create matches, including distance-zero pHashes.",
+    "The screen can miss transformations or repeated acquisitions and cannot establish patient independence.",
+    "The local fingerprint table was reproduced from the original public image archive; aggregate agreement with the earlier Kaggle screen does not prove byte-identical original fingerprints.",
+    "The previous 24-pair and 269-pair visual reviews concerned original cross-partition candidates; they do not adjudicate the new within-original-training cross-fold pairs.",
+    "This post hoc screen neither revises the reported accuracies nor estimates performance after duplicate removal. Independent adjudication and a newly specified evaluation would be needed."
+  ]
+}

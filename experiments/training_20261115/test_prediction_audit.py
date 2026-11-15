@@ -3,6 +3,7 @@ import hashlib
 from pathlib import Path
 import tempfile
 import unittest
+import numpy as np
 
 import pandas as pd
 
@@ -50,6 +51,29 @@ class PredictionAuditTests(unittest.TestCase):
                     audit.table(meta, 4, 4)
             finally:
                 audit.HERE = original
+
+    def test_cutoff_csv_parser_round_trip_is_traced(self):
+        frame = self.frame.copy()
+        frame['threshold'] = 0.4289341817299524
+        result = audit.check_neural_cutoff_serialization(frame, 0.42893418172995246)
+        self.assertEqual(result['difference'], -5.551115123125783e-17)
+        self.assertTrue(result['stored_and_fresh_decisions_match_frozen_json'])
+
+    def test_cutoff_boundary_change_is_rejected(self):
+        frame = self.frame.copy()
+        frozen = 0.42893418172995246
+        parsed = float(np.nextafter(frozen, 0))
+        frame['threshold'] = parsed
+        frame.loc[0, ['probability', 'fresh_cpu_probability']] = parsed
+        frame.loc[0, ['prediction', 'fresh_cpu_prediction']] = 1
+        with self.assertRaisesRegex(ValueError, 'authoritative frozen JSON'):
+            audit.check_neural_cutoff_serialization(frame, frozen)
+
+    def test_unexplained_cutoff_metadata_change_is_rejected(self):
+        frame = self.frame.copy()
+        frame['threshold'] = 0.4289341817299525
+        with self.assertRaisesRegex(ValueError, 'CSV parser path'):
+            audit.check_neural_cutoff_serialization(frame, 0.42893418172995246)
 
 
 if __name__ == '__main__': unittest.main()

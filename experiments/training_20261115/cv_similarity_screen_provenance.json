@@ -1,0 +1,11 @@
+{
+  "recorded_utc": "2026-11-14T23:23:36.498541+00:00",
+  "design_github_commit": "363ef4819352f3a478d4abd1691c3a54578f59dc",
+  "design_github_tree": "b2f43aa6811f371e1d9c6a83f5f80c82e8f62cf4",
+  "all_four_published_files_exact_bytes_verified": true,
+  "screen_source_sha256_lf": "2dec4545561a5ad7769bb50227d42780fdee5413d54154315fc63e2b59c19901",
+  "plan_sha256": "1e4b070e4f5f00989e83422558e65b2e6db03a23bc13095bae044c0329498263",
+  "timing": "The plan, code and mechanics check were published after CV accuracy outcomes were known, but before any actual CV-fold candidate screen. This is post hoc analysis; no prospective model-validation claim.",
+  "execution_status_at_publication": "Pending complete CPU exports of the actual fold IDs",
+  "no_cohort_or_model_changes": true
+}

@@ -1,14 +1,21 @@
 {
-  "status": "running",
+  "status": "completed",
   "submitted_source_sha256_lf": "7cde4e487448170242a278291489e01290c9df008d6174b8891d81cb5b053fff",
   "expected_cv_summary_sha256": "a2af60e133179167b04c2e2776259ce63dd27bdecf01cf0d859c5ddaec53e061",
   "prospective_github_commit": "9d3935eaeb3cd5e3d670b8ac8e8e7c9ff5aa3cb9",
   "prospective_github_tree": "fa7757ee363b60689760d30f75d667b73f386d00",
   "allocated_accelerator": "None",
   "scope": "All 27 checkpoint integrity checks and strict loads; reconstructed folds, checkpoint choices and inner-only cutoffs; fresh CPU inference for all 3815 out-of-fold images under each of three neural recipes; prespecified dimension-only control; exact-hash public prediction exports",
-  "status_note": "Observed running on CPU with no accelerator; no completed verification claim yet.",
+  "status_note": "Kaggle completed successfully; terminal report passed. All 27 checkpoint hashes and strict loads and all nine full outer-fold ensemble inferences passed, with zero changed classifications. Four complete CSV exports matched exact Kaggle SHA256 hashes during local capture.",
+  "observed_terminal_status": "Successfully ran in 5488.1s",
+  "kaggle_runtime_seconds": 5488.1,
+  "output_size_display": "5.57 MB",
+  "verification_status": "passed",
+  "changed_classifications": 0,
+  "maximum_absolute_score_difference": 5.602836608886719e-06,
   "kaggle_version": 369684837,
   "kaggle_url": "https://www.kaggle.com/code/temirlanbekturov/pneumonia-grouped-cv-cpu-verification?scriptVersionId=369684837",
   "submitted_utc": "2026-11-14T22:41:23Z",
-  "editor_full_clipboard_source_exact_match": true
+  "editor_full_clipboard_source_exact_match": true,
+  "completed_log_captured_utc": "2026-11-15T00:14:47.421714+00:00"
 }

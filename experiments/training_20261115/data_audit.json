@@ -1,0 +1,44 @@
+{
+  "counts": {
+    "train": {
+      "images": 3815,
+      "groups": 2153,
+      "normal": 1078,
+      "pneumonia": 2737
+    },
+    "selection": {
+      "images": 456,
+      "groups": 270,
+      "normal": 137,
+      "pneumonia": 319
+    },
+    "calibration": {
+      "images": 482,
+      "groups": 268,
+      "normal": 133,
+      "pneumonia": 349
+    },
+    "test": {
+      "images": 618,
+      "groups": 426,
+      "normal": 231,
+      "pneumonia": 387
+    },
+    "fit": {
+      "images": 3034,
+      "groups": 1721,
+      "normal": 852,
+      "pneumonia": 2182
+    },
+    "early_stop": {
+      "images": 781,
+      "groups": 432,
+      "normal": 226,
+      "pneumonia": 555
+    }
+  },
+  "all_pixel_identities_verified": true,
+  "original_train_test_digests_verified": true,
+  "internal_split": "Every fifth SHA256-ordered proxy group within each class; salt 20261115",
+  "grouping": "Filename-derived proxies, not verified clinical patient identities"
+}

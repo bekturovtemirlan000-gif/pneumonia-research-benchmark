@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "checked_utc": "2026-11-15T00:16:57.156244+00:00",
+  "primary_fresh_neural_models": 9,
+  "secondary_fresh_neural_models": 27,
+  "secondary_logistic_controls": 3,
+  "primary_cpu_status": "passed",
+  "grouped_cv_cpu_status": "passed",
+  "public_prediction_metric_audits": {
+    "primary": "passed",
+    "cv": "passed"
+  },
+  "scope": "Compact evidence consistency, captured epoch decisions, frozen source/configuration hashes, plus complete public CSV hashes, per-image decisions, metrics and CPU differences independently recomputed locally. Weight loading and image-level fresh inference were separately executed in Kaggle. This is same-data reproducibility, not external validation."
+}
